@@ -9,7 +9,7 @@ const ChooseSignupType = () => {
 		<div className="w-full h-screen">
 			<AuthHeader />
 
-			<div className="w-[450px] sm:w-[650px] md:w-3/4 lg:w-3/4 xl:w-1/2 sm:h-[450px] relative top-[100px] flex flex-col justify-center items-center gap-5 mx-auto p-4 sm:p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+			<div className="w-[400px] sm:w-[650px] md:w-3/4 lg:w-3/4 xl:w-1/2 sm:h-[450px] relative top-[100px] flex flex-col justify-center items-center gap-5 mx-auto p-4 sm:p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 				<div>
 					<h1 className="sm:text-4xl text-3xl">
 						Join as a client or freelancer?

@@ -22,7 +22,7 @@ const LandingHomePage = () => {
 				<Contact />
 				<div className="m-10"></div>
 
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</>
 	);

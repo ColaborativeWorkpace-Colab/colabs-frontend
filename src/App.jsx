@@ -1,3 +1,13 @@
+import AdminPage from "./pages/Admin/AdminPage";
+import Header from "./pages/landingPage/Header";
+import LandingHomePage from "./pages/landingPage/LandingHomePage";
+
 export default function App() {
-	return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+	return (
+		<>
+			{/* <Header /> */}
+			<LandingHomePage />
+			{/* <AdminPage /> */}
+		</>
+	);
 }

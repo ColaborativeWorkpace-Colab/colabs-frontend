@@ -1,11 +1,13 @@
 import React from "react";
 import AuthHeader from "../AuthHeader";
-
+import { Link, useNavigate } from "react-router-dom";
+import AuthFooter from "../AuthFooter";
 const LoginPage = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<AuthHeader />
-			<section className="sm:mt-[60px] md:mt-[100px] lg:mt-[100px] mt-[40px] bg-gray-50 dark:bg-gray-900">
+			<section className="mb-[100px] sm:mt-[60px] md:mt-[100px] lg:mt-[100px] mt-[40px] bg-gray-50 dark:bg-gray-900">
 				<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 					<div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -98,14 +100,15 @@ const LoginPage = () => {
 											</label>
 										</div>
 									</div>
-									<a
-										href="#"
-										className="text-sm font-medium text-purple-600 hover:underline dark:text-purple-500"
+									<Link
+										to={"/forgotpassword"}
+										className="text-sm font-medium text-purple-600 hover:underline dark:text-purple-700"
 									>
 										Forgot password?
-									</a>
+									</Link>
 								</div>
 								<button
+									onClick={() => navigate("/")}
 									type="submit"
 									className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 								>
@@ -113,18 +116,21 @@ const LoginPage = () => {
 								</button>
 								<p className="text-sm font-light text-gray-500 dark:text-gray-400">
 									Don’t have an account yet?{" "}
-									<a
-										href="#"
-										className="font-medium text-purple-600 hover:underline dark:text-purple-500"
+									<Link
+										to={"/signup"}
+										className="font-medium text-purple-600 hover:underline dark:text-purple-700"
 									>
 										Sign up
-									</a>
+									</Link>
 								</p>
 							</form>
 						</div>
 					</div>
 				</div>
 			</section>
+			<div className="mt-5">
+				<AuthFooter />
+			</div>
 		</>
 	);
 };

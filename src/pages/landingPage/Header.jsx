@@ -1,18 +1,17 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
-
+import { useNavigate, Link } from "react-router-dom";
 const Header = () => {
+	const navigate = useNavigate();
 	return (
 		<nav className="bg-white fixed w-full z-20 top-0 left-0 p-2 md:p-0">
 			<div className="p-2 sm:p-0 flex flex-wrap items-center justify-between md:justify-around mx-auto">
-				<a href="https://kaliget.com/" className="flex items-center">
+				<a href="/" className="flex items-center">
 					<img src={logo} className="h-6 mr-3 sm:h-9" alt="kaliget Logo" />
-					{/* <span className="self-center text-xl font-semibold whitespace-nowrap ">
-						Colabs
-					</span> */}
 				</a>
 				<div className="flex md:order-2">
 					<button
+						onClick={navigate("/")}
 						type="button"
 						className="hidden md:flex text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mx-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 					>
@@ -40,9 +39,9 @@ const Header = () => {
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
-								fill-rule="evenodd"
+								fillRule="evenodd"
 								d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-								clip-rule="evenodd"
+								clipRule="evenodd"
 							></path>
 						</svg>
 					</button>
@@ -78,15 +77,19 @@ const Header = () => {
 							</a>
 						</li>
 						<ul className="flex justify-between">
-							<li className="mr-2 px-3 py-2 rounded-lg cursor-pointer">
-								Log In
-							</li>
-							<button
+							<Link to={"/login"}>
+								<li className="mr-2 px-3 py-2 rounded-lg cursor-pointer">
+									Log In
+								</li>
+							</Link>
+
+							<Link
+								to={"/signup"}
 								type="button"
 								className="hidden md:block text-dark rounded-lg border-2   focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mx-3 md:mr-0 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 							>
 								Sign Up
-							</button>
+							</Link>
 						</ul>
 					</ul>
 				</div>

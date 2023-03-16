@@ -1,11 +1,12 @@
 import React from "react";
 import AuthHeader from "../AuthHeader";
 import passwordImg from "../../../assets/images/password.png";
+import AuthFooter from "../AuthFooter";
 const ResetPassword = () => {
 	return (
 		<>
 			<AuthHeader />
-			<section className="mt-[80px] bg-gray-50 dark:bg-gray-900">
+			<section className="mb-[50px] mt-[80px] bg-gray-50 dark:bg-gray-900">
 				<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
 					<div className="w-full h-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -61,6 +62,9 @@ const ResetPassword = () => {
 					</div>
 				</div>
 			</section>
+			<div className="mt-5">
+				<AuthFooter />
+			</div>
 		</>
 	);
 };

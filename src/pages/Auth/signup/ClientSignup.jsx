@@ -10,7 +10,7 @@ const ClientSignup = () => {
 				to="/signup/freelancer"
 				actionName={"Apply as a Freelancer"}
 			/>
-			<section className="mb-[150px] mt-[40px] sm:mt-[50px] md:mt-[150px] lg:mt-[150px] xl:mt-[150px] bg-gray-50 dark:bg-gray-900">
+			<section className="mb-[150px] mt-[50px] sm:mt-[50px] md:mt-[170px] lg:mt-[170px] xl:mt-[180px]">
 				<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 					<div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-6 space-y-4 md:space-y-6 sm:p-8">

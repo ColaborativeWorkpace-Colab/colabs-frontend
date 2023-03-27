@@ -1,10 +1,10 @@
 import Navigation from "./navigation/Navigation";
-
-import { Suspense } from "react";
+import FreelancerPage from "./pages/User/Freelancer/Navigation/FreelancerPage";
 export default function App() {
 	return (
 		<>
-			<Navigation />
+			{/* <Navigation /> */}
+			<FreelancerPage />
 		</>
 	);
 }

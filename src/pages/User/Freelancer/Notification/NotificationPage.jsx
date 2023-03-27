@@ -4,7 +4,10 @@ const NotificationPage = () => {
 	return (
 		<>
 			<FreelancerHeader selectedNav={4} />
-			<div>Notification Page</div>;
+			<div className="w-full h-full mt-[50px] px-12 py-8">
+				Notification Page
+			</div>
+			;
 		</>
 	);
 };

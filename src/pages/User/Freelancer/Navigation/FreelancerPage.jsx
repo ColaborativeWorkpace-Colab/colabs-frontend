@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import FreelancerHeader from "../Header/Header";
 import { routes } from "./routes";
 const FreelancerPage = () => {
 	return (

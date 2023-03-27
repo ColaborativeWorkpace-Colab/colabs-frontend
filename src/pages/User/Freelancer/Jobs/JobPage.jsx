@@ -5,7 +5,7 @@ const JobPage = () => {
 	return (
 		<>
 			<FreelancerHeader selectedNav={2} />
-			<div>Job Page</div>;
+			<div className="w-full h-full mt-[50px] px-12 py-8">Job Page</div>;
 		</>
 	);
 };

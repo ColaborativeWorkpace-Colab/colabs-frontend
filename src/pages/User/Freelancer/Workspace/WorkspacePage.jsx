@@ -1,14 +1,20 @@
 import React from "react";
 import FreelancerHeader from "../Header/Header";
 import projectImage from "../../../../assets/images/job.png";
+import { useNavigate } from "react-router-dom";
+import WorkspaceDashboard from "./WorkspaceDashboard";
 const WorkspacePage = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<FreelancerHeader selectedNav={5} />
 			<div className="w-full h-full mt-[50px] px-12 py-8">
 				<div className="workspace-header flex justify-between">
 					<h1 className="text-2xl">Projects</h1>
-					<button className="bg-purple-500 rounded-md p-2 text-white">
+					<button
+						onClick={() => navigate("/projectdashborad")}
+						className="bg-purple-500 rounded-md p-2 text-white"
+					>
 						Create project
 					</button>
 				</div>
@@ -112,7 +118,10 @@ const WorkspacePage = () => {
 						Create a new business project to manage tasks, monitor details, and
 						measure performance with your team.
 					</p>
-					<button className="bg-purple-700 rounded-md p-2 text-white">
+					<button
+						onClick={() => navigate("/projectdashborad")}
+						className="bg-purple-700 rounded-md p-2 text-white"
+					>
 						Create project
 					</button>
 				</div>

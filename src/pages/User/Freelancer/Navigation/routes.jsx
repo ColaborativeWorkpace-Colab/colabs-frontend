@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import WorkspaceDashboard from "../Workspace/WorkspaceDashboard";
 
 const FreelancerHomePage = lazy(() => import("../Home/FreelancerHomePage"));
 const MessagingPage = lazy(() => import("../Messaging/MessagingPage"));
@@ -31,5 +32,9 @@ export const routes = [
 	{
 		path: "/profile",
 		element: <ProfilePage />,
+	},
+	{
+		path: "/projectdashborad",
+		element: <WorkspaceDashboard />,
 	},
 ];

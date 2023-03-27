@@ -3,6 +3,7 @@ import job from "../../../../assets/images/job.png";
 import notification from "../../../../assets/images/notification.png";
 import message from "../../../../assets/images/message.png";
 import user from "../../../../assets/images/account.png";
+import workspace from "../../../../assets/images/workspace.png";
 
 export const navLinks = [
 	{
@@ -41,7 +42,7 @@ export const navLinks = [
 	{
 		id: 5,
 		name: "Workspace",
-		icon: user,
+		icon: workspace,
 		to: "/workspace",
 		className:
 			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",

@@ -15,20 +15,21 @@ export const navLinks = [
 	},
 	{
 		id: 2,
-		name: "Message",
-		icon: message,
-		to: "/messaging",
-		className:
-			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
-	},
-	{
-		id: 3,
 		name: "Job",
 		icon: job,
 		to: "/jobs",
 		className:
 			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
 	},
+	{
+		id: 3,
+		name: "Message",
+		icon: message,
+		to: "/messaging",
+		className:
+			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
+	},
+
 	{
 		id: 4,
 		name: "Notification",

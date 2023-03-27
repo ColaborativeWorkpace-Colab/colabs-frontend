@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
-function FreelancerHeader() {
+function FreelancerHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectedNav, setSelectedNav] = useState(1);
+	//const [, setSelectedNav] = useState(1);
+
 	return (
 		<div>
-			<nav className="sticky top-0 left-0 bg-white">
+			<nav className="fixed top-0 left-0 w-full bg-white z-20">
 				<div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between md:justify-around h-16">
 						<div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
@@ -51,7 +52,9 @@ function FreelancerHeader() {
 								{navLinks.map((value) => (
 									<div
 										key={value.id}
-										onClick={() => setSelectedNav(value.id)}
+										onClick={() => {
+											setSelectedNav(value.id);
+										}}
 										className={`${
 											selectedNav == value.id
 												? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"

@@ -5,7 +5,6 @@ import { routes } from "./routes";
 const FreelancerPage = () => {
 	return (
 		<>
-			<FreelancerHeader />
 			<div className="m-2"></div>
 			<Routes>
 				{routes.map((route) => (

@@ -61,7 +61,7 @@ const Header = ({ selectedNav }) => {
 									className={
 										selected == value.id
 											? value.className +
-											  "border border-b-2 border-purple-800 text-purple-800"
+											  "border-b-2 border-purple-800 text-purple-800"
 											: value.className
 									}
 								>

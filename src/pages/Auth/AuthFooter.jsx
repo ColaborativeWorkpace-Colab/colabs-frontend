@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const AuthFooter = () => {
 	return (
-		<footer className=" bg-slate-800 shadow dark:bg-gray-800">
+		<footer className="relative b-0 l-0 bg-slate-800 shadow dark:bg-gray-800">
 			<div className="w-full mx-auto container md:p-6 p-4 md:flex md:items-center md:justify-between">
 				<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
 					© 2023{" "}

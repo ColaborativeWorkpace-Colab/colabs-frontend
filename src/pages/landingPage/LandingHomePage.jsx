@@ -21,9 +21,8 @@ const LandingHomePage = () => {
 				<div className="m-10"></div>
 				<Contact />
 				<div className="m-10"></div>
-
-				<Footer />
 			</div>
+			<Footer />
 		</>
 	);
 };

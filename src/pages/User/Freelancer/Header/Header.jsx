@@ -53,7 +53,8 @@ function FreelancerHeader({ selectedNav }) {
 						<div className="hidden md:block">
 							<div className="ml-10 flex items-baseline space-x-4">
 								{navLinks.map((value) => (
-									<div
+									<Link
+										to={value.to}
 										key={value.id}
 										onClick={() => {}}
 										className={`${
@@ -70,10 +71,8 @@ function FreelancerHeader({ selectedNav }) {
 											/>
 										</span>
 
-										<a href={value.to} className={value.className}>
-											{value.name}
-										</a>
-									</div>
+										<a className={value.className}>{value.name}</a>
+									</Link>
 								))}
 							</div>
 						</div>

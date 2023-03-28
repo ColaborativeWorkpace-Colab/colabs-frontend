@@ -10,7 +10,7 @@ export const navLinks = [
 		id: 1,
 		name: "Home",
 		icon: home,
-		to: "/", //freelancerhome
+		to: "/freelancerhome",
 		className:
 			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
 	},

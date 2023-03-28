@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
+import { Link } from "react-router-dom";
 function FreelancerHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
 	//const [, setSelectedNav] = useState(1);
-
+	const ref = useRef();
 	return (
 		<div>
 			<nav className="fixed top-0 left-0 w-full bg-white z-20">
 				<div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between md:justify-around h-16">
 						<div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-							<img
-								className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
-								src={logo}
-								alt="Workflow"
-							/>
+							<Link to="/">
+								<img
+									className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
+									src={logo}
+									alt="Workflow"
+								/>
+							</Link>
 							<form className="hidden md:block">
 								<div className="relative">
 									<div className="absolute inset-y-0 left-0 flex items-center pr-2">
@@ -52,9 +55,7 @@ function FreelancerHeader({ selectedNav }) {
 								{navLinks.map((value) => (
 									<div
 										key={value.id}
-										onClick={() => {
-											setSelectedNav(value.id);
-										}}
+										onClick={() => {}}
 										className={`${
 											selectedNav == value.id
 												? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
@@ -133,11 +134,11 @@ function FreelancerHeader({ selectedNav }) {
 					leaveFrom="opacity-100 scale-100"
 					leaveTo="opacity-0 scale-95"
 				>
-					{(ref) => (
+					{() => (
 						<div className="bg-white md:hidden" id="mobile-menu">
 							<div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 								<a
-									href="/freelancerhome"
+									href="/"
 									className="text-gray-600 hover:bg-purple-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Home

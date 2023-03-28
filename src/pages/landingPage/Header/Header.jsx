@@ -1,23 +1,26 @@
-import React from "react";
-import logo from "../../assets/images/logo.png";
+import React, { useState } from "react";
+import logo from "../../../assets/images/logo.png";
 import { useNavigate, Link } from "react-router-dom";
-const Header = () => {
+import { navLinks } from "./navLinks";
+const Header = ({ selectedNav }) => {
 	const navigate = useNavigate();
+	const [selected, setselcted] = useState(1);
 	return (
 		<nav className="bg-white fixed w-full z-20 top-0 left-0 p-2 md:p-0">
 			<div className="p-2 sm:p-0 flex flex-wrap items-center justify-between md:justify-around mx-auto">
-				<a href="/" className="flex items-center">
-					<img src={logo} className="h-6 mr-3 sm:h-9" alt="kaliget Logo" />
-				</a>
+				<Link to="/" className="flex items-center">
+					<img src={logo} className="h-[45px] w-[45px]" alt="Colabs Logo" />
+				</Link>
 				<div className="flex md:order-2">
 					<button
-						onClick={navigate("/")}
+						onClick={() => navigate("/")}
 						type="button"
 						className="hidden md:flex text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mx-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 					>
 						Post Project
 					</button>
 					<button
+						onClick={() => navigate("/signup")}
 						type="button"
 						className="md:hidden text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mx-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 					>
@@ -51,31 +54,21 @@ const Header = () => {
 					id="navbar-sticky"
 				>
 					<ul className="flex flex-col md:items-center items-start p-2 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-						<li>
-							<a
-								href="#"
-								className="block text-purple-700 py-2 pl-3 pr-4 text-dark rounded text-dark  text-l hover:text-purple-700 md:p-0"
-								aria-current="page"
-							>
-								Home
-							</a>
-						</li>
-						<li>
-							<a
-								href="#"
-								className="block py-2 pl-3 pr-4 text-dark rounded text-dark  text-l hover:text-purple-700 md:p-0"
-							>
-								Find Freelancer
-							</a>
-						</li>
-						<li>
-							<a
-								href="#"
-								className="block py-2 pl-3 pr-4 text-dark rounded text-dark  text-l hover:text-purple-700 md:p-0"
-							>
-								Find Jobs
-							</a>
-						</li>
+						{navLinks.map((value) => (
+							<li onClick={() => setselcted(value.id)} key={value.id}>
+								<Link
+									to={value.to}
+									className={
+										selected == value.id
+											? value.className +
+											  "border border-b-2 border-purple-800 text-purple-800"
+											: value.className
+									}
+								>
+									{value.name}
+								</Link>
+							</li>
+						))}
 						<ul className="flex justify-between">
 							<Link to={"/login"}>
 								<li className="mr-2 px-3 py-2 rounded-lg cursor-pointer">

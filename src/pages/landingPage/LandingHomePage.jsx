@@ -4,7 +4,7 @@ import Activity from "./Activity";
 import Banner from "./Banner";
 import Carousel from "./Carousel";
 import Contact from "./Contact";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Hero from "./Hero";
 
 const LandingHomePage = () => {

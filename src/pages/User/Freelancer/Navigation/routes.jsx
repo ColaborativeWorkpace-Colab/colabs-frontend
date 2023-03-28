@@ -10,7 +10,7 @@ const ProfilePage = lazy(() => import("../Profile/ProfilePage"));
 
 export const routes = [
 	{
-		path: "/", //freelancerhome
+		path: "/freelancerhome", //freelancerhome
 		element: <FreelancerHomePage />,
 	},
 	{

@@ -10,9 +10,9 @@ const WorkspaceDashboard = () => {
 			<div className="flex flex-col relative w-screen">
 				<div
 					id="menu"
-					className="bg-gray-800 min-h-screen z-10 text-slate-300 w-[350px] fixed left-0 top-0 h-screen overflow-y-scroll"
+					className="bg-gray-100 min-h-screen z-10 text-slate-300 w-[350px] fixed left-0 top-0 h-screen overflow-y-scroll"
 				>
-					<div className="fixed w-[350px] top-[50px bg-gray-200 p-2">
+					<div className="fixed w-[335px] top-0 bg-gray-50 p-2">
 						<span onClick={() => navigate("/workspace")}>
 							<img
 								src={closeImg}
@@ -22,20 +22,20 @@ const WorkspaceDashboard = () => {
 						</span>
 					</div>
 					<div id="logo" className="mt-[70px] mb-4 px-6">
-						<h1 className="text-lg md:text-2xl font-bold text-white">
+						<h1 className="text-lg md:text-2xl font-bold text-slate-900">
 							COLABS<span className="text-purple-500"></span>.
 						</h1>
-						<p className="text-slate-500 text-sm">
+						<p className="text-slate-800 text-sm">
 							Manage your Projects and Team
 						</p>
 					</div>
 					<div id="profile" className="px-6 py-5">
-						<p className="text-slate-500 mb-3">Welcome back,</p>
+						<p className="text-slate-800 mb-3">Welcome back,</p>
 						<a href="#" className="inline-flex space-x-2 items-center">
 							<span>
 								<img className="rounded-full w-8 h-8" src={sampleImg} alt="" />
 							</span>
-							<span className="text-sm md:text-base font-bold">
+							<span className="text-slate-800 text-md md:text-base font-bold">
 								Kalkidan Getahun
 							</span>
 						</a>
@@ -43,7 +43,7 @@ const WorkspaceDashboard = () => {
 					<div id="nav" className="w-full px-6">
 						<a
 							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 bg-purple-800 hover:bg-white/5 transition ease-linear duration-150"
+							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-gray-200 transition ease-linear duration-150"
 						>
 							<div>
 								<svg
@@ -52,7 +52,7 @@ const WorkspaceDashboard = () => {
 									viewBox="0 0 24 24"
 									strokeWidth="1.5"
 									stroke="currentColor"
-									className="w-6 h-6 text-white"
+									className="w-6 h-6 text-slate-900"
 								>
 									<path
 										strokeLinecap="round"
@@ -62,10 +62,10 @@ const WorkspaceDashboard = () => {
 								</svg>
 							</div>
 							<div className="flex flex-col">
-								<span className="text-lg font-bold leading-5 text-white">
+								<span className="text-lg font-bold leading-5 text-slate-800">
 									Dashboard
 								</span>
-								<span className="text-sm text-white/50 hidden md:block">
+								<span className="text-sm text-slate-800 hidden md:block">
 									Dashboard Overview
 								</span>
 							</div>
@@ -73,7 +73,7 @@ const WorkspaceDashboard = () => {
 
 						<a
 							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150"
+							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-gray-200 transition ease-linear duration-150"
 						>
 							<div>
 								<svg
@@ -82,7 +82,7 @@ const WorkspaceDashboard = () => {
 									viewBox="0 0 24 24"
 									strokeWidth="1.5"
 									stroke="currentColor"
-									className="w-6 h-6"
+									className="w-6 h-6 text-slate-900"
 								>
 									<path
 										strokeLinecap="round"
@@ -92,10 +92,10 @@ const WorkspaceDashboard = () => {
 								</svg>
 							</div>
 							<div className="flex flex-col">
-								<span className="text-lg text-slate-300 font-bold leading-5">
+								<span className="text-lg text-slate-800 font-bold leading-5">
 									Software Development
 								</span>
-								<span className="text-sm text-slate-500 hidden md:block">
+								<span className="text-sm text-slate-800 hidden md:block">
 									Plan, track and release great software.
 								</span>
 							</div>
@@ -103,7 +103,7 @@ const WorkspaceDashboard = () => {
 
 						<a
 							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-white/5 transition ease-linear duration-150"
+							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-gray-200 transition ease-linear duration-150"
 						>
 							<div>
 								<svg
@@ -112,7 +112,7 @@ const WorkspaceDashboard = () => {
 									viewBox="0 0 24 24"
 									strokeWidth="1.5"
 									stroke="currentColor"
-									className="w-6 h-6"
+									className="w-6 h-6 text-slate-900"
 								>
 									<path
 										strokeLinecap="round"
@@ -122,10 +122,10 @@ const WorkspaceDashboard = () => {
 								</svg>
 							</div>
 							<div className="flex flex-col">
-								<span className="text-lg text-slate-300 font-bold leading-5">
+								<span className="text-lg text-slate-800 font-bold leading-5">
 									Work Management
 								</span>
-								<span className="text-sm text-slate-500 hidden md:block">
+								<span className="text-sm text-slate-800 hidden md:block">
 									Track, coordinate, and manage work with structure and
 									consistency..
 								</span>
@@ -133,7 +133,7 @@ const WorkspaceDashboard = () => {
 						</a>
 						<a
 							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-white/5 transition ease-linear duration-150"
+							className="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-gray-200 transition ease-linear duration-150"
 						>
 							<div>
 								<svg
@@ -142,7 +142,7 @@ const WorkspaceDashboard = () => {
 									viewBox="0 0 24 24"
 									strokeWidth="1.5"
 									stroke="currentColor"
-									className="w-6 h-6"
+									className="w-6 h-6 text-slate-900"
 								>
 									<path
 										strokeLinecap="round"
@@ -152,17 +152,17 @@ const WorkspaceDashboard = () => {
 								</svg>
 							</div>
 							<div className="flex flex-col">
-								<span className="text-lg text-slate-300 font-bold leading-5">
+								<span className="text-lg text-slate-800 font-bold leading-5">
 									Software Development
 								</span>
-								<span className="text-sm text-slate-500 hidden md:block">
+								<span className="text-sm text-slate-800 hidden md:block">
 									Manage Software Developmwnt{" "}
 								</span>
 							</div>
 						</a>
 						<a
 							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-white/5 transition ease-linear duration-150"
+							className="w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-gray-200 transition ease-linear duration-150"
 						>
 							<div>
 								<svg
@@ -171,7 +171,7 @@ const WorkspaceDashboard = () => {
 									viewBox="0 0 24 24"
 									strokeWidth="1.5"
 									stroke="currentColor"
-									className="w-6 h-6"
+									className="w-6 h-6 text-slate-900"
 								>
 									<path
 										strokeLinecap="round"
@@ -181,51 +181,21 @@ const WorkspaceDashboard = () => {
 								</svg>
 							</div>
 							<div className="flex flex-col">
-								<span className="text-lg text-slate-300 font-bold leading-5">
-									Reports
-								</span>
-								<span className="text-sm text-slate-500 hidden md:block">
-									Manage Reports
-								</span>
-							</div>
-						</a>
-						<a
-							href="#"
-							className="w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-white/5 transition ease-linear duration-150"
-						>
-							<div>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth="1.5"
-									stroke="currentColor"
-									className="w-6 h-6"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
-									/>
-								</svg>
-							</div>
-							<div className="flex flex-col">
-								<span className="text-lg text-slate-300 font-bold leading-5">
+								<span className="text-lg text-slate-800 font-bold leading-5">
 									Settings
 								</span>
-								<span className="text-sm text-slate-500 hidden md:block">
-									Edit App Settings
+								<span className="text-sm text-slate-800 hidden md:block">
+									Set and manage your account.
 								</span>
 							</div>
 						</a>
-
 						<div className="h-[50px]"></div>
 					</div>
 				</div>
 
 				{/* TODO dashboard body part */}
 
-				<div className="relative left-[390px] top-0">
+				<div className="absolute left-[390px] top-0">
 					<div className="font-bold text-slate-900 text-2xl">
 						Dashboard Overview
 					</div>

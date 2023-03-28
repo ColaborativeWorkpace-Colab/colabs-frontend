@@ -108,7 +108,7 @@ const LoginPage = () => {
 									</Link>
 								</div>
 								<button
-									onClick={() => navigate("/")}
+									onClick={() => navigate("/freelancerhome")}
 									type="submit"
 									className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
 								>

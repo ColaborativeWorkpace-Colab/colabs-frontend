@@ -7,7 +7,11 @@ const AuthHeader = ({ to, text, actionName }) => {
 		<nav className="z-20 bg-slate-200 fixed w-full top-0 left-0 p-2">
 			<div className="flex flex-wrap justify-between">
 				<Link to="/" className="flex items-center">
-					<img src={logo} className="h-6 mr-3 sm:h-9" alt="kaliget Logo" />
+					<img
+						src={logo}
+						className="ml-10 h-[45px] w-[45px]"
+						alt="Colabs Logo"
+					/>
 				</Link>
 				<div className="flex ">
 					<p className="text-lg">

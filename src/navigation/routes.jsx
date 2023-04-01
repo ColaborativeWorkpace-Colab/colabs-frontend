@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import Loading from "../components/Loder/Loding";
+import Loading from "../components/Loader/Loading";
 
 import ChooseSignupType from "../pages/Auth/signup/ChooseSignupType";
 import ClientSignup from "../pages/Auth/signup/ClientSignup";

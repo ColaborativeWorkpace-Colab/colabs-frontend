@@ -7,7 +7,7 @@ const Loading = () => {
 			className="h-screen w-full flex items-center justify-center text-center"
 		>
 			<img className="w-[150px] sm:w-[400px] text-center" src={loaderVid} />
-			<span className="sr-only">Loading...</span>
+			<span className="sr-only">Loading</span>
 		</div>
 	);
 };

@@ -10,6 +10,7 @@ import videoImg from "../../../../../assets/images/video.png";
 import commentImg from "../../../../../assets/images/comment.png";
 import repostImg from "../../../../../assets/images/repost.png";
 import sendImg from "../../../../../assets/images/send.png";
+import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
 
 const MainComponent = () => {
@@ -86,7 +87,7 @@ const MainComponent = () => {
 				<div className="p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
 					<div className="poster-profile flex items-center gap-2">
 						<img
-							src={photoImg}
+							src={daniImg}
 							alt=""
 							className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
 						/>

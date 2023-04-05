@@ -1,5 +1,4 @@
 import React from "react";
-import sampleImg from "../../../../../assets/images/account.png";
 import starImg from "../../../../../assets/images/star.png";
 import locationImg from "../../../../../assets/images/location.png";
 import enterpriseImg from "../../../../../assets/images/enterprise.png";

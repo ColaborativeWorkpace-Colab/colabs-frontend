@@ -1,5 +1,5 @@
 import React from "react";
-import HeroImage from "../../assets/images/hero-image.png";
+import HeroImage from "../../../assets/images/hero-image.png";
 const Hero = () => {
 	return (
 		<div className="md:flex md:justify-between md:p-4 lg:p-6">

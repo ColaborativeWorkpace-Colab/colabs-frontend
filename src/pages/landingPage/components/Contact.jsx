@@ -1,5 +1,4 @@
 import React from "react";
-import carousel4 from "../../assets/images/carousel-4.jpg";
 
 const Contact = () => {
 	return (

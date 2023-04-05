@@ -1,8 +1,8 @@
 import React from "react";
-import searchJob from "../../assets/images/search-job.png";
-import applyJob from "../../assets/images/apply-job.png";
-import account from "../../assets/images/account.png";
-import postJob from "../../assets/images/post-job.png";
+import searchJob from "../../../assets/images/search-job.png";
+import applyJob from "../../../assets/images/apply-job.png";
+import account from "../../../assets/images/account.png";
+import postJob from "../../../assets/images/post-job.png";
 const Activity = () => {
 	return (
 		<div className="py-4 px-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

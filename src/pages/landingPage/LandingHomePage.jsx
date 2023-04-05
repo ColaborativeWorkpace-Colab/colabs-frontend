@@ -1,11 +1,11 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
-import Activity from "./Activity";
-import Banner from "./Banner";
-import Carousel from "./Carousel";
-import Contact from "./Contact";
+import Activity from "./components/Activity";
+import Banner from "./components/Banner";
+import Carousel from "./components/Carousel";
+import Contact from "./components/Contact";
 import Header from "./Header/Header";
-import Hero from "./Hero";
+import Hero from "./components/Hero";
 
 const LandingHomePage = () => {
 	return (

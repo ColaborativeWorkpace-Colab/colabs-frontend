@@ -5,23 +5,12 @@ const ColabInput = ({
 	name,
 	type,
 	onChange,
-	inputType,
 	placeholder,
 	className,
 	required,
+	id,
 }) => {
-	return (
-		<input
-			name={name}
-			type={type}
-			value={value}
-			onChange={onChange}
-			className={`colab-input ${className}`}
-			placeholder={placeholder}
-			typeof={inputType}
-			required={required}
-		/>
-	);
+	return <></>;
 };
 
 export default ColabInput;

@@ -1,7 +1,7 @@
 import React from "react";
 import FreelancerHeader from "../Header/Header";
-import { LeftSide, PostContent, RightSide } from "./components/SideComponents";
-import MainComponent from "./components/MainComponent";
+import { LeftSide, RightSide } from "./components/SideComponents";
+import PostContent from "./components/PostContent";
 
 const FreelancerHomePage = () => {
 	return (
@@ -9,7 +9,7 @@ const FreelancerHomePage = () => {
 			<FreelancerHeader selectedNav={1} />
 			<div className="md:flex gap-5 justify-between">
 				<LeftSide />
-				<MainComponent />
+				<PostContent />
 				<RightSide />
 			</div>
 			;

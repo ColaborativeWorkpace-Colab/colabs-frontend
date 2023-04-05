@@ -9,12 +9,6 @@ export default function App() {
 	return (
 		<>
 			<Navigation />
-			{/* <FreelancerPage /> */}
-			{/* <ColabButton /> */}
-			{/* <ColabCard /> */}
-			{/* <ColabCard child={<p>paragraph</p>} />
-			<ColabLargeText text={"kalkidan"} />
-			<ColabInput /> */}
 		</>
 	);
 }

@@ -13,7 +13,7 @@ import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
 
-const MainComponent = () => {
+const PostContent = () => {
 	const [post, setPost] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const getSamplePost = async () => {
@@ -158,4 +158,4 @@ const MainComponent = () => {
 	);
 };
 
-export default MainComponent;
+export default PostContent;

@@ -27,6 +27,8 @@ const PostContent = () => {
 	useEffect(() => {
 		getSamplePost();
 	}, []);
+
+	let posts = [1, 2, 3, 4, 5, 6];
 	return (
 		<div className="main-content w-1/2">
 			<div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
@@ -83,8 +85,8 @@ const PostContent = () => {
 				<div className="grow bg-slate-400 h-[2px]"></div>
 				<div>Sort by: recent</div>
 			</div>
-			{
-				<div className="p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
+			{post.map((value, key) => (
+				<div className="p-3 flex my-[30px] flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
 					<div className="poster-profile flex items-center gap-2">
 						<img
 							src={daniImg}
@@ -153,7 +155,7 @@ const PostContent = () => {
 						</div>
 					</div>
 				</div>
-			}
+			))}
 		</div>
 	);
 };

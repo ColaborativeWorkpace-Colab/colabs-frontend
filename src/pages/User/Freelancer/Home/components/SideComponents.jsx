@@ -14,7 +14,7 @@ export const RightSide = () => {
 };
 export const LeftSide = () => {
 	return (
-		<div className="left-side">
+		<div className="left-side h-screen">
 			<div className="profile p-5 flex flex-col justify-center">
 				<div className="profile-image mb-3 flex justify-center">
 					<img

@@ -25,7 +25,7 @@ export default class ChatContent extends Component {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
       type: "other",
-      msg: "What about you?",
+      msg: "and you?",
     },
     {
       key: 4,

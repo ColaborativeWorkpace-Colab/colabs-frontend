@@ -62,8 +62,8 @@
     padding: 1px;
   }
   .chat__item__content {
-    background-color: #4462ff;
-    color: #fff;
+    /* background-color: #4462ff; */
+    color: #000;
     padding: 15px;
     border-radius: 10px 10px 0 10px;
     max-width: 30%;
@@ -76,7 +76,7 @@
   }
   .chat__item__content .chat__meta span {
     font-size: 14px;
-    color: #8693d3;
+    color: #d1d1d1;
     user-select: none;
   }
   .chat__msg {
@@ -88,7 +88,7 @@
     transform-origin: left;
   }
   .chat__item.other .chat__item__content {
-    background-color: #F2F3F4;
+    /* background-color: #F2F3F4; */
     color: #000;
     border-radius: 10px 10px 10px 0;
     max-width: 30%;

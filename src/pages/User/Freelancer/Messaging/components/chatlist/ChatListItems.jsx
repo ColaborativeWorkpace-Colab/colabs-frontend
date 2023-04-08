@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Avatar from "./Avatar";
+import ChatBody from "../chatbody/ChatBody"
 
 export default class ChatListItems extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class ChatListItems extends Component {
 
         <div className="userMeta">
           <p>{this.props.name}</p>
-          <span className="activeTime">10 mins ago</span>
+          <span className="activeTime"> {this.props.msg} 10 mins ago</span>
         </div>
       </div>
     );

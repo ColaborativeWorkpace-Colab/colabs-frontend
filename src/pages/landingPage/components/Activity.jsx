@@ -6,7 +6,9 @@ import postJob from "../../../assets/images/post-job.png";
 const Activity = () => {
 	return (
 		<div className="py-4 px-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-			<h1 className="text-4xl font-bold">Need something done?</h1>
+			<h1 className="md:text-4xl text-2xl font-bold text-slate-800">
+				Need something done?
+			</h1>
 
 			<div className="px-4 py-8 grid grid-cols-2 md:grid-cols-4  gap-2 justify-between ">
 				<div className="px-1 pointer max-w-sm p-5 bg-white hover:border hover:border-purple-200 rounded-lg hover:shadow text-center">
@@ -16,7 +18,7 @@ const Activity = () => {
 					/>
 
 					<a href="#">
-						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-slate-800">
 							Create Account
 						</h5>
 					</a>
@@ -30,7 +32,7 @@ const Activity = () => {
 						src={searchJob}
 					/>
 					<a href="#">
-						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-slate-800">
 							Search Work
 						</h5>
 					</a>
@@ -44,7 +46,7 @@ const Activity = () => {
 						src={postJob}
 					/>
 					<a href="#">
-						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-slate-800">
 							Post Job
 						</h5>
 					</a>
@@ -58,7 +60,7 @@ const Activity = () => {
 						src={applyJob}
 					/>
 					<a href="#">
-						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+						<h5 className="mb-2 text-2xl font-semibold tracking-tight text-slate-800">
 							Save and Apply
 						</h5>
 					</a>

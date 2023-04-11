@@ -4,6 +4,7 @@ import projectImage from "../../../../assets/images/job.png";
 import { useNavigate } from "react-router-dom";
 import WorkspaceDashboard from "./WorkspaceDashboard";
 const WorkspacePage = () => {
+	const width = window.innerWidth;
 	const navigate = useNavigate();
 	return (
 		<>
@@ -18,13 +19,13 @@ const WorkspacePage = () => {
 						Create project
 					</button>
 				</div>
-				<div className="mt-4 flex justify-around md:justify-start gap-8">
+				<div className="mt-4 flex justify-around utems-center md:justify-start gap-2 md:gap-8">
 					<form className="">
 						<div className="relative">
 							<input
 								type="text"
 								id="default-search"
-								className="block w-[250px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+								className="block w-[250px] p-2  md:pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
 								placeholder="Search projects"
 							/>
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -55,7 +56,7 @@ const WorkspacePage = () => {
 						className="text-white bg-purple-400 hover:bg-purple-800 focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
 						type="button"
 					>
-						All colabs products{" "}
+						{width > 640 ? "All colabs products" : "All"}
 						<svg
 							className="w-4 h-4 ml-2"
 							aria-hidden="true"
@@ -114,7 +115,7 @@ const WorkspacePage = () => {
 					<h1 className="text-center text-gray-900 text-2xl text-bold">
 						You don't have any business projects
 					</h1>
-					<p className="text-center text-gray-700 w-[400px] md:w-[500px]">
+					<p className="text-center text-gray-700 w-[400px] md:w-[500px] p-10">
 						Create a new business project to manage tasks, monitor details, and
 						measure performance with your team.
 					</p>

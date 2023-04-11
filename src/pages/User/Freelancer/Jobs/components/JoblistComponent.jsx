@@ -7,7 +7,7 @@ import bookmarkImg from "../../../../../assets/images/bookmark.png";
 function JoblistComponent() {
 	let jobs = [1, 2, 3, 4, 5, 6];
 	return (
-		<div className="grow flex flex-col gap-6">
+		<div className="md:grow flex flex-col gap-4 md:gap-6 w-full">
 			<div className="bg-white flex justify-center items-center p-5">
 				<form className="flex items-center w-full">
 					<label for="voice-search" className="sr-only">
@@ -82,7 +82,7 @@ function JoblistComponent() {
 				{jobs.map((value, key) => (
 					<div className="cursor-pointer job-content flex flex-col gap-3 w-full border-2 border-gray-100 p-5 rounded-lg">
 						<div className="grow flex gap-4">
-							<div className="company-logo">
+							<div className="hidden md:block company-logo">
 								<img
 									src={enterpriseImg}
 									width={"50px"}
@@ -92,18 +92,24 @@ function JoblistComponent() {
 							</div>
 							<div className="grow flex justify-between">
 								<div className="">
-									<div className="flex items-center gap-2">
+									<div className="flex flex-col sm:flex-row justify-start items-center md:gap-2">
 										<h1 className="text-xl font-bold">
 											Create Figma Design For Web Application
 										</h1>
-										<p className="text-sm text-slate-500">-</p>
-										<p className="text-sm text-slate-500"> 2 Hours ago</p>
+										<p className="hidden sm:block text-sm text-slate-500">-</p>
 									</div>
 									<div className="flex">
 										<p className="text-md text-slate-500">
 											Hourly: 100 ETB - 200 ETB - Remote Friendly - Est. Time: 1
 											to 3 months
 										</p>
+									</div>
+									<div className="flex items-center">
+										<span className="mr-2 text-md text-slate-500">
+											posted:{" "}
+										</span>
+
+										<p className="text-sm text-slate-500">2 Hours ago</p>
 									</div>
 								</div>
 								<div
@@ -122,7 +128,7 @@ function JoblistComponent() {
 							</div>
 						</div>
 						<div className="job-desrcription">
-							<h1 className="text-md text-slate-800 pr-[110px]">
+							<h1 className="text-md text-slate-800 md:pr-[110px]">
 								Looking for UI/UX designers that are responsible for the design
 								and implementation of all the experiences a user has when
 								interacting with a digital tool, such as a website. experiences
@@ -131,27 +137,27 @@ function JoblistComponent() {
 							</h1>
 						</div>
 
-						<div className="job-tasks flex gap-2 items-center">
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+						<div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								User Interface Design
 							</p>
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								Figma
 							</p>
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								Html
 							</p>
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								In Design
 							</p>
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								Adobe XD
 							</p>
-							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-2 text-sm">
+							<p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
 								Illustrator
 							</p>
 						</div>
-						<div className="recruiter-status flex gap-6">
+						<div className="recruiter-status flex flex-col md:items-center md:flex-row gap-6">
 							<div className="payment-verified flex items-center gap-3">
 								<img src={verifiedImg} width={"20px"} height={"20px"} alt="" />
 								<span className="text-slate-500">Payment Verified</span>
@@ -173,9 +179,11 @@ function JoblistComponent() {
 									<img src={starImg} width={"20px"} height={"20px"} alt="" />
 								</span>
 							</div>
-							<div className="payment-verified flex gap-3">
+							<div className="payment-verified flex items-center md:flex-row gap-3">
 								<img src={locationImg} width={"20px"} height={"20px"} alt="" />
-								<span className="text-slate-500">Addis Ababa, Ethiopia</span>
+								<span className="grow text-slate-500">
+									Addis Ababa, Ethiopia
+								</span>
 							</div>
 						</div>
 					</div>

@@ -110,7 +110,7 @@ const WorkspacePage = () => {
 				</div>
 
 				{/*TODO conditional page here if the user has a project already created display in table list here */}
-				<div className="mt-[50px] flex gap-4 flex-col justify-center items-center">
+				<div className="mt-[50px] flex flex-col justify-center items-center">
 					<img src={projectImage} alt="" className="w-[130px] h-[130px]" />
 					<h1 className="text-center text-gray-900 text-2xl text-bold">
 						You don't have any business projects

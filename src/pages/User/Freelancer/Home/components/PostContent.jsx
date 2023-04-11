@@ -30,9 +30,9 @@ const PostContent = () => {
 
 	let posts = [1, 2, 3, 4, 5, 6];
 	return (
-		<div className="main-content w-1/2">
-			<div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
-				<div className="flex items-center gap-4 px-5 py-2">
+		<div className="main-content md:w-3/4 lg:w-1/2">
+			<div className="post-content flex flex-col justify-center bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
+				<div className="flex flex-shrink items-center gap-4 px-5 py-2">
 					<div className="profile-image flex items-center align-center">
 						<img
 							src={profileImg}
@@ -85,7 +85,7 @@ const PostContent = () => {
 				<div className="grow bg-slate-400 h-[2px]"></div>
 				<div>Sort by: recent</div>
 			</div>
-			{post.map((value, key) => (
+			{posts.map((value, key) => (
 				<div className="p-3 flex my-[30px] flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
 					<div className="poster-profile flex items-center gap-2">
 						<img

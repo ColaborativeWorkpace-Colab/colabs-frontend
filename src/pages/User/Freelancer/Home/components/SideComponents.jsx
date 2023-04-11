@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+// import "./style.css";
 import profileImg from "../../../../../assets/images/profile.jpg";
 import photoImg from "../../../../../assets/images/photo.png";
 import videoImg from "../../../../../assets/images/video.png";
@@ -7,14 +7,14 @@ import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
 export const RightSide = () => {
 	return (
-		<div className="right-side flex flex-col w-1/4 bg-slate-100">
+		<div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
 			Right Side
 		</div>
 	);
 };
 export const LeftSide = () => {
 	return (
-		<div className="left-side h-screen">
+		<div className="left-side hidden md:block h-screen flex flex-col md:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
 			<div className="profile p-5 flex flex-col justify-center">
 				<div className="profile-image mb-3 flex justify-center">
 					<img

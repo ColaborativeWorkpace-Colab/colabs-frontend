@@ -5,7 +5,6 @@ import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 function FreelancerHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
-	//const [, setSelectedNav] = useState(1);
 	const ref = useRef();
 	return (
 		<div>
@@ -20,7 +19,7 @@ function FreelancerHeader({ selectedNav }) {
 									alt="Workflow"
 								/>
 							</Link>
-							<form className="hidden md:block">
+							<form className="hidden lg:block">
 								<div className="relative">
 									<div className="absolute inset-y-0 left-0 flex items-center pr-2">
 										<span className="cursor-pointer">

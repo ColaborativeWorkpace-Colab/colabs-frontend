@@ -4,13 +4,13 @@ import Activity from "./components/Activity";
 import Banner from "./components/Banner";
 import Carousel from "./components/Carousel";
 import Contact from "./components/Contact";
-import Header from "./Header/Header";
+import LandingPageHeader from "./Header/LandingPageHeader";
 import Hero from "./components/Hero";
 
 const LandingHomePage = () => {
 	return (
 		<>
-			<Header />
+			<LandingPageHeader selectedNav={1} />
 			<div className="sm:container relative top-[100px]">
 				<Hero />
 				<Activity />

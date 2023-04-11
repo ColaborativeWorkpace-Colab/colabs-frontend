@@ -56,7 +56,7 @@ const WorkspacePage = () => {
 						className="text-white bg-purple-400 hover:bg-purple-800 focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
 						type="button"
 					>
-						{width > 640 ? "All colabs products" : "All"}
+						{width > "640px" ? "All colabs products" : "All"}
 						<svg
 							className="w-4 h-4 ml-2"
 							aria-hidden="true"

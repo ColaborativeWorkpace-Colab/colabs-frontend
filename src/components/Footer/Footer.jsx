@@ -2,13 +2,13 @@ import React from "react";
 import "./Footer.css";
 const Footer = () => {
 	return (
-		<footer className="bg-slate-800 text-center text-gray-200 mt-[100px]">
+		<footer className="bg-slate-800 text-center text-gray-300 mt-[100px]">
 			<div className="pt-6">
 				<div className="w-full mb-6 flex justify-center md:justify-center">
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -25,7 +25,7 @@ const Footer = () => {
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -42,7 +42,7 @@ const Footer = () => {
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -63,7 +63,7 @@ const Footer = () => {
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -80,7 +80,7 @@ const Footer = () => {
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -97,7 +97,7 @@ const Footer = () => {
 					<a
 						href="#!"
 						type="button"
-						className="m-1 h-9 w-9 rounded-full border-2 border-gray-200 uppercase leading-normal text-gray-200 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+						className="m-1 h-9 w-9 rounded-full border-2 border-gray-300 uppercase leading-normal text-gray-300 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
 						data-te-ripple-init
 						data-te-ripple-color="light"
 					>
@@ -124,7 +124,7 @@ const Footer = () => {
 							<div className="relative md:mb-6" data-te-input-wrapper-init>
 								<input
 									type="text"
-									className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full"
+									className="bg-gray-100 border border-slate-800 text-gray-900 text-sm rounded-lg focus:ring-slate-800 focus:border-slate-800 block w-full"
 									id="exampleFormControlInput1"
 									placeholder="Email address"
 								/>
@@ -159,22 +159,22 @@ const Footer = () => {
 
 						<ul className="mb-0 list-none">
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 1
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 2
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 3
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 4
 								</a>
 							</li>
@@ -186,22 +186,22 @@ const Footer = () => {
 
 						<ul className="mb-0 list-none">
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 1
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 2
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 3
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 4
 								</a>
 							</li>
@@ -213,22 +213,22 @@ const Footer = () => {
 
 						<ul className="mb-0 list-none">
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 1
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 2
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 3
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 4
 								</a>
 							</li>
@@ -240,22 +240,22 @@ const Footer = () => {
 
 						<ul className="mb-0 list-none">
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 1
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 2
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 3
 								</a>
 							</li>
 							<li>
-								<a href="#!" className="text-gray-200">
+								<a href="#!" className="text-gray-300">
 									Link 4
 								</a>
 							</li>
@@ -266,7 +266,7 @@ const Footer = () => {
 
 			<div className="flex gap-5 justify-center items-center p-4 text-center">
 				<p>© 2023 Colabs™.</p>
-				<a className="text-gray-200" href="https://tailwind-elements.com/">
+				<a className="text-gray-300" href="https://tailwind-elements.com/">
 					All Rights Reserved
 				</a>
 			</div>

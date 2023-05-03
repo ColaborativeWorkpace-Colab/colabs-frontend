@@ -2,12 +2,13 @@ import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Activity from "./components/Activity";
 import Banner from "./components/Banner";
-import Carousel from "./components/Carousel";
+// import Carousel from "./components/Carousel";
 import Contact from "./components/Contact";
 import LandingPageHeader from "./Header/LandingPageHeader";
 import Hero from "./components/Hero";
 import Faqs from "./components/Faqs";
 import SectionTitle from "./components/SectionTitle";
+import Testimonials from "./components/Tesatimonials";
 
 const LandingHomePage = () => {
 	return (
@@ -17,7 +18,14 @@ const LandingHomePage = () => {
 				<Hero />
 				<Activity />
 				<div className="m-10"></div>
-				<Carousel />
+				{/* <Carousel />
+				<div className="m-10"></div> */}
+				<SectionTitle
+        		pretitle="Testimonials"
+       			title="Here's what peoples say about us">
+				Highlight of our popular Freelancers
+      			</SectionTitle>
+				<Testimonials />
 				<div className="m-10"></div>
 				<Banner />
 				<div className="m-10"></div>

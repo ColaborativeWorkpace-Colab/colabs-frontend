@@ -6,6 +6,8 @@ import Carousel from "./components/Carousel";
 import Contact from "./components/Contact";
 import LandingPageHeader from "./Header/LandingPageHeader";
 import Hero from "./components/Hero";
+import Faqs from "./components/Faqs";
+import SectionTitle from "./components/SectionTitle";
 
 const LandingHomePage = () => {
 	return (
@@ -19,6 +21,11 @@ const LandingHomePage = () => {
 				<div className="m-10"></div>
 				<Banner />
 				<div className="m-10"></div>
+				<SectionTitle 
+					pretitle="FAQ" title="Frequently Asked Questions">
+      			</SectionTitle>
+				<Faqs />
+				<div className="m-10"></div>
 				<Contact />
 				<div className="m-10"></div>
 			</div>
@@ -26,5 +33,6 @@ const LandingHomePage = () => {
 		</>
 	);
 };
+
 
 export default LandingHomePage;

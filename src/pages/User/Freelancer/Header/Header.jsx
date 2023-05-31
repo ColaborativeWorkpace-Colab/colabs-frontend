@@ -3,6 +3,9 @@ import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
+import user from "../../../../assets/images/profile.jpg";
+import { AiFillCaretDown } from "react-icons/ai";
+
 function FreelancerHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const ref = useRef();
@@ -73,6 +76,19 @@ function FreelancerHeader({ selectedNav }) {
 										<a className={value.className}>{value.name}</a>
 									</Link>
 								))}
+								<div className="flex flex-col items-center">
+									<span>
+										<img className="h-[20px] w-[20px]" src={user} alt="icon" />
+									</span>
+									<div className="flex gap-x-2">
+										<a className="text-sm text-gray-800 cursor-pointer">
+											Profile
+										</a>
+										<span className="cursor-pointer">
+											<AiFillCaretDown size={20} color="purple" />
+										</span>
+									</div>
+								</div>
 							</div>
 						</div>
 

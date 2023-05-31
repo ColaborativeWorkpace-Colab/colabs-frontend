@@ -4,8 +4,7 @@ import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
-import { AiFillCaretDown } from "react-icons/ai";
-import { IoNotificationsSharp } from "react-icons/io";
+import { MdNotifications } from "react-icons/md";
 
 function ClientHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -25,69 +24,51 @@ function ClientHeader({ selectedNav }) {
 							</Link>
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
-									{navLinks.map((value) => (
-										<Link
-											to={value.to}
-											key={value.id}
-											onClick={() => {}}
-											className={`${
-												selectedNav == value.id
-													? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
-													: "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-transparent hover:border-purple-800 hover:text-gray-800"
-											}`}
-										>
-											<span>
-												<img
-													className="h-[20px] w-[20px]"
-													src={value.icon}
-													alt="icon"
-												/>
-											</span>
-
-											<a className={value.className}>{value.name}</a>
-										</Link>
+									{navLinks.map((value, key) => (
+										<div key={key}>
+											<div>{value.item}</div>
+										</div>
 									))}
 								</div>
 							</div>
 						</div>
 
-						<div className="">
-							<form className="hidden lg:block">
-								<div className="relative">
-									<div className="absolute inset-y-0 left-0 flex items-center pr-2">
-										<span className="cursor-pointer">
-											<svg
-												aria-hidden="true"
-												className="ml-3 w-6 h-6 text-gray-500 dark:text-gray-400"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth="2"
-													d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-												></path>
-											</svg>
-										</span>
-									</div>
-									<input
-										type="search"
-										id="default-search"
-										className="block sm:hidden lg:block  lg:w-[230px] xl:w-[300px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-										placeholder="Search Jobs, Projects, Freelancer..."
-									/>
+						<div className=""></div>
+						<form className="hidden lg:block">
+							<div className="relative">
+								<div className="absolute inset-y-0 left-0 flex items-center pr-2">
+									<span className="cursor-pointer">
+										<svg
+											aria-hidden="true"
+											className="ml-3 w-6 h-6 text-gray-500 dark:text-gray-400"
+											fill="none"
+											stroke="currentColor"
+											viewBox="0 0 24 24"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
+												d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+											></path>
+										</svg>
+									</span>
 								</div>
-							</form>
-						</div>
-						<div className="flex">
-							<span>
-								<IoNotificationsSharp />
+								<input
+									type="search"
+									id="default-search"
+									className="block sm:hidden lg:block  lg:w-[230px] xl:w-[300px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+									placeholder="Projects, Freelancer ..."
+								/>
+							</div>
+						</form>
+						<div className="flex gap-x-6">
+							<span className="cursor-pointer">
+								<MdNotifications color="purple" size={25} />
 							</span>
-							<span>
-								<img className="h-[20px] w-[20px]" src={user} alt="icon" />
+							<span className="cursor-pointer">
+								<img className="h-[25px] w-[25px]" src={user} alt="icon" />
 							</span>
 						</div>
 

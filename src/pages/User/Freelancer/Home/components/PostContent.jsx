@@ -12,10 +12,13 @@ import repostImg from "../../../../../assets/images/repost.png";
 import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
+import AddPostModal from "./AddPostModal";
 
 const PostContent = () => {
 	const [post, setPost] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [modalVisible, setModalVisible] = useState(false);
+
 	const getSamplePost = async () => {
 		try {
 			setIsLoading(true);
@@ -40,7 +43,13 @@ const PostContent = () => {
 							className="cursor-pointer w-[60px] rounded-[30px] h-[60px] border-2 border-slate-300 p-0.5"
 						/>
 					</div>
+
 					<input
+						onClick={() => {
+							console.log("vissibleded");
+							setModalVisible(!modalVisible);
+							console.log("vissibleded");
+						}}
 						className="hover:bg-gray-300 cursor-pointer grow rounded-[40px] border-2 border-slate-400 px-[20px] h-[50px]"
 						placeholder="Start a post"
 						disabled
@@ -156,6 +165,7 @@ const PostContent = () => {
 					</div>
 				</div>
 			))}
+			<AddPostModal modalVisible={modalVisible} />
 		</div>
 	);
 };

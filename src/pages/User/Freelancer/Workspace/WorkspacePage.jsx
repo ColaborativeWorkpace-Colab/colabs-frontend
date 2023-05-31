@@ -1,11 +1,13 @@
 import React from "react";
 import FreelancerHeader from "../Header/Header";
-import projectImage from "../../../../assets/images/job.png";
 import { useNavigate } from "react-router-dom";
-import WorkspaceDashboard from "./WorkspaceDashboard";
+import EmptyProjectPage from "./components/EmptyProjectPage";
+import ProjectListTable from "./components/ProjectListTable";
 const WorkspacePage = () => {
 	const width = window.innerWidth;
 	const navigate = useNavigate();
+	const projects = [1, 2];
+
 	return (
 		<>
 			<FreelancerHeader selectedNav={5} />
@@ -56,78 +58,12 @@ const WorkspacePage = () => {
 						className="text-white bg-purple-400 hover:bg-purple-800 focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
 						type="button"
 					>
-						{width > "640px" ? "All colabs products" : "All"}
-						<svg
-							className="w-4 h-4 ml-2"
-							aria-hidden="true"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M19 9l-7 7-7-7"
-							></path>
-						</svg>
+						All
 					</button>
-					<div
-						id="dropdown"
-						className="z-10 hidden bg-white divide-y divide-purple-100 rounded-lg shadow w-44 dark:bg-purple-700"
-					>
-						<ul
-							className="py-2 text-sm text-gray-700"
-							aria-labelledby="dropdownDefaultButton"
-						>
-							<li>
-								<a
-									href="#"
-									className="block px-4 py-2 hover:bg-purple-100 dark:hover:bg-purple-600 dark:hover:text-white"
-								>
-									Colabs software
-								</a>
-							</li>
-							<li>
-								<a
-									href="#"
-									className="block px-4 py-2 hover:bg-purple-100 dark:hover:bg-purple-600 dark:hover:text-white"
-								>
-									Colabs service management
-								</a>
-							</li>
-							<li>
-								<a
-									href="#"
-									className="block px-4 py-2 hover:bg-purple-100 dark:hover:bg-purple-600 dark:hover:text-white"
-								>
-									Colabs work management
-								</a>
-							</li>
-						</ul>
-					</div>
 				</div>
 
-				{/*TODO conditional page here if the user has a project already created display in table list here */}
-				<div className="mt-[50px] flex flex-col justify-center items-center">
-					<img src={projectImage} alt="" className="w-[130px] h-[130px]" />
-					<h1 className="text-center text-gray-900 text-2xl text-bold">
-						You don't have any business projects
-					</h1>
-					<p className="text-center text-gray-700 w-[400px] md:w-[500px] p-10">
-						Create a new business project to manage tasks, monitor details, and
-						measure performance with your team.
-					</p>
-					<button
-						onClick={() => navigate("/projectdashborad")}
-						className="bg-purple-700 rounded-md p-2 text-white"
-					>
-						Create project
-					</button>
-				</div>
+				{projects.length > 0 ? <ProjectListTable /> : <EmptyProjectPage />}
 			</div>
-			;
 		</>
 	);
 };

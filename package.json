@@ -14,6 +14,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.18",
     "@mkyy/mui-search-bar": "^0.5.2",
     "@mui/material": "^5.11.16",
     "axios": "^1.3.4",

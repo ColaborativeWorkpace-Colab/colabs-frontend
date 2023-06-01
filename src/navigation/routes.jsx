@@ -15,72 +15,72 @@ import NotificationPage from "../pages/User/Freelancer/Notification/Notification
 import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
-const LandingHomePage = lazy(() =>
-	import("../pages/landingPage/LandingHomePage"),
-);
+import ClientHomePage from "../pages/User/client/home/HomePage";
+import LandingHomePage from "../pages/landingPage/LandingHomePage";
+
 export const routes = [
-	{
-		path: "/",
-		element: (
-			<Suspense fallback={<Loading />}>
-				<LandingHomePage />
-			</Suspense>
-		),
-	},
-	{
-		path: "/login",
-		element: <LoginPage />,
-	},
-	{
-		path: "/signup",
-		element: <ChooseSignupType />,
-	},
-	{
-		path: "/signup/client",
-		element: <ClientSignup />,
-	},
-	{
-		path: "/signup/freelancer",
-		element: <FreelancerSignup />,
-	},
-	{
-		path: "/forgotpassword",
-		element: <ForgotPassword />,
-	},
-	{
-		path: "/resetpassword",
-		element: <ResetPassword />,
-	},
-	{
-		path: "/freelancerhome", //freelancerhome
-		element: <FreelancerHomePage />,
-	},
-	{
-		path: "/jobs",
-		element: <JobPage />,
-	},
-	{
-		path: "/messaging",
-		element: <MessagingPage />,
-	},
-	{
-		path: "/notification",
-		element: <NotificationPage />,
-	},
-	{
-		path: "/workspace",
-		element: <WorkspacePage />,
-	},
-	{
-		path: "/profile",
-		element: <ProfilePage />,
-	},
-	{
-		path: "/projectdashborad",
-		element: <WorkspaceDashboard />,
-	},
-	{
-		path: "*",
-		element: <NotFoundPage />,
-	},
+  {
+    path: "/",
+    element: <LandingHomePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <ChooseSignupType />,
+  },
+  {
+    path: "/signup/client",
+    element: <ClientSignup />,
+  },
+  {
+    path: "/signup/client/home",
+    element: <ClientHomePage />,
+  },
+  {
+    path: "/signup/freelancer",
+    element: <FreelancerSignup />,
+  },
+  {
+    path: "/forgotpassword",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/resetpassword",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/freelancerhome", //freelancerhome
+    element: <FreelancerHomePage />,
+  },
+  {
+    path: "/jobs",
+    element: <JobPage />,
+  },
+  {
+    path: "/messaging",
+    element: <MessagingPage />,
+  },
+  {
+    path: "/notification",
+    element: <NotificationPage />,
+  },
+  {
+    path: "/workspace",
+    element: <WorkspacePage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
+  {
+    path: "/projectdashborad",
+    element: <WorkspaceDashboard />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
 ];

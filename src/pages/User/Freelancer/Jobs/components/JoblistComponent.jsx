@@ -1,82 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
 import starImg from "../../../../../assets/images/star.png";
 import locationImg from "../../../../../assets/images/location.png";
 import enterpriseImg from "../../../../../assets/images/enterprise.png";
 import verifiedImg from "../../../../../assets/images/verify.png";
 import bookmarkImg from "../../../../../assets/images/bookmark.png";
+import { roles, industry, location, salary } from "../data";
 function JoblistComponent() {
 	let jobs = [1, 2, 3, 4, 5, 6];
+	const [] = useState(false);
+
 	return (
 		<div className="md:grow flex flex-col gap-4 md:gap-6 w-full">
-			<div className="bg-white flex justify-center items-center p-5">
-				<form className="flex items-center w-full">
-					<label for="voice-search" className="sr-only">
-						Search
-					</label>
-					<div className="relative w-full">
-						<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-							<svg
-								aria-hidden="true"
-								className="w-5 h-5 text-gray-500 dark:text-gray-400"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fillRule="evenodd"
-									d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-									clipRule="evenodd"
-								></path>
-							</svg>
+			<div className="bg-white flex justify-center items-center py-5 px-[50px]">
+				<div className="w-full flex justify-between">
+					<div className="">
+						<h1 className="text-md font-semibold text-slate-800 mb-2 pb-1 border-b-2 border-purple-700">
+							Role
+						</h1>
+						<div className="flex flex-col gap-y-2">
+							{roles.map((role, id) => (
+								<div key={id} className="flex items-center">
+									<input
+										id="checked-checkbox"
+										type="checkbox"
+										value=""
+										className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
+									/>
+									<label
+										htmlFor="checked-checkbox"
+										className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+									>
+										{role.title}
+									</label>
+								</div>
+							))}
 						</div>
-						<input
-							type="text"
-							id="voice-search"
-							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-							placeholder="Search Jobs..."
-							required
-						/>
-						<button
-							type="button"
-							className="absolute inset-y-0 right-0 flex items-center pr-3"
-						>
-							<svg
-								aria-hidden="true"
-								className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fillRule="evenodd"
-									d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
-									clipRule="evenodd"
-								></path>
-							</svg>
-						</button>
 					</div>
-					<button
-						type="submit"
-						className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-					>
-						<svg
-							aria-hidden="true"
-							className="w-5 h-5 mr-2 -ml-1"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-							></path>
-						</svg>
-						Search
-					</button>
-				</form>
+					<div className="">
+						<h1 className="text-md font-semibold text-slate-800 mb-2 pb-1 border-b-2 border-purple-700">
+							Industry
+						</h1>
+						<div className="flex flex-col gap-y-2">
+							{industry.map((role, id) => (
+								<div key={id} className="flex items-center">
+									<input
+										id="checked-checkbox"
+										type="checkbox"
+										value=""
+										className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
+									/>
+									<label
+										htmlFor="checked-checkbox"
+										className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+									>
+										{role.title}
+									</label>
+								</div>
+							))}
+						</div>
+					</div>
+					<div className="">
+						<h1 className="text-md font-semibold text-slate-800 mb-2 pb-1 border-b-2 border-purple-700">
+							Location
+						</h1>
+						<div className="flex flex-col gap-y-2">
+							{location.map((role, id) => (
+								<div key={id} className="flex items-center">
+									<input
+										id="checked-checkbox"
+										type="checkbox"
+										value=""
+										className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
+									/>
+									<label
+										htmlFor="checked-checkbox"
+										className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+									>
+										{role.title}
+									</label>
+								</div>
+							))}
+						</div>
+					</div>
+					<div className="">
+						<h1 className="text-md font-semibold text-slate-800 mb-2 pb-1 border-b-2 border-purple-700">
+							Salary
+						</h1>
+						<div className="flex flex-col gap-y-2">
+							{salary.map((role, id) => (
+								<div key={id} className="flex items-center">
+									<input
+										id="checked-checkbox"
+										type="checkbox"
+										value=""
+										className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
+									/>
+									<label
+										htmlFor="checked-checkbox"
+										className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+									>
+										{role.title}
+									</label>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
 			</div>
 			<div className="bg-white h-full flex flex-col px-6 py-6 gap-6">
 				{jobs.map((value, key) => (
@@ -96,7 +125,7 @@ function JoblistComponent() {
 										<h1 className="text-xl font-bold">
 											Create Figma Design For Web Application
 										</h1>
-										<p className="hidden sm:block text-sm text-slate-500">-</p>
+										{/* <p className="hidden sm:block text-sm text-slate-500">-</p> */}
 									</div>
 									<div className="flex">
 										<p className="text-md text-slate-500">
@@ -113,17 +142,14 @@ function JoblistComponent() {
 									</div>
 								</div>
 								<div
-									className="z-99 book-mark-job"
+									className="z-99 apply-button hidden md:block"
 									onClick={() => {
-										console.log("bokk marked");
+										console.log("applied");
 									}}
 								>
-									<img
-										src={bookmarkImg}
-										width={"30px"}
-										height={"30px"}
-										alt="bookmark"
-									/>
+									<button className="bg-purple-600 py-2 px-3 text-white text-md rounded-lg">
+										Apply
+									</button>
 								</div>
 							</div>
 						</div>
@@ -185,6 +211,16 @@ function JoblistComponent() {
 									Addis Ababa, Ethiopia
 								</span>
 							</div>
+						</div>
+						<div
+							className="md:hidden apply-button w-full mt-2"
+							onClick={() => {
+								console.log("applied");
+							}}
+						>
+							<button className="w-1/2 bg-purple-600 py-2 px-3 text-white text-md rounded-lg">
+								Apply Now
+							</button>
 						</div>
 					</div>
 				))}

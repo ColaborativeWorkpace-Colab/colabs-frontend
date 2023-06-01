@@ -5,13 +5,16 @@ import ColabButton from "./utils/Button/ColabButton";
 import ColabCard from "./utils/Card/ColabCard";
 import { ColabLargeText, ColabMediumText } from "./utils/Typography/ColabText";
 import ColabInput from "./utils/TextField/ColabInput";
-
-
 export default function App() {
-	return (
-		<>
-			<Navigation />
-			
-		</>
-	);
+  return (
+    <>
+      <Navigation />
+      {/* <FreelancerPage /> */}
+      {/* <ColabButton /> */}
+      {/* <ColabCard /> */}
+      {/* <ColabCard child={<p>paragraph</p>} />
+			<ColabLargeText text={"kalkidan"} />
+			<ColabInput /> */}
+    </>
+  );
 }

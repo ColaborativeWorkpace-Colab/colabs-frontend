@@ -1,16 +1,16 @@
 import React from "react";
 import "./style.css";
 const ColabInput = ({
-	value,
-	name,
-	type,
-	onChange,
-	placeholder,
-	className,
-	required,
-	id,
+  value,
+  name,
+  type,
+  onChange,
+  placeholder,
+  className,
+  required,
+  id,
 }) => {
-	return <></>;
+  return <></>;
 };
 
 export default ColabInput;

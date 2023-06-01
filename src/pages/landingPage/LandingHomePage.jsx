@@ -1,18 +1,16 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
-import Activity from "./components/Activity";
-import Banner from "./components/Banner";
-import Carousel from "./components/Carousel";
-import Contact from "./components/Contact";
-import LandingPageHeader from "./Header/LandingPageHeader";
-import Hero from "./components/Hero";
-import Faqs from "./components/Faqs";
-import SectionTitle from "./components/SectionTitle";
+import Activity from "./Activity";
+import Banner from "./Banner";
+import Carousel from "./Carousel";
+import Contact from "./Contact";
+import Header from "./Header/Header";
+import Hero from "./Hero";
 
 const LandingHomePage = () => {
   return (
     <>
-      <LandingPageHeader selectedNav={1} />
+      <Header />
       <div className="sm:container relative top-[100px]">
         <Hero />
         <Activity />
@@ -20,12 +18,6 @@ const LandingHomePage = () => {
         <Carousel />
         <div className="m-10"></div>
         <Banner />
-        <div className="m-10"></div>
-        <SectionTitle
-          pretitle=""
-          title="Frequently Asked Questions"
-        ></SectionTitle>
-        <Faqs />
         <div className="m-10"></div>
         <Contact />
         <div className="m-10"></div>

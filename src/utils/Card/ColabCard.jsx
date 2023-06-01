@@ -1,13 +1,7 @@
 import React from "react";
 import "./style.css";
-const ColabCard = ({ className, children }) => {
-	return (
-		<div
-			className={`colab-card bg-white shadow-sm rounded-lg shadow-gray-300 ${className}`}
-		>
-			{children}
-		</div>
-	);
+const ColabCard = ({ className, child }) => {
+  return <div className={`colab-card ${className}`}>{child}</div>;
 };
 
 export default ColabCard;

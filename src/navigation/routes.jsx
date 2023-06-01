@@ -15,13 +15,17 @@ import NotificationPage from "../pages/User/Freelancer/Notification/Notification
 import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
-import ClientHomePage from "../pages/User/client/home/HomePage";
-import LandingHomePage from "../pages/landingPage/LandingHomePage";
-
+const LandingHomePage = lazy(() =>
+  import("../pages/landingPage/LandingHomePage")
+);
 export const routes = [
   {
     path: "/",
-    element: <LandingHomePage />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LandingHomePage />
+      </Suspense>
+    ),
   },
   {
     path: "/login",
@@ -34,10 +38,6 @@ export const routes = [
   {
     path: "/signup/client",
     element: <ClientSignup />,
-  },
-  {
-    path: "/signup/client/home",
-    element: <ClientHomePage />,
   },
   {
     path: "/signup/freelancer",

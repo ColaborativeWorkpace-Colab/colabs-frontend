@@ -11,7 +11,7 @@ const LandingPageHeader = ({ selectedNav }) => {
 	const [selected, setselcted] = useState(1);
 	return (
 		<nav className="bg-white fixed w-full z-20 top-0 left-0 p-2 md:p-0">
-			<div className="p-2 sm:p-0 flex flex-wrap items-center justify-between md:justify-around mx-auto">
+			<div className="p-2 sm:p-0 flex flex-wrap items-center justify-betwOeen md:justify-around mx-auto">
 				<Link to="/" className="flex items-center">
 					<img src={logo} className="h-[45px] w-[45px]" alt="Colabs Logo" />
 				</Link>

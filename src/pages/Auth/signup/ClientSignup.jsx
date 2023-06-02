@@ -27,6 +27,16 @@ const ClientSignup = () => {
     }
   };
 
+  const handlGoogleLogin = () => {
+    window.location.href =
+      "https://colabs-backend.vercel.app/api/v1/users/google?type=Freelancer";
+  };
+
+  const handlGithubLogin = () => {
+    window.location.href =
+      "https://colabs-backend.vercel.app/api/v1/users/github?type=Freelancer";
+  };
+
   return (
     <>
       <AuthHeader
@@ -52,6 +62,7 @@ const ClientSignup = () => {
                 <button
                   aria-label="Continue with google"
                   role="button"
+                  onClick={handlGoogleLogin}
                   className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
                 >
                   <img
@@ -65,6 +76,7 @@ const ClientSignup = () => {
                 <button
                   aria-label="Continue with github"
                   role="button"
+                  onClick={handlGithubLogin}
                   className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
                 >
                   <img

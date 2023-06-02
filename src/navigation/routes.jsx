@@ -36,7 +36,7 @@ export const routes = [
     element: <ClientSignup />,
   },
   {
-    path: "/signup/client/home",
+    path: "/client",
     element: <ClientHomePage />,
   },
   {
@@ -52,7 +52,7 @@ export const routes = [
     element: <ResetPassword />,
   },
   {
-    path: "/freelancerhome", //freelancerhome
+    path: "/freelancer", //freelancerhome
     element: <FreelancerHomePage />,
   },
   {

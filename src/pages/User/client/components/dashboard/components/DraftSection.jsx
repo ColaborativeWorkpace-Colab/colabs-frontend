@@ -15,14 +15,14 @@ const DraftSection = () => {
         </div>
       </div>
       {Array.from(Array(2)).map(() => (
-        <div className="mt-5 flex flex-col hover:bg-gray-100 cursor-pointer py-4 px-2 border-b-2 border-gray-200">
+        <div className="mt-5 flex flex-col hover:bg-gray-50 cursor-pointer py-4 px-2 border-b-2 border-gray-200">
           <div className="flex justify-between items-center">
             <p> UX/UI designer to bring website mockup and prototype to life</p>
             <span className="">
               <MdMoreVert size={25} color="purple" />
             </span>
           </div>
-          <p className="text-gray-600">Saved 2 days ago</p>
+          <p className="text-gray-500 text-sm mt-2">Saved 2 days ago</p>
         </div>
       ))}
     </div>

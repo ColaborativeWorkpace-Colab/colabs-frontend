@@ -131,6 +131,54 @@ const ClientSignup = () => {
                     />
                   </div>
                 </div>
+                <div className="flex gap-3 justify-between">
+                  <div className="grow">
+                    <label
+                      htmlFor="government ID"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Your Passport/ID
+                    </label>
+                    <input
+                      type="text"
+                      name="First Name"
+                      id="First Name"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="First Name"
+                      required
+                      onChange={(e) =>
+                        setUser({
+                          ...user,
+                          firstName: e.target.value,
+                        })
+                      }
+                      value={user.firstName}
+                    />
+                  </div>
+                  <div className="grow">
+                    <label
+                      htmlFor="Last Name"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Bussiness License
+                    </label>
+                    <input
+                      type="file"
+                      name="license"
+                      id="license"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg"
+                      placeholder="Bussiness Licence"
+                      required
+                      onChange={(e) =>
+                        setUser({
+                          ...user,
+                          lastName: e.target.value,
+                        })
+                      }
+                      value={user.lastName}
+                    />
+                  </div>
+                </div>
                 <div>
                   <label
                     htmlFor="email"
@@ -142,7 +190,7 @@ const ClientSignup = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg"
                     placeholder="name@gmail.com"
                     required
                     onChange={(e) =>
@@ -154,6 +202,7 @@ const ClientSignup = () => {
                     value={user.email}
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="password"

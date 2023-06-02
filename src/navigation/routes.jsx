@@ -71,10 +71,10 @@ export const routes = [
     path: "/workspace",
     element: <WorkspacePage />,
   },
-  {
-    path: "/profile",
-    element: <ProfilePage />,
-  },
+  // {
+  //   path: "/profile",
+  //   element: <ProfilePage />,
+  // },
   {
     path: "/projectdashborad",
     element: <WorkspaceDashboard />,

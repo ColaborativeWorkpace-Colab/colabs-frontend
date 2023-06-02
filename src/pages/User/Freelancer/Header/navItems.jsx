@@ -47,12 +47,12 @@ export const navLinks = [
     className:
       "text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
   },
-  {
-    id: 6,
-    name: "Profile",
-    icon: user,
-    to: "/profile",
-    className:
-      "text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
-  },
+  // {
+  //   id: 6,
+  //   name: "Profile",
+  //   icon: user,
+  //   to: "/profile",
+  //   className:
+  //     "text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
+  // },
 ];

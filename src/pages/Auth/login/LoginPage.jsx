@@ -19,7 +19,7 @@ const LoginPage = () => {
     if (user.email && user.password) {
       notify();
       setTimeout(() => {
-        navigate("/freelancerhome");
+        navigate("/freelancer");
       }, 1500);
     }
   };

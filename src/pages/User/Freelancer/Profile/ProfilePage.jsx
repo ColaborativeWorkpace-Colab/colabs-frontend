@@ -64,7 +64,7 @@ const ProfilePage = () => {
 							/>	
 						</div>
 						<div className="headerpara">
-							<h1>Kalkidan Getahun</h1>
+							<h1>Mekdes Tibebu</h1>
 							<p>Freelancer</p>
 						</div>
 						

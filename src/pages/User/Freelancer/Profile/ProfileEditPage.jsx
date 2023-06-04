@@ -13,7 +13,7 @@ import Stack from '@mui/material/Stack';
 import { Divider } from '@material-ui/core';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
-// import LowerLeft from './LowerLeft';
+// import LowerLeft from './LowerLeft'
 import LowerLeft from './LowerLeft';
 import LowerRight from './LowerRight';
 import Testimonials from './Testimonials';
@@ -146,7 +146,7 @@ const ProfileEditPage = () => {
             </div>
               <div>
               <div className='profile1'>
-                Kalkidan Getahun
+                Mekdes Tibebu
               </div>
               <div className='text-md text-slate-500 px-3'>
                 <LocationOnIcon size="small"/>

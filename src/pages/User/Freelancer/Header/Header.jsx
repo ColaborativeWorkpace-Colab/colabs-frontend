@@ -3,10 +3,17 @@ import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
+import { ProfilePage } from "../Profile";
+
 function FreelancerHeader({ selectedNav }) {
 	const [isOpen, setIsOpen] = useState(false);
 	//const [, setSelectedNav] = useState(1);
 	const ref = useRef();
+
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	  };
+
 	return (
 		<div>
 			<nav className="fixed top-0 left-0 w-full bg-white z-20">
@@ -170,8 +177,10 @@ function FreelancerHeader({ selectedNav }) {
 									Workspace
 								</a>
 								<a
+									show={isOpen}
 									href="/profile"
 									className="text-gray-600 hover:bg-purple-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									onClick={toggleDropdown}
 								>
 									Profile
 								</a>

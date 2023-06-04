@@ -15,6 +15,7 @@ import NotificationPage from "../pages/User/Freelancer/Notification/Notification
 import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
+import { ProfileEditPage, Setting } from "../pages/User/Freelancer/Profile";
 const LandingHomePage = lazy(() =>
 	import("../pages/landingPage/LandingHomePage"),
 );
@@ -74,6 +75,14 @@ export const routes = [
 	{
 		path: "/profile",
 		element: <ProfilePage />,
+	},
+	{
+		path: "/editprofile",
+		element: <ProfileEditPage />,
+	},
+	{
+		path: "/profilesetting",
+		element: <Setting />,
 	},
 	{
 		path: "/projectdashborad",

@@ -4,6 +4,8 @@ import notification from "../../../../assets/images/notification.png";
 import message from "../../../../assets/images/message.png";
 import user from "../../../../assets/images/account.png";
 import workspace from "../../../../assets/images/workspace.png";
+import ProfilePage from "../Profile/ProfilePage";
+import { SignOut } from "phosphor-react";
 
 export const navLinks = [
 	{
@@ -51,7 +53,7 @@ export const navLinks = [
 		id: 6,
 		name: "Profile",
 		icon: user,
-		to: "/profile",
+		to: "",
 		className:
 			"text-slate-700 hover:text-slate-900 px-3 rounded-md text-sm font-medium",
 	},

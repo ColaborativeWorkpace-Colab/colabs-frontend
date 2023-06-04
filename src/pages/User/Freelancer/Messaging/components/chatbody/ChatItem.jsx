@@ -18,7 +18,7 @@ export default class ChatItem extends Component {
             <span>Seen 1:00PM</span>
           </div>
         </div>
-        <Avatar isOnline="active" image={this.props.image} />
+        {/* <Avatar isOnline="active" image={this.props.image} /> */}
       </div>
     );
   }

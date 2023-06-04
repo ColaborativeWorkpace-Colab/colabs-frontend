@@ -12,6 +12,7 @@ import repostImg from "../../../../../assets/images/repost.png";
 import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
+import { ProfileEditPage } from "../../Profile";
 
 const MainComponent = () => {
 	const [post, setPost] = useState([]);
@@ -27,6 +28,7 @@ const MainComponent = () => {
 	useEffect(() => {
 		getSamplePost();
 	}, []);
+
 	return (
 		<div className="main-content w-1/2">
 			<div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
@@ -86,11 +88,13 @@ const MainComponent = () => {
 			{
 				<div className="p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
 					<div className="poster-profile flex items-center gap-2">
+					
 						<img
 							src={daniImg}
 							alt=""
 							className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
 						/>
+					
 						<div className="grow flex justify-between">
 							<div className="cursor-pointer flex flex-col gap-0.4">
 								<p className="text-md text-slate-900">Daniel Demmelash</p>

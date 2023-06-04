@@ -24,7 +24,7 @@ export const LeftSide = () => {
           />
         </div>
         <div className="cursor-pointer text-center border-b-2 border-b-slate-400 w-full pb-3">
-          <h1 className="text-xl text-slate-900">Kalkidan Getahun</h1>
+          <h1 className="text-xl text-slate-900">kebede Getahun</h1>
           <h1 className="text-md text-slate-500">Fullstack Developer</h1>
         </div>
         <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">

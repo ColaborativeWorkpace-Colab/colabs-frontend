@@ -20,7 +20,7 @@ const NotificationPage = () => {
           <div class="text-center space-y-2 sm:text-left">
             <div class="space-y-0.5">
               <p class="text-lg text-black font-semibold">
-                Daniel Demelash: Posted a new Post
+                kebede Demelash: Posted a new Post
               </p>
               <p class="text-slate-500 font-medium">
                 What's one coding tip or piece of advice you wish you had known

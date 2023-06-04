@@ -21,7 +21,7 @@ export const JobItem = () => {
         </span>
       </div>
       <ul
-        className={`absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
+        className={`bg-white absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
           openDropdown ? "block" : "hidden"
         }`}
       >
@@ -58,7 +58,7 @@ export const TalentItem = () => {
         </span>
       </div>
       <ul
-        className={`absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
+        className={`bg-white absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
           openDropdown ? "block" : "hidden"
         }`}
       >
@@ -93,7 +93,7 @@ export const ReportItem = () => {
         </span>
       </div>
       <ul
-        className={`absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
+        className={`bg-white absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
           openDropdown ? "block" : "hidden"
         }`}
       >

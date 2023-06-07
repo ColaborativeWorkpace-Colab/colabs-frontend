@@ -4,26 +4,39 @@ import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useSignupUserMutation } from "../../../services/auth/authApi";
 const FreelancerSignup = () => {
   const navigate = useNavigate();
-  const notify = () =>
-    toast("Signup successfully", {
-      type: "success",
-    });
+  // const notify = () =>
+  //   toast("Signup successfully", {
+  //     type: "success",
+  //   });
+
   const [user, setUser] = useState({
+    userType: "Freelancer",
     email: "",
     password: "",
     firstName: "",
     lastName: "",
   });
-
+  const [
+    signupUser,
+    {
+      data: signupData,
+      isSuccess: isSignupSuccess,
+      error: signupError,
+      isError: isSignupError,
+    },
+  ] = useSignupUserMutation();
   const handleSubmit = (user) => {
     if (user.email && user.password) {
-      notify();
-      setTimeout(() => {
-        navigate("/freelancer");
-      }, 1500);
+      signupUser(user);
+      console.log(signupData, +"   " + isSignupSuccess);
+
+      // notify();
+      // setTimeout(() => {
+      //   navigate("/freelancer");
+      // }, 1500);
     }
   };
   return (

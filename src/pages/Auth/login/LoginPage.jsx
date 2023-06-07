@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useLoginUserMutation } from "../../../services/auth/authApi";
 const LoginPage = () => {
+  const [
+    loginUser,
+    {
+      data: loginData,
+      isSuccess: isLoginSuccess,
+      error: loginError,
+      isError: isLoginError,
+    },
+  ] = useLoginUserMutation();
   const navigate = useNavigate();
-  const notify = () =>
-    toast("Signin successfully", {
-      type: "success",
-    });
+  // const notify = () =>
+  //   toast("Signin successfully", {
+  //     type: "success",
+  //   });
   const [user, setUser] = useState({
     email: "",
     password: "",
+    userType: "Freelancer",
   });
 
   const handleSubmit = (user) => {
     if (user.email && user.password) {
-      notify();
-      setTimeout(() => {
-        navigate("/freelancer");
-      }, 1500);
+      loginUser(user);
+      // notify();
+      console.log(loginData, +"   " + isLoginSuccess);
+      setTimeout(() => {}, 1500);
     }
   };
+
   return (
     <>
       <AuthHeader />

@@ -4,11 +4,15 @@ import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import ChatList from "./components/chatlist/ChatList";
 import ChatBody from "./components/chatbody/ChatBody";
-// import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import "./messagingpage.css";
+import Divider from "@mui/material/Divider";
+// import chat from "../../../../assets/images/chat.jpg"
 
 const MessagingPage = () => {
   const theme = useTheme();
+
+  console.log(theme);
 
   console.log(theme);
 
@@ -31,10 +35,19 @@ const MessagingPage = () => {
             }}
           >
             <div className="main__chatbody">
-              <ChatList />
-              <ChatBody />
+              <Grid container spacing={0}>
+                <Grid item xs={6} md={4}>
+                  <ChatList />
+                </Grid>
+                <Divider orientation="vertical" variant="middle" flexItem />
+
+                <ChatBody />
+              </Grid>
             </div>
           </Box>
+          {/* <div>
+					<img src="chat.jpg" alt="chat"/>
+				</div> */}
         </div>
       </div>
       ;

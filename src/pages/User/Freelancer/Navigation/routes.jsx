@@ -7,6 +7,8 @@ const JobPage = lazy(() => import("../Jobs/JobPage"));
 const WorkspacePage = lazy(() => import("../Workspace/WorkspacePage"));
 const NotificationPage = lazy(() => import("../Notification/NotificationPage"));
 const ProfilePage = lazy(() => import("../Profile/ProfilePage"));
+const ProfileEditPage = lazy(() => import("../Profile/ProfileEditPage"));
+
 
 export const routes = [
 	{
@@ -37,4 +39,10 @@ export const routes = [
 		path: "/projectdashborad",
 		element: <WorkspaceDashboard />,
 	},
+	{
+
+		path: "/editprofile",
+		element: < ProfileEditPage/>,
+	},
+	
 ];

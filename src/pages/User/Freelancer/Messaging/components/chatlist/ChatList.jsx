@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./chatlist.css";
 import ChatListItems from "./ChatListItems";
+import Divider from '@mui/material/Divider';
 
 export default class ChatList extends Component {
   allChatUsers = [
@@ -8,7 +9,7 @@ export default class ChatList extends Component {
       image:
         "https://www.shutterstock.com/image-photo/smiling-confident-businesswoman-posing-arms-folded-1457005295",
       id: 1,
-      name: "Tim Hover",
+      name: "mekdes tibebu",
       active: true,
       isOnline: true,
     },
@@ -95,6 +96,8 @@ export default class ChatList extends Component {
       <div className="main__chatlist">
         <div className="chatlist__heading">
           <h2>Messages</h2>
+          {/* <Divider orientation="horizontal" variant="inset" flexItem/> */}
+          
           <button className="btn-nobg">
             <i className="fa fa-ellipsis-h"></i>
           </button>

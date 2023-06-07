@@ -12,6 +12,7 @@ import repostImg from "../../../../../assets/images/repost.png";
 import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
+import { ProfileEditPage } from "../../Profile";
 
 const MainComponent = () => {
   const [post, setPost] = useState([]);

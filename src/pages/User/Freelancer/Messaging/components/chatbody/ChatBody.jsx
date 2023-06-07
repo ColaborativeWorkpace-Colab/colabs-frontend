@@ -1,6 +1,6 @@
 import React, { Component, useState, createRef, useEffect } from "react";
 import "./chatbody.css";
-import Avatar from "../chatlist/Avatar";
+// import Avatar from "../chatlist/Avatar";
 import ChatItem from "./ChatItem";
 
 export default class ChatContent extends Component {
@@ -8,50 +8,50 @@ export default class ChatContent extends Component {
   chatItms = [
     {
       key: 1,
-      image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+      // image:
+      //   "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
       type: "",
       msg: "How are you?",
     },
     {
       key: 2,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+      // image:
+      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
       type: "other",
       msg: "I am fine.",
     },
     {
       key: 3,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+      // image:
+      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
       type: "other",
       msg: "and you?",
     },
     {
       key: 4,
-      image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+      // image:
+      //   "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
       type: "",
       msg: "fine",
     },
     {
       key: 5,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+      // image:
+      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
       type: "other",
       msg: "hiii",
     },
     {
       key: 6,
-      image:
-        "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+      // image:
+      //   "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
       type: "",
       msg: "helloooo",
     },
     {
       key: 7,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
+      // image:
+      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
       type: "other",
       msg: "hi",
     },
@@ -77,8 +77,8 @@ export default class ChatContent extends Component {
             key: 1,
             type: "",
             msg: this.state.msg,
-            image:
-              "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
+            // image:
+            //   "https://pbs.twimg.com/profile_images/1116431270697766912/-NfnQHvh_400x400.jpg",
           });
           this.setState({ chat: [...this.chatItms] });
           this.scrollToBottom();
@@ -98,11 +98,11 @@ export default class ChatContent extends Component {
         <div className="content__header">
           <div className="blocks">
             <div className="current-chatting-user">
-              <Avatar
+              {/* <Avatar
                 isOnline="active"
-                image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"
-              />
-              <p>Tim Hover</p>
+                image="https://www.shutterstock.com/image-photo/smiling-confident-businesswoman-posing-arms-folded-1457005295"
+              /> */}
+              <p>mekdes tibebu</p>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ export default class ChatContent extends Component {
                   key={itm.key}
                   user={itm.type ? itm.type : "me"}
                   msg={itm.msg}
-                  image={itm.image}
+                  // image={itm.image}
                 />
               );
             })}

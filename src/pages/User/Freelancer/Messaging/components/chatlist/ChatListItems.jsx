@@ -34,8 +34,10 @@ export default class ChatListItems extends Component {
         />
 
         <div className="userMeta">
-          <p>{this.props.name}</p>
-          <span className="activeTime"> {this.props.msg} 10 mins ago</span>
+          <p>{this.props.name}
+          <span className="activeTime">10 mins ago</span>
+          </p>
+          <span>how are you doing?</span>
         </div>
       </div>
     );

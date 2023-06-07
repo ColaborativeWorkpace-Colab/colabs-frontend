@@ -5,6 +5,8 @@ import photoImg from "../../../../../assets/images/photo.png";
 import videoImg from "../../../../../assets/images/video.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
+import { ProfileEditPage } from "../../Profile";
+import { Link } from "react-router-dom";
 export const RightSide = () => {
   return (
     <div className="right-side flex flex-col w-1/4 bg-slate-100">

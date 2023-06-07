@@ -27,13 +27,20 @@ const NotificationPage = () => {
   return (
     <>
     <FreelancerHeader selectedNav={4} />
-    <div className='flex justify-between'>
-      <div className='leftSide hidden md:flex flex-col gap-2 flex-shrink-0 w-22 h-full items-start mt-[100px]  pl-12 py-8 shadow-lg rounded-[5%]'>
+    <div className='flex justify-between ml-10'>
+      <div>
+      <div className='leftSide hidden md:flex flex-col gap-2 flex-shrink-0 w-auto h-50 items-start  mt-[100px]  p-10 shadow-lg rounded-[5%]'>
           <h3 className='font-bold text-gray-800'>Manage your Noifications</h3>
           <a href="#" className="cursor-pointer text-blue-500 hover:underline font-bold">View Setting</a>
-
+      </div>
+      <div className='unlock leftSide hidden md:flex flex-col flex-shrink-0 w-auto h-50 items-center  p-10 shadow-lg rounded-[5%] '>
+      <img className='unlock mx-auto w-14 h-14 rounded-full sm:mx-0 sm:shrink-0' src={devaImg} alt="deva" />
+      <p className='text-gray-800 font-bold'>Dawit, Unlock your Colabs Premiere</p>
+      <button className='shadow-lg text-blue-500 font-bold p-4'>Unlock for 1 Month for Free</button> 
+      </div>
 
       </div>
+     
 
  
     <div className='w-full flex-grow h-full mt-[50px] py-8'>
@@ -93,7 +100,8 @@ const NotificationItem = ({ type, content, avatar, time }) => {
   };
 
   return (
-    <div className='py-8 px-8 w-1/2  my-2 mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-1 sm:flex sm:items-center sm:space-y-0 sm:space-x-1'>
+    <> 
+      <div className='py-8 px-8 w-2/3  my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1'>
       <div className="avatar">
         <img className='block mx-auto w-10 h-auto rounded-full sm:mx-0 sm:shrink-0' src={avatar} alt="Avatar" />
       </div>
@@ -102,19 +110,21 @@ const NotificationItem = ({ type, content, avatar, time }) => {
         <span onClick={handleNotificationClick} style={{ cursor: 'pointer', textDecoration: 'underline' }}>{content}</span>
         
         {showNotification && (
-          <div className="notification-popup flex justify-between mx-auto">
-            <span className='grow'>{content}</span> 
-            <span className='sm'>{time}</span>
+          <div className="notification-popup flex-grow justify-end mx-auto">
+            <p className='grow'>{content}</p> 
+            <p className="notification-time">{time}</p> 
+
+            {/* //<span className='sm'>{time}</span> */}
             {/* Add additional details or actions for the notification popup */}
           </div>
-        )}
-      </div>
-      <div className='flex justify-end'>
-        <h1></h1>
-        <br /> <span className="notification-time text-sm ">{time}</span> 
-      </div>
+        )} <br />
+      </div> 
+     
       
     </div>
+  
+    </>
+    
   );
 };
 

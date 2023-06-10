@@ -17,6 +17,9 @@ import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
 import ClientHomePage from "../pages/User/client/home/HomePage";
 import LandingHomePage from "../pages/landingPage/LandingHomePage";
+import SignupSuccess from "../pages/Auth/components/SignupSuccess";
+import VerificationSuccess from "../pages/Auth/components/AccountVerificationSuccess";
+import ClientJobDetail from "../pages/User/client/components/job/JobDetail";
 
 export const routes = [
   {
@@ -60,7 +63,13 @@ export const routes = [
     element: <JobPage />,
   },
   {
+    path: "/profile",
+    // element: <div></div>,
+    element: <ProfilePage />,
+  },
+  {
     path: "/messaging",
+    // element: <div></div>,
     element: <MessagingPage />,
   },
   {
@@ -78,6 +87,18 @@ export const routes = [
   {
     path: "/projectdashborad",
     element: <WorkspaceDashboard />,
+  },
+  {
+    path: "/signup-success",
+    element: <SignupSuccess />,
+  },
+  {
+    path: "/verification-success",
+    element: <VerificationSuccess />,
+  },
+  {
+    path: "/post-job-detail",
+    element: <ClientJobDetail />,
   },
   {
     path: "*",

@@ -51,14 +51,8 @@ const ClientSignup = () => {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign up to hire talent
               </h1>
-              <form
-                className="space-y-4 md:space-y-6"
-                action="#"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit(user);
-                }}
-              >
+              <div>
+                {" "}
                 <button
                   aria-label="Continue with google"
                   role="button"
@@ -87,7 +81,15 @@ const ClientSignup = () => {
                     Continue with Github
                   </p>
                 </button>
-
+              </div>
+              <form
+                className="space-y-4 md:space-y-6"
+                action="#"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit(user);
+                }}
+              >
                 <div className="w-full flex items-center justify-between py-5">
                   <hr className="w-full bg-gray-400" />
                   <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
@@ -140,54 +142,6 @@ const ClientSignup = () => {
                         })
                       }
                       value={user.lastName}
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-3 justify-between">
-                  <div className="grow">
-                    <label
-                      htmlFor="government ID"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Your Passport/ID
-                    </label>
-                    <input
-                      type="file"
-                      name="passport"
-                      id="Your Passport"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg"
-                      placeholder="Your Passport"
-                      required
-                      // onChange={(e) =>
-                      //   setUser({
-                      //     ...user,
-                      //     firstName: e.target.value,
-                      //   })
-                      // }
-                      // value={user.firstName}
-                    />
-                  </div>
-                  <div className="grow">
-                    <label
-                      htmlFor="license"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Bussiness License
-                    </label>
-                    <input
-                      type="file"
-                      name="license"
-                      id="license"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg"
-                      placeholder="Bussiness Licence"
-                      required
-                      // onChange={(e) =>
-                      //   setUser({
-                      //     ...user,
-                      //     lastName: e.target.value,
-                      //   })
-                      // }
-                      // value={user.lastName}
                     />
                   </div>
                 </div>

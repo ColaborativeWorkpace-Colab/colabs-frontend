@@ -1,4 +1,4 @@
-import { JobItem, MessageItem, ReportItem, TalentItem } from "./navLinks";
+import { JobItem, MessageItem, TalentItem, Workspace } from "./navLinks";
 
 export const navLinks = [
   {
@@ -12,6 +12,10 @@ export const navLinks = [
 
   {
     id: 3,
+    item: <Workspace />,
+  },
+  {
+    id: 4,
     item: <MessageItem />,
   },
 ];

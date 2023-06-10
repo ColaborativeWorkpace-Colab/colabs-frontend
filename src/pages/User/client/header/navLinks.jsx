@@ -73,7 +73,7 @@ export const TalentItem = () => {
     </div>
   );
 };
-export const ReportItem = () => {
+export const Workspace = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   return (
     <div
@@ -87,7 +87,7 @@ export const ReportItem = () => {
       }
     >
       <div className="z-99 flex gap-x-2 justify-center items-center">
-        <a className={""}>Reports</a>
+        <a className={""}>Workspace</a>
         <span>
           <BsChevronDown size={12} color="purple" />
         </span>

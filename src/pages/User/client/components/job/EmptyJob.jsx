@@ -1,6 +1,7 @@
 import React from "react";
-import projectImage from "../../../../../../assets/images/job.png";
-const PostingSection = () => {
+import projectImage from "../../../../../assets/images/job.png";
+
+const EmptyJob = () => {
   return (
     <div className="shadow-sm p-4 mt-6">
       <div className="flex justify-between items-center">
@@ -33,4 +34,4 @@ const PostingSection = () => {
   );
 };
 
-export default PostingSection;
+export default EmptyJob;

@@ -5,7 +5,7 @@ import photoImg from "../../../../../assets/images/photo.png";
 import videoImg from "../../../../../assets/images/video.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
-import { ProfileEditPage } from "../../Profile";
+// import { ProfileEditPage } from "../../Profile";
 import { Link } from "react-router-dom";
 export const RightSide = () => {
   return (
@@ -18,13 +18,16 @@ export const LeftSide = () => {
   return (
     <div className="left-side">
       <div className="profile p-5 flex flex-col justify-center">
-        <div className="profile-image mb-3 flex justify-center">
+        <Link
+          to={"/profile"}
+          className="profile-image mb-3 flex justify-center"
+        >
           <img
             src={profileImg}
             alt="profile-image"
             className="cursor-pointer w-[100px] rounded-[50px] h-[100px] border-2 border-slate-300 p-0.5"
           />
-        </div>
+        </Link>
         <div className="cursor-pointer text-center border-b-2 border-b-slate-400 w-full pb-3">
           <h1 className="text-xl text-slate-900">kebede Getahun</h1>
           <h1 className="text-md text-slate-500">Fullstack Developer</h1>

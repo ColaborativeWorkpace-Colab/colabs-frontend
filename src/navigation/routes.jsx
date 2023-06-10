@@ -20,6 +20,8 @@ import LandingHomePage from "../pages/landingPage/LandingHomePage";
 import SignupSuccess from "../pages/Auth/components/SignupSuccess";
 import VerificationSuccess from "../pages/Auth/components/AccountVerificationSuccess";
 import ClientJobDetail from "../pages/User/client/components/job/JobDetail";
+import ApplicationList from "../pages/User/client/components/job/ApplicationList";
+import ApplicationDetail from "../pages/User/client/components/job/ApplicationDetail";
 
 export const routes = [
   {
@@ -38,10 +40,7 @@ export const routes = [
     path: "/signup/client",
     element: <ClientSignup />,
   },
-  {
-    path: "/client",
-    element: <ClientHomePage />,
-  },
+
   {
     path: "/signup/freelancer",
     element: <FreelancerSignup />,
@@ -97,8 +96,20 @@ export const routes = [
     element: <VerificationSuccess />,
   },
   {
-    path: "/post-job-detail",
+    path: "/client",
+    element: <ClientHomePage />,
+  },
+  {
+    path: "/posted-job-detail",
     element: <ClientJobDetail />,
+  },
+  {
+    path: "/job-applications",
+    element: <ApplicationList />,
+  },
+  {
+    path: "/job-applications/:job-application-id/:user-id",
+    element: <ApplicationDetail />,
   },
   {
     path: "*",

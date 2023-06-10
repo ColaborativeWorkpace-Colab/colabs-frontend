@@ -12,7 +12,7 @@ const JobList = () => {
             </p>
             <Link
               to="/post-job-detail"
-              className="text-white bg-purple-700 rounded-md px-4 py-2"
+              className="text-white bg-purple-600 rounded-md px-4 py-2"
             >
               View Detail
             </Link>

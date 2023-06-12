@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Activity from "./components/Activity";
 import Banner from "./components/Banner";
@@ -10,6 +10,20 @@ import Faqs from "./components/Faqs";
 import SectionTitle from "./components/SectionTitle";
 
 const LandingHomePage = () => {
+  const type = JSON.parse(localStorage.getItem("user"))?.type;
+  const hasToken = Boolean(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (hasToken) {
+      if (type === "Freelancer") {
+        window.location.href = "/freelancer";
+      }
+      if (type === "Employer") {
+        window.location.href = "/client";
+      }
+    }
+  }, []);
+
   return (
     <>
       <LandingPageHeader selectedNav={1} />

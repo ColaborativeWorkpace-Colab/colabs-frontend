@@ -23,6 +23,9 @@ const ClientSignup = () => {
 
       if (response) {
         notify(response.message, "success");
+        setTimeout(() => {
+          navigate("/signup-success");
+        }, 1000);
       }
     } catch (error) {
       notify(error.data.message, "error");

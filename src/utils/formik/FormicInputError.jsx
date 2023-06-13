@@ -1,7 +1,7 @@
 import { ErrorMessage } from "formik";
 import React from "react";
 
-const FormicError = ({ name, component }) => {
+const FormicInputError = ({ name, component }) => {
   return (
     <ErrorMessage
       name={name}
@@ -11,4 +11,4 @@ const FormicError = ({ name, component }) => {
   );
 };
 
-export default FormicError;
+export default FormicInputError;

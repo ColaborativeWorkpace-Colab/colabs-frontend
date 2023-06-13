@@ -7,9 +7,7 @@ import PostJob from "./pages/User/client/components/job/PostJob";
 export default function App() {
   return (
     <>
-      {/* <Navigation /> */}
-      <PostJob />
-      {/* <FormikForm /> */}
+      <Navigation />
     </>
   );
 }

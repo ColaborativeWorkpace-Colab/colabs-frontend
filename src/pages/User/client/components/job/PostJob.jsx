@@ -5,66 +5,60 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import FormicInput from "../../../../../utils/formik/FormicInput";
 import FormicInputError from "../../../../../utils/formik/FormicInputError";
 import FormikTextArea from "../../../../../utils/formik/FormikTextArea";
-const PostJob = ({
-  inputValidator,
-  initialValues,
-  validationSchema,
-  isSubmitting,
-}) => {
+const PostJob = () => {
   return (
     <div>
-      <ClientHeader />
-      <div className="w-full mt-[90px] md:px-[80px] px-[10px]">
-        <div className="post-header w-full mt-[90px] md:px[80px] py-4 px-[10px] flex flex-col gap-3 shadow-sm border-2 border-gray-50 rounded-md">
-          <div className="w-full rounded-md px-5 py-2 bg-gray-200">
-            <p className="text-xl text-slate-800 font-medium">
-              Add Job Content Here
-            </p>
-          </div>
-          <div className="mt-4">
-            <Formik
-              validationSchema={validationSchema}
-              initialValues={initialValues}
-              validate={inputValidator}
-            >
-              {() => (
-                <Form className="">
-                  <div>
-                    <FormicInput
-                      type="text"
-                      name="title"
-                      placeholder="Enter job title here"
-                    />
-                    <FormicInputError name="title" />
-                  </div>
-                  <div className="mt-4">
-                    <FormicInput
-                      as={"textarea"}
-                      type="text"
-                      name="description"
-                      placeholder="Enter job description here"
-                    />
-                    <FormicInputError name="description" />
-                  </div>
-                  <div className="mt-4">
-                    <Field as="select" name="color">
-                      <option value="red">Hourly</option>
-                      <option value="green">Fixed</option>
-                    </Field>
-                    <FormicInputError name="description" />
-                  </div>
-
-                  <button
-                    className="mt-4 text-white bg-purple-600 hover:bg-purple-700 rounded-md px-4 py-2"
-                    type=""
-                    disabled={isSubmitting}
-                  >
-                    Post
-                  </button>
-                </Form>
-              )}
-            </Formik>
-          </div>
+      <div className="mt-[100px] md:px-[80px] px-[10px]">
+        <ClientHeader selectedNav={2} />
+        <div className="w-full lg:w-1/2  shadow-sm flex justify-center items-center gap-4 bg-gray-50 p-4 mx-auto">
+          <form action="">
+            <div className="flex flex-col gap-y-2">
+              <label htmlFor="cover-lettter" className="text-md text-slate-800">
+                Job Title
+              </label>
+              <input
+                className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
+                placeholder="Enter job title here"
+              />{" "}
+            </div>
+            <div className="flex flex-col gap-y-2 mt-3">
+              <label htmlFor="cover-lettter" className="text-md text-slate-800">
+                Job description
+              </label>
+              <textarea
+                className="rounded-md border-2 border-purple-600 focus:border-purple-600"
+                rows="4"
+                cols="50"
+                placeholder="Write job description here"
+              ></textarea>{" "}
+            </div>
+            {/* estimatedDeadline: {
+      type: String,
+      required: true,
+    },
+    payRate */}
+            <div className="flex flex-col gap-y-2 mt-4">
+              <label htmlFor="cover-lettter" className="text-md text-slate-800">
+                Estimated Deadline
+              </label>
+              <input
+                className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
+                placeholder="Enter time estimate here"
+              />{" "}
+            </div>
+            <div className="flex flex-col gap-y-2 mt-4">
+              <label htmlFor="cover-lettter" className="text-md text-slate-800">
+                Pay rate
+              </label>
+              <input
+                className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
+                placeholder="Enter payrate here"
+              />{" "}
+            </div>
+            <button className="py-2 px-4 bg-purple-700 hover:bg-purple-600 text-white text-md mt-4 rounded-md">
+              submit
+            </button>
+          </form>
         </div>
       </div>
     </div>

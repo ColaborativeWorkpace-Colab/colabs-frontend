@@ -30,7 +30,7 @@ const LoginPage = () => {
         notify("Signin successfully", "success");
         setTimeout(() => {
           navigate(redirectTo);
-        }, 1500);
+        }, 100);
       }
     } catch (error) {
       notify(error.data.message, "error");

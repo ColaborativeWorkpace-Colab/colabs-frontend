@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const VerificationSuccess = () => {
+  const [searchParams] = useSearchParams();
+  const navigateTo = useNavigate();
+
+  useEffect(() => {
+    const token = searchParams.get("token");
+    const type = searchParams.get("type");
+    localStorage.setItem("token", token);
+    localStorage.setItem("type", type);
+
+    setTimeout(() => {
+      if (type === "Freelancer") {
+        navigateTo("/freelancer");
+      } else if (type === "Employer") {
+        navigateTo("/client");
+      }
+    }, 1500);
+  }, []);
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="p-1 rounded shadow-lg bg-gradient-to-r from-purple-500 via-green-500 to-blue-500">

@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "./routes";
 
 const hasToken = Boolean(localStorage.getItem("token"));
-const type = JSON.parse(localStorage.getItem("user"))?.type;
+const type = localStorage.getItem("type");
 
 const handleAuth = (route, key) => {
   const publicRoutes = [
@@ -35,13 +35,8 @@ const handleAuth = (route, key) => {
     }
 
     return <Route key={key} path={route.path} element={route.element} />;
-  } else {
-    if (hasToken) {
-      return <Route key={key} path={route.path} element={route.element} />;
-    }
-
-    return <Route key={key} path={route.path} element={<Navigate to="/" />} />;
   }
+  return <Route key={key} path={route.path} element={route.element} />;
 };
 
 const Navigation = () => {

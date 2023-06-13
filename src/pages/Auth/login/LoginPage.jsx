@@ -26,7 +26,7 @@ const LoginPage = () => {
 
       if (response.token) {
         localStorage.setItem("token", response.token);
-        localStorage.setItem("user", JSON.stringify(response));
+        localStorage.setItem("type", response.type);
         notify("Signin successfully", "success");
         setTimeout(() => {
           navigate(redirectTo);
@@ -47,6 +47,42 @@ const LoginPage = () => {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to Colabs
               </h1>
+              <div>
+                <button
+                  aria-label="Continue with google"
+                  role="button"
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
+                >
+                  <img
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
+                    alt="google"
+                  />
+                  <p className="text-base font-medium ml-4 text-gray-700">
+                    Continue with Google
+                  </p>
+                </button>
+                <button
+                  aria-label="Continue with github"
+                  role="button"
+                  className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
+                >
+                  <img
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg3.svg"
+                    alt="github"
+                  />
+                  <p className="text-base font-medium ml-4 text-gray-700">
+                    Continue with Github
+                  </p>
+                </button>
+
+                <div className="w-full flex items-center justify-between py-5">
+                  <hr className="w-full bg-gray-400" />
+                  <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
+                    OR
+                  </p>
+                  <hr className="w-full bg-gray-400  " />
+                </div>
+              </div>
               <Formik
                 className="space-y-4 md:space-y-6"
                 initialValues={{ email: "", password: "" }}
@@ -57,41 +93,6 @@ const LoginPage = () => {
               >
                 {({ values, errors, touched, handleChange, handleBlur }) => (
                   <Form>
-                    <button
-                      aria-label="Continue with google"
-                      role="button"
-                      className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
-                        alt="google"
-                      />
-                      <p className="text-base font-medium ml-4 text-gray-700">
-                        Continue with Google
-                      </p>
-                    </button>
-                    <button
-                      aria-label="Continue with github"
-                      role="button"
-                      className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg3.svg"
-                        alt="github"
-                      />
-                      <p className="text-base font-medium ml-4 text-gray-700">
-                        Continue with Github
-                      </p>
-                    </button>
-
-                    <div className="w-full flex items-center justify-between py-5">
-                      <hr className="w-full bg-gray-400" />
-                      <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
-                        OR
-                      </p>
-                      <hr className="w-full bg-gray-400  " />
-                    </div>
-
                     <div className="my-3">
                       <label
                         htmlFor="email"

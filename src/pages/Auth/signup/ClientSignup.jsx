@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,6 +7,7 @@ import validationSchema from "./validations";
 import { useSignupUserMutation } from "../../../services/auth/authApi";
 
 const ClientSignup = () => {
+  const navigateTo = useNavigate();
   const notify = (message, type) =>
     toast(message, {
       type,
@@ -23,6 +24,9 @@ const ClientSignup = () => {
 
       if (response) {
         notify(response.message, "success");
+        setTimeout(() => {
+          navigateTo("/signup-success");
+        }, 1000);
       }
     } catch (error) {
       notify(error.data.message, "error");

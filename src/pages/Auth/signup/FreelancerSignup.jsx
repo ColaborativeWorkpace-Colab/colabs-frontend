@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
@@ -9,6 +8,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import validationSchema from "./validations";
 
 const FreelancerSignup = () => {
+  const navigateTo = useNavigate();
   const notify = (message, type) =>
     toast(message, {
       type,
@@ -25,9 +25,11 @@ const FreelancerSignup = () => {
 
       if (response) {
         notify(response.message, "success");
+        navigateTo("/signup-success");
+        // setTimeout(() => {}, 1000);
       }
     } catch (error) {
-      notify(error.data.message, "error");
+      notify("signup failed", "error");
     }
   };
 

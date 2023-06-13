@@ -1,29 +1,34 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { Form, Formik, Field, ErrorMessage } from "formik";
+import validationSchema from "./validations";
+import { useSignupUserMutation } from "../../../services/auth/authApi";
 
 const ClientSignup = () => {
-  const navigate = useNavigate();
-  const notify = () =>
-    toast("Signup successfully", {
-      type: "success",
+  const notify = (message, type) =>
+    toast(message, {
+      type,
     });
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-  });
 
-  const handleSubmit = (user) => {
-    if (user.email && user.password) {
-      notify();
-      setTimeout(() => {
-        navigate("/client");
-      }, 1500);
+  const [signupUser, { isLoading }] = useSignupUserMutation();
+
+  const handleSubmit = async (values) => {
+    try {
+      const response = await signupUser({
+        ...values,
+        userType: "Employer",
+      }).unwrap();
+
+      if (response) {
+        notify(response.message, "success");
+        setTimeout(() => {
+          navigate("/signup-success");
+        }, 1000);
+      }
+    } catch (error) {
+      notify(error.data.message, "error");
     }
   };
 
@@ -82,154 +87,142 @@ const ClientSignup = () => {
                   </p>
                 </button>
               </div>
-              <form
+              <Formik
                 className="space-y-4 md:space-y-6"
-                action="#"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit(user);
+                initialValues={{ email: "", password: "" }}
+                onSubmit={(values, actions) => {
+                  handleSubmit(values);
                 }}
+                validationSchema={validationSchema}
               >
-                <div className="w-full flex items-center justify-between py-5">
-                  <hr className="w-full bg-gray-400" />
-                  <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
-                    OR
-                  </p>
-                  <hr className="w-full bg-gray-400  " />
-                </div>
-                <div className="flex gap-3 justify-between">
-                  <div className="grow">
-                    <label
-                      htmlFor="First Name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      name="First Name"
-                      id="First Name"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="First Name"
-                      required
-                      onChange={(e) =>
-                        setUser({
-                          ...user,
-                          firstName: e.target.value,
-                        })
-                      }
-                      value={user.firstName}
-                    />
-                  </div>
-                  <div className="grow">
-                    <label
-                      htmlFor="Last Name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      name="Last Name"
-                      id="Last Name"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Last Name"
-                      required
-                      onChange={(e) =>
-                        setUser({
-                          ...user,
-                          lastName: e.target.value,
-                        })
-                      }
-                      value={user.lastName}
-                    />
-                  </div>
-                </div>
-                <div className="">
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Your email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="name@gmail.com"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    onChange={(e) =>
-                      setUser({
-                        ...user,
-                        email: e.target.value,
-                      })
-                    }
-                    value={user.email}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    onChange={(e) =>
-                      setUser({
-                        ...user,
-                        password: e.target.value,
-                      })
-                    }
-                    value={user.password}
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="text-purple-600 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-purple-600 dark:ring-offset-gray-800"
+                {({ values, errors, touched, handleChange, handleBlur }) => (
+                  <Form>
+                    <div className="w-full flex items-center justify-between py-5">
+                      <hr className="w-full bg-gray-400" />
+                      <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
+                        OR
+                      </p>
+                      <hr className="w-full bg-gray-400  " />
+                    </div>
+                    <div className="flex gap-3 justify-between my-3">
+                      <div className="grow">
+                        <label
+                          htmlFor="First Name"
+                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          First Name
+                        </label>
+                        <Field
+                          type="text"
+                          placeholder="Enter your first name"
+                          name="firstName"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                        <ErrorMessage
+                          name="firstName"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                      <div className="grow">
+                        <label
+                          htmlFor="Last Name"
+                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Last Name
+                        </label>
+                        <Field
+                          type="text"
+                          placeholder="Enter Last Name"
+                          name="lastName"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                        <ErrorMessage
+                          name="lastName"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="my-3">
+                      <label
+                        htmlFor="email"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Your email
+                      </label>
+                      <Field
+                        type="email"
+                        placeholder="Enter your email"
+                        name="email"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-red-500 text-sm"
                       />
                     </div>
-                    <div className="ml-3 text-sm">
+
+                    <div className="my-3">
                       <label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
+                        htmlFor="password"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Yes, I understand and agree to the Colabs Terms of
-                        Service , including the User Agreement and Privacy
-                        Policy .
+                        Password
                       </label>
+                      <Field
+                        type="password"
+                        placeholder="Enter your password"
+                        name="password"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                      <ErrorMessage
+                        name="password"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
-                  </div>
-                </div>
-                <button
-                  className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-                  type="submit"
-                >
-                  Sign Up
-                </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{" "}
-                  <Link
-                    to={"/login"}
-                    className="font-medium text-purple-600 hover:underline dark:text-purple-700"
-                  >
-                    Log In
-                  </Link>
-                </p>
-              </form>
+                    <div className="flex items-center justify-between my-3">
+                      <div className="flex items-start">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="remember"
+                            aria-describedby="remember"
+                            type="checkbox"
+                            className="text-purple-600 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-purple-600 dark:ring-offset-gray-800"
+                          />
+                        </div>
+                        <div className="ml-3 text-sm">
+                          <label
+                            htmlFor="remember"
+                            className="text-gray-500 dark:text-gray-300"
+                          >
+                            Yes, I understand and agree to the Colabs Terms of
+                            Service , including the User Agreement and Privacy
+                            Policy .
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 my-3"
+                      type="submit"
+                    >
+                      {isLoading ? "Loading..." : "Sign Up"}
+                    </button>
+                    <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Already have an account?{" "}
+                      <Link
+                        to={"/login"}
+                        className="font-medium text-purple-600 hover:underline dark:text-purple-700"
+                      >
+                        Log In
+                      </Link>
+                    </p>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import { Field } from "formik";
-const FormicInput = ({ type, name, placeholder, handleChange, as }) => {
+import React from "react";
+
+const FormikTextArea = () => {
   return (
     <Field
-      as={as}
       type={type}
       name={name}
       placeholder={placeholder}
@@ -13,4 +14,4 @@ const FormicInput = ({ type, name, placeholder, handleChange, as }) => {
   );
 };
 
-export default FormicInput;
+export default FormikTextArea;

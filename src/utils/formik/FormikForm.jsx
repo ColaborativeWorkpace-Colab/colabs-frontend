@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import FormicInput from "./FormicInput";
-import FormicError from "./FormicInputError";
+import FormicInputError from "./FormicInputError";
 
 const FormikForm = ({
   inputValidator,
@@ -24,7 +24,7 @@ const FormikForm = ({
                 name="email"
                 placeholder="Enter email address"
               />
-              <FormicError name="email" />
+              <FormicInputError name="email" />
             </div>
             <div>
               <FormicInput
@@ -32,7 +32,7 @@ const FormikForm = ({
                 name="password"
                 placeholder="Enter your Password"
               />
-              <FormicError name="password" />
+              <FormicInputError name="password" />
             </div>
 
             <button type="submit" disabled={isSubmitting}>

@@ -17,7 +17,7 @@ const ApplicationDetail = () => {
                 className="rounded-full w-[50px] h-[50px]"
               />
               <div className="flex ml-2 flex-col">
-                <p className="text-lg text-slate-800">Kalkidan Getahun</p>
+                <p className="text-xl text-slate-800">Kalkidan Getahun</p>
                 <p className="text-md text-slate-500">Frontend Developer</p>
               </div>
             </div>
@@ -46,19 +46,29 @@ const ApplicationDetail = () => {
               facere commodi quasi ducimus beatae voluptate sunt!
             </p>
           </div>
-          <div className="flex gap-x-5 mt-4">
-            <Link
-              to=""
-              className="text-white bg-purple-600 hover:bg-purple-700 rounded-md px-4 py-2"
-            >
-              Accept
-            </Link>
-            <Link
-              to=""
-              className="text-white bg-red-500 hover:bg-red-600 rounded-md px-4 py-2"
-            >
-              Reject
-            </Link>
+          <div className="flex justify-between items-center mt-4">
+            <div className="flex gap-x-5">
+              <Link
+                to=""
+                className="text-white bg-purple-600 hover:bg-purple-700 rounded-md px-4 py-2"
+              >
+                Accept
+              </Link>
+              <Link
+                to=""
+                className="text-white bg-red-500 hover:bg-red-600 rounded-md px-4 py-2"
+              >
+                Reject
+              </Link>
+            </div>
+            <div className="flex gap-x-5">
+              <Link
+                to="/job-applications"
+                className="text-white bg-gray-500 hover:bg-gray-700 rounded-md px-4 py-2"
+              >
+                Back to Applications
+              </Link>
+            </div>
           </div>
         </div>
       </div>

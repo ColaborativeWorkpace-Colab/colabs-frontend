@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../dashboard/components/Header";
 import ClientHeader from "../../header/ClientHeader";
 import { AiOutlineFolderView } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ClientJobDetail = () => {
   return (
@@ -73,21 +74,27 @@ const ClientJobDetail = () => {
             <div className="w-full grow overflow-auto">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5].map(
                 (application, id) => (
-                  <div className="cursor-pointer flex px-2 items-center border-b-[1px] border-purple-300">
+                  <Link
+                    to={"/job-applications/:job-application-id/:user-id"}
+                    className="cursor-pointer flex px-2 items-center border-b-[1px] border-purple-300"
+                  >
                     <p className="grow text-blue-600 text-lg my-1">
                       Kalkidan Getahun
                     </p>
                     <span className="w-[15px] ">
                       <AiOutlineFolderView color="purple" size={20} />
                     </span>
-                  </div>
+                  </Link>
                 )
               )}
             </div>
             <div className="absolute bottom-[5px] bg-gray-200 w-full flex justify-center py-1">
-              <button className="text-md text-gray-600 rounded-md text-white bg-purple-500 hover:bg-gray-700 px-4 py-2">
+              <Link
+                to={"/job-applications"}
+                className="text-md text-gray-600 rounded-md text-white bg-purple-500 hover:bg-gray-700 px-4 py-2"
+              >
                 View All Applications
-              </button>
+              </Link>
             </div>
           </div>
         </div>

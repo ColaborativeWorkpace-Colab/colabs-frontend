@@ -5,7 +5,7 @@ import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
-import store from "./features/store";
+import { store } from "./features/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

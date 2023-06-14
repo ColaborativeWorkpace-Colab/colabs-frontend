@@ -33,7 +33,7 @@ const LoginPage = () => {
         }, 1500);
       }
     } catch (error) {
-      notify(error.data.message, "error");
+      notify(error?.data?.message || "Signin failed", "error");
     }
   };
 

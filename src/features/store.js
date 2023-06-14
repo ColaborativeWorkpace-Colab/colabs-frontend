@@ -3,7 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { authApi } from "../services/auth/authApi";
 import { useDispatch, useSelector } from "react-redux";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
   },
@@ -11,4 +11,4 @@ const store = configureStore({
     getDefaultMiddleware().concat(authApi.middleware),
 });
 
-export default store;
+setupListeners(store.dispatch);

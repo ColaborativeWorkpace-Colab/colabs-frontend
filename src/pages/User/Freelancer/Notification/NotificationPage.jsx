@@ -101,6 +101,7 @@ const NotificationItem = ({ type, content, avatar, time }) => {
 
   return (
     <> 
+
       <div className='py-8 px-8 w-2/3  my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1'>
       <div className="avatar">
         <img className='block mx-auto w-10 h-auto rounded-full sm:mx-0 sm:shrink-0' src={avatar} alt="Avatar" />
@@ -122,7 +123,7 @@ const NotificationItem = ({ type, content, avatar, time }) => {
      
       
     </div>
-  
+   
     </>
     
   );

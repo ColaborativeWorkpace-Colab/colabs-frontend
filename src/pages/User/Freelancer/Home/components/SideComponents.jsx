@@ -5,11 +5,34 @@ import photoImg from "../../../../../assets/images/photo.png";
 import videoImg from "../../../../../assets/images/video.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
+import pythonImg from "../../../../../assets/images/python.svg.png";
 export const RightSide = () => {
+	let rights = [1,2,3,4,5,6];
 	return (
 		<div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
-			Right Side
+			<h1 className='font-bold text-gray-800 pl-10 pt-6'>Add to Your Feed </h1> 
+
+		{rights.map(right => (
+          <div className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1">
+		  <img className='block mx-auto w-10  h-auto rounded-full sm:mx-0 sm:shrink-0' src={pythonImg} alt="Avatar" />
+		  <div>
+			  <h1 className='font-bold text-gray-800 pl-3'>Python</h1>
+			  <p>Company-Computer Software</p>
+			  <button className="cursor-pointer text-purple-900 font-bold">
+								  <span>+</span> Follow
+							  </button>
+		
+		  </div> 
+		  
+	  
 		</div>
+        ))
+		}
+
+
+		
+	 
+	  </div>
 	);
 };
 export const LeftSide = () => {

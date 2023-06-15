@@ -3,9 +3,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { BaseURL } from "../../../services/constants/Constants";
+import { useNavigate } from "react-router-dom";
+
+// todo refactor to react-query
 
 export default function CompleteProfile() {
   const token = localStorage.getItem("token");
+  const type = localStorage.getItem("type");
   const [banks, setBanks] = useState([]);
   const [selectedImages, setSelectedImage] = useState({
     legalDoc: "",
@@ -15,6 +19,7 @@ export default function CompleteProfile() {
     toast(message, {
       type,
     });
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -71,6 +76,13 @@ export default function CompleteProfile() {
 
       if (resp.data) {
         notify(resp.data.message, "success");
+        setTimeout(() => {
+          if (type === "Freelancer") {
+            navigateTo("/freelancer");
+          } else if (type === "Employer") {
+            navigateTo("/client");
+          }
+        }, 1500);
       }
     } catch (error) {
       notify("Server error", "error");

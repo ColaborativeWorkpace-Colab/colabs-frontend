@@ -23,6 +23,7 @@ import ClientJobDetail from "../pages/User/client/components/job/JobDetail";
 import ApplicationList from "../pages/User/client/components/job/ApplicationList";
 import ApplicationDetail from "../pages/User/client/components/job/ApplicationDetail";
 import PostJob from "../pages/User/client/components/job/PostJob";
+import CompleteProfile from "../pages/Auth/components/CompleteProfile";
 
 export const routes = [
   {
@@ -95,6 +96,10 @@ export const routes = [
   {
     path: "/verification-success",
     element: <VerificationSuccess />,
+  },
+  {
+    path: "/complete-profile",
+    element: <CompleteProfile />,
   },
   {
     path: "/client",

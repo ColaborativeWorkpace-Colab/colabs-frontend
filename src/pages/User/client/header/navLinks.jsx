@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const JobItem = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -76,7 +77,8 @@ export const TalentItem = () => {
 export const Workspace = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   return (
-    <div
+    <Link
+      to={"/client/workspace"}
       onMouseLeave={() => setOpenDropdown(false)}
       // to={value.to}
       onMouseOver={() => setOpenDropdown(true)}
@@ -107,7 +109,7 @@ export const Workspace = () => {
           Dropdown List 3
         </li>
       </ul>
-    </div>
+    </Link>
   );
 };
 export const MessageItem = () => {

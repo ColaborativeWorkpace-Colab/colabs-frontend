@@ -24,6 +24,10 @@ import ApplicationList from "../pages/User/client/components/job/ApplicationList
 import ApplicationDetail from "../pages/User/client/components/job/ApplicationDetail";
 import PostJob from "../pages/User/client/components/job/PostJob";
 import CompleteProfile from "../pages/Auth/components/CompleteProfile";
+import ProjectSection from "../pages/User/client/components/workspace/project/ProjectSection";
+import TeamSection from "../pages/User/client/components/workspace/team/TeamSection";
+import ProgressSection from "../pages/User/client/components/workspace/progress/ProgressSection";
+import DashboardSection from "../pages/User/client/components/workspace/dashboard/DashboardSection";
 
 export const routes = [
   {
@@ -120,6 +124,22 @@ export const routes = [
   {
     path: "/job-applications/:job-application-id/:user-id",
     element: <ApplicationDetail />,
+  },
+  {
+    path: "/client/workspace/projects",
+    element: <ProjectSection />,
+  },
+  {
+    path: "/client/workspace/teams",
+    element: <TeamSection />,
+  },
+  {
+    path: "/client/workspace/progress",
+    element: <ProgressSection />,
+  },
+  {
+    path: "/client/workspace",
+    element: <DashboardSection />,
   },
   {
     path: "*",

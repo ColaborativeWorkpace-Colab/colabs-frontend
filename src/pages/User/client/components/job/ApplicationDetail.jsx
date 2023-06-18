@@ -9,8 +9,7 @@ import { BaseURL } from "../../../../../services/constants/Constants";
 import { ToastContainer, toast } from "react-toastify";
 
 const ApplicationDetail = () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+  const token = localStorage.getItem("token");
   const { applicationId } = useParams();
   const [application, setApplication] = useState({});
   const notify = (message, type) =>

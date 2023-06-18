@@ -7,8 +7,7 @@ import axios from "axios";
 import { BaseURL } from "../../../../../services/constants/Constants";
 
 const ClientJobDetail = () => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+  const token = localStorage.getItem("token");
   const { jobId } = useParams();
   const [job, setJob] = useState({});
   const [applications, setApplications] = useState([]);

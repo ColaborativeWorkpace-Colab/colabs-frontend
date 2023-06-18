@@ -13,8 +13,7 @@ const PostJob = () => {
     toast(message, {
       type,
     });
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+  const token = localStorage.getItem("token");
   const skills = ["React", "Node", "Express", "MongoDB", "Firebase", "AWS"];
   const handleSubmit = async (values) => {
     try {
@@ -31,7 +30,9 @@ const PostJob = () => {
         }, 1500);
       }
     } catch (error) {
-      console.log(error);
+      const errorMessage =
+        error?.response?.data?.message || "Server Error Please wait";
+      notify(errorMessage, "error");
     }
   };
   return (

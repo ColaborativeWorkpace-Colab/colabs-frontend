@@ -11,8 +11,7 @@ import moment from "moment";
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+    const token = localStorage.getItem("token");
     const getJobs = async () => {
       try {
         const resp = await axios.get(BaseURL + "jobs", {

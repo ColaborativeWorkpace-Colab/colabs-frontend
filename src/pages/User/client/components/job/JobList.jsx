@@ -1,29 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../../services/constants/Constants";
+import moment from "moment";
 
 const JobList = () => {
+  const [jobs, setJobs] = useState([]);
+  useEffect(() => {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+    const getJobs = async () => {
+      try {
+        const resp = await axios.get(BaseURL + "jobs", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (resp.status === 200) {
+          setJobs(resp.data.jobs);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getJobs();
+  }, []);
+
   return (
     <div className="w-full flex flex-col gap-3 shadow-sm border-2 border-gray-50 rounded-md">
-      {[1, 2, 3, 4].map((job, id) => (
+      {jobs.map((job, id) => (
         <div className="flex flex-col justify-between px-4 py-2 border-2 border-gray-100 rounded-md">
           <div className="flex items-center justify-between">
             <p className="text-md md:text-xl">
-              Create Figma Design For Web Application
+              {job.title.length > 20
+                ? job.title.slice(0, 20) + "..."
+                : job.title}
             </p>
             <Link
-              to="/posted-job-detail"
+              to={"/client/jobs/" + job._id}
               className="text-white bg-purple-600 rounded-md px-4 py-2"
             >
               View Detail
             </Link>
           </div>
           <div className="flex gap-4">
-            <p className="text-gray-400 text-sm">7 hour ago</p>
-            <p className="text-gray-400 text-sm cursor-pointer">50 Proposals</p>
+            <p className="text-gray-400 text-sm">
+              {moment(new Date(job?.updatedAt).toISOString()).fromNow()}
+            </p>
+            <p className="text-gray-400 text-sm cursor-pointer">
+              {job?.pendingworkers?.length}
+            </p>
           </div>
         </div>
       ))}

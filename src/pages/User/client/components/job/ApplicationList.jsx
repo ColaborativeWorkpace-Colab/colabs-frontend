@@ -1,31 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ClientHeader from "../../header/ClientHeader";
 import { AiOutlineFolderView } from "react-icons/ai";
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../../services/constants/Constants";
 
 const ApplicationList = () => {
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGI4NGRiNGNhYWZlYmRhZjdjMjZiNyIsImlhdCI6MTY4NzAzNDIzNSwiZXhwIjoxNjg5NjI2MjM1fQ.umVJ4cBCTKcWWbEojkSmNiavm5NyRpgzz71FtYifXt0";
+  const { jobId } = useParams();
+  const [applications, setApplications] = useState([]);
+
+  useEffect(() => {
+    const jobDetail = async () => {
+      try {
+        const applications = await axios.get(
+          BaseURL + "jobs/applications/list/" + jobId,
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+
+        setApplications(applications.data.applications);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    jobDetail();
+  }, []);
   return (
     <div>
       <ClientHeader />
       <div className="mt-[100px] md:px-[80px] px-[10px]">
         <div className="shadow-sm flex flex-col gap-4 bg-gray-50 p-4">
           <div className="flex items-center gap-2 bg-gray-200 p-2 rounded-md">
-            <p className="text-purple-600">Proposals(10)</p>
+            <p className="text-purple-600">Proposals({applications.length})</p>
             <span className="text-md md:text-xl">-</span>
             <p className="text-md md:text-xl">
               Create Figma Design For Web Application
             </p>
           </div>
-          {[1, 2, 3, 4, 3].map((application, id) => (
+          {applications.map((application, id) => (
             <div className="border-b-[2px] border-gray-200 pb-1 flex items-center justify-between">
-              <p className="text-md text-slate-800">Kalkidan Getahun</p>
+              <p className="text-md text-slate-800">
+                {application.workerId.firstName +
+                  " " +
+                  application.workerId.lastName}
+              </p>
               <div className="flex gap-2">
                 <Link
-                  to={"/job-applications/:job-application-id/:user-id"}
+                  to={`/job-applications/${jobId}/${application._id}`}
                   className="bg-purple-600 hover:bg-purple-700 rounded-md px-3 py-2 text-white text-md text-slate-800"
                 >
                   View

@@ -110,7 +110,7 @@ export const routes = [
     element: <ClientHomePage />,
   },
   {
-    path: "/posted-job-detail",
+    path: "/client/jobs/:jobId",
     element: <ClientJobDetail />,
   },
   {
@@ -118,11 +118,11 @@ export const routes = [
     element: <PostJob />,
   },
   {
-    path: "/job-applications",
+    path: "/job/applications/list/:jobId",
     element: <ApplicationList />,
   },
   {
-    path: "/job-applications/:job-application-id/:user-id",
+    path: "/job-applications/:jobId/:applicationId",
     element: <ApplicationDetail />,
   },
   {

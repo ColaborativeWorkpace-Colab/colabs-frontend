@@ -36,6 +36,15 @@ const LoginPage = () => {
     }
   };
 
+  const handlGoogleLogin = () => {
+    window.location.href =
+      "https://colabs-backend.vercel.app/api/v1/users/google?type=Freelancer";
+  };
+
+  const handlGithubLogin = () => {
+    window.location.href =
+      "https://colabs-backend.vercel.app/api/v1/users/github?type=Freelancer";
+  };
   return (
     <>
       <AuthHeader />
@@ -47,9 +56,14 @@ const LoginPage = () => {
                 Sign in to Colabs
               </h1>
               <div>
+                {" "}
                 <button
                   aria-label="Continue with google"
                   role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGoogleLogin();
+                  }}
                   className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
                 >
                   <img
@@ -63,6 +77,10 @@ const LoginPage = () => {
                 <button
                   aria-label="Continue with github"
                   role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGithubLogin();
+                  }}
                   className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
                 >
                   <img
@@ -73,14 +91,6 @@ const LoginPage = () => {
                     Continue with Github
                   </p>
                 </button>
-
-                <div className="w-full flex items-center justify-between py-5">
-                  <hr className="w-full bg-gray-400" />
-                  <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
-                    OR
-                  </p>
-                  <hr className="w-full bg-gray-400  " />
-                </div>
               </div>
               <Formik
                 className="space-y-4 md:space-y-6"

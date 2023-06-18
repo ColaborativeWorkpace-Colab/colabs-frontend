@@ -35,12 +35,12 @@ const FreelancerSignup = () => {
 
   const handlGoogleLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/google?type=Employer";
+      "https://colabs-backend.vercel.app/api/v1/users/google?type=Freelancer";
   };
 
   const handlGithubLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/github?type=Employer";
+      "https://colabs-backend.vercel.app/api/v1/users/github?type=Freelancer";
   };
   return (
     <>
@@ -56,6 +56,43 @@ const FreelancerSignup = () => {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign up to find work you love
               </h1>
+              <div>
+                {" "}
+                <button
+                  aria-label="Continue with google"
+                  role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGoogleLogin();
+                  }}
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
+                >
+                  <img
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
+                    alt="google"
+                  />
+                  <p className="text-base font-medium ml-4 text-gray-700">
+                    Continue with Google
+                  </p>
+                </button>
+                <button
+                  aria-label="Continue with github"
+                  role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGithubLogin();
+                  }}
+                  className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
+                >
+                  <img
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg3.svg"
+                    alt="github"
+                  />
+                  <p className="text-base font-medium ml-4 text-gray-700">
+                    Continue with Github
+                  </p>
+                </button>
+              </div>
               <Formik
                 className="space-y-4 md:space-y-6"
                 initialValues={{ email: "", password: "" }}
@@ -66,35 +103,6 @@ const FreelancerSignup = () => {
               >
                 {({ values, errors, touched, handleChange, handleBlur }) => (
                   <Form>
-                    <button
-                      aria-label="Continue with google"
-                      role="button"
-                      onClick={handlGoogleLogin}
-                      className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
-                        alt="google"
-                      />
-                      <p className="text-base font-medium ml-4 text-gray-700">
-                        Continue with Google
-                      </p>
-                    </button>
-                    <button
-                      aria-label="Continue with github"
-                      role="button"
-                      onClick={handlGithubLogin}
-                      className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
-                    >
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg3.svg"
-                        alt="github"
-                      />
-                      <p className="text-base font-medium ml-4 text-gray-700">
-                        Continue with Github
-                      </p>
-                    </button>
-
                     <div className="w-full flex items-center justify-between py-5">
                       <hr className="w-full bg-gray-400" />
                       <p className="text-base font-medium leading-4 px-2.5 text-gray-400">

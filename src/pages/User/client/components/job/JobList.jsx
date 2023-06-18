@@ -14,7 +14,7 @@ const JobList = () => {
     const token = localStorage.getItem("token");
     const getJobs = async () => {
       try {
-        const resp = await axios.get(BaseURL + "jobs", {
+        const resp = await axios.get(BaseURL + "jobs/self", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

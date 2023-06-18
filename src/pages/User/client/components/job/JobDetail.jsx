@@ -43,13 +43,13 @@ const ClientJobDetail = () => {
             <div className="w-3/4 flex flex-col">
               <p className="text-xl">
                 {" "}
-                {job?.title?.length > 20
-                  ? job?.title?.slice(0, 20) + "..."
+                {job?.title?.length > 100
+                  ? job?.title?.slice(0, 60) + "..."
                   : job?.title}
               </p>
               <p className="text-md py-2 text-gray-600">
-                {job?.description?.length > 100
-                  ? job?.description?.slice(0, 100) + "..."
+                {job?.description?.length > 300
+                  ? job?.description?.slice(0, 300) + "..."
                   : job?.description}
               </p>
               <p className="text-xl py-2">Skills</p>

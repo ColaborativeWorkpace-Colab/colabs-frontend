@@ -36,8 +36,8 @@ const JobList = () => {
         <div className="flex flex-col justify-between px-4 py-2 border-2 border-gray-100 rounded-md">
           <div className="flex items-center justify-between">
             <p className="text-md md:text-xl">
-              {job.title.length > 20
-                ? job.title.slice(0, 20) + "..."
+              {job.title.length > 100
+                ? job.title.slice(0, 60) + "..."
                 : job.title}
             </p>
             <Link

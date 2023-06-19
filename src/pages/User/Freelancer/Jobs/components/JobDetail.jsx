@@ -8,7 +8,7 @@ const JobDetail = () => {
     <div>
       <FreelancerHeader selectedNav={2} />
       <div className="mt-[100px] md:px-[80px] px-[10px]">
-        <div className="shadow-sm flex gap-4 bg-gray-50 p-4">
+        <div className="shadow-md flex gap-4 p-4">
           <div className="w-3/4 flex flex-col">
             <p className="text-xl"> Create Figma Design For Web Application</p>
             <p className="text-md py-2 text-gray-600">
@@ -60,12 +60,12 @@ const JobDetail = () => {
             <p className="text-xl text-slate-800">Activity on this job</p>
             <span className="w-full h-[2px] my-2 bg-white"></span>
             <div className="w-full grow overflow-auto">
-              <p className="text-slate-800 text-sm">proposals: 50+</p>
+              <p className="text-slate-800 text-sm">Applications: 50+</p>
             </div>
             <div className="absolute bottom-[5px] bg-gray-200 w-full flex justify-center py-1">
               <Link
-                to={"/job-applications"}
-                className="text-md text-gray-600 rounded-md text-white bg-purple-500 hover:bg-gray-700 px-4 py-2"
+                to={"/jobs/job-id/apply"}
+                className="text-md text-gray-600 rounded-md text-white bg-purple-500 hover:bg-purple-600 px-4 py-2"
               >
                 Apply Now
               </Link>

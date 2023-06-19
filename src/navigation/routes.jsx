@@ -28,6 +28,8 @@ import ProjectSection from "../pages/User/client/components/workspace/project/Pr
 import TeamSection from "../pages/User/client/components/workspace/team/TeamSection";
 import ProgressSection from "../pages/User/client/components/workspace/progress/ProgressSection";
 import DashboardSection from "../pages/User/client/components/workspace/dashboard/DashboardSection";
+import JobDetail from "../pages/User/Freelancer/Jobs/components/JobDetail";
+import ApplyPage from "../pages/User/Freelancer/Jobs/components/ApplyPage";
 
 export const routes = [
   {
@@ -66,6 +68,14 @@ export const routes = [
   {
     path: "/jobs",
     element: <JobPage />,
+  },
+  {
+    path: "/jobs/:job-id",
+    element: <JobDetail />,
+  },
+  {
+    path: "/jobs/:job-id/apply",
+    element: <ApplyPage />,
   },
   {
     path: "/profile",

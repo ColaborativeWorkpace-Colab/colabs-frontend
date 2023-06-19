@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { BaseURL } from "../../../services/constants/Constants";
 import { useNavigate } from "react-router-dom";
+import AuthHeader from "../AuthHeader";
 
 // todo refactor to react-query
 
@@ -91,8 +92,13 @@ export default function CompleteProfile() {
 
   return (
     <div className="flex justify-center items-center my-5">
-      <div className="">
-        <h3>Complete your info</h3>
+      <AuthHeader />
+      <div className="mt-[80px]">
+        <div className="w-full bg-purple-600 rounded-md py-3 text-center">
+          <h3 className="text-xl text-white font-semibold">
+            Complete your profile
+          </h3>
+        </div>
         <Formik
           className="space-y-4 md:space-y-6"
           initialValues={{
@@ -138,7 +144,7 @@ export default function CompleteProfile() {
             setFieldValue,
           }) => (
             <Form>
-              <div className="my-3">
+              <div className="my-5">
                 <label
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -147,7 +153,11 @@ export default function CompleteProfile() {
                 </label>
 
                 <div className="flex">
-                  <Field as="select" name="bankName">
+                  <Field
+                    as="select"
+                    name="bankName"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-2"
+                  >
                     {banks.length > 0 &&
                       banks?.map((bank, index) => (
                         <option key={index}>{bank.name}</option>

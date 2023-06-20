@@ -20,12 +20,14 @@ const LoginPage = () => {
       const response = await loginUser({
         ...values,
       }).unwrap();
+
       const redirectTo =
         response.data.type === "Freelancer" ? "/freelancer" : "/client";
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("type", response.data.type);
+        localStorage.setItem("user", JSON.stringify(response.data));
         notify("Signin successfully", "success");
         setTimeout(() => {
           navigate(redirectTo);

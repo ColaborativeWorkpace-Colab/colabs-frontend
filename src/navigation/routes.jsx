@@ -70,11 +70,11 @@ export const routes = [
     element: <JobPage />,
   },
   {
-    path: "/jobs/:job-id",
+    path: "/jobs/:jobId",
     element: <JobDetail />,
   },
   {
-    path: "/jobs/:job-id/apply",
+    path: "/jobs/apply/:jobId",
     element: <ApplyPage />,
   },
   {

@@ -10,6 +10,24 @@ const VerificationSuccess = () => {
     const type = searchParams.get("type");
     localStorage.setItem("token", token);
     localStorage.setItem("type", type);
+
+    const getUserProfile = async () => {
+      try {
+        const resp = await axios.get(BaseURL + "users/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (resp.status === 200) {
+          localStorage.setItem("user", JSON.stringify(resp.data));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserProfile();
   }, []);
 
   const skipCompleteProfile = () => {

@@ -12,6 +12,7 @@ import repostImg from "../../../../../assets/images/repost.png";
 import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
+import AddPostMOdal from "./AddPostModal";
 // import { ProfileEditPage } from "../../Profile";
 
 const MainComponent = () => {
@@ -39,45 +40,66 @@ const MainComponent = () => {
               className="cursor-pointer w-[60px] rounded-[30px] h-[60px] border-2 border-slate-300 p-0.5"
             />
           </div>
-          <input
-            className="hover:bg-gray-300 cursor-pointer grow rounded-[40px] border-2 border-slate-400 px-[20px] h-[50px]"
-            placeholder="Start a post"
-            disabled
+          <AddPostMOdal
+            buttonText={
+              <input
+                className="hover:bg-gray-300 cursor-pointer w-[450px] grow rounded-[40px] border-2 border-slate-400 px-[20px] h-[50px]"
+                placeholder="Start a post"
+                disabled
+              />
+            }
           />
         </div>
         <div className="flex justify-between items-center gap-4 p-2">
-          <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-            <img
-              src={photoImg}
-              alt="profile-image"
-              className="cursor-pointer w-[20px] h-[20px]"
-            />
-            <p className="text-md text-slate-800">Photos</p>
-          </div>
-          <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-            <img
-              src={videoImg}
-              alt="profile-image"
-              className="cursor-pointer w-[20px] h-[20px]"
-            />
-            <p className="text-md text-slate-800">video</p>
-          </div>
-          <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-            <img
-              src={audioImg}
-              alt="profile-image"
-              className="cursor-pointer w-[20px] h-[20px]"
-            />
-            <p className="text-md text-slate-800">audio</p>
-          </div>
-          <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-            <img
-              src={contentImg}
-              alt="profile-image"
-              className="cursor-pointer w-[20px] h-[20px]"
-            />
-            <p className="text-md text-slate-800">create content</p>
-          </div>
+          <AddPostMOdal
+            buttonText={
+              <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+                <img
+                  src={photoImg}
+                  alt="profile-image"
+                  className="cursor-pointer w-[20px] h-[20px]"
+                />
+                <p className="text-md text-slate-800">Photos</p>
+              </div>
+            }
+          />
+
+          <AddPostMOdal
+            buttonText={
+              <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+                <img
+                  src={videoImg}
+                  alt="profile-image"
+                  className="cursor-pointer w-[20px] h-[20px]"
+                />
+                <p className="text-md text-slate-800">video</p>
+              </div>
+            }
+          />
+          <AddPostMOdal
+            buttonText={
+              <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+                <img
+                  src={audioImg}
+                  alt="profile-image"
+                  className="cursor-pointer w-[20px] h-[20px]"
+                />
+                <p className="text-md text-slate-800">audio</p>
+              </div>
+            }
+          />
+          <AddPostMOdal
+            buttonText={
+              <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+                <img
+                  src={contentImg}
+                  alt="profile-image"
+                  className="cursor-pointer w-[20px] h-[20px]"
+                />
+                <p className="text-md text-slate-800">create content</p>
+              </div>
+            }
+          />
         </div>
       </div>
       <div className="my-3 flex gap-2 justify-between items-center gap-3">
@@ -106,7 +128,7 @@ const MainComponent = () => {
           </div>
 
           <div className="mt-3 mb-2">
-            <p className="text-slate-800">
+            <p className="text-sm text-slate-800">
               Anxiety is a normal reaction to stress and can be beneficial in
               some situations. It can alert us to dangers and help us prepare
               and pay attention. Anxiety disorders differ from normal feelings

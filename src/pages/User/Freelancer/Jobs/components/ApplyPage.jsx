@@ -19,16 +19,6 @@ const ApplyPage = () => {
                 placeholder="Write cover letter here"
               ></textarea>{" "}
             </div>
-            <div className="flex flex-col gap-y-2 mt-4">
-              <label htmlFor="cover-lettter" className="text-md text-slate-800">
-                Attachments
-              </label>
-              <input
-                className="bg-gray-200 rounded-md"
-                type="file"
-                placeholder="Write cover letter here"
-              />{" "}
-            </div>
             <button className="py-2 px-4 bg-purple-700 hover:bg-purple-600 text-white text-md mt-4 rounded-md">
               submit peoposal
             </button>

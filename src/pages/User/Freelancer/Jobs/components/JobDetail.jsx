@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineFolderView } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import FreelancerHeader from "../../Header/Header";
+import TakeRequiredSvtPopup from "./TakeRequiredSvtPopup";
+import Button from "@mui/material/Button";
 
 const JobDetail = () => {
   return (
-    <div>
+    <div className="relative w-full">
       <FreelancerHeader selectedNav={2} />
       <div className="mt-[100px] md:px-[80px] px-[10px]">
         <div className="shadow-md flex gap-4 p-4">
@@ -63,12 +65,7 @@ const JobDetail = () => {
               <p className="text-slate-800 text-sm">Applications: 50+</p>
             </div>
             <div className="absolute bottom-[5px] bg-gray-200 w-full flex justify-center py-1">
-              <Link
-                to={"/jobs/job-id/apply"}
-                className="text-md text-gray-600 rounded-md text-white bg-purple-500 hover:bg-purple-600 px-4 py-2"
-              >
-                Apply Now
-              </Link>
+              <TakeRequiredSvtPopup />
             </div>
           </div>
         </div>

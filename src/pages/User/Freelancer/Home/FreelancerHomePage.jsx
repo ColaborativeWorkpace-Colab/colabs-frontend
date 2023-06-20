@@ -1,6 +1,6 @@
 import React from "react";
 import FreelancerHeader from "../Header/Header";
-import { LeftSide, PostContent, RightSide } from "./components/SideComponents";
+import { LeftSide, RightSide } from "./components/SideComponents";
 import MainComponent from "./components/MainComponent";
 
 const FreelancerHomePage = () => {

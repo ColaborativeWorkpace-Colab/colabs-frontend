@@ -5,9 +5,38 @@ import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
 import { AiFillCaretDown } from "react-icons/ai";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import { FaCog } from "react-icons/fa";
+import { Typography, IconButton } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import profileImg from "../../../../assets/images/profile.jpg";
+import Chip from "@mui/material/Chip";
+import LogoutIcon from "@mui/icons-material/Logout";
+
+const useStyles = makeStyles({
+  typography: {
+    cursor: "pointer",
+  },
+});
 
 function FreelancerHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [extended, setExtended] = useState(false);
+  const handleClick = () => {
+    setExtended(!extended);
+  };
+
+  const classes = useStyles();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   const ref = useRef();
   return (
     <div>
@@ -76,17 +105,86 @@ function FreelancerHeader({ selectedNav }) {
                     <a className={value.className}>{value.name}</a>
                   </Link>
                 ))}
+
                 <div className="flex flex-col items-center">
                   <span>
                     <img className="h-[20px] w-[20px]" src={user} alt="icon" />
                   </span>
-                  <div className="flex gap-x-2">
+                  <div className="flex gap-x-2" onClick={handleClick}>
                     <a className="text-sm text-gray-800 cursor-pointer">
                       Profile
                     </a>
-                    <span className="cursor-pointer">
-                      <AiFillCaretDown size={20} color="purple" />
-                    </span>
+                    <div className="cursor-pointer" onClick={handleClick}>
+                      {extended ? (
+                        <Box
+                          className="absolute z-10 right-5 top-[40px]"
+                          sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            "& > :not(style)": {
+                              m: 2,
+                              width: 300,
+                              height: 325,
+                            },
+                          }}
+                        >
+                          <Paper elevation={2} sx={{ paddingTop: 2 }}>
+                            <div className="profile-image mb-3 flex justify-center">
+                              <img
+                                src={profileImg}
+                                alt="mekdes"
+                                className="w-[90px] rounded-[50px] h-[90px] border-2 border-slate-300 p-0.5"
+                              />
+                            </div>
+                            <div className="headerpara">
+                              <h1>Mekdes Tibebu</h1>
+                              <p>Freelancer</p>
+                            </div>
+
+                            <div className="chip">
+                              <Chip
+                                label="Invisible"
+                                color="primary"
+                                variant="outlined"
+                                sx={{ paddingLeft: 10 }}
+                              >
+                                <Chip label="Online" color="secondary" />
+                              </Chip>
+                            </div>
+
+                            <div className="prosetlog">
+                              <IconButton>
+                                <FaCog />
+                              </IconButton>
+                              <Typography
+                                variant="caption"
+                                style={{ fontSize: "1rem" }}
+                                className={classes.typography}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                              >
+                                <Link to="/profilesetting">Setting</Link>
+                              </Typography>
+                              <br />
+                              <IconButton>
+                                <LogoutIcon />
+                              </IconButton>
+                              <Typography
+                                variant="caption"
+                                style={{ fontSize: "1rem" }}
+                                className={classes.typography}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                              >
+                                Logout
+                              </Typography>
+                            </div>
+                          </Paper>
+                        </Box>
+                      ) : (
+                        <AiFillCaretDown size={20} color="purple" />
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

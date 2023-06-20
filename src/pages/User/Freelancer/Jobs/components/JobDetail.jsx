@@ -4,6 +4,7 @@ import FreelancerHeader from "../../Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BaseURL } from "../../../../../services/constants/Constants";
+import TakeRequiredSvtPopup from "./TakeRequiredSvtPopup";
 
 const JobDetail = () => {
   const [job, setJob] = useState({});
@@ -25,7 +26,7 @@ const JobDetail = () => {
   }, []);
 
   return (
-    <div>
+    <div className="relative w-full">
       <FreelancerHeader selectedNav={2} />
       {job && (
         <div className="mt-[100px] md:px-[80px] px-[10px]">
@@ -83,6 +84,11 @@ const JobDetail = () => {
                   </Link>
                 )}
               </div>
+              {job?.requiredSkills && (
+                <div className="absolute bottom-[5px] bg-gray-200 w-full flex justify-center py-1">
+                  <TakeRequiredSvtPopup />
+                </div>
+              )}
             </div>
           </div>
         </div>

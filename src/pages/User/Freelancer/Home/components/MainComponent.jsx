@@ -8,12 +8,9 @@ import samplepostimage from "../../../../../assets/images/samplepostimage.jpeg";
 import likeImg from "../../../../../assets/images/like.png";
 import videoImg from "../../../../../assets/images/video.png";
 import commentImg from "../../../../../assets/images/comment.png";
-import repostImg from "../../../../../assets/images/repost.png";
-import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
 import AddPostMOdal from "./AddPostModal";
-// import { ProfileEditPage } from "../../Profile";
 
 const MainComponent = () => {
   const [post, setPost] = useState([]);
@@ -106,8 +103,8 @@ const MainComponent = () => {
         <div className="grow bg-slate-400 h-[2px]"></div>
         <div>Sort by: recent</div>
       </div>
-      {
-        <div className="p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
+      {[1, 2, 3, 4].map((post, id) => (
+        <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
           <div className="poster-profile flex items-center gap-2">
             <img
               src={daniImg}
@@ -148,7 +145,7 @@ const MainComponent = () => {
                 alt="profile-image"
                 className="cursor-pointer w-[20px] h-[20px]"
               />
-              <p className="text-md text-slate-800">Like</p>
+              <p className="text-md text-slate-800">kal and 21 others</p>
             </div>
             <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
               <img
@@ -158,7 +155,7 @@ const MainComponent = () => {
               />
               <p className="text-md text-slate-800">Comment</p>
             </div>
-            <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+            {/* <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
               <img
                 src={repostImg}
                 alt="profile-image"
@@ -173,10 +170,10 @@ const MainComponent = () => {
                 className="cursor-pointer w-[20px] h-[20px]"
               />
               <p className="text-md text-slate-800">Send</p>
-            </div>
+            </div> */}
           </div>
         </div>
-      }
+      ))}
     </div>
   );
 };

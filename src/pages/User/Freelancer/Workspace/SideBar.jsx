@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const FreelancerWorkspaceSideBar = ({ selectedItem, selectedProduct }) => {
   return (
-    <div className="hidden w-1/4 shrink-0 md:flex flex-col border border-xsm h-screen">
-      <aside className="hidden sm:block min-h-screen">
+    <div className="hidden h-[400px] w-1/4 shrink-0 md:flex flex-col border border-xsm">
+      <aside className="hidden sm:block">
         <div className="px-3 py-4 overflow-y-auto dark:bg-gray-800">
           <ul className="flex flex-col space-y-2 font-medium">
             <Link to={"/workspace"}>

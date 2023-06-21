@@ -26,7 +26,7 @@ const ClientJobDetail = () => {
         );
 
         setJob(job.data.job);
-        setApplications(applications.data.applications);
+        setApplications(applications.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -86,7 +86,7 @@ const ClientJobDetail = () => {
                   Budget: <span>{job?.earnings} ETB</span>
                 </p>
                 <p className="text-md text-gray-600 cursor-pointer">
-                  Proposals: <span>{applications.length}+</span>
+                  Proposals: <span>{applications?.length}+</span>
                 </p>
               </div>
               <div className="mt-4 flex gap-4 border-t-2 border-gray-100 py-2">
@@ -100,20 +100,20 @@ const ClientJobDetail = () => {
             </div>
             <div className="relative w-1/4 h-[400px] flex flex-col items-center bg-gray-200 p-4 rounded-lg border-2 border-white">
               <p className="text-xl text-slate-800">
-                Applicants({applications.length})
+                Applicants({applications?.length})
               </p>
               <span className="w-full h-[2px] my-2 bg-white"></span>
               <div className="w-full grow overflow-auto">
-                {applications.length > 0 &&
-                  applications.map((application, id) => (
+                {applications?.length > 0 &&
+                  applications?.map((application, id) => (
                     <Link
                       to={`/job-applications/${jobId}/${application._id}`}
                       className="cursor-pointer flex px-2 items-center border-b-[1px] border-purple-300"
                     >
                       <p className="grow text-blue-600 text-lg my-1">
-                        {application.workerId.firstName +
+                        {application?.worker?.firstName +
                           " " +
-                          application.workerId.lastName}
+                          application?.worker?.lastName}
                       </p>
                       <span className="w-[15px] ">
                         <AiOutlineFolderView color="purple" size={20} />

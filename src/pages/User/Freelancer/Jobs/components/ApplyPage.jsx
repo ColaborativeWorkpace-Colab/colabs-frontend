@@ -19,17 +19,18 @@ const ApplyPage = () => {
   const [job, setJob] = useState({});
   const url = "jobs/detail/" + jobId;
 
-  useEffect(() => {
-    const getJobDetail = async () => {
-      try {
-        const resp = await axios.get(BaseURL + url);
-        if (resp.status === 200) {
-          setJob(resp.data.job);
-        }
-      } catch (error) {
-        console.log(error);
+  const getJobDetail = async () => {
+    try {
+      const resp = await axios.get(BaseURL + url);
+      if (resp.status === 200) {
+        setJob(resp.data.job);
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     getJobDetail();
   }, []);
 
@@ -48,7 +49,7 @@ const ApplyPage = () => {
       );
 
       if (resp.status === 200) {
-        notify("Job posted successfully", "success");
+        notify("Job applied successfully", "success");
         getJobDetail();
       }
     } catch (error) {

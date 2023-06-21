@@ -15,7 +15,7 @@ const JobPage = () => {
       const resp = await axios.get(BaseURL + "jobs");
 
       if (resp.status === 200) {
-        setJobs(resp.data.jobs);
+        setJobs(resp.data.data);
       }
     } catch (error) {
       console.log(error);

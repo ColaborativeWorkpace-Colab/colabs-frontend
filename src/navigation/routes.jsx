@@ -8,9 +8,9 @@ import ForgotPassword from "../pages/Auth/password/ForgotPassword";
 import ResetPassword from "../pages/Auth/password/ResetPassword";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 import FreelancerSignup from "../pages/Auth/signup/FreelancerSignup";
-import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
+// import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
 import ProfilePage from "../pages/User/Freelancer/Profile/ProfilePage";
-import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
+// import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
 import NotificationPage from "../pages/User/Freelancer/Notification/NotificationPage";
 import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
@@ -30,6 +30,12 @@ import ProgressSection from "../pages/User/client/components/workspace/progress/
 import DashboardSection from "../pages/User/client/components/workspace/dashboard/DashboardSection";
 import JobDetail from "../pages/User/Freelancer/Jobs/components/JobDetail";
 import ApplyPage from "../pages/User/Freelancer/Jobs/components/ApplyPage";
+import FreelancerWorkspaceDashboardSection from "../pages/User/Freelancer/Workspace/components/dashboard/FreelancerWorkspaceDashboardSection";
+import FreelancerWorkspaceProjectSection from "../pages/User/Freelancer/Workspace/components/project/FreelancerWorkspaceProjectSection";
+import FreelancerWorkspaceProgressSection from "../pages/User/Freelancer/Workspace/components/progress/FreelancerWorkspaceProgressSection";
+import FreelancerWorkspaceTeamSection from "../pages/User/Freelancer/Workspace/components/team/FreelancerWorkspaceTeamSection";
+import Editor from "../pages/User/Freelancer/Workspace/components/codeeditor/Editor";
+import FreelancerWorkspaceProjectDetail from "../pages/User/Freelancer/Workspace/components/projectdetail/FreelancerWorkspaceProjectDetail";
 
 export const routes = [
   {
@@ -91,18 +97,12 @@ export const routes = [
     path: "/notification",
     element: <NotificationPage />,
   },
-  {
-    path: "/workspace",
-    element: <WorkspacePage />,
-  },
+
   // {
   //   path: "/profile",
   //   element: <ProfilePage />,
   // },
-  {
-    path: "/projectdashborad",
-    element: <WorkspaceDashboard />,
-  },
+
   {
     path: "/signup-success",
     element: <SignupSuccess />,
@@ -151,6 +151,27 @@ export const routes = [
     path: "/client/workspace",
     element: <DashboardSection />,
   },
+  {
+    path: "/workspace",
+    element: <FreelancerWorkspaceDashboardSection />,
+  },
+  {
+    path: "/workspace/projects",
+    element: <FreelancerWorkspaceProjectSection />,
+  },
+  {
+    path: "/workspace/progress",
+    element: <FreelancerWorkspaceProgressSection />,
+  },
+  {
+    path: "/workspace/teams",
+    element: <FreelancerWorkspaceTeamSection />,
+  },
+  {
+    path: "/workspace/:project-id",
+    element: <FreelancerWorkspaceProjectDetail />,
+  },
+
   {
     path: "*",
     element: <NotFoundPage />,

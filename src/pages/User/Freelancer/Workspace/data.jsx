@@ -1,13 +1,13 @@
-import { AiFillProject } from "react-icons/ai";
-import { BsMicrosoftTeams } from "react-icons/bs";
-import { RxDashboard } from "react-icons/rx";
-import { SiProgress } from "react-icons/si";
+import { MdOutlineWorkHistory } from "react-icons/md";
+import { RiDraftFill } from "react-icons/ri";
+import { BsSignpost2Fill } from "react-icons/bs";
+import { AiOutlineProject } from "react-icons/ai";
 
-export const dashboardNav = [
+export const clientDashboardNav = [
   {
     id: 1,
-    title: "Dashboard",
-    icon: <RxDashboard color="purple" size={25} />,
+    title: "Post Job",
+    icon: <BsSignpost2Fill color="purple" size={25} />,
     to: "",
     titleClassName: "text-lg font-semibold leading-5 text-slate-800",
     containerClassName:
@@ -15,8 +15,8 @@ export const dashboardNav = [
   },
   {
     id: 2,
-    title: "Projects",
-    icon: <AiFillProject color="purple" size={25} />,
+    title: "Your Posting",
+    icon: <MdOutlineWorkHistory color="purple" size={25} />,
     to: "",
     titleClassName: "text-lg font-semibold leading-5 text-slate-800",
     containerClassName:
@@ -24,8 +24,8 @@ export const dashboardNav = [
   },
   {
     id: 3,
-    title: "Progress",
-    icon: <SiProgress color="purple" size={25} />,
+    title: "Project Catalog",
+    icon: <AiOutlineProject color="purple" size={25} />,
     to: "",
     titleClassName: "text-lg font-semibold leading-5 text-slate-800",
     containerClassName:
@@ -33,8 +33,8 @@ export const dashboardNav = [
   },
   {
     id: 4,
-    title: "Teams",
-    icon: <BsMicrosoftTeams color="purple" size={25} />,
+    title: "Draft",
+    icon: <RiDraftFill color="purple" size={25} />,
     to: "",
     titleClassName: "text-lg font-semibold leading-5 text-slate-800",
     containerClassName:

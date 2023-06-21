@@ -28,6 +28,7 @@
     "moment": "^2.29.4",
     "phosphor-react": "^1.4.1",
     "react": "^17.0.0 || ^18.0.0",
+    "react-ace": "^10.1.0",
     "react-avatar": "^5.0.3",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^17.0.0 || ^18.0.0",

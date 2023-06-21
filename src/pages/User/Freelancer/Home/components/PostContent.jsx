@@ -13,6 +13,8 @@ import sendImg from "../../../../../assets/images/send.png";
 import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
 import AddPostModal from "./AddPostModal";
+import FollowButton from './FollowButton';
+
 
 const PostContent = () => {
 	const [post, setPost] = useState([]);
@@ -109,9 +111,8 @@ const PostContent = () => {
 									Always Problem and Anxiety Developer
 								</p>
 							</div>
-							<button className="cursor-pointer text-purple-900 font-bold">
-								<span>+</span> Follow
-							</button>
+							<FollowButton />
+							
 						</div>
 					</div>
 

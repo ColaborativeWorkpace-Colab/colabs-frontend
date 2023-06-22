@@ -123,7 +123,8 @@ export default function CompleteProfile() {
             handleSubmitRequest({
               legalInfo: {
                 bank: {
-                  bankCode: banks.find((bank) => bank.name === values.bankName),
+                  bankCode: banks.find((bank) => bank.name === values.bankName)
+                    .id,
                   accountNumber: values.accountNumber,
                   accountName: values.accountName,
                   businessName: values.businessName,

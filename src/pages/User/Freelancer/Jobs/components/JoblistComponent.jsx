@@ -32,7 +32,7 @@ function JoblistComponent({ jobs = [] }) {
                     <span className="mr-2 text-md text-slate-500">posted:</span>
 
                     <p className="text-sm text-slate-500">
-                      {moment(new Date(job?.updatedAt).toISOString()).fromNow()}
+                      {moment(new Date(job?.createdAt).toISOString()).fromNow()}
                     </p>
                   </div>
                 </Link>

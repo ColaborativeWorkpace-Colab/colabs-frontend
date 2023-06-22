@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../services/constants/Constants";
 
 const VerificationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -20,7 +22,7 @@ const VerificationSuccess = () => {
         });
 
         if (resp.status === 200) {
-          localStorage.setItem("user", JSON.stringify(resp.data));
+          localStorage.setItem("user", JSON.stringify(resp.data.user));
         }
       } catch (error) {
         console.log(error);

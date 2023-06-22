@@ -25,8 +25,7 @@ const ApplicationList = () => {
             },
           }
         );
-
-        setApplications(applications.data.applications);
+        setApplications(applications.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -40,18 +39,18 @@ const ApplicationList = () => {
       <div className="mt-[100px] md:px-[80px] px-[10px]">
         <div className="shadow-sm flex flex-col gap-4 bg-gray-50 p-4">
           <div className="flex items-center gap-2 bg-gray-200 p-2 rounded-md">
-            <p className="text-purple-600">Proposals({applications.length})</p>
+            <p className="text-purple-600">Proposals({applications?.length})</p>
             <span className="text-md md:text-xl">-</span>
             <p className="text-md md:text-xl">
               Create Figma Design For Web Application
             </p>
           </div>
-          {applications.map((application, id) => (
+          {applications?.map((application, id) => (
             <div className="border-b-[2px] border-gray-200 pb-1 flex items-center justify-between">
               <p className="text-md text-slate-800">
-                {application.workerId.firstName +
+                {application?.worker?.firstName +
                   " " +
-                  application.workerId.lastName}
+                  application?.worker?.lastName}
               </p>
               <div className="flex gap-2">
                 <Link

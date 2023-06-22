@@ -15,7 +15,7 @@ const MessagingPage = () => {
   console.log(theme);
 
   console.log(theme);
-
+  const onlineUsers = ['a', 'b', 'c', 'd'];
   return (
     <>
       <FreelancerHeader selectedNav={3} />
@@ -29,7 +29,7 @@ const MessagingPage = () => {
             sx={{
               backgroundColor: theme.palette.background.paper,
               boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.15)",
-              width: 1000,
+              width: 1400,
               height: "82vh",
               borderRadius: "14px",
             }}
@@ -43,6 +43,28 @@ const MessagingPage = () => {
 
                 <ChatBody />
               </Grid>
+
+              <div className="h-screen p-4 right flex flex-col w-1/4 relative ">
+                {onlineUsers.map((value, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className="w-full h-16 bg-white rounded-lg my-[1px] flex"
+                    >
+                      <div>
+                        <div className="rounded-full w-12 h-12 bg-black mt-2 mx-6"></div>
+                        <div className="rounded-full w-3 h-3 bg-green-500 mt-2 mx-6 relative left-8 bottom-5"></div>
+                      </div>
+
+                      <div className="overflow-hidden">
+                        <h1 className="text-md mt-2">User Name</h1>
+
+                        <p className="text-[10px]">Last Seen Recently</p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </Box>
           {/* <div>

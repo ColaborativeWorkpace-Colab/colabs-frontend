@@ -2,13 +2,16 @@ import React from "react";
 import "./style.css";
 import profileImg from "../../../../../assets/images/profile.jpg";
 import { Link } from "react-router-dom";
+
 export const RightSide = () => {
+  
   return (
     <div className="h-screen p-4 right-side flex flex-col w-1/4 bg-slate-100">
       Right Side
     </div>
   );
 };
+
 export const LeftSide = () => {
   const skills = [
     {

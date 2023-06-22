@@ -52,7 +52,9 @@ export const TalentItem = () => {
       }
     >
       <div className="z-99 flex gap-x-2 justify-center items-center">
-        <a className={""}>Talent</a>
+        <Link to="/client/find-freelancer" className={""}>
+          Talent
+        </Link>
         <span>
           <BsChevronDown size={12} color="purple" />
         </span>
@@ -63,11 +65,11 @@ export const TalentItem = () => {
         }`}
       >
         <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Discover
+          <Link to="/client/find-freelancer">Discover</Link>
         </li>
 
         <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Your Hires
+          <Link to="/client/my-hire">Your Hires</Link>
         </li>
       </ul>
     </div>
@@ -88,26 +90,8 @@ export const Workspace = () => {
       }
     >
       <div className="z-99 flex gap-x-2 justify-center items-center">
-        <a className={""}>Workspace</a>
-        <span>
-          <BsChevronDown size={12} color="purple" />
-        </span>
+        Workspace
       </div>
-      <ul
-        className={`bg-white absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
-          openDropdown ? "block" : "hidden"
-        }`}
-      >
-        <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Dropdown List 1
-        </li>
-        <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Dropdown List 2
-        </li>
-        <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Dropdown List 3
-        </li>
-      </ul>
     </Link>
   );
 };

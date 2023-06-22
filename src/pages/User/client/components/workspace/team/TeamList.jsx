@@ -1,6 +1,6 @@
 import { AiFillEdit } from "react-icons/ai";
-import { MdEdit, MdPreview } from "react-icons/md";
 import TeamNameList from "./TeamNameList";
+import { Link } from "react-router-dom";
 
 const TeamList = () => {
   return (
@@ -15,13 +15,9 @@ const TeamList = () => {
               Project Length
             </th>
             <th scope="col" className="px-2 py-3">
-              Project Lead
+              Project Members
             </th>
 
-            <th scope="col" className="px-2 py-3">
-              Teams
-            </th>
-            <th scope="col" className="px-2 py-3"></th>
             <th scope="col" className="px-2 py-3"></th>
           </tr>
         </thead>
@@ -33,29 +29,18 @@ const TeamList = () => {
             >
               <td className="border border-gray-300 py-2 px-2">COLABS</td>
               <td className="border border-gray-300 py-2 px-2">6 months</td>
-              <td className="border border-gray-300 py-2 px-2">
-                Getahun@gmail.com
-              </td>
 
               <td className="border border-gray-300 py-2 px-2">
                 <TeamNameList />
               </td>
 
               <td className="border border-gray-300 py-2 px-2">
-                <button className="flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white">
-                  <MdPreview size={20} color="white" />
-                  {/* <span className="ml-1">
-									<MdEdit />
-								</span> */}
-                </button>
-              </td>
-              <td className="border border-gray-300 py-2 px-2">
-                <button className="flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white">
+                <Link
+                  to="/client/workspace/teams/:project-id"
+                  className="w-[50px] flex justify-center items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
+                >
                   <AiFillEdit size={20} color="white" />
-                  {/* <span className="ml-1">
-									<MdEdit />
-								</span> */}
-                </button>
+                </Link>
               </td>
             </tr>
           ))}

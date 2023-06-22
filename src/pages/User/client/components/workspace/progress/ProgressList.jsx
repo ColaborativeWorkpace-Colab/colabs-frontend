@@ -1,4 +1,5 @@
 import { MdEdit, MdPreview } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ProgressList = () => {
   return (
@@ -18,9 +19,7 @@ const ProgressList = () => {
             <th scope="col" className="px-2 py-3">
               Started Date
             </th>
-            <th scope="col" className="px-2 py-3">
-              END DATE
-            </th>
+
             <th scope="col" className="px-2 py-3">
               Progress
             </th>
@@ -36,10 +35,9 @@ const ProgressList = () => {
               <td className="py-2 px-2">6 months</td>
               <td className="py-2 px-2">Getahun@gmail.com</td>
               <td className="py-2 px-2">12/11/89</td>
-              <td className="py-2 px-2">22//11/99</td>
 
               <td className="py-2 px-2">
-                <div className="mb-1 text-base font-medium text-red-700 dark:text-red-500">
+                {/* <div className="mb-1 text-base font-medium text-red-700 dark:text-red-500">
                   45%
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
@@ -47,7 +45,10 @@ const ProgressList = () => {
                     className="bg-red-600 h-2.5 rounded-full dark:bg-red-500"
                     style={{ width: "45%" }}
                   ></div>
-                </div>
+                </div> */}
+                <button className="bg-purple-500 hover:bg-purple-700 px-2 py-1 rounded-md text-white">
+                  Mark as completed
+                </button>
               </td>
             </tr>
           ))}

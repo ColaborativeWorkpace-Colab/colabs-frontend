@@ -13,15 +13,11 @@ const ProjectList = () => {
             <th scope="col" className="px-2 py-3">
               Project Length
             </th>
-            <th scope="col" className="px-2 py-3">
-              Project Lead
-            </th>
+
             <th scope="col" className="px-2 py-3">
               Started Date
             </th>
-            <th scope="col" className="px-2 py-3">
-              END DATE
-            </th>
+
             <th scope="col" className="px-2 py-3">
               PROJECT STATUS
             </th>
@@ -36,9 +32,7 @@ const ProjectList = () => {
             >
               <td className="py-2 px-2">COLABS</td>
               <td className="py-2 px-2">6 months</td>
-              <td className="py-2 px-2">Getahun@gmail.com</td>
               <td className="py-2 px-2">12/11/89</td>
-              <td className="py-2 px-2">22//11/99</td>
               <td className="py-2 px-2">ongoing</td>
 
               <td className="py-2 px-2">

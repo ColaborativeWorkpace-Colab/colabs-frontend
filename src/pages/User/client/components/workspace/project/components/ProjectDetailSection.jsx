@@ -15,15 +15,11 @@ const ProjectDetailSection = () => {
               <th scope="col" className="px-2 py-3">
                 Project Length
               </th>
-              <th scope="col" className="px-2 py-3">
-                Project Lead
-              </th>
+
               <th scope="col" className="px-2 py-3">
                 Started Date
               </th>
-              <th scope="col" className="px-2 py-3">
-                END DATE
-              </th>
+
               <th scope="col" className="px-2 py-3">
                 PROJECT STATUS
               </th>
@@ -33,18 +29,13 @@ const ProjectDetailSection = () => {
               <th scope="col" className="px-2 py-3">
                 Edit
               </th>
-              <th scope="col" className="px-2 py-3">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-gray-200 dark:border-gray-700 py">
               <td className="py-2 px-2">COLABS</td>
               <td className="py-2 px-2">6 months</td>
-              <td className="py-2 px-2">Getahun@gmail.com</td>
               <td className="py-2 px-2">12/11/89</td>
-              <td className="py-2 px-2">22//11/99</td>
               <td className="py-2 px-2">ongoing</td>
               <td className="py-2 px-2">
                 {" "}
@@ -64,14 +55,6 @@ const ProjectDetailSection = () => {
                   onClick={""}
                 />
               </td>
-              <td className="py-2 px-2">
-                <Link
-                  to={""}
-                  className="bg-purple-500 hover:bg-purple-700 px-2 py-1 rounded-md text-white"
-                >
-                  Mark as completed
-                </Link>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -82,6 +65,9 @@ const ProjectDetailSection = () => {
             <tr>
               <th scope="col" className="px-2 py-3">
                 Team Member
+              </th>
+              <th scope="col" className="px-2 py-3">
+                Budget
               </th>
               <th scope="col" className="px-2 py-3">
                 Payment Request Status
@@ -102,6 +88,7 @@ const ProjectDetailSection = () => {
                 className="border-b border-gray-200 dark:border-gray-700 py"
               >
                 <td className="py-2 px-2">Kalkidan@gmail.com</td>
+                <td className="py-2 px-2">5000 ETB</td>
                 <td className="py-2 px-2">
                   <Link
                     to={""}
@@ -110,6 +97,7 @@ const ProjectDetailSection = () => {
                     Not Requested
                   </Link>
                 </td>
+
                 <td className="py-2 px-2">
                   <Link
                     to={""}
@@ -118,12 +106,13 @@ const ProjectDetailSection = () => {
                     Release Payment
                   </Link>
                 </td>
+
                 <td className="py-2 px-2">
                   <Link
                     to={""}
                     className="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-md text-white"
                   >
-                    Remove
+                    Remove From Project
                   </Link>
                 </td>
               </tr>

@@ -9,7 +9,7 @@ const DashboardSection = () => {
   return (
     <div className="h-full">
       <ClientHeader />
-      <div className="relative top-[120px] flex gap-3 px-[10px] md:px-[80px]">
+      <div className="relative top-[100px] flex gap-3 px-[10px] md:px-[80px]">
         <SideBar selectedItem={0} />
         <div className="w-full mb-[200px]">
           <div className="">

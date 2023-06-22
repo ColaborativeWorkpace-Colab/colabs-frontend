@@ -29,14 +29,7 @@ const MainComponent = () => {
   return (
     <div className="main-content w-1/2">
       <div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
-        <div className="flex items-center gap-4 px-5 py-2">
-          <div className="profile-image flex items-center align-center">
-            <img
-              src={profileImg}
-              alt="profile-image"
-              className="cursor-pointer w-[60px] rounded-[30px] h-[60px] border-2 border-slate-300 p-0.5"
-            />
-          </div>
+        <div className="flex justify-center items-center gap-4 px-5 py-2">
           <AddPostMOdal
             buttonText={
               <input

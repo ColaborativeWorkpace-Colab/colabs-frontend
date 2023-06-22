@@ -1,13 +1,9 @@
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { useState } from "react";
-import MobileSidebar from "../../../MobileSidebar";
-import ProjectList from "./TeamList";
 import SideBar from "../../../SideBar";
 import ClientHeader from "../../../header/ClientHeader";
-import { Link } from "react-router-dom";
-import TeamList from "./TeamList";
-
-const TeamSection = () => {
+import EditTeamForm from "./components/EditTeamForm";
+const UpdateTeamSection = () => {
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
   return (
     <div className="h-full">
@@ -15,9 +11,7 @@ const TeamSection = () => {
       <div className="relative top-[100px] flex gap-3 px-[10px] md:px-[80px]">
         <SideBar selectedItem={3} />
         <div className="w-full mb-[200px]">
-          <div className="overflow-x-scroll scrolling-touch">
-            <TeamList />
-          </div>
+          <EditTeamForm />
         </div>
 
         <button
@@ -32,4 +26,4 @@ const TeamSection = () => {
   );
 };
 
-export default TeamSection;
+export default UpdateTeamSection;

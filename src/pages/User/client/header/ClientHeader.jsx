@@ -11,11 +11,11 @@ function ClientHeader({ selectedNav }) {
   const ref = useRef();
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-white z-20">
+      <nav className="fixed top-0 left-0 w-full bg-white z-20  md:px-[50px] ">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between md:justify-around h-16">
+          <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link to="/">
+              <Link to="/client">
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}
@@ -34,35 +34,6 @@ function ClientHeader({ selectedNav }) {
             </div>
 
             <div className=""></div>
-            <form className="hidden lg:block">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pr-2">
-                  <span className="cursor-pointer">
-                    <svg
-                      aria-hidden="true"
-                      className="ml-3 w-6 h-6 text-gray-500 dark:text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      ></path>
-                    </svg>
-                  </span>
-                </div>
-                <input
-                  type="search"
-                  id="default-search"
-                  className="block sm:hidden lg:block  lg:w-[230px] xl:w-[300px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-                  placeholder="Projects, Freelancer ..."
-                />
-              </div>
-            </form>
             <div className="flex gap-x-6">
               <span className="cursor-pointer">
                 <MdNotifications color="purple" size={25} />

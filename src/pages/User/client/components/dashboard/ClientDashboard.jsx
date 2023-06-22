@@ -1,26 +1,35 @@
 import React from "react";
 import Header from "./components/Header";
-import DraftSection from "./components/DraftSection";
-import PostingSection from "./components/PostingSection";
-import EmptyJob from "../job/EmptyJob";
-import FormikForm from "../../../../../utils/formik/FormikForm";
-import { userInputValidator } from "../../../../../utils/constants/validation/inputValidation";
-import { signinSchema } from "../../../../../utils/constants/schema/schema";
 import JobList from "../job/JobList";
+import { useState } from "react";
+import { useEffect } from "react";
+import EmptyJob from "../job/EmptyJob";
 
 const ClientDashboard = () => {
+  const [jobs, setJobs] = useState([]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const getJobs = async () => {
+      try {
+        const resp = await axios.get(BaseURL + "jobs/self", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (resp.status === 200) {
+          setJobs(resp.data.jobs);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getJobs();
+  }, []);
   return (
     <div className="w-full">
       <Header />
-      <div className="mt-3">
-        <JobList />
-        {/* <EmptyJob /> */}
-        {/* <FormikForm
-          initialValues={{ email: "", password: "" }}
-          // inputValidator={userInputValidator}
-          validationSchema={signinSchema}
-        /> */}
-      </div>
+      <div className="mt-3">{jobs.length > 0 ? <JobList /> : <EmptyJob />}</div>
     </div>
   );
 };

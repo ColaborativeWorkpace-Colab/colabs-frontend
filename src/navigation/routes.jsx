@@ -38,6 +38,10 @@ import Editor from "../pages/User/Freelancer/Workspace/components/codeeditor/Edi
 import FreelancerWorkspaceProjectDetail from "../pages/User/Freelancer/Workspace/components/projectdetail/FreelancerWorkspaceProjectDetail";
 import AddProject from "../pages/User/client/components/workspace/project/AddProject";
 import ProjectDetail from "../pages/User/client/components/workspace/project/ProjectDetail";
+import EditTeamForm from "../pages/User/client/components/workspace/team/components/EditTeamForm";
+import UpdateTeamSection from "../pages/User/client/components/workspace/team/UpdateTeamSection";
+import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
+import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 
 export const routes = [
   {
@@ -142,8 +146,20 @@ export const routes = [
     element: <ProjectSection />,
   },
   {
+    path: "/client/find-freelancer",
+    element: <DiscoverFreelancer />,
+  },
+  {
+    path: "/client/my-hire",
+    element: <MyHireRecord />,
+  },
+  {
     path: "/client/workspace/teams",
     element: <TeamSection />,
+  },
+  {
+    path: "/client/workspace/teams/:project-id",
+    element: <UpdateTeamSection />,
   },
   {
     path: "/client/workspace/create-project",

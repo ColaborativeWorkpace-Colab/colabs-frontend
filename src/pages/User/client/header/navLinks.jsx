@@ -16,24 +16,23 @@ export const JobItem = () => {
       }
     >
       <div className="z-99 flex gap-x-2 justify-center items-center">
-        <a className={""}>Jobs</a>
+        <Link to={"/client"} className={""}>
+          Jobs
+        </Link>
         <span>
           <BsChevronDown size={12} color="purple" />
         </span>
       </div>
       <ul
-        className={`bg-white absolute w-40 py-2 mt-[160px] rounded-lg shadow-xl ${
+        className={`bg-white absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
           openDropdown ? "block" : "hidden"
         }`}
       >
         <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          Post a Job
+          <Link to={"/post-job"}> Post a Job</Link>
         </li>
         <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          All Job Posts
-        </li>
-        <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-          All Contracts
+          <Link to={"/client"}>All Job Posts</Link>
         </li>
       </ul>
     </div>

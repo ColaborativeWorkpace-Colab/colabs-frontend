@@ -35,12 +35,12 @@ const ClientSignup = () => {
 
   const handlGoogleLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/google?type=Employer";
+      "http://localhost:5000/api/v1/users/google?type=Freelancer";
   };
 
   const handlGithubLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/github?type=Employer";
+      "http://localhost:5000/api/v1/users/github?type=Freelancer";
   };
 
   return (

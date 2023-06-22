@@ -40,12 +40,12 @@ const LoginPage = () => {
 
   const handlGoogleLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/google?type=Freelancer";
+      "http://localhost:5000/api/v1/users/google?type=Freelancer";
   };
 
   const handlGithubLogin = () => {
     window.location.href =
-      "https://colabs-backend.vercel.app/api/v1/users/github?type=Freelancer";
+      "http://localhost:5000/api/v1/users/github?type=Freelancer";
   };
   return (
     <>

@@ -82,6 +82,7 @@ const AddProjectForm = () => {
                 Project Member
               </label>
               <Field
+                as="textarea"
                 type="text"
                 placeholder="eg. kal@gmail.com, dan@gmail.com"
                 name="member"

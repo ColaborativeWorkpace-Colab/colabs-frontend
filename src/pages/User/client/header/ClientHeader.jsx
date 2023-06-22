@@ -5,9 +5,13 @@ import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
 import { MdNotifications } from "react-icons/md";
+import { BsChevronDown } from "react-icons/bs";
+import { AiOutlineLogout } from "react-icons/ai";
 
 function ClientHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+
   const ref = useRef();
   return (
     <div>
@@ -23,7 +27,7 @@ function ClientHeader({ selectedNav }) {
                 />
               </Link>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-center space-x-4">
                   {navLinks.map((value, key) => (
                     <div key={key}>
                       <div>{value.item}</div>
@@ -33,14 +37,42 @@ function ClientHeader({ selectedNav }) {
               </div>
             </div>
 
-            <div className=""></div>
             <div className="flex gap-x-6">
-              <span className="cursor-pointer">
-                <MdNotifications color="purple" size={25} />
-              </span>
-              <span className="cursor-pointer">
-                <img className="h-[25px] w-[25px]" src={user} alt="icon" />
-              </span>
+              <div
+                onMouseLeave={() => setOpenDropdown(false)}
+                onMouseOver={() => setOpenDropdown(true)}
+                onClick={() => {}}
+                className={
+                  "relative cursor-pointer flex flex-col gap-y-2 justify-center items-center p-2 hover:text-gray-800"
+                }
+              >
+                <div className="z-99 flex gap-x-2 justify-center items-center">
+                  <Link to="" className={""}>
+                    <img
+                      className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                      src={user}
+                      alt="icon"
+                    />
+                  </Link>
+                  <span>
+                    <BsChevronDown size={12} color="purple" />
+                  </span>
+                </div>
+                <ul
+                  className={`bg-white absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
+                    openDropdown ? "block" : "hidden"
+                  }`}
+                >
+                  <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
+                    <Link to="">My Profile</Link>
+                  </li>
+
+                  <li className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100">
+                    <Link to="">Logout</Link>
+                    <AiOutlineLogout />
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="mr-2 flex md:hidden">

@@ -5,8 +5,9 @@ import ProjectList from "./components/ProjectList";
 import SideBar from "../../../SideBar";
 import ClientHeader from "../../../header/ClientHeader";
 import { Link } from "react-router-dom";
+import AddProjectForm from "./components/AddProjectForm";
 
-const ProjectSection = () => {
+const AddProject = () => {
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
   return (
     <div className="h-full">
@@ -14,17 +15,7 @@ const ProjectSection = () => {
       <div className="relative top-[120px] flex gap-3 px-[10px] md:px-[80px]">
         <SideBar selectedItem={1} />
         <div className="w-full mb-[200px]">
-          <div className="mb-4">
-            <Link
-              to={"/client/workspace/create-project"}
-              className="w-[170px] flex items-center rounded-md py-1 px-3 bg-purple-600  hover:bg-purple-700 text-white"
-            >
-              <span>create new project</span>
-            </Link>
-          </div>
-          <div className="overflow-x-scroll scrolling-touch">
-            <ProjectList />
-          </div>
+          <AddProjectForm />
         </div>
 
         <button
@@ -39,4 +30,4 @@ const ProjectSection = () => {
   );
 };
 
-export default ProjectSection;
+export default AddProject;

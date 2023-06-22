@@ -36,6 +36,8 @@ import FreelancerWorkspaceProgressSection from "../pages/User/Freelancer/Workspa
 import FreelancerWorkspaceTeamSection from "../pages/User/Freelancer/Workspace/components/team/FreelancerWorkspaceTeamSection";
 import Editor from "../pages/User/Freelancer/Workspace/components/codeeditor/Editor";
 import FreelancerWorkspaceProjectDetail from "../pages/User/Freelancer/Workspace/components/projectdetail/FreelancerWorkspaceProjectDetail";
+import AddProject from "../pages/User/client/components/workspace/project/AddProject";
+import ProjectDetail from "../pages/User/client/components/workspace/project/ProjectDetail";
 
 export const routes = [
   {
@@ -142,6 +144,14 @@ export const routes = [
   {
     path: "/client/workspace/teams",
     element: <TeamSection />,
+  },
+  {
+    path: "/client/workspace/create-project",
+    element: <AddProject />,
+  },
+  {
+    path: "/client/workspace/projects/:project-id",
+    element: <ProjectDetail />,
   },
   {
     path: "/client/workspace/progress",

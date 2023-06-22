@@ -1,4 +1,5 @@
 import { MdEdit, MdPreview } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ProjectList = () => {
   return (
@@ -21,6 +22,9 @@ const ProjectList = () => {
             <th scope="col" className="px-2 py-3">
               END DATE
             </th>
+            <th scope="col" className="px-2 py-3">
+              PROJECT STATUS
+            </th>
             <th scope="col" className="px-2 py-3"></th>
           </tr>
         </thead>
@@ -35,14 +39,15 @@ const ProjectList = () => {
               <td className="py-2 px-2">Getahun@gmail.com</td>
               <td className="py-2 px-2">12/11/89</td>
               <td className="py-2 px-2">22//11/99</td>
+              <td className="py-2 px-2">ongoing</td>
 
               <td className="py-2 px-2">
-                <button className="flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white">
+                <Link
+                  to={"/client/workspace/projects/:project-id"}
+                  className="flex justify-center items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
+                >
                   <MdPreview size={20} color="white" />
-                  {/* <span className="ml-1">
-									<MdEdit />
-								</span> */}
-                </button>
+                </Link>
               </td>
             </tr>
           ))}

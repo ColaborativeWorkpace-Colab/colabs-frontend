@@ -39,7 +39,10 @@ const PostJob = () => {
     <div>
       <div className="mt-[100px] md:px-[80px] px-[10px]">
         <ClientHeader selectedNav={2} />
-        <div className="w-full lg:w-1/2  shadow-sm flex justify-center items-center gap-4 bg-gray-50 p-4 mx-auto">
+        <div className="w-full lg:w-1/2  shadow-sm flex flex-col justify-center items-center gap-4 bg-gray-50 p-4 mx-auto">
+          <div className="mb-4 rounded-md text-2xl w-full bg-gray-200 p-4 text-center">
+            Add Your Job Detail Here
+          </div>
           <Formik
             className="space-y-4 md:space-y-6"
             initialValues={{

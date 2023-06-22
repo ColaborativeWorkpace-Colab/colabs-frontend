@@ -45,38 +45,7 @@ const AddProjectForm = () => {
                 className="text-red-500 text-sm"
               />
             </div>
-            <div className="my-2 flex flex-col gap-y-2">
-              <label htmlFor="cover-lettter" className="text-md text-slate-800">
-                Project Length
-              </label>
-              <Field
-                type="text"
-                placeholder="eg. 6 month"
-                name="title"
-                className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
-              />
-              <ErrorMessage
-                name="title"
-                component="div"
-                className="text-red-500 text-sm"
-              />
-            </div>
-            <div className="my-2 flex flex-col gap-y-2">
-              <label htmlFor="cover-lettter" className="text-md text-slate-800">
-                Project Lead
-              </label>
-              <Field
-                type="text"
-                placeholder="eg. kalkidan@gmail.com"
-                name="lead"
-                className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
-              />
-              <ErrorMessage
-                name="lead"
-                component="div"
-                className="text-red-500 text-sm"
-              />
-            </div>
+
             <div className="my-2 flex flex-col gap-y-2">
               <label htmlFor="cover-lettter" className="text-md text-slate-800">
                 Project Member

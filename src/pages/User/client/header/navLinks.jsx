@@ -168,9 +168,9 @@ export const NotificationItem = () => {
       <div className="z-99 flex gap-x-2 justify-center items-center">
         <button
           type="button"
-          className="relative inline-flex items-center p-1 text-sm font-medium text-center text-white bg-purple-600 rounded-lg"
+          className="relative inline-flex items-center p-1 text-sm font-medium text-center rounded-lg"
         >
-          <MdNotifications color="white" size={25} />
+          <MdNotifications className="text-purple-600" size={25} />
 
           <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
             20

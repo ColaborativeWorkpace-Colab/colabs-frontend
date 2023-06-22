@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../../assets/images/logo.png";
-import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../../assets/images/profile.jpg";
 import { MdNotifications } from "react-icons/md";
@@ -15,7 +14,7 @@ function FreelancerWorkspaceHeader({ selectedNav }) {
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link to="/">
+              <Link to="/freelancer">
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}

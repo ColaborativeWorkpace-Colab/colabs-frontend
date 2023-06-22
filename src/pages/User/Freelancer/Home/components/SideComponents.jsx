@@ -37,7 +37,7 @@ export const LeftSide = () => {
     },
   ];
   return (
-    <div className="left-side h-screen">
+    <div className="left-side h-full">
       <div className="profile p-5 flex flex-col justify-center">
         <Link
           to={"/profile"}
@@ -66,7 +66,7 @@ export const LeftSide = () => {
           </p>
           <div className="w-full flex flex-wrap  shrink gap-3">
             {skills.map((skill, id) => (
-              <button className="bg-purple-600 px-2 py-2 rounded-lg text-white text-sm">
+              <button className="border-2 border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
                 {skill.skill}
               </button>
             ))}

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import axios from "axios";
 import { BaseURL } from "../../../../services/constants/Constants";
+import EmptyJobList from "./components/EmptyJobList";
 
 const JobPage = () => {
   const [jobs, setJobs] = useState([]);
@@ -31,8 +32,8 @@ const JobPage = () => {
   return (
     <div className="">
       <FreelancerHeader selectedNav={2} />
-      <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8">
-        <JoblistComponent jobs={jobs} />
+      <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8 w-full">
+        {jobs.length > 0 ? <JoblistComponent /> : <EmptyJobList jobs={jobs} />}
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}
           title="Filter Scale"

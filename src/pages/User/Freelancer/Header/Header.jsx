@@ -2,12 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
-import { AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretDown, AiOutlineLogout } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
 
 function FreelancerHeader({ selectedNav }) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   const ref = useRef();
   return (
     <div>
@@ -53,7 +60,7 @@ function FreelancerHeader({ selectedNav }) {
               </form>
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+              <div className="ml-10 flex items-center space-x-4">
                 {navLinks.map((value) => (
                   <Link
                     to={value.to}
@@ -76,7 +83,47 @@ function FreelancerHeader({ selectedNav }) {
                     <a className={value.className}>{value.name}</a>
                   </Link>
                 ))}
-                <div className="flex flex-col items-center">
+                <div className="flex gap-x-6">
+                  <div
+                    onMouseLeave={() => setOpenDropdown(false)}
+                    onMouseOver={() => setOpenDropdown(true)}
+                    onClick={() => {}}
+                    className={
+                      "relative cursor-pointer flex flex-col gap-y-2 justify-center items-center p-2 hover:text-gray-800"
+                    }
+                  >
+                    <div className="z-99 flex gap-x-2 justify-center items-center">
+                      <Link to="" className={""}>
+                        <img
+                          className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                          src={user}
+                          alt="icon"
+                        />
+                      </Link>
+                      <span>
+                        <BsChevronDown size={12} color="purple" />
+                      </span>
+                    </div>
+                    <ul
+                      className={`bg-white absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
+                        openDropdown ? "block" : "hidden"
+                      }`}
+                    >
+                      <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
+                        <Link to="">Profile setting</Link>
+                      </li>
+
+                      <li
+                        onClick={logoutHandler}
+                        className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100"
+                      >
+                        <button>Logout</button>
+                        <AiOutlineLogout />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                {/* <div className="flex flex-col items-center">
                   <span>
                     <img className="h-[20px] w-[20px]" src={user} alt="icon" />
                   </span>
@@ -88,7 +135,7 @@ function FreelancerHeader({ selectedNav }) {
                       <AiFillCaretDown size={20} color="purple" />
                     </span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

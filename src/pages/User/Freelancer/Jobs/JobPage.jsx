@@ -33,7 +33,7 @@ const JobPage = () => {
     <div className="">
       <FreelancerHeader selectedNav={2} />
       <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8 w-full">
-        {jobs.length > 0 ? <JoblistComponent /> : <EmptyJobList jobs={jobs} />}
+        {jobs.length > 0 ? <JoblistComponent jobs={jobs} /> : <EmptyJobList />}
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}
           title="Filter Scale"

@@ -2,16 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
 import { MdNotifications } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 
 function ClientHeader({ selectedNav }) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
-
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   const ref = useRef();
   return (
     <div>
@@ -68,7 +72,7 @@ function ClientHeader({ selectedNav }) {
                   </li>
 
                   <li className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100">
-                    <Link to="">Logout</Link>
+                    <button onClick={logoutHandler}>Logout</button>
                     <AiOutlineLogout />
                   </li>
                 </ul>

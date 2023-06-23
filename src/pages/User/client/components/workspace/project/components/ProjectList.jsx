@@ -1,7 +1,10 @@
+import axios from "axios";
 import { MdEdit, MdPreview } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { BaseURL } from "../../../../../../../services/constants/Constants";
+import { useEffect, useState } from "react";
 
-const ProjectList = () => {
+const ProjectList = ({ projects }) => {
   return (
     <div className="md:relative overflow-x-auto sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -22,13 +25,13 @@ const ProjectList = () => {
           </tr>
         </thead>
         <tbody>
-          {[1, 4, 5, 3, 4].map((user, id) => (
+          {projects.map((project, id) => (
             <tr
               key={id}
               className="border-b border-gray-200 dark:border-gray-700 py"
             >
-              <td className="py-2 px-2">COLABS</td>
-              <td className="py-2 px-2">12/11/89</td>
+              <td className="py-2 px-2">{project.title}</td>
+              <td className="py-2 px-2">{project.createdAt}</td>
               <td className="py-2 px-2">ongoing</td>
 
               <td className="py-2 px-2">

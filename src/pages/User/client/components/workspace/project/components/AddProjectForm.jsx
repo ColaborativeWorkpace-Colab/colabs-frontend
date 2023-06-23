@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
 const AddProjectForm = () => {
+  const token = localStorage.getItem("token");
+  const [workers, setWorkers] = useState([{}]);
+  //workers.worker.email
+  //workers.earning
+  const getWorkersFromAllJob = async () => {
+    try {
+      const resp = await axios.get(BaseURL + "users/dashboard", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (resp.status === 201) {
+        setWorkers(resp.data.hiredWorkers); //worker, earning
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const createProjects = async (newProject) => {
+    try {
+      const resp = await axios.post(
+        BaseURL + "projects",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+        newProject
+      );
+
+      if (resp.status === 201) {
+        // setNewProject(resp.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="w-2/4 mx-auto">
       <div className="mb-4 rounded-md text-2xl w-full bg-gray-200 p-4 text-center">
@@ -11,12 +50,10 @@ const AddProjectForm = () => {
         className="space-y-4 md:space-y-6"
         initialValues={{
           title: "",
-          description: "",
-          earnings: "",
-          requirements: [],
+          members: [],
         }}
         onSubmit={(values, actions) => {
-          handleSubmit(values);
+          createProjects(values);
         }}
         // validationSchema={jobValidation}
       >
@@ -62,6 +99,15 @@ const AddProjectForm = () => {
                 component="div"
                 className="text-red-500 text-sm"
               />
+              {workers
+                ? workers.map((data, id) => (
+                    <div className={``}>
+                      <select name="" id="">
+                        <option value="">{data?.worker?.email}</option>
+                      </select>
+                    </div>
+                  ))
+                : ""}
             </div>
             <button
               type="submit"

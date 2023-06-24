@@ -53,7 +53,7 @@ const JobList = () => {
               {moment(new Date(job?.updatedAt).toISOString()).fromNow()}
             </p>
             <p className="text-gray-400 text-sm cursor-pointer">
-              {job?.pendingworkers?.length}
+              {job?.pendingworkers?.length} applicants
             </p>
           </div>
         </div>

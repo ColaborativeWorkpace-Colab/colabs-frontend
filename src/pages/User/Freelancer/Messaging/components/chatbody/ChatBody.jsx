@@ -108,9 +108,9 @@ export default class ChatContent extends Component {
 
           <div className="blocks">
             <div className="settings">
-              <button className="btn-nobg">
+              {/* <button className="btn-nobg">
                 <i className="fa fa-phone"></i>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

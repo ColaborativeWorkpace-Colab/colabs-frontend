@@ -71,8 +71,11 @@ function ClientHeader({ selectedNav }) {
                     <Link to="">My Profile</Link>
                   </li>
 
-                  <li className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100">
-                    <button onClick={logoutHandler}>Logout</button>
+                  <li
+                    onClick={logoutHandler}
+                    className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100"
+                  >
+                    <button>Logout</button>
                     <AiOutlineLogout />
                   </li>
                 </ul>

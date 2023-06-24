@@ -59,7 +59,6 @@ const AddProjectForm = () => {
         className="space-y-4 md:space-y-6"
         initialValues={{
           title: "",
-          color: "",
           members: [],
         }}
         onSubmit={(values, actions) => {
@@ -67,14 +66,7 @@ const AddProjectForm = () => {
         }}
         // validationSchema={jobValidation}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          setFieldValue,
-        }) => (
+        {({ values, touched, handleChange, handleBlur, setFieldValue }) => (
           <Form>
             <div className="my-2 flex flex-col gap-y-2">
               <label htmlFor="cover-lettter" className="text-md text-slate-800">
@@ -104,7 +96,7 @@ const AddProjectForm = () => {
                 // defaultValue={""}
                 placeholder="eg. kal@gmail.com, dan@gmail.com"
                 name="members"
-                value={values.members}
+                // value={values.members}
                 className="px-4 py-2 rounded-md border-2 border-purple-600 focus:border-purple-600"
               />
               <ErrorMessage

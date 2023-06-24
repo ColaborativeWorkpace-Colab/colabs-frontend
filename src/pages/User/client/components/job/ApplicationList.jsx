@@ -59,9 +59,6 @@ const ApplicationList = () => {
                 >
                   View
                 </Link>
-                <button className="bg-red-500 hover:bg-red-600 rounded-md px-3 py-2 text-white text-md text-slate-800">
-                  Decline
-                </button>
               </div>
             </div>
           ))}

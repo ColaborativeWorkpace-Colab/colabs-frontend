@@ -1,13 +1,11 @@
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import MobileSidebar from "../../../MobileSidebar";
-import ProjectList from "./TeamList";
 import SideBar from "../../../SideBar";
 import ClientHeader from "../../../header/ClientHeader";
-import { Link } from "react-router-dom";
 import TeamList from "./TeamList";
 import EmptyProjects from "../project/components/EmptyProjects";
 import axios from "axios";
+import { BaseURL } from "../../../../../../services/constants/Constants";
 
 const TeamSection = () => {
   const [projects, setProjects] = useState([]);
@@ -15,14 +13,14 @@ const TeamSection = () => {
     const token = localStorage.getItem("token");
     const getProjects = async () => {
       try {
-        const resp = await axios.get(BaseURL + "projects", {
+        const resp = await axios.get(BaseURL + "users/dashboard", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         if (resp.status === 200) {
-          setProjects(resp.data);
+          setProjects(resp.data.projects);
         }
       } catch (error) {
         console.log(error);
@@ -30,6 +28,7 @@ const TeamSection = () => {
     };
     getProjects();
   }, []);
+
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
   return (
     <div className="h-full">

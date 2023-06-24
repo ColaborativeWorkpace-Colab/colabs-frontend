@@ -6,6 +6,7 @@ import videoImg from "../../../../../assets/images/video.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
 import pythonImg from "../../../../../assets/images/python.svg.png";
+import { Link } from "react-router-dom";
 export const RightSide = () => {
   let rights = [1, 2, 3, 4, 5, 6];
   return (

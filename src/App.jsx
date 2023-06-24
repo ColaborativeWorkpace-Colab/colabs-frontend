@@ -1,17 +1,13 @@
 import Navigation from "./navigation/Navigation";
-import FreelancerPage from "./pages/User/Freelancer/Navigation/FreelancerPage";
 import "./App.css";
-import ColabButton from "./utils/Button/ColabButton";
-import ColabCard from "./utils/Card/ColabCard";
-import { ColabLargeText, ColabMediumText } from "./utils/Typography/ColabText";
-import ColabInput from "./utils/TextField/ColabInput";
-
-
+import FormikForm from "./utils/formik/FormikForm";
+import JobDetail from "./pages/User/Freelancer/Jobs/components/JobDetail";
+import ApplyPage from "./pages/User/Freelancer/Jobs/components/ApplyPage";
+import PostJob from "./pages/User/client/components/job/PostJob";
 export default function App() {
-	return (
-		<>
-			<Navigation />
-			
-		</>
-	);
+  return (
+    <>
+      <Navigation />
+    </>
+  );
 }

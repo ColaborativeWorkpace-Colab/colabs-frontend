@@ -44,6 +44,11 @@ import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
 import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
+import AdminDashboardSection from "../pages/User/admin/components/dashboard/DashboardSection";
+import VerificationSection from "../pages/User/admin/components/verification/VerificationSection";
+import DisputeSection from "../pages/User/admin/components/disputes/DisputeSection";
+import UserSection from "../pages/User/admin/components/user/UserSection";
+import AdminAccountSetting from "../pages/User/admin/components/account/AccountSetting";
 
 export const routes = [
   {
@@ -74,6 +79,26 @@ export const routes = [
   {
     path: "/resetpassword",
     element: <ResetPassword />,
+  },
+  {
+    path: "/admin",
+    element: <AdminDashboardSection />,
+  },
+  {
+    path: "/admin/verify-request",
+    element: <VerificationSection />,
+  },
+  {
+    path: "/admin/dispute-request",
+    element: <DisputeSection />,
+  },
+  {
+    path: "/admin/users",
+    element: <UserSection />,
+  },
+  {
+    path: "/admin/my-account",
+    element: <AdminAccountSetting />,
   },
   {
     path: "/feeds", //freelancerhome

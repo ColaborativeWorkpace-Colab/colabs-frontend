@@ -60,10 +60,10 @@ export const RightSide = () => {
 
 		{datas.map(data => (
           <div key={data.id} className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1">
-		  <img className='block mx-auto w-10  h-auto rounded-full sm:mx-0 sm:shrink-0' src={data.imgUrl} alt="Avatar" />
+		  <img className='block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0' src={data.imgUrl} alt="Avatar" />
 		  <div>
-			  <h1 className='font-bold text-gray-800 pl-3 capitalize'>{data.name}</h1>
-			  <p>{data.description}</p>
+			  <h1 className='font-bold text-gray-800 pl-3 hover:underline cursor-pointer capitalize'>{data.name}</h1>
+			  <p className="hover:underline cursor-pointer">{data.description}</p>
 			  <FollowButton />
 			 
 		  </div> 

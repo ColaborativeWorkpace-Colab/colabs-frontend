@@ -4,7 +4,7 @@ import profileImg from "../../../../../assets/images/profile.jpg";
 import photoImg from "../../../../../assets/images/photo.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
-import samplepostimage from "../../../../../assets/images/samplepostimage.jpeg";
+import samplepostimage from "../../../../../assets/images/cicd.png";
 import likeImg from "../../../../../assets/images/like.png";
 import videoImg from "../../../../../assets/images/video.png";
 import commentImg from "../../../../../assets/images/comment.png";
@@ -108,7 +108,7 @@ const PostContent = () => {
 							<div className="cursor-pointer flex flex-col gap-0.4">
 								<p className="text-md text-slate-900">Daniel Demmelash</p>
 								<p className="text-sm text-slate-600">
-									Always Problem and Anxiety Developer
+									Fullstack Software Developer(MERN) | Team Lead
 								</p>
 							</div>
 							<FollowButton />
@@ -118,11 +118,9 @@ const PostContent = () => {
 
 					<div className="mt-3 mb-2">
 						<p className="text-slate-800">
-							Anxiety is a normal reaction to stress and can be beneficial in
-							some situations. It can alert us to dangers and help us prepare
-							and pay attention. Anxiety disorders differ from normal feelings
-							of nervousness or anxiousness and involve excessive fear or
-							anxiety.
+						Unlocking Efficiency and Agility:
+						Embrace the Power of CI/CD
+						for Seamless Software Delivery!
 						</p>
 					</div>
 					<img
@@ -139,6 +137,7 @@ const PostContent = () => {
 							/>
 							<p className="text-md text-slate-800">Like</p>
 						</div>
+						
 						<div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
 							<img
 								src={commentImg}
@@ -147,6 +146,7 @@ const PostContent = () => {
 							/>
 							<p className="text-md text-slate-800">Comment</p>
 						</div>
+					
 						<div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
 							<img
 								src={repostImg}

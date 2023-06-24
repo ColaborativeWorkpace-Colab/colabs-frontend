@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FreelancerHeader from "../Header/Header";
 import daniImg from '../../../../assets/images/dani.jpeg'
-
+import kalImg from '../../../../assets/images/profile.jpg'
 const NotificationPage = () => {
   // Example data for notifications
   const notifications = [
@@ -34,8 +34,8 @@ const NotificationPage = () => {
           <a href="#" className="cursor-pointer text-blue-500 hover:underline font-bold">View Setting</a>
       </div>
       <div className='unlock leftSide hidden md:flex flex-col flex-shrink-0 w-auto h-50 items-center  p-10 shadow-lg rounded-[5%] '>
-      <img className='unlock mx-auto w-14 h-14 rounded-full sm:mx-0 sm:shrink-0' src={daniImg} alt="dani" />
-      <p className='text-gray-800 font-bold hover:underline'>Daniel, Unlock your Colabs Premiere Account</p>
+      <img className='unlock mx-auto w-14 h-14 rounded-full sm:mx-0 sm:shrink-0' src={kalImg} alt="dani" />
+      <p className='text-gray-800 font-bold hover:underline'>Kalkidan, Unlock your Colabs Premiere Account</p>
       <button className='shadow-lg text-blue-500 hover:underline font-bold p-4'>Unlock for 1 Month for Free</button> 
       </div>
 

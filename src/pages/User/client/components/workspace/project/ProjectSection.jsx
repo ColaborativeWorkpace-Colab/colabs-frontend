@@ -20,9 +20,8 @@ const ProjectSection = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        if (resp.status === 200) {
-          setProjects(resp.data);
+        if (resp.status === 201) {
+          setProjects(resp.data.data);
         }
       } catch (error) {
         console.log(error);

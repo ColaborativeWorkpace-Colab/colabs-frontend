@@ -6,13 +6,8 @@ import videoImg from "../../../../../assets/images/video.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
 import pythonImg from "../../../../../assets/images/python.svg.png";
-import FollowButton from "./FollowButton";
-import microsoftImg from "../../../../../assets/images/microsoft.png"
-import googleImg from "../../../../../assets/images/google.png"
-import openAiImg from "../../../../../assets/images/openai.svg"
-import addisSoftwareImg from "../../../../../assets/images/addisSoftware.jpeg"
-import chapaImg from "../../../../../assets/images/chapa.jpg"
-import icoglabsImg from "../../../../../assets/images/icoglabs.jpeg"
+import { Link } from "react-router-dom";
+
 export const RightSide = () => {
   let rights = [1, 2, 3, 4, 5, 6];
   return (
@@ -38,6 +33,7 @@ export const RightSide = () => {
     </div>
   );
 };
+
 export const LeftSide = () => {
   const skills = [
     {

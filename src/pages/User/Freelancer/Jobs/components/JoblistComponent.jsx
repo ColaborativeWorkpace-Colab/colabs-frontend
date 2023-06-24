@@ -9,10 +9,10 @@ function JoblistComponent({ jobs = [] }) {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="flex gap-4 md:gap-6">
-      <div className="h-screen bg-white flex justify-center items-center py-5 px-[10px]">
+      <div className="h-[400px] bg-white flex justify-center py-5 px-[10px]">
         <JobFilterSection />
       </div>
-      <div className="bg-white flex flex-col px-6 py-6 gap-6 w-full">
+      <div className="bg-white w-full flex flex-col px-6 py-6 gap-6">
         {jobs?.map((job, key) => (
           <div className="job-content flex flex-col gap-3 w-full border-2 border-gray-100 p-5 rounded-lg">
             <div className="grow flex gap-4">

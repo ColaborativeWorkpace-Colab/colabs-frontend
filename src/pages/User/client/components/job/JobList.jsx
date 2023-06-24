@@ -28,6 +28,7 @@ const JobList = () => {
       }
     };
     getJobs();
+    console.log(jobs);
   }, []);
 
   return (

@@ -6,6 +6,7 @@ import ChatList from "./components/chatlist/ChatList";
 import ChatBody from "./components/chatbody/ChatBody";
 import Grid from "@mui/material/Grid";
 import "./messagingpage.css";
+import profileImg from "../../../../assets/images/profile.jpg";
 import Divider from "@mui/material/Divider";
 // import chat from "../../../../assets/images/chat.jpg"
 
@@ -15,7 +16,7 @@ const MessagingPage = () => {
   console.log(theme);
 
   console.log(theme);
-  const onlineUsers = ['a', 'b', 'c', 'd'];
+  const onlineUsers = ["a", "b", "c", "d"];
   return (
     <>
       <FreelancerHeader selectedNav={3} />
@@ -36,40 +37,46 @@ const MessagingPage = () => {
           >
             <div className="main__chatbody">
               <Grid container spacing={0}>
-                <Grid item xs={6} md={4}>
+                <Grid item xs={6} md={3}>
                   <ChatList />
                 </Grid>
-                <Divider orientation="vertical" variant="middle" flexItem />
+                {/* <Divider orientation="vertical" variant="middle" flexItem /> */}
 
                 <ChatBody />
+                {/* <Divider orientation="vertical" variant="middle" flexItem /> */}
+
+                <Grid item xs={6} md={4}>
+                  <div className="h-screen p-4 right flex flex-col relative ">
+                    {onlineUsers.map((value, index) => {
+                      return (
+                        <button
+                          key={index}
+                          className="w-full h-16 bg-white rounded-lg my-[1px] flex"
+                        >
+                          <div>
+                            <div className="rounded-full w-12 h-12 bg-black mt-2 mx-6">
+                              <img
+                                src={profileImg}
+                                className="w-full h-full rounded-full"
+                                alt=""
+                              />
+                            </div>
+                            <div className="rounded-full w-3 h-3 bg-green-500 mt-2 mx-6 relative left-8 bottom-5"></div>
+                          </div>
+
+                          <div className="overflow-hidden">
+                            <h1 className="text-md mt-2">User Name</h1>
+
+                            <p className="text-[10px]">Last Seen Recently</p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </Grid>
               </Grid>
-
-              <div className="h-screen p-4 right flex flex-col w-1/4 relative ">
-                {onlineUsers.map((value, index) => {
-                  return (
-                    <button
-                      key={index}
-                      className="w-full h-16 bg-white rounded-lg my-[1px] flex"
-                    >
-                      <div>
-                        <div className="rounded-full w-12 h-12 bg-black mt-2 mx-6"></div>
-                        <div className="rounded-full w-3 h-3 bg-green-500 mt-2 mx-6 relative left-8 bottom-5"></div>
-                      </div>
-
-                      <div className="overflow-hidden">
-                        <h1 className="text-md mt-2">User Name</h1>
-
-                        <p className="text-[10px]">Last Seen Recently</p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
             </div>
           </Box>
-          {/* <div>
-					<img src="chat.jpg" alt="chat"/>
-				</div> */}
         </div>
       </div>
       ;

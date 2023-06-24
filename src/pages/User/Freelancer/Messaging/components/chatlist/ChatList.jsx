@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./chatlist.css";
 import ChatListItems from "./ChatListItems";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 
 export default class ChatList extends Component {
   allChatUsers = [
@@ -96,11 +96,6 @@ export default class ChatList extends Component {
       <div className="main__chatlist">
         <div className="chatlist__heading">
           <h2>Messages</h2>
-          {/* <Divider orientation="horizontal" variant="inset" flexItem/> */}
-          
-          <button className="btn-nobg">
-            <i className="fa fa-ellipsis-h"></i>
-          </button>
         </div>
         <div className="chatList__search">
           <div className="search_wrap">

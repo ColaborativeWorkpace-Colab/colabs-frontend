@@ -12,14 +12,17 @@ const TeamList = () => {
               Project Name
             </th>
             <th scope="col" className="px-2 py-3">
-              Project Length
+              Started Date
             </th>
             <th scope="col" className="px-2 py-3">
-              Project Lead
+              Project Budget
             </th>
 
             <th scope="col" className="px-2 py-3">
-              Teams
+              Project Status
+            </th>
+            <th scope="col" className="px-2 py-3">
+              Project Teams
             </th>
           </tr>
         </thead>
@@ -30,10 +33,9 @@ const TeamList = () => {
               className="border-b border-gray-200 dark:border-gray-700 py"
             >
               <td className="border border-gray-300 py-2 px-2">COLABS</td>
-              <td className="border border-gray-300 py-2 px-2">6 months</td>
-              <td className="border border-gray-300 py-2 px-2">
-                Getahun@gmail.com
-              </td>
+              <td className="border border-gray-300 py-2 px-2">11/11/11</td>
+              <td className="border border-gray-300 py-2 px-2">4000 ETB</td>
+              <td className="border border-gray-300 py-2 px-2">Ongoing</td>
 
               <td className="border border-gray-300 py-2 px-2">
                 <TeamNameList />

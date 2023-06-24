@@ -12,16 +12,17 @@ const ProjectList = () => {
               Project Name
             </th>
             <th scope="col" className="px-2 py-3">
-              Project Length
-            </th>
-            <th scope="col" className="px-2 py-3">
-              Project Lead
-            </th>
-            <th scope="col" className="px-2 py-3">
               Started Date
             </th>
             <th scope="col" className="px-2 py-3">
-              END DATE
+              Project Budjet
+            </th>
+            <th scope="col" className="px-2 py-3">
+              Project Status
+            </th>
+
+            <th scope="col" className="px-2 py-3">
+              PAYMENT STATUS
             </th>
             <th scope="col" className="px-2 py-3"></th>
           </tr>
@@ -33,10 +34,14 @@ const ProjectList = () => {
               className="border-b border-gray-200 dark:border-gray-700 py"
             >
               <td className="py-2 px-2">COLABS</td>
-              <td className="py-2 px-2">6 months</td>
-              <td className="py-2 px-2">Getahun@gmail.com</td>
-              <td className="py-2 px-2">12/11/89</td>
-              <td className="py-2 px-2">22//11/99</td>
+              <td className="py-2 px-2">11/12/13</td>
+              <td className="py-2 px-2">5000 ETB</td>
+              <td className="py-2 px-2">ongoing/completed</td>
+              <td className="py-2 px-2">
+                <button className="bg-purple-600 text-md text-white rounded-md px-2 py-1">
+                  Request Payment{/* Requested/Pending, paid */}
+                </button>
+              </td>
 
               <td className="py-2 px-2">
                 <Link
@@ -44,9 +49,6 @@ const ProjectList = () => {
                   className="w-[40px] flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
                 >
                   <MdPreview size={20} color="white" />
-                  {/* <span className="ml-1">
-                    <MdEdit />
-                  </span> */}
                 </Link>
               </td>
             </tr>

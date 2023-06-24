@@ -51,7 +51,7 @@ const FreelancerWorkspaceSideBar = ({ selectedItem, selectedProduct }) => {
                 </span>
               </div>
             </Link>
-            <Link to={"/workspace/progress"}>
+            {/* <Link to={"/workspace/progress"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 2
@@ -69,7 +69,7 @@ const FreelancerWorkspaceSideBar = ({ selectedItem, selectedProduct }) => {
                   Progress
                 </span>
               </div>
-            </Link>
+            </Link> */}
             <Link to={"/workspace/teams"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${

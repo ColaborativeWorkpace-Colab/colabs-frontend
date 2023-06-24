@@ -21,22 +21,14 @@ const AdminHeader = () => {
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link to="/client">
+              <Link to="/admin">
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}
                   alt="Workflow"
                 />
               </Link>
-              <div className="hidden md:block">
-                {/* <div className="ml-10 flex items-center space-x-4">
-                  {navLinks.map((value, key) => (
-                    <div key={key}>
-                      <div>{value.item}</div>
-                    </div>
-                  ))}
-                </div> */}
-              </div>
+              <div className="hidden md:block"></div>
             </div>
 
             <div className="flex gap-x-6">

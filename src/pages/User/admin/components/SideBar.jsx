@@ -1,12 +1,6 @@
 import { AiFillDashboard, AiOutlineControl } from "react-icons/ai";
 import { FaProductHunt, FaUsers } from "react-icons/fa";
-import { ImBlogger } from "react-icons/im";
-import { BsFillPersonVcardFill } from "react-icons/bs";
 import {
-  MdAccountBalance,
-  MdAccountBox,
-  MdAdminPanelSettings,
-  MdLogout,
   MdOutlineConfirmationNumber,
   MdOutlineManageAccounts,
 } from "react-icons/md";
@@ -18,28 +12,6 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
       <aside className="hidden sm:block min-h-screen">
         <div className="px-3 py-4 overflow-y-auto dark:bg-gray-800">
           <ul className="space-y-4 font-medium">
-            <Link to={"/admin"}>
-              <div
-                onClick={() => {
-                  console.log("dashboard clicked");
-                }}
-                type="button"
-                className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
-                  selectedItem == 0
-                    ? "border-l-4 border-purple-600 bg-gray-100"
-                    : ""
-                } `}
-                aria-controls="dropdown-example"
-                data-collapse-toggle="dropdown-example"
-              >
-                <span>
-                  <AiFillDashboard size={20} color="gray" />
-                </span>
-                <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Dashboard
-                </span>
-              </div>
-            </Link>
             <Link to={"/admin/verify-request"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${

@@ -19,17 +19,18 @@ function FreelancerHeader({ selectedNav }) {
   return (
     <div>
       <nav className="fixed top-0 left-0 w-full bg-white z-20">
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between md:justify-around h-16">
+        <div className="w-full mx-auto px-4 sm:px-6 lg:px-[50px]">
+          <div className="flex items-center justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link to="/freelancer">
+              <Link className="flex items-center gap-2" to="/feeds">
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}
                   alt=""
                 />
+                <p className="text-2xl font-medium text-gray-800">COLABS</p>
               </Link>
-              <form className="hidden lg:block">
+              {/* <form className="hidden lg:block">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pr-2">
                     <span className="cursor-pointer">
@@ -57,7 +58,7 @@ function FreelancerHeader({ selectedNav }) {
                     placeholder="Search Jobs, Projects, Freelancer..."
                   />
                 </div>
-              </form>
+              </form> */}
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-4">

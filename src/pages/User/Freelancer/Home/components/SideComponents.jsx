@@ -53,49 +53,35 @@ export const LeftSide = () => {
           <h1 className="text-xl text-slate-900">kebede Getahun</h1>
           <h1 className="text-md text-slate-500">Fullstack Developer</h1>
         </div>
-        <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
-          <h1 className="text-slate-900">Profile Completeness:</h1>
-          <div className="flex gap-2 items-center">
-            <span className="bg-green-500 w-3/4 h-[5px] "></span>{" "}
-            <span className="text-slate-900">100%</span>
+        <div className="w-full">
+          <div className="pb-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
+            <div className="flex gap-2 items-center">
+              <span className="text-slate-900 h-[20px]"></span>
+            </div>
           </div>
         </div>
         <div className="">
-          <p className="my-3 w-full border-b-2 border-gray-400 text-xl">
-            Skills
+          <p className="my-3 pb-1 w-full border-b-2 border-gray-400 text-xl">
+            My Skills
           </p>
           <div className="w-full flex flex-wrap  shrink gap-3">
             {skills.map((skill, id) => (
-              <button className="border-2 border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
+              <button className="border-[1px] border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
                 {skill.skill}
               </button>
             ))}
           </div>
         </div>
         <div className="w-full">
-          <p className="mt-4 w-full border-b-2 border-gray-400 text-xl">
-            My Rate
+          <p className="mt-4 pb-1 w-full border-b-2 border-gray-400 text-xl">
+            Job success
           </p>
-          <p className="mt-2 w-full text-lg mb-2 flex gap-2 items-center">
-            <span>
-              <input
-                type="number"
-                defaultValue={"200"}
-                className="w-[100px] h-[35px] rounded-md border-purple-600 focus:border-purple-600"
-              />
-            </span>{" "}
-            ETB/Hr
-          </p>
-          <p className="w-full text-lg mb-2 flex gap-2 items-center">
-            <span>
-              <input
-                type="number"
-                defaultValue={"20,000"}
-                className="w-[100px] h-[35px] rounded-md border-purple-600 focus:border-purple-600"
-              />
-            </span>{" "}
-            Fixed
-          </p>
+          <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
+            <div className="flex gap-2 items-center">
+              <span className="bg-green-500 w-3/4 h-[5px] "></span>{" "}
+              <span className="text-slate-900">100%</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import daniImg from "../../../../../assets/images/dani.jpeg";
 import axios from "axios";
 import AddPostMOdal from "./AddPostModal";
 import { BaseURL } from "../../../../../services/constants/Constants";
+import { Link } from "react-router-dom";
 
 const MainComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -97,7 +98,6 @@ const MainComponent = () => {
       </div>
       <div className="my-3 flex gap-2 justify-between items-center gap-3">
         <div className="grow bg-slate-400 h-[2px]"></div>
-        <div>Sort by: recent</div>
       </div>
       {posts.map((post, id) => (
         <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
@@ -123,19 +123,22 @@ const MainComponent = () => {
           </div>
           <div className="mt-3 mb-2">
             {post.tags.map((tag) => (
-              <span className="pl-0 px-2 py-1 text-sm text-slate-800 mr-1">
+              <span className="pl-0 px-2 py-1 text-sm text-blue-600 text-xl mr-1">
                 #{tag}
               </span>
             ))}
           </div>
-          <div className="mt-3 mb-2">
+          <Link to={`/feeds/${post._id}`} className="mb-2">
             <p className="text-sm text-slate-800">{post.textContent}</p>
-          </div>
-          <img
-            src={post.imageContent || samplepostimage}
-            alt="post image"
-            className="w-full cursor-pointer"
-          />
+          </Link>
+          <Link to="/feeds/:post-id" className="">
+            <img
+              src={post.imageContent || samplepostimage}
+              alt="post image"
+              className="w-full cursor-pointer"
+            />{" "}
+          </Link>
+
           <div className="flex justify-between items-center gap-4 p-2">
             <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
               <img

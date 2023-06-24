@@ -8,15 +8,41 @@ import ForgotPassword from "../pages/Auth/password/ForgotPassword";
 import ResetPassword from "../pages/Auth/password/ResetPassword";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 import FreelancerSignup from "../pages/Auth/signup/FreelancerSignup";
-import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
+// import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
 import ProfilePage from "../pages/User/Freelancer/Profile/ProfilePage";
-import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
+// import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
 import NotificationPage from "../pages/User/Freelancer/Notification/NotificationPage";
 import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
 import ClientHomePage from "../pages/User/client/home/HomePage";
 import LandingHomePage from "../pages/landingPage/LandingHomePage";
+import SignupSuccess from "../pages/Auth/components/SignupSuccess";
+import VerificationSuccess from "../pages/Auth/components/AccountVerificationSuccess";
+import ClientJobDetail from "../pages/User/client/components/job/JobDetail";
+import ApplicationList from "../pages/User/client/components/job/ApplicationList";
+import ApplicationDetail from "../pages/User/client/components/job/ApplicationDetail";
+import PostJob from "../pages/User/client/components/job/PostJob";
+import CompleteProfile from "../pages/Auth/components/CompleteProfile";
+import ProjectSection from "../pages/User/client/components/workspace/project/ProjectSection";
+import TeamSection from "../pages/User/client/components/workspace/team/TeamSection";
+import ProgressSection from "../pages/User/client/components/workspace/progress/ProgressSection";
+import DashboardSection from "../pages/User/client/components/workspace/dashboard/DashboardSection";
+import JobDetail from "../pages/User/Freelancer/Jobs/components/JobDetail";
+import ApplyPage from "../pages/User/Freelancer/Jobs/components/ApplyPage";
+import FreelancerWorkspaceDashboardSection from "../pages/User/Freelancer/Workspace/components/dashboard/FreelancerWorkspaceDashboardSection";
+import FreelancerWorkspaceProjectSection from "../pages/User/Freelancer/Workspace/components/project/FreelancerWorkspaceProjectSection";
+import FreelancerWorkspaceProgressSection from "../pages/User/Freelancer/Workspace/components/progress/FreelancerWorkspaceProgressSection";
+import FreelancerWorkspaceTeamSection from "../pages/User/Freelancer/Workspace/components/team/FreelancerWorkspaceTeamSection";
+import Editor from "../pages/User/Freelancer/Workspace/components/codeeditor/Editor";
+import FreelancerWorkspaceProjectDetail from "../pages/User/Freelancer/Workspace/components/projectdetail/FreelancerWorkspaceProjectDetail";
+import AddProject from "../pages/User/client/components/workspace/project/AddProject";
+import ProjectDetail from "../pages/User/client/components/workspace/project/ProjectDetail";
+import EditTeamForm from "../pages/User/client/components/workspace/team/components/EditTeamForm";
+import UpdateTeamSection from "../pages/User/client/components/workspace/team/UpdateTeamSection";
+import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
+import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
+import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
 
 export const routes = [
   {
@@ -35,10 +61,7 @@ export const routes = [
     path: "/signup/client",
     element: <ClientSignup />,
   },
-  {
-    path: "/signup/client/home",
-    element: <ClientHomePage />,
-  },
+
   {
     path: "/signup/freelancer",
     element: <FreelancerSignup />,
@@ -52,33 +75,134 @@ export const routes = [
     element: <ResetPassword />,
   },
   {
-    path: "/freelancerhome", //freelancerhome
+    path: "/feeds", //freelancerhome
     element: <FreelancerHomePage />,
+  },
+  {
+    path: "/feeds/:postId",
+    element: <PostDetailPage />,
   },
   {
     path: "/jobs",
     element: <JobPage />,
   },
   {
+    path: "/jobs/:jobId",
+    element: <JobDetail />,
+  },
+  {
+    path: "/jobs/apply/:jobId",
+    element: <ApplyPage />,
+  },
+  {
+    path: "/profile",
+    // element: <div></div>,
+    element: <ProfilePage />,
+  },
+  {
     path: "/messaging",
+    // element: <div></div>,
     element: <MessagingPage />,
   },
   {
     path: "/notification",
     element: <NotificationPage />,
   },
+
+  // {
+  //   path: "/profile",
+  //   element: <ProfilePage />,
+  // },
+
+  {
+    path: "/signup-success",
+    element: <SignupSuccess />,
+  },
+  {
+    path: "/verification-success",
+    element: <VerificationSuccess />,
+  },
+  {
+    path: "/complete-profile",
+    element: <CompleteProfile />,
+  },
+  {
+    path: "/client",
+    element: <ClientHomePage />,
+  },
+  {
+    path: "/client/jobs/:jobId",
+    element: <ClientJobDetail />,
+  },
+  {
+    path: "/post-job",
+    element: <PostJob />,
+  },
+  {
+    path: "/job/applications/list/:jobId",
+    element: <ApplicationList />,
+  },
+  {
+    path: "/job-applications/:jobId/:applicationId",
+    element: <ApplicationDetail />,
+  },
+  {
+    path: "/client/workspace/projects",
+    element: <ProjectSection />,
+  },
+  {
+    path: "/client/find-freelancer",
+    element: <DiscoverFreelancer />,
+  },
+  {
+    path: "/client/my-hire",
+    element: <MyHireRecord />,
+  },
+  {
+    path: "/client/workspace/teams",
+    element: <TeamSection />,
+  },
+  {
+    path: "/client/workspace/teams/:project-id",
+    element: <UpdateTeamSection />,
+  },
+  {
+    path: "/client/workspace/create-project",
+    element: <AddProject />,
+  },
+  {
+    path: "/client/workspace/projects/:project-id",
+    element: <ProjectDetail />,
+  },
+  {
+    path: "/client/workspace/progress",
+    element: <ProgressSection />,
+  },
+  {
+    path: "/client/workspace",
+    element: <DashboardSection />,
+  },
   {
     path: "/workspace",
-    element: <WorkspacePage />,
+    element: <FreelancerWorkspaceDashboardSection />,
   },
   {
-    path: "/profile",
-    element: <ProfilePage />,
+    path: "/workspace/projects",
+    element: <FreelancerWorkspaceProjectSection />,
   },
   {
-    path: "/projectdashborad",
-    element: <WorkspaceDashboard />,
+    path: "/workspace/progress",
+    element: <FreelancerWorkspaceProgressSection />,
   },
+  {
+    path: "/workspace/teams",
+    element: <FreelancerWorkspaceTeamSection />,
+  },
+  {
+    path: "/workspace/:project-id",
+    element: <FreelancerWorkspaceProjectDetail />,
+  },
+
   {
     path: "*",
     element: <NotFoundPage />,

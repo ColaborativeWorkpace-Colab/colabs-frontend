@@ -43,6 +43,7 @@ import UpdateTeamSection from "../pages/User/client/components/workspace/team/Up
 import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
+import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
 
 export const routes = [
   {
@@ -75,8 +76,12 @@ export const routes = [
     element: <ResetPassword />,
   },
   {
-    path: "/freelancer", //freelancerhome
+    path: "/feeds", //freelancerhome
     element: <FreelancerHomePage />,
+  },
+  {
+    path: "/feeds/:postId",
+    element: <PostDetailPage />,
   },
   {
     path: "/jobs",

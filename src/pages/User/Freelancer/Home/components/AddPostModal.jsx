@@ -7,6 +7,7 @@ import { postValidation } from "./validations";
 import axios from "axios";
 import { BaseURL } from "../../../../../services/constants/Constants";
 import { ToastContainer, toast } from "react-toastify";
+import { AiFillCloseSquare } from "react-icons/ai";
 
 const notify = (message, type) =>
   toast(message, {
@@ -120,7 +121,7 @@ export default function AddPostMOdal({ buttonText }) {
               handleBlur,
               setFieldValue,
             }) => (
-              <Form>
+              <Form className="w-[450px]">
                 <div className="my-3">
                   <label
                     htmlFor="content"
@@ -182,7 +183,7 @@ export default function AddPostMOdal({ buttonText }) {
                   />
                   {/* TODO: update the close icon */}
                   {selectedImages.imageContent && (
-                    <div className="flex justify-around items-star">
+                    <div className="flex justify-between items-start mt-4">
                       <img
                         src={selectedImages.imageContent}
                         alt=""
@@ -196,7 +197,10 @@ export default function AddPostMOdal({ buttonText }) {
                             setFieldValue("imageContent", null);
                           }}
                         >
-                          X
+                          <AiFillCloseSquare
+                            className="text-slate-700"
+                            size={25}
+                          />
                         </i>
                       </div>
                     </div>
@@ -207,15 +211,15 @@ export default function AddPostMOdal({ buttonText }) {
                     className="text-red-500 text-sm"
                   />
                 </div>
-                <div>
+                <div className="mt-2">
                   <button
                     type="submit"
-                    className="mx-3 rounded-md py-2 px-4 bg-purple-600 text-white"
+                    className="rounded-md py-2 px-4 bg-purple-600 text-white"
                   >
                     Post
                   </button>
                   <button
-                    className="mx-3 rounded-md py-2 px-4 bg-red-500 text-white"
+                    className="ml-3 rounded-md py-2 px-4 bg-red-500 text-white"
                     onClick={handleClose}
                   >
                     Discard

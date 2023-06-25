@@ -9,13 +9,13 @@ import EmploymentHistory from "./EmploymentHistory";
 import OtherExperiences from "./OtherExperiences";
 
 export {
-    // ProfilePage,
-    ProfileEditPage,
-    Setting,
-    LowerLeft,
-    LowerRight,
-    Testimonials,
-    Certifications,
-    EmploymentHistory,
-    OtherExperiences,
+  // ProfilePage,
+  ProfileEditPage,
+  Setting,
+  LowerLeft,
+  LowerRight,
+  Testimonials,
+  Certifications,
+  EmploymentHistory,
+  OtherExperiences,
 };

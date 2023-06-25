@@ -1,39 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
 import { ToastContainer, toast } from "react-toastify";
 import { useLoginUserMutation } from "../../../services/auth/authApi";
-const LoginPage = () => {
-  const [
-    loginUser,
-    {
-      data: loginData,
-      isSuccess: isLoginSuccess,
-      error: loginError,
-      isError: isLoginError,
-    },
-  ] = useLoginUserMutation();
-  const navigate = useNavigate();
-  // const notify = () =>
-  //   toast("Signin successfully", {
-  //     type: "success",
-  //   });
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-    userType: "Freelancer",
-  });
+import { Form, Formik, Field, ErrorMessage } from "formik";
+import loginValidation from "./validations";
 
-  const handleSubmit = (user) => {
-    if (user.email && user.password) {
-      loginUser(user);
-      // notify();
-      console.log(loginData, +"   " + isLoginSuccess);
-      setTimeout(() => {}, 1500);
+const LoginPage = () => {
+  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const navigate = useNavigate();
+  const notify = (message, type) =>
+    toast(message, {
+      type,
+    });
+
+  const handleSubmit = async (values) => {
+    try {
+      const response = await loginUser({
+        ...values,
+      }).unwrap();
+
+      const redirectTo =
+        response.data.type === "Freelancer" ? "/freelancer" : "/client";
+
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("type", response.data.type);
+        localStorage.setItem("user", JSON.stringify(response.data));
+        notify("Signin successfully", "success");
+        setTimeout(() => {
+          navigate(redirectTo);
+        }, 1500);
+      }
+    } catch (error) {
+      notify(error?.data?.message || "Signin failed", "error");
     }
   };
 
+  const handlGoogleLogin = () => {
+    window.location.href =
+      "http://localhost:5000/api/v1/users/google?type=Freelancer";
+  };
+
+  const handlGithubLogin = () => {
+    window.location.href =
+      "http://localhost:5000/api/v1/users/github?type=Freelancer";
+  };
   return (
     <>
       <AuthHeader />
@@ -44,17 +57,15 @@ const LoginPage = () => {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to Colabs
               </h1>
-              <form
-                className="space-y-4 md:space-y-6"
-                action="#"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit(user);
-                }}
-              >
+              <div>
+                {" "}
                 <button
                   aria-label="Continue with google"
                   role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGoogleLogin();
+                  }}
                   className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
                 >
                   <img
@@ -68,6 +79,10 @@ const LoginPage = () => {
                 <button
                   aria-label="Continue with github"
                   role="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlGithubLogin();
+                  }}
                   className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
                 >
                   <img
@@ -78,103 +93,102 @@ const LoginPage = () => {
                     Continue with Github
                   </p>
                 </button>
-
-                <div className="w-full flex items-center justify-between py-5">
-                  <hr className="w-full bg-gray-400" />
-                  <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
-                    OR
-                  </p>
-                  <hr className="w-full bg-gray-400  " />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Your email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@gmail.com"
-                    required
-                    onChange={(e) =>
-                      setUser({
-                        ...user,
-                        email: e.target.value,
-                      })
-                    }
-                    value={user.email}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    onChange={(e) =>
-                      setUser({
-                        ...user,
-                        password: e.target.value,
-                      })
-                    }
-                    value={user.password}
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="text-purple-600 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-purple-600 dark:ring-offset-gray-800"
+              </div>
+              <Formik
+                className="space-y-4 md:space-y-6"
+                initialValues={{ email: "", password: "" }}
+                onSubmit={(values, actions) => {
+                  handleSubmit(values);
+                }}
+                validationSchema={loginValidation}
+              >
+                {({ values, errors, touched, handleChange, handleBlur }) => (
+                  <Form>
+                    <div className="my-3">
+                      <label
+                        htmlFor="email"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Your email
+                      </label>
+                      <Field
+                        type="email"
+                        placeholder="Enter your email"
+                        name="email"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-red-500 text-sm"
                       />
                     </div>
-                    <div className="ml-3 text-sm">
+
+                    <div className="my-3">
                       <label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
+                        htmlFor="password"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Remember me
+                        Password
                       </label>
+                      <Field
+                        type="password"
+                        placeholder="Enter your password"
+                        name="password"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                      <ErrorMessage
+                        name="password"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
-                  </div>
-                  <Link
-                    to={"/forgotpassword"}
-                    className="text-sm font-medium text-purple-600 hover:underline dark:text-purple-700"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-                >
-                  Log In
-                </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet?{" "}
-                  <Link
-                    to={"/signup"}
-                    s
-                    className="font-medium text-purple-600 hover:underline dark:text-purple-700"
-                  >
-                    Sign up
-                  </Link>
-                </p>
-              </form>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-start">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="remember"
+                            aria-describedby="remember"
+                            type="checkbox"
+                            className="text-purple-600 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-purple-600 dark:ring-offset-gray-800"
+                          />
+                        </div>
+                        <div className="ml-3 text-sm">
+                          <label
+                            htmlFor="remember"
+                            className="text-gray-500 dark:text-gray-300"
+                          >
+                            Remember me
+                          </label>
+                        </div>
+                      </div>
+                      <Link
+                        to={"/forgotpassword"}
+                        className="text-sm font-medium text-purple-600 hover:underline dark:text-purple-700"
+                      >
+                        Forgot password?
+                      </Link>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 my-3"
+                    >
+                      {isLoading ? "Loading..." : "Log In"}
+                    </button>
+                    <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Don’t have an account yet?{" "}
+                      <Link
+                        to={"/signup"}
+                        s
+                        className="font-medium text-purple-600 hover:underline dark:text-purple-700"
+                      >
+                        Sign up
+                      </Link>
+                    </p>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </div>

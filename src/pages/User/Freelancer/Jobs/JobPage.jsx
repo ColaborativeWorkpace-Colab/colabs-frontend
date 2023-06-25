@@ -1,17 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FreelancerHeader from "../Header/Header";
 import JoblistComponent from "./components/JoblistComponent";
 import MobileFilterSection from "./components/MobileFilterSection";
 import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
+import axios from "axios";
+import { BaseURL } from "../../../../services/constants/Constants";
+import EmptyJobList from "./components/EmptyJobList";
+
 const JobPage = () => {
+  const [jobs, setJobs] = useState([]);
+
+  const getJobs = async () => {
+    try {
+      const resp = await axios.get(BaseURL + "jobs");
+
+      if (resp.status === 200) {
+        setJobs(resp.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getJobs();
+  }, []);
+
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
 
   return (
     <div className="">
       <FreelancerHeader selectedNav={2} />
-      <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8">
-        <JoblistComponent />
+      <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8 w-full">
+        {jobs.length > 0 ? (
+          <div className="w-full">
+            <JoblistComponent jobs={jobs} />
+          </div>
+        ) : (
+          <EmptyJobList />
+        )}
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}
           title="Filter Scale"

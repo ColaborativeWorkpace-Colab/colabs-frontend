@@ -16,8 +16,6 @@
 // 	  cursor: 'pointer',
 // 	},
 //   });
-  
-
 
 // const ProfilePage = () => {
 // 	const [extended, setExtended] = useState(false);
@@ -42,7 +40,7 @@
 // 			<div className="w-full h-full mt-[50px] px-12 py-8">
 // 				<div onClick={handleClick}>
 // 					{extended ? (
-				
+
 // 					<Box
 // 					sx={{
 // 					  display: 'flex',
@@ -60,16 +58,16 @@
 // 								src={profileImg}
 // 								alt="mekdes"
 // 								className="w-[90px] rounded-[50px] h-[90px] border-2 border-slate-300 p-0.5"
-								
-// 							/>	
+
+// 							/>
 // 						</div>
 // 						<div className="headerpara">
 // 							<h1>Mekdes Tibebu</h1>
 // 							<p>Freelancer</p>
 // 						</div>
-						
+
 // 						<div className="chip">
-							
+
 // 							<Chip
 // 							label="Invisible"
 // 							color="primary"
@@ -88,7 +86,7 @@
 // 							<IconButton>
 // 								<FaCog />
 // 							</IconButton>
-// 							<Typography variant="caption" 
+// 							<Typography variant="caption"
 // 							 style={{ fontSize: '1rem' }}
 // 							 className={classes.typography}
 // 							 onMouseEnter={handleMouseEnter}
@@ -120,7 +118,7 @@
 // 					)}
 // 				</div>
 // 			</div>
-			
+
 // 		</>
 // 	);
 // };

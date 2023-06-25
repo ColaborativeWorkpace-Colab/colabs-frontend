@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import profileImg from "../../../../../assets/images/profile.jpg";
 import photoImg from "../../../../../assets/images/photo.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
@@ -13,23 +12,90 @@ import axios from "axios";
 import AddPostMOdal from "./AddPostModal";
 import { BaseURL } from "../../../../../services/constants/Constants";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const MainComponent = () => {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const getSamplePost = async () => {
+  const [user, setUser] = useState({});
+  const token = localStorage.getItem("token");
+
+  const notify = (message, type) =>
+    toast(message, {
+      type,
+    });
+
+  const getAllPosts = async () => {
     try {
-      setIsLoading(true);
       const res = await axios.get(BaseURL + "social");
       setPosts(res.data.data);
-      setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
+      console.log(error);
     }
   };
   useEffect(() => {
-    getSamplePost();
+    getAllPosts();
+    getUser();
   }, []);
+
+  const getUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.status === 200) {
+        setUser(res.data.user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlFollow = async (otherUserId) => {
+    try {
+      const res = await axios.put(
+        BaseURL + "social/connections/addConnection",
+        {
+          otherUserId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        notify(res.data.message || "Added to your collection", "success");
+        getUser();
+      }
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.message || "Server Error pleasr try again";
+      notify(errorMessage, "error");
+    }
+  };
+
+  const handleLike = async (post) => {
+    try {
+      const res = await axios.put(BaseURL + "social/like/" + post._id, null, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        notify(res.data.message || "Liked", "success");
+        getAllPosts();
+      }
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.message || "Server Error pleasr try again";
+      notify(errorMessage, "error");
+    }
+  };
+
   return (
     <div className="main-content w-1/2">
       <div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
@@ -116,8 +182,22 @@ const MainComponent = () => {
                   {post.user.bio || "User has no bio"}
                 </p>
               </div>
-              <button className="cursor-pointer text-purple-900 font-bold">
-                <span>+</span> Follow
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlFollow(post.user._id);
+                }}
+                className={`cursor-pointer  font-bold ${
+                  user?.connections?.includes(post.user?._id.toString())
+                    ? "text-gray-500"
+                    : "text-purple-900"
+                }`}
+              >
+                {user?.connections?.includes(post.user?._id.toString()) ? (
+                  <span>Following</span>
+                ) : (
+                  <span>+ Follow</span>
+                )}
               </button>
             </div>
           </div>
@@ -131,7 +211,7 @@ const MainComponent = () => {
           <Link to={`/feeds/${post._id}`} className="mb-2">
             <p className="text-sm text-slate-800">{post.textContent}</p>
           </Link>
-          <Link to="/feeds/:post-id" className="">
+          <Link to={`/feeds/${post._id}`} className="">
             <img
               src={post.imageContent || samplepostimage}
               alt="post image"
@@ -140,45 +220,44 @@ const MainComponent = () => {
           </Link>
 
           <div className="flex justify-between items-center gap-4 p-2">
-            <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleLike(post);
+              }}
+              className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200"
+            >
               <img
                 src={likeImg}
                 alt="profile-image"
                 className="cursor-pointer w-[20px] h-[20px]"
               />
-              {post.likes.length > 0 && (
+              {post?.likes?.length > 0 && (
                 <p className="text-md text-slate-800">
-                  kal and {post.likes.length - 1} others
+                  {post.likes[0].firstName}{" "}
+                  {post?.likes?.length > 1 &&
+                    `and ${post?.likes?.length - 1} others`}
                 </p>
               )}
-            </div>
+            </button>
             <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
               <img
                 src={commentImg}
                 alt="profile-image"
                 className="cursor-pointer w-[20px] h-[20px]"
               />
-              <p className="text-md text-slate-800">Comment</p>
+              <Link
+                to={`/feeds/${post._id}`}
+                className="text-md text-slate-800"
+              >
+                {" "}
+                {post?.comments?.length} Comment
+              </Link>
             </div>
-            {/* <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-              <img
-                src={repostImg}
-                alt="profile-image"
-                className="cursor-pointer w-[20px] h-[20px]"
-              />
-              <p className="text-md text-slate-800">Repost</p>
-            </div>
-            <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-              <img
-                src={sendImg}
-                alt="profile-image"
-                className="cursor-pointer w-[20px] h-[20px]"
-              />
-              <p className="text-md text-slate-800">Send</p>
-            </div> */}
           </div>
         </div>
       ))}
+      <ToastContainer />
     </div>
   );
 };

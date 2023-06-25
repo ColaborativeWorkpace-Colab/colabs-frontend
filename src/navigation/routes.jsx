@@ -9,10 +9,10 @@ import ResetPassword from "../pages/Auth/password/ResetPassword";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 import FreelancerSignup from "../pages/Auth/signup/FreelancerSignup";
 // import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
-import ProfilePage from "../pages/User/Freelancer/Profile/ProfilePage";
+// import ProfilePage from "../pages/User/Freelancer/Profile/ProfilePage";
 // import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
 import NotificationPage from "../pages/User/Freelancer/Notification/NotificationPage";
-import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
+// import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
 import ClientHomePage from "../pages/User/client/home/HomePage";
@@ -44,6 +44,13 @@ import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
 import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
+import AdminDashboardSection from "../pages/User/admin/components/dashboard/DashboardSection";
+import VerificationSection from "../pages/User/admin/components/verification/VerificationSection";
+import DisputeSection from "../pages/User/admin/components/disputes/DisputeSection";
+import UserSection from "../pages/User/admin/components/user/UserSection";
+import AdminAccountSetting from "../pages/User/admin/components/account/AccountSetting";
+import VerificationDetail from "../pages/User/admin/components/verification/VerificationDetail";
+import DisputeDetail from "../pages/User/admin/components/disputes/DisputeDetail";
 
 export const routes = [
   {
@@ -76,6 +83,34 @@ export const routes = [
     element: <ResetPassword />,
   },
   {
+    path: "/admin",
+    element: <VerificationSection />,
+  },
+  {
+    path: "/admin/verify-request",
+    element: <VerificationSection />,
+  },
+  {
+    path: "/admin/verify-request/:id",
+    element: <VerificationDetail />,
+  },
+  {
+    path: "/admin/dispute-request",
+    element: <DisputeSection />,
+  },
+  {
+    path: "/admin/dispute-request/:id",
+    element: <DisputeDetail />,
+  },
+  {
+    path: "/admin/users",
+    element: <UserSection />,
+  },
+  {
+    path: "/admin/my-account",
+    element: <AdminAccountSetting />,
+  },
+  {
     path: "/feeds", //freelancerhome
     element: <FreelancerHomePage />,
   },
@@ -95,16 +130,15 @@ export const routes = [
     path: "/jobs/apply/:jobId",
     element: <ApplyPage />,
   },
-  {
-    path: "/profile",
-    // element: <div></div>,
-    element: <ProfilePage />,
-  },
-  {
-    path: "/messaging",
-    // element: <div></div>,
-    element: <MessagingPage />,
-  },
+  // {
+  //   path: "/profile",
+  //   // element: <div></div>,
+  //   element: <ProfilePage />,
+  // },
+  // {
+  //   path: "/messaging",
+  //   element: <MessagingPage />,
+  // },
   {
     path: "/notification",
     element: <NotificationPage />,

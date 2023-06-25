@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FreelancerHeader from "../Header/Header";
 import devaImg from "../../../../assets/images/Deva.jpg";
+import Svt from "../Svt/Svt"
 
 const NotificationPage = () => {
   // Example data for notifications
@@ -220,6 +221,7 @@ const NotificationItem = ({ type, content, avatar, time }) => {
           <br />
         </div>
       </div>
+      
     </>
   );
 };

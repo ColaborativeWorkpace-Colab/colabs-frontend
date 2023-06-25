@@ -1,11 +1,6 @@
 import React from "react";
 import "./style.css";
 import profileImg from "../../../../../assets/images/profile.jpg";
-import photoImg from "../../../../../assets/images/photo.png";
-import videoImg from "../../../../../assets/images/video.png";
-import audioImg from "../../../../../assets/images/audio.png";
-import contentImg from "../../../../../assets/images/blog.png";
-import pythonImg from "../../../../../assets/images/python.svg.png";
 import { Link } from "react-router-dom";
 import FollowButton from "./FollowButton";
 import microsoftImg from "../../../../../assets/images/microsoft.png"
@@ -57,8 +52,8 @@ export const RightSide = () => {
 	]
 	return (
 		
-		<div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
-			<h1 className='font-bold text-gray-800 pl-10 pt-6 shadow-lg pb-3 '>Add to Your Feed </h1> 
+		<div className="right-side lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
+			<h1 className='font-bold text-gray-800 pl-10 pt-6 shadow-sm pb-3 '>Add to Your Feed </h1> 
 
 		{datas.map(data => (
           <div key={data.id} className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1">

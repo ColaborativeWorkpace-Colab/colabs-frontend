@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import profileImg from "../../../../../assets/images/profile.jpg";
 import photoImg from "../../../../../assets/images/photo.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
@@ -255,22 +254,6 @@ const MainComponent = () => {
                 {post?.comments?.length} Comment
               </Link>
             </div>
-            {/* <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-              <img
-                src={repostImg}
-                alt="profile-image"
-                className="cursor-pointer w-[20px] h-[20px]"
-              />
-              <p className="text-md text-slate-800">Repost</p>
-            </div>
-            <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-              <img
-                src={sendImg}
-                alt="profile-image"
-                className="cursor-pointer w-[20px] h-[20px]"
-              />
-              <p className="text-md text-slate-800">Send</p>
-            </div> */}
           </div>
         </div>
       ))}

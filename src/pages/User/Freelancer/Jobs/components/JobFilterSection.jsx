@@ -1,7 +1,6 @@
 import React from "react";
-import { roles, industry, location, salary } from "../data";
 
-const JobFilterSection = () => {
+const JobFilterSection = ({ setFilters, filters }) => {
   return (
     <div className="relative w-[250px] flex flex-col gap-y-4">
       <div className="bg-gray-200 text-center py-2 text-xl font-medium">
@@ -12,7 +11,12 @@ const JobFilterSection = () => {
           <input
             id="checked-checkbox"
             type="checkbox"
-            value=""
+            onChange={(e) =>
+              setFilters({
+                ...filters,
+                order: e.target.checked ? "desc" : "asc",
+              })
+            }
             className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
           />
           <label
@@ -26,7 +30,12 @@ const JobFilterSection = () => {
           <input
             id="checked-checkbox"
             type="checkbox"
-            value=""
+            onChange={(e) =>
+              setFilters({
+                ...filters,
+                paymentVerified: e.target.checked ? true : "",
+              })
+            }
             className="w-4 h-4 text-purple-600 bg-gray-100 border-purple-300 rounded"
           />
           <label
@@ -41,16 +50,27 @@ const JobFilterSection = () => {
             for="large-range"
             className="ml-2 text-lg text-gray-900 dark:text-gray-300"
           >
-            Salary range
+            Earnings
           </label>
           <input
             id="large-range"
             type="range"
-            value="50"
-            min="50"
-            max="50000"
+            value={filters.earnings}
+            min="0"
+            max="5000"
+            onChange={(e) =>
+              setFilters({
+                ...filters,
+                earnings: e.target.value,
+              })
+            }
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700"
           />{" "}
+          <div className="flex justify-between">
+            <span className="text-gray-900 dark:text-gray-300 font-medium text-sm mt-1">
+              {"Higher than " + filters.earnings + " Birr"}
+            </span>
+          </div>
         </div>
       </div>
     </div>

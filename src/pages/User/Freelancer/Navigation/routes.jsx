@@ -6,7 +6,7 @@ const MessagingPage = lazy(() => import("../Messaging/MessagingPage"));
 const JobPage = lazy(() => import("../Jobs/JobPage"));
 const WorkspacePage = lazy(() => import("../Workspace/WorkspacePage"));
 const NotificationPage = lazy(() => import("../Notification/NotificationPage"));
-const ProfilePage = lazy(() => import("../Profile/ProfilePage"));
+// const ProfilePage = lazy(() => import("../Profile/ProfilePage"));
 const ProfileEditPage = lazy(() => import("../Profile/ProfileEditPage"));
 
 
@@ -31,10 +31,10 @@ export const routes = [
 		path: "/workspace",
 		element: <WorkspacePage />,
 	},
-	{
-		path: "/profile",
-		element: <ProfilePage />,
-	},
+	// {
+	// 	path: "/profile",
+	// 	element: <ProfilePage />,
+	// },
 	{
 		path: "/projectdashborad",
 		element: <WorkspaceDashboard />,

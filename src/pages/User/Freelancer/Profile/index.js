@@ -1,4 +1,4 @@
-import ProfilePage from "./ProfilePage";
+// import ProfilePage from "./ProfilePage";
 import ProfileEditPage from "./ProfileEditPage";
 import Setting from "./Setting";
 import LowerLeft from "./LowerLeft";
@@ -9,7 +9,7 @@ import EmploymentHistory from "./EmploymentHistory";
 import OtherExperiences from "./OtherExperiences";
 
 export {
-    ProfilePage,
+    // ProfilePage,
     ProfileEditPage,
     Setting,
     LowerLeft,

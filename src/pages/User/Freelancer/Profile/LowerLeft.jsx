@@ -1,27 +1,27 @@
 import React from 'react'
 import EditIcon from '@mui/icons-material/Edit';
-import { makeStyles } from "@material-ui/core/styles";
-import { IconButton } from '@material-ui/core';
+// import { makeStyles } from "@material-ui/core/styles";
+import { IconButton } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  editIcon: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    color: theme.palette.grey[700],
-    '&:hover': {
-      color: theme.palette.grey[900],
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   editIcon: {
+//     position: 'absolute',
+//     top: 0,
+//     right: 0,
+//     color: theme.palette.grey[700],
+//     '&:hover': {
+//       color: theme.palette.grey[900],
+//     },
+//   },
+// }));
 
 const LowerLeft = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <div className='lowerpart'>
         <h1>Hours per week</h1>
         <div>
-          <IconButton className={classes.editIcon}>
+          <IconButton style={{ position: 'absolute', top: 0, right: 0, color: 'grey'}}>
                 <EditIcon />
           </IconButton>
         </div>

@@ -8,17 +8,18 @@ import { AiFillCaretDown } from "react-icons/ai";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { FaCog } from "react-icons/fa";
-import { Typography, IconButton } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { IconButton } from '@mui/material';
+import { Typography } from "@mui/material";
+// import { makeStyles } from "@material-ui/core/styles";
 import profileImg from "../../../../assets/images/profile.jpg";
 import Chip from "@mui/material/Chip";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-const useStyles = makeStyles({
-  typography: {
-    cursor: "pointer",
-  },
-});
+// const useStyles = makeStyles({
+//   typography: {
+//     cursor: "pointer",
+//   },
+// });
 
 function FreelancerHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ function FreelancerHeader({ selectedNav }) {
     setExtended(!extended);
   };
 
-  const classes = useStyles();
+  // const classes = useStyles();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -158,8 +159,8 @@ function FreelancerHeader({ selectedNav }) {
                               </IconButton>
                               <Typography
                                 variant="caption"
-                                style={{ fontSize: "1rem" }}
-                                className={classes.typography}
+                                style={{ fontSize: "1rem", cursor: "pointer" }}
+                                // className={classes.typography}
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                               >
@@ -171,8 +172,8 @@ function FreelancerHeader({ selectedNav }) {
                               </IconButton>
                               <Typography
                                 variant="caption"
-                                style={{ fontSize: "1rem" }}
-                                className={classes.typography}
+                                style={{ fontSize: "1rem", cursor: "pointer" }}
+                                // className={classes.typography}
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                               >

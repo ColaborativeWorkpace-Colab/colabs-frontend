@@ -23,6 +23,9 @@ const VerificationSuccess = () => {
 
         if (resp.status === 200) {
           localStorage.setItem("user", JSON.stringify(resp.data.user));
+          if (resp.data.user.isVerified) {
+            skipCompleteProfile();
+          }
         }
       } catch (error) {
         console.log(error);
@@ -35,7 +38,7 @@ const VerificationSuccess = () => {
   const skipCompleteProfile = () => {
     const type = localStorage.getItem("type");
     if (type === "Freelancer") {
-      navigateTo("/freelancer");
+      navigateTo("/feeds");
     } else if (type === "Employer") {
       navigateTo("/client");
     }

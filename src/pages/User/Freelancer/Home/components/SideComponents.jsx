@@ -58,14 +58,14 @@ export const RightSide = () => {
 	return (
 		
 		<div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
-			<h1 className='font-bold text-gray-800 pl-10 pt-6'>Add to Your Feed </h1> 
+			<h1 className='font-bold text-gray-800 pl-10 pt-6 shadow-lg pb-3 '>Add to Your Feed </h1> 
 
 		{datas.map(data => (
           <div key={data.id} className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1">
-		  <img className='block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0' src={data.imgUrl} alt="Avatar" />
+		  <img className='block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 pr-1' src={data.imgUrl} alt="Avatar" />
 		  <div>
-			  <h1 className='font-bold text-gray-800 pl-3 hover:underline cursor-pointer capitalize'>{data.name}</h1>
-			  <p className="hover:underline cursor-pointer">{data.description}</p>
+			  <h1 className='font-bold text-gray-800 hover:underline cursor-pointer capitalize text-sm'>{data.name}</h1>
+			  <p className="hover:underline cursor-pointer text-sm">{data.description}</p>
 			  <FollowButton />
 			 
 		  </div> 
@@ -76,10 +76,6 @@ export const RightSide = () => {
 		
         ))
 		}
-
-
-		
-	 
 	  </div>
 	  
 	);

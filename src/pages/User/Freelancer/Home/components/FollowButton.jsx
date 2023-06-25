@@ -9,7 +9,7 @@ function FollowButton() {
   
     return (
       <div>
-        <button className='cursor-pointer text-purple-900 font-bold' onClick={toggleFollow}>{following ? 'Following' : '+ Follow'}</button>
+        <button className='cursor-pointer text-purple-900 text-sm' onClick={toggleFollow}>{following ? 'Following' : '+ Follow'}</button>
         {/* {following && <span>You are now following</span>} */}
       </div>
     );

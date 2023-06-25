@@ -6,6 +6,7 @@ import ChatList from "./components/chatlist/ChatList";
 import ChatBody from "./components/chatbody/ChatBody";
 import Grid from "@mui/material/Grid";
 import "./messagingpage.css";
+import profileImg from "../../../../assets/images/profile.jpg";
 import Divider from "@mui/material/Divider";
 import axios from "axios";
 // import chat from "../../../../assets/images/chat.jpg"
@@ -111,9 +112,6 @@ const MessagingPage = () => {
               </div>
             </div>
           </Box>
-          {/* <div>
-					<img src="chat.jpg" alt="chat"/>
-				</div> */}
         </div>
       </div>
       ;

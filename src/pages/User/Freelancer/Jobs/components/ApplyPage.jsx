@@ -6,6 +6,7 @@ import { coverLtterSchema } from "./validator";
 import axios from "axios";
 import { BaseURL } from "../../../../../services/constants/Constants";
 import { ToastContainer, toast } from "react-toastify";
+import AppliedSuccessfully from "./AppliedSuccessfully";
 
 const ApplyPage = () => {
   const { jobId } = useParams();
@@ -65,7 +66,7 @@ const ApplyPage = () => {
         <FreelancerHeader selectedNav={2} />
         <div className="lg:w-1/2  shadow-md flex justify-center items-center gap-4 p-4 mx-auto">
           {job?.pendingworkers?.some((userId) => userId === user._id) ? (
-            <p>Already applied</p>
+            <AppliedSuccessfully />
           ) : (
             <Formik
               className="space-y-4 md:space-y-6"

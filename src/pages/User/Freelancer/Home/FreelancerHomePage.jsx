@@ -12,7 +12,6 @@ const FreelancerHomePage = () => {
         <MainComponent />
         <RightSide />
       </div>
-      ;
     </div>
   );
 };

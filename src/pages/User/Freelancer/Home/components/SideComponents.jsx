@@ -1,13 +1,35 @@
 import React from "react";
 import "./style.css";
 import profileImg from "../../../../../assets/images/profile.jpg";
+import photoImg from "../../../../../assets/images/photo.png";
+import videoImg from "../../../../../assets/images/video.png";
+import audioImg from "../../../../../assets/images/audio.png";
+import contentImg from "../../../../../assets/images/blog.png";
+import pythonImg from "../../../../../assets/images/python.svg.png";
 import { Link } from "react-router-dom";
 
 export const RightSide = () => {
-  
+  let rights = [1, 2, 3, 4, 5, 6];
   return (
-    <div className="h-screen p-4 right-side flex flex-col w-1/4 bg-slate-100">
-      Right Side
+    <div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
+      <h1 className="font-bold text-gray-800 pl-10 pt-6">Add to Your Feed </h1>
+
+      {rights.map((right) => (
+        <div className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1">
+          <img
+            className="block mx-auto w-10  h-auto rounded-full sm:mx-0 sm:shrink-0"
+            src={pythonImg}
+            alt="Avatar"
+          />
+          <div>
+            <h1 className="font-bold text-gray-800 pl-3">Python</h1>
+            <p>Company-Computer Software</p>
+            <button className="cursor-pointer text-purple-900 font-bold">
+              <span>+</span> Follow
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
@@ -40,7 +62,7 @@ export const LeftSide = () => {
     },
   ];
   return (
-    <div className="left-side h-screen">
+    <div className="left-side h-full">
       <div className="profile p-5 flex flex-col justify-center">
         <Link
           to={"/profile"}
@@ -56,49 +78,35 @@ export const LeftSide = () => {
           <h1 className="text-xl text-slate-900">kebede Getahun</h1>
           <h1 className="text-md text-slate-500">Fullstack Developer</h1>
         </div>
-        <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
-          <h1 className="text-slate-900">Profile Completeness:</h1>
-          <div className="flex gap-2 items-center">
-            <span className="bg-green-500 w-3/4 h-[5px] "></span>{" "}
-            <span className="text-slate-900">100%</span>
+        <div className="w-full">
+          <div className="pb-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
+            <div className="flex gap-2 items-center">
+              <span className="text-slate-900 h-[20px]"></span>
+            </div>
           </div>
         </div>
         <div className="">
-          <p className="my-3 w-full border-b-2 border-gray-400 text-xl">
-            Skills
+          <p className="my-3 pb-1 w-full border-b-2 border-gray-400 text-xl">
+            My Skills
           </p>
           <div className="w-full flex flex-wrap  shrink gap-3">
             {skills.map((skill, id) => (
-              <button className="bg-purple-600 px-2 py-2 rounded-lg text-white text-sm">
+              <button className="border-[1px] border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
                 {skill.skill}
               </button>
             ))}
           </div>
         </div>
         <div className="w-full">
-          <p className="mt-4 w-full border-b-2 border-gray-400 text-xl">
-            My Rate
+          <p className="mt-4 pb-1 w-full border-b-2 border-gray-400 text-xl">
+            Job success
           </p>
-          <p className="mt-2 w-full text-lg mb-2 flex gap-2 items-center">
-            <span>
-              <input
-                type="number"
-                defaultValue={"200"}
-                className="w-[100px] h-[35px] rounded-md border-purple-600 focus:border-purple-600"
-              />
-            </span>{" "}
-            ETB/Hr
-          </p>
-          <p className="w-full text-lg mb-2 flex gap-2 items-center">
-            <span>
-              <input
-                type="number"
-                defaultValue={"20,000"}
-                className="w-[100px] h-[35px] rounded-md border-purple-600 focus:border-purple-600"
-              />
-            </span>{" "}
-            Fixed
-          </p>
+          <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
+            <div className="flex gap-2 items-center">
+              <span className="bg-green-500 w-3/4 h-[5px] "></span>{" "}
+              <span className="text-slate-900">100%</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

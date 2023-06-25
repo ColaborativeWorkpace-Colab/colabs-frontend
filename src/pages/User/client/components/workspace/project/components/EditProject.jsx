@@ -4,18 +4,21 @@ import axios from "axios";
 import { BaseURL } from "../../../../../../../services/constants/Constants";
 import projectValidation from "../validation";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 const notify = (message, type) =>
   toast(message, {
     type,
   });
 
-const AddProjectForm = () => {
+const EditProject = () => {
+  const location = useLocation();
+  const { projectId } = useParams();
+  const { project } = location.state;
+  console.log("project-->", project);
   const navigateTo = useNavigate();
   const token = localStorage.getItem("token");
   const [workers, setWorkers] = useState([{}]);
-  const [selectMemberActive, setSelectMemberActive] = useState(false);
 
   const getWorkersFromAllJob = async () => {
     try {
@@ -27,7 +30,6 @@ const AddProjectForm = () => {
 
       if (resp.status === 200) {
         setWorkers(resp.data.hiredWorkers);
-        //worker, earning
       }
     } catch (error) {
       console.log(error);
@@ -35,19 +37,24 @@ const AddProjectForm = () => {
   };
   useEffect(() => {
     getWorkersFromAllJob();
-  }, [selectMemberActive]);
+  }, []);
 
-  const createProjects = async (newProject) => {
+  const editProject = async (newProject) => {
     try {
-      const resp = await axios.post(BaseURL + "projects", newProject, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (resp.status === 201) {
-        notify("Project created successfully", "success");
-        navigateTo("/client/workspace/projects");
+      const resp = await axios.put(
+        BaseURL + "projects/" + projectId,
+        newProject,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (resp.status === 200) {
+        notify("Project updated successfully", "success");
+        setTimeout(() => {
+          navigateTo("/client/workspace/projects");
+        }, 1500);
       }
     } catch (error) {
       const errorMessage =
@@ -57,14 +64,19 @@ const AddProjectForm = () => {
   };
   return (
     <div className="w-2/4 mx-auto">
-      <div className="mb-4 rounded-md text-2xl w-full bg-gray-200 p-4 text-center">
-        Add Your Project Detail Here
+      <div className="workermb-4 rounded-md text-2xl w-full bg-gray-200 p-4 text-center">
+        Edit Your Project Detail Here
       </div>
       <Formik
         className="space-y-4 md:space-y-6"
         initialValues={{
-          title: "",
-          members: [],
+          title: project.title,
+          members: project.members.map((data) => {
+            return {
+              worker: { _id: data.workerId?._id, email: data.workerId?.email },
+              earnings: data.earnings,
+            };
+          }),
         }}
         onSubmit={(values, actions) => {
           values.members = values.members.map((data) => {
@@ -73,7 +85,7 @@ const AddProjectForm = () => {
               earnings: data.earnings,
             };
           });
-          createProjects(values);
+          editProject(values);
         }}
         validationSchema={projectValidation}
       >
@@ -105,14 +117,18 @@ const AddProjectForm = () => {
                     <span
                       key={index}
                       className={`h-[30px] cursor-pointer border-purple-600 border-2 text-sm text-black font-semibold  px-3 py-1 rounded-full focus:outline-none ${
-                        values.members.includes(data)
+                        values.members.some(
+                          (s) => s.worker?._id === data?.worker?._id
+                        )
                           ? "bg-purple-600 text-white"
                           : ""
                       }`}
                       onClick={() =>
                         setFieldValue(
                           "members",
-                          values.members.includes(data)
+                          values.members.some(
+                            (s) => s.worker?._id === data?.worker?._id
+                          )
                             ? values.members.filter(
                                 (s) => s.worker?._id !== data?.worker?._id
                               )
@@ -165,7 +181,7 @@ const AddProjectForm = () => {
               type="submit"
               className="py-2 px-4 bg-purple-700 hover:bg-purple-600 text-white text-md mt-4 rounded-md"
             >
-              Create
+              Edit
             </button>
           </Form>
         )}
@@ -175,4 +191,4 @@ const AddProjectForm = () => {
   );
 };
 
-export default AddProjectForm;
+export default EditProject;

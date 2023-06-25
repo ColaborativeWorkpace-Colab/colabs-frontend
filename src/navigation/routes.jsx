@@ -42,6 +42,8 @@ import EditTeamForm from "../pages/User/client/components/workspace/team/compone
 import UpdateTeamSection from "../pages/User/client/components/workspace/team/UpdateTeamSection";
 import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
+import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
+import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
 
 export const routes = [
   {
@@ -74,8 +76,12 @@ export const routes = [
     element: <ResetPassword />,
   },
   {
-    path: "/freelancer", //freelancerhome
+    path: "/feeds", //freelancerhome
     element: <FreelancerHomePage />,
+  },
+  {
+    path: "/feeds/:postId",
+    element: <PostDetailPage />,
   },
   {
     path: "/jobs",
@@ -166,8 +172,12 @@ export const routes = [
     element: <AddProject />,
   },
   {
-    path: "/client/workspace/projects/:project-id",
+    path: "/client/workspace/projects/:projectId",
     element: <ProjectDetail />,
+  },
+  {
+    path: "/client/workspace/edit-project/:projectId",
+    element: <EditProject />,
   },
   {
     path: "/client/workspace/progress",

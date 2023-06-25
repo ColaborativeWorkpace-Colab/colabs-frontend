@@ -11,11 +11,6 @@ const ChatList = () => {
       <div className="main__chatlist">
         <div className="chatlist__heading">
           <h2>Messages</h2>
-          {/* <Divider orientation="horizontal" variant="inset" flexItem/> */}
-          
-          <button className="btn-nobg">
-            <i className="fa fa-ellipsis-h"></i>
-          </button>
         </div>
         <div className="chatList__search">
           <div className="search_wrap">

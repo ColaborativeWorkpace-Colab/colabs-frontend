@@ -10,13 +10,13 @@ const ProgressList = () => {
               Project Name
             </th>
             <th scope="col" className="px-2 py-3">
-              Project Length
-            </th>
-            <th scope="col" className="px-2 py-3">
-              Project Lead
-            </th>
-            <th scope="col" className="px-2 py-3">
               Started Date
+            </th>
+            <th scope="col" className="px-2 py-3">
+              Project Budget
+            </th>
+            <th scope="col" className="px-2 py-3">
+              Projects Status
             </th>
             <th scope="col" className="px-2 py-3">
               END DATE

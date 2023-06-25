@@ -14,6 +14,8 @@ function ClientHeader({ selectedNav }) {
   const [openDropdown, setOpenDropdown] = useState(false);
   const logoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("type");
     navigate("/login");
   };
   const ref = useRef();

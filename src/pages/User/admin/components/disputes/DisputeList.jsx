@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DisputeList = () => {
   return (
@@ -42,9 +43,12 @@ const DisputeList = () => {
               <td className="py-2 px-2">Dispute Reson Content</td>
 
               <td className="py-2 px-2">
-                <button className="flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white">
+                <Link
+                  to="/admin/dispute-request/:id"
+                  className="flex justify-center items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
+                >
                   <span>Review</span>
-                </button>
+                </Link>
               </td>
             </tr>
           ))}

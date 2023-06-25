@@ -49,6 +49,8 @@ import VerificationSection from "../pages/User/admin/components/verification/Ver
 import DisputeSection from "../pages/User/admin/components/disputes/DisputeSection";
 import UserSection from "../pages/User/admin/components/user/UserSection";
 import AdminAccountSetting from "../pages/User/admin/components/account/AccountSetting";
+import VerificationDetail from "../pages/User/admin/components/verification/VerificationDetail";
+import DisputeDetail from "../pages/User/admin/components/disputes/DisputeDetail";
 
 export const routes = [
   {
@@ -82,15 +84,23 @@ export const routes = [
   },
   {
     path: "/admin",
-    element: <AdminDashboardSection />,
+    element: <VerificationSection />,
   },
   {
     path: "/admin/verify-request",
     element: <VerificationSection />,
   },
   {
+    path: "/admin/verify-request/:id",
+    element: <VerificationDetail />,
+  },
+  {
     path: "/admin/dispute-request",
     element: <DisputeSection />,
+  },
+  {
+    path: "/admin/dispute-request/:id",
+    element: <DisputeDetail />,
   },
   {
     path: "/admin/users",

@@ -3,9 +3,36 @@ import { MdDelete, MdEdit, MdPreview } from "react-icons/md";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../../../../services/constants/Constants";
 
 const ProjectDetailSection = ({ project }) => {
   const navigateTo = useNavigate();
+  const token = localStorage.getItem("token");
+
+  const handleInitiatePayment = async (freelancerId, projectId, earnings) => {
+    try {
+      const res = await axios.post(
+        BaseURL + "chapa/init",
+        {
+          projectId,
+          freelancerId,
+          earnings,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.data.status === "success") {
+        window.location = res.data.data.checkout_url;
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       {project.title ? (
@@ -117,12 +144,20 @@ const ProjectDetailSection = ({ project }) => {
                     </td>
 
                     <td className="py-2 px-2">
-                      <Link
-                        to={""}
+                      <button
+                        disabled={member.isPaid}
                         className="bg-purple-500 hover:bg-purple-700 px-2 py-1 rounded-md text-white"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleInitiatePayment(
+                            member.workerId._id,
+                            project._id,
+                            member.earnings
+                          );
+                        }}
                       >
-                        Release Payment
-                      </Link>
+                        {member.isPaid ? "Paid" : "Release Payment"}
+                      </button>
                     </td>
 
                     <td className="py-2 px-2">

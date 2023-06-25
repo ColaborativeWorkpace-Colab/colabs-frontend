@@ -21,7 +21,7 @@ const handleAuth = (route, key) => {
           <Route
             key={key}
             path={route.path}
-            element={<Navigate to="/freelancer" />}
+            element={<Navigate to="/feeds" />}
           />
         );
       if (type === "Employer")

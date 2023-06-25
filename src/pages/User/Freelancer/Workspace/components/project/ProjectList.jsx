@@ -1,8 +1,34 @@
+import React, { useState, useEffect } from "react";
 import { MdEdit, MdPreview } from "react-icons/md";
 import vscodeicon from "../../../../../../assets/images/vscodeicon.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../../../services/constants/Constants";
+import moment from "moment";
 
 const ProjectList = () => {
+  const [projects, setProjects] = useState([]);
+  const token = localStorage.getItem("token");
+
+  const getProjects = async () => {
+    try {
+      const res = await axios.get(BaseURL + "projects/freelancer", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setProjects(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getProjects();
+  }, []);
   return (
     <div className="md:relative overflow-x-auto sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -28,18 +54,35 @@ const ProjectList = () => {
           </tr>
         </thead>
         <tbody>
-          {[1, 4, 5, 3, 4].map((user, id) => (
+          {projects.map((project, id) => (
             <tr
               key={id}
               className="border-b border-gray-200 dark:border-gray-700 py"
             >
-              <td className="py-2 px-2">COLABS</td>
-              <td className="py-2 px-2">11/12/13</td>
-              <td className="py-2 px-2">5000 ETB</td>
-              <td className="py-2 px-2">ongoing/completed</td>
+              <td className="py-2 px-2">{project.title}</td>
               <td className="py-2 px-2">
-                <button className="bg-purple-600 text-md text-white rounded-md px-2 py-1">
-                  Request Payment{/* Requested/Pending, paid */}
+                {moment(project?.createdAt).fromNow()}
+              </td>
+              <td className="py-2 px-2">{project?.members.earnings} ETB</td>
+              <td className="py-2 px-2">{project.status}</td>
+              <td className="py-2 px-2">
+                <button
+                  disabled={
+                    project.members.isPaid || project.members.paymentRequested
+                  }
+                  className={`text-md text-white rounded-md w-40 px-2 py-1 ${
+                    project.members.isPaid
+                      ? "bg-green-500"
+                      : project.members.paymentRequested
+                      ? "bg-yellow-500"
+                      : "bg-purple-500"
+                  }`}
+                >
+                  {project.members.isPaid
+                    ? "paid"
+                    : project.members.paymentRequested
+                    ? "Payment Requested"
+                    : "Request Payment"}
                 </button>
               </td>
 

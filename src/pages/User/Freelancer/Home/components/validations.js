@@ -9,5 +9,5 @@ export const postValidation = Yup.object().shape({
 export const commentValidation = Yup.object().shape({
   comment: Yup.string()
     .required("comment is required")
-    .min(10, "comment must be at least 10 characters"),
+    .min(2, "comment must be at least 10 characters"),
 });

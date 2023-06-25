@@ -22,7 +22,7 @@ const LoginPage = () => {
       }).unwrap();
 
       const redirectTo =
-        response.data.type === "Freelancer" ? "/freelancer" : "/client";
+        response.data.type === "Freelancer" ? "/feeds" : "/client";
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

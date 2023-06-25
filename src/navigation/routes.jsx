@@ -17,6 +17,7 @@ import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
 import ClientHomePage from "../pages/User/client/home/HomePage";
 import LandingHomePage from "../pages/landingPage/LandingHomePage";
+import { ProfileEditPage } from "../pages/User/Freelancer/Profile";
 
 export const routes = [
   {
@@ -75,6 +76,11 @@ export const routes = [
     path: "/profile",
     element: <ProfilePage />,
   },
+  {
+
+		path: "/editprofile",
+		element: < ProfileEditPage/>,
+	},
   {
     path: "/projectdashborad",
     element: <WorkspaceDashboard />,

@@ -1,55 +1,70 @@
 import React from 'react'
-import Box from '@mui/material/Box';
-import { Typography } from '@material-ui/core';
+import Typography from "@mui/material/Typography";
 import Chip from '@mui/material/Chip';
 import FreelancerHeader from "../Header/Header";
 import credlylogo from '../../../../assets/images/credlylogo.svg';
-import { makeStyles } from "@material-ui/core/styles";
-import { IconButton } from '@material-ui/core';
+// import { makeStyles } from "@material-ui/core/styles";
+import { IconButton } from '@mui/material';
 import profileImg from "../../../../assets/images/profile.jpg";
 import BoltIcon from '@mui/icons-material/Bolt';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Stack from '@mui/material/Stack';
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
-// import LowerLeft from './LowerLeft'
 import LowerLeft from './LowerLeft';
 import LowerRight from './LowerRight';
 import Testimonials from './Testimonials';
-import Certifications from './Certifications';
-import OtherExperiences from './OtherExperiences';
+// import Certifications from './Certifications';
+// import OtherExperiences from './OtherExperiences';
 import EmploymentHistory from './EmploymentHistory';
 import Footer from '../../../../components/Footer/Footer';
+import { createTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import grey from '@mui/material/colors/grey';
+import './profilepage.css';
 
-const useStyles = makeStyles((theme) => ({
-  chip: {
-    '&:hover': {
-      cursor: 'pointer',
-    },
-  },
-  closeIcon: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    color: theme.palette.grey[500],
-    '&:hover': {
-      color: theme.palette.grey[700],
-    },
-  },
-  editIcon: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    color: theme.palette.grey[700],
-    '&:hover': {
-      color: theme.palette.grey[900],
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   chip: {
+//     '&:hover': {
+//       cursor: 'pointer',
+//     },
+//   },
+//   closeIcon: {
+//     position: 'absolute',
+//     top: 0,
+//     right: 0,
+//     color: theme.palette.grey[500],
+//     '&:hover': {
+//       color: theme.palette.grey[700],
+//     },
+//   },
+//   editIcon: {
+//     position: 'absolute',
+//     top: 0,
+//     right: 0,
+//     color: theme.palette.grey[700],
+//     '&:hover': {
+//       color: theme.palette.grey[900],
+//     },
+//   },
+// }));
 
 const ProfileEditPage = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
+  const chip = {
+    ':hover': {
+      cursor: 'pointer',
+    },
+  };
+
+  const theme = createTheme({
+    palette: {
+      primary: grey,
+    },
+  });
+
+
   const handleClose = () => {
     // Handle closing the component
   };
@@ -77,7 +92,7 @@ const ProfileEditPage = () => {
     }}
     >
       <div className='items-center px-10'>
-        <Typography style={{color: 'white', fontSize: 16}}>
+        <Typography style={{color: 'white', fontSize: 16, paddingTop: '1.5em'}}>
         Head to Credly to import your existing Credly certifications or start earning new ones. 
         </Typography>
         <div className='py-4'>
@@ -85,11 +100,11 @@ const ProfileEditPage = () => {
           label="Sign in to Credly"
           color="secondary"
           sx={{ paddingLeft: 3, paddingRight: 3 }}
-          className={classes.chip}
+          className={chip}
         />
         </div>
       <IconButton
-        onClick={handleClose} className={classes.closeIcon}
+        onClick={handleClose} style={{color: '#fff', position: 'absolute', top: 0, right:0}}
       >
         <CloseIcon />
       </IconButton>
@@ -106,17 +121,7 @@ const ProfileEditPage = () => {
   </Box>
  
   <div className='py-10'>
-  {/* <Box
-     sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: 1000,
-      height: "147vh",
-      boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.5)",
-      // borderRadius: '15px',
-    }}
-  > */}
+
      <div>
      <Box
       sx={{
@@ -133,14 +138,15 @@ const ProfileEditPage = () => {
     }}
     >
     <div className='pro-edit'>
-      <div className="flex justify-center">
+      <div className="flex justify-center" style={{paddingLeft: ''}}>
             <div>
 							<img
 								src={profileImg}
 								alt="mekdes"
 								className="w-[90px] rounded-[50px] h-[90px] border-2 border-slate-300 p-0.5"
+                style={{paddingLeft: '0px'}}
 							/>	
-              <IconButton className={classes.editIcon}>
+              <IconButton style={{ position: 'absolute', top: 0, right: 0, color: 'grey'}}>
                 <EditIcon />
               </IconButton>
             </div>
@@ -150,23 +156,23 @@ const ProfileEditPage = () => {
               </div>
               <div className='text-md text-slate-500 px-3'>
                 <LocationOnIcon size="small"/>
-                <div className='loc'>
+                <div className='loc' style={{display: 'inline-block'}}>
                 <p>
                 Adama, Ethiopia
                 </p>
                 </div>
               </div>
-              <div className='py-2 px-5'>
+              <div className=''>
                    <Chip icon={<BoltIcon />} label="Available" variant="outlined" />
                     <p>off</p>
               </div>
-              </div>
+            </div>
 			</div>
     </div>
-    <div className='pro-edit1'>
+    <div className='pro-edit1' style={{paddingLeft: '25em'}}>
     <Stack direction="row" spacing={3}>
-      <Chip label="See Public View" color="success" variant="outlined" className={classes.chip}/>
-      <Chip label="Profile Setting" color="success" className={classes.chip}/>
+      <Chip label="See Public View" color="success" variant="outlined" className={chip}/>
+      <Chip label="Profile Setting" color="success" className={chip}/>
     </Stack>
     </div>
   </Box>
@@ -216,7 +222,7 @@ const ProfileEditPage = () => {
     <Testimonials />
   </Box>
   </div>
-  <div className='py-2'>
+  {/* <div className='py-2'>
   <Box
    sx={{
     position: 'relative',
@@ -230,8 +236,8 @@ const ProfileEditPage = () => {
   >
     <Certifications />
   </Box>
-  </div>
-  <div className='py-10'>
+  </div> */}
+  <div className='py-2'>
   <Box
    sx={{
     position: 'relative',
@@ -239,7 +245,7 @@ const ProfileEditPage = () => {
     alignItems: 'center',
     justifyContent: 'center',
     width: 1000,
-    height: "70vh",
+    height: "100vh",
     boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.5)",
   }}
   >
@@ -247,7 +253,7 @@ const ProfileEditPage = () => {
   </Box>
   </div>
   <div className='py-2'>
-  <Box
+  {/* <Box
    sx={{
     position: 'relative',
     display: 'flex',
@@ -259,7 +265,7 @@ const ProfileEditPage = () => {
   }}
   >
     <OtherExperiences />
-  </Box>
+  </Box> */}
   </div>
   </div>
   </div>

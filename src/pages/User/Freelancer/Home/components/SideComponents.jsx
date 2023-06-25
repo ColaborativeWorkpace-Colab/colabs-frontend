@@ -18,6 +18,7 @@ export const LeftSide = () => {
   return (
     <div className="left-side">
       <div className="profile p-5 flex flex-col justify-center">
+        <Link to='/editprofile'>
         <div className="profile-image mb-3 flex justify-center">
           <img
             src={profileImg}
@@ -29,6 +30,7 @@ export const LeftSide = () => {
           <h1 className="text-xl text-slate-900">kebede Getahun</h1>
           <h1 className="text-md text-slate-500">Fullstack Developer</h1>
         </div>
+        </Link>
         <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
           <h1 className="text-slate-900">Profile Completeness:</h1>
           <div className="flex gap-2 items-center">

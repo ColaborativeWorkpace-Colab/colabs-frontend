@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import photoImg from "../../../../../assets/images/photo.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
@@ -6,28 +6,13 @@ import samplepostimage from "../../../../../assets/images/samplepostimage.jpeg";
 import likeImg from "../../../../../assets/images/like.png";
 import videoImg from "../../../../../assets/images/video.png";
 import commentImg from "../../../../../assets/images/comment.png";
-import axios from "axios";
 import AddPostMOdal from "./AddPostModal";
-import { Form, Formik, Field, ErrorMessage } from "formik";
-import { BaseURL } from "../../../../../services/constants/Constants";
+import { Form, Formik, ErrorMessage, Field } from "formik";
+import daniImg from "../../../../../assets/images/dani.jpeg";
+import { commentValidation } from "./validations";
+import moment from "moment";
 
-const PostDetail = ({ postId }) => {
-  const [post, setpost] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const getSinglePost = async () => {
-      try {
-        setIsLoading(true);
-        const res = await axios.get(BaseURL + "social" + `/${postId}`);
-        setpost(res.data.data);
-        setIsLoading(false);
-      } catch (error) {
-        setIsLoading(false);
-      }
-    };
-    getSinglePost();
-  }, [postId]);
+const PostDetail = ({ post, handleLike, handlFollow, handleComment, user }) => {
   return (
     <div className="main-content w-1/2">
       <div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
@@ -99,32 +84,39 @@ const PostDetail = ({ postId }) => {
       </div>
       <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
         <div className="poster-profile flex items-center gap-2">
-          {/* <img
+          <img
             src={post.imageUrl || daniImg}
             alt=""
             className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
-          /> */}
-          {/* <div className="grow flex justify-between">
+          />
+          <div className="grow flex justify-between">
             <div className="cursor-pointer flex flex-col gap-0.4">
               <p className="text-md text-slate-900 capitalize">
-                {post.firstName + " " + post.lastName}
+                {post.userId?.firstName + " " + post.userId?.lastName}
               </p>
               <p className="text-sm text-slate-600">
-                {post.user.bio || "User has no bio"}
+                {post.userId?.bio || "User has no bio"}
               </p>
             </div>
-            <button className="cursor-pointer text-purple-900 font-bold">
-              <span>+</span> Follow
+            <button
+              onClick={() => handlFollow(post.userId?._id)}
+              disabled={user?.connections?.includes(post.userId?._id)}
+              className="cursor-pointer text-purple-900 font-bold"
+            >
+              {user?.connections?.includes(post.userId?._id) ? (
+                <span>Following</span>
+              ) : (
+                <span>+ Follow</span>
+              )}
             </button>
-          </div> */}
+          </div>
         </div>
         <div className="mt-3 mb-2">
-          {/* {post.tags.map((tag) => (
-            <span className="pl-0 px-2 py-1 text-lg text-slate-800 mr-1">
+          {post.tags?.map((tag) => (
+            <span className="pl-0 px-2 py-1 text-sm text-blue-600 text-xl mr-1">
               #{tag}
             </span>
-          ))} */}
-          #tags in here
+          ))}
         </div>
         <div className="mb-2">
           <p className="text-lg text-slate-800">{post.textContent}</p>
@@ -140,10 +132,13 @@ const PostDetail = ({ postId }) => {
               src={likeImg}
               alt="profile-image"
               className="cursor-pointer w-[20px] h-[20px]"
+              onClick={() => handleLike(post)}
             />
             {post?.likes?.length > 0 && (
               <p className="text-md text-slate-800">
-                kal and {post?.likes?.length - 1} others
+                {post.likes[0].firstName}{" "}
+                {post?.likes?.length > 1 &&
+                  `and ${post?.likes?.length - 1} others`}
               </p>
             )}
           </div>
@@ -153,70 +148,90 @@ const PostDetail = ({ postId }) => {
               alt="profile-image"
               className="cursor-pointer w-[20px] h-[20px]"
             />
-            <p className="text-md text-slate-800">Comment</p>
+            <p className="text-md text-slate-800">
+              {post.comments?.length} Comment
+            </p>
           </div>
-          {/* <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-          <img
-            src={repostImg}
-            alt="profile-image"
-            className="cursor-pointer w-[20px] h-[20px]"
-          />
-          <p className="text-md text-slate-800">Repost</p>
-        </div>
-        <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
-          <img
-            src={sendImg}
-            alt="profile-image"
-            className="cursor-pointer w-[20px] h-[20px]"
-          />
-          <p className="text-md text-slate-800">Send</p>
-        </div> */}
         </div>
         <div>
-          <div>Comments(0)</div>
+          <div>Comments({post?.comments?.length})</div>
           <div className="comment-form">
-            <form className="w-full">
-              <div className="my-3">
-                <label
-                  htmlFor="commentContent"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Add your comment:
-                </label>
-                <input
-                  //   as="textarea"
-                  type="text"
-                  placeholder="Comment content here"
-                  name=""
-                  className="h-[100px] bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-              </div>
-
-              <div className="mt-2">
-                <button
-                  type="submit"
-                  className="rounded-md py-2 px-4 bg-purple-600 hover:bg-purple-600 text-white"
-                >
-                  Comment
-                </button>
-              </div>
-            </form>
+            <Formik
+              className="space-y-4 md:space-y-6"
+              initialValues={{ comment: "" }}
+              onSubmit={async (values, actions) => {
+                handleComment(values.comment);
+                actions.resetForm({
+                  values: { comment: "" },
+                });
+              }}
+              validationSchema={commentValidation}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                setFieldValue,
+              }) => (
+                <Form className="w-[450px]">
+                  <div className="my-3">
+                    <label
+                      htmlFor="commentContent"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Add your comment:
+                    </label>
+                    <Field
+                      as="textarea"
+                      placeholder="Comment content here"
+                      name="comment"
+                      onChange={(e) => {
+                        setFieldValue("comment", e.target.value);
+                      }}
+                      className="h-[100px] bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                    <ErrorMessage
+                      name="comment"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <button
+                      type="submit"
+                      className="rounded-md py-2 px-4 bg-purple-600 hover:bg-purple-600 text-white"
+                    >
+                      Comment
+                    </button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
           </div>
           <div className="mt-6 flex flex-col gap-3">
-            {[1, 1, 1, 1, 1, 1, 1].map((comment, id) => (
-              <div key={id} className="flex gap-3 items-start">
+            {post?.comments?.map((comment, id) => (
+              <div key={id} className="flex gap-2 items-start">
                 <span className="w-[35px] h-[35px] rounded-full">
-                  <img src={photoImg} alt="" />
+                  <img
+                    src={comment?.userId.imageUrl || photoImg}
+                    alt=""
+                    className="rounded-full"
+                  />
                 </span>
                 <div className="bg-gray-100 py-1 px-3 rounded-md">
                   <div>
-                    <p className="font-medium text-lg">user name here</p>
+                    <p className="font-medium text-sm capitalize">
+                      {comment?.userId.firstName}
+                    </p>
                   </div>
-                  <span className="text-sm text-gray-600">3 mins ago</span>
-                  <p className="text-md">
-                    {" "}
-                    this is an amaizing content I have ever read in my life.
-                  </p>{" "}
+                  <span className="text-sm text-gray-600">
+                    {moment(
+                      new Date(comment?.createdAt).toISOString()
+                    ).fromNow()}
+                  </span>
+                  <p className="text-sm"> {comment?.comment}</p>{" "}
                 </div>
               </div>
             ))}

@@ -26,6 +26,26 @@ const ProjectList = () => {
     }
   };
 
+  const requestPayment = async (id) => {
+    try {
+      const res = await axios.put(
+        BaseURL + `projects/request-payment/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        getProjects();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getProjects();
   }, []);
@@ -63,24 +83,27 @@ const ProjectList = () => {
               <td className="py-2 px-2">
                 {moment(project?.createdAt).fromNow()}
               </td>
-              <td className="py-2 px-2">{project?.members.earnings} ETB</td>
+              <td className="py-2 px-2">{project?.self.earnings} ETB</td>
               <td className="py-2 px-2">{project.status}</td>
               <td className="py-2 px-2">
                 <button
                   disabled={
-                    project.members.isPaid || project.members.paymentRequested
+                    project?.self?.isPaid || project?.self?.paymentRequested
                   }
+                  onClick={() => {
+                    requestPayment(project._id);
+                  }}
                   className={`text-md text-white rounded-md w-40 px-2 py-1 ${
-                    project.members.isPaid
+                    project?.self?.isPaid
                       ? "bg-green-500"
-                      : project.members.paymentRequested
+                      : project?.self?.paymentRequested
                       ? "bg-yellow-500"
                       : "bg-purple-500"
                   }`}
                 >
-                  {project.members.isPaid
+                  {project?.self?.isPaid
                     ? "paid"
-                    : project.members.paymentRequested
+                    : project?.self?.paymentRequested
                     ? "Payment Requested"
                     : "Request Payment"}
                 </button>

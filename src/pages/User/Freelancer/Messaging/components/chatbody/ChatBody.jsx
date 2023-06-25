@@ -10,7 +10,7 @@ import SocketContext from "../../../../../../context/messaging/SocketContext";
 export const getReceiverId = (messages, chatIndex)=>{
   let receiverId = '';
   let members = (messages && messages.length !== 0) ? messages[chatIndex]['members'] : [];
-  //TODO: Get correct index
+  
   members.forEach((member) => {
         if (JSON.parse(localStorage.getItem("user"))["_id"] !== member) {
           receiverId = member;
@@ -21,19 +21,23 @@ export const getReceiverId = (messages, chatIndex)=>{
 }
 
 const ChatBody = () => {
-  const { messages, setMessages, chatIndex } = useContext(SocketContext);
+  const { messages, setMessages, chatIndex, profileData } = useContext(SocketContext);
   
   let messagesEndRef = useRef(null);
   let [unsentMessage, setUnsentMessage] = useState("");
   let receiverId = getReceiverId(messages, chatIndex);
+  let userName = '';
   let chatId = '';
+
+  
+  profileData.forEach((value) => {
+    if (value._id === receiverId)
+      userName = `${value.firstName} ${value.lastName}`;
+  });
 
   if(messages[chatIndex]){
     chatId = messages[chatIndex]._id;
   }
-  // else{
-  //   setMessages(messages);
-  // }
   
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" }); 
@@ -55,8 +59,7 @@ const ChatBody = () => {
                   isOnline="active"
                   image="https://www.shutterstock.com/image-photo/smiling-confident-businesswoman-posing-arms-folded-1457005295"
                 /> */}
-                {/*TODO: Get User Information */}
-                <p>mekdes tibebu</p>
+                <p>{userName}</p>
               </div>
             </div>
 

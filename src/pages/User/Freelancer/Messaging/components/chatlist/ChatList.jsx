@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./chatlist.css";
 import ChatListItems from "./ChatListItems";
 import SocketContext from "../../../../../../context/messaging/SocketContext";
 import { getReceiverId } from "../chatbody/ChatBody";
 
 const ChatList = () => {
-  const { messages, onlineUsers } = useContext(SocketContext);
-  
+  const { messages, onlineUsers, profileData } = useContext(SocketContext);
+
   return (
       <div className="main__chatlist">
         <div className="chatlist__heading">
@@ -28,10 +28,16 @@ const ChatList = () => {
                 isOnline = "active"
               }
             });
+            let userName = ''
+
+            profileData.forEach((value)=>{
+              if(value._id === getReceiverId(messages, index))
+                userName = `${value.firstName} ${value.lastName}`;
+            });
 
             return (
               <ChatListItems
-                name={getReceiverId(messages, index)}
+                name={userName}
                 key={index}
                 chatIndex={index}
                 animationDelay={index + 1}

@@ -52,7 +52,7 @@ const ChatBody = () => {
 
       return (
         <div className="main__chatcontent">
-          <div className="content__header">
+          <div className="content__header py-3">
             <div className="blocks">
               <div className="current-chatting-user">
                 {/* <Avatar
@@ -60,14 +60,6 @@ const ChatBody = () => {
                   image="https://www.shutterstock.com/image-photo/smiling-confident-businesswoman-posing-arms-folded-1457005295"
                 /> */}
                 <p>{userName}</p>
-              </div>
-            </div>
-
-            <div className="blocks">
-              <div className="settings">
-                <button className="btn-nobg">
-                  <i className="fa fa-phone"></i>
-                </button>
               </div>
             </div>
           </div>
@@ -97,9 +89,6 @@ const ChatBody = () => {
 
           <div className="content__footer">
             <div className="sendNewMessage">
-              <button className="addFiles">
-                <i className="fa fa-plus"></i>
-              </button>
               <input
                 type="text"
                 placeholder="Type a message here"

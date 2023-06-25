@@ -132,7 +132,7 @@ const PostDetail = ({ post, handleLike, handlFollow, handleComment, user }) => {
               src={likeImg}
               alt="profile-image"
               className="cursor-pointer w-[20px] h-[20px]"
-              onClick={() => handleLike(post)}
+              onClick={handleLike}
             />
             {post?.likes?.length > 0 && (
               <p className="text-md text-slate-800">

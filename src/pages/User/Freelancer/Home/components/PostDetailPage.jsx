@@ -71,17 +71,22 @@ const PostDetailPage = () => {
   };
 
   // like
-  const handleLike = async (post) => {
+  const handleLike = async () => {
     try {
-      const res = await axios.put(BaseURL + "social/like/" + post._id, null, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.put(
+        BaseURL + "social/like/" + post._id,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (res.status === 200) {
         notify(res.data.message || "Liked", "success");
         getUser();
+        getSinglePost();
       }
     } catch (error) {
       console.log(error);

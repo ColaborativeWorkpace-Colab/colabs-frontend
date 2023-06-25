@@ -1,15 +1,15 @@
 import React from "react";
 import EditIcon from "@mui/icons-material/Edit";
-// import { makeStyles } from "@mui/styles";
-// import { IconButton } from "@material-ui/core";
-import IconButton from "@mui/material/IconButton";
+// import { makeStyles } from "@material-ui/core/styles";
+import { IconButton } from "@mui/material";
+
 // const useStyles = makeStyles((theme) => ({
 //   editIcon: {
-//     position: "absolute",
+//     position: 'absolute',
 //     top: 0,
 //     right: 0,
 //     color: theme.palette.grey[700],
-//     "&:hover": {
+//     '&:hover': {
 //       color: theme.palette.grey[900],
 //     },
 //   },
@@ -22,7 +22,7 @@ const LowerLeft = () => {
       <h1>Hours per week</h1>
       <div>
         <IconButton
-        //  className={classes.editIcon}
+          style={{ position: "absolute", top: 0, right: 0, color: "grey" }}
         >
           <EditIcon />
         </IconButton>

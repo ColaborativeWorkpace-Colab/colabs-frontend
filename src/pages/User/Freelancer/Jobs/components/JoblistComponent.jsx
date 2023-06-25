@@ -37,16 +37,16 @@ function JoblistComponent({ jobs = [] }) {
                   </div>
                 </Link>
                 <div className="z-99 apply-button hidden md:block">
-                  {job.pendingworkers.some((el) => el === user._id) ? (
+                  {job.pendingworkers.some((el) => el === user?._id) ? (
                     <Link
-                      to={`/jobs/apply/${job._id}`}
+                      to={`/jobs/apply/${job?._id}`}
                       className="text-sm border-2 border-purple-400 rounded-md p-2 hover:bg-purple-500 hover:text-white cursor-pointer"
                     >
                       View My Application
                     </Link>
                   ) : (
                     <Link
-                      to={"/jobs/" + job._id}
+                      to={"/jobs/" + job?._id}
                       className="bg-purple-600 py-2 px-3 text-white text-md rounded-lg"
                     >
                       Apply
@@ -99,7 +99,7 @@ function JoblistComponent({ jobs = [] }) {
             </div>
             <div className="md:hidden apply-button w-full mt-2">
               <Link
-                to={"/jobs/" + job._id}
+                to={"/jobs/" + job?._id}
                 className="bg-purple-600 py-2 px-3 text-white text-md rounded-lg"
               >
                 Apply now

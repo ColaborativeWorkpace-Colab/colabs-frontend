@@ -67,7 +67,7 @@ function FreelancerHeader({ selectedNav }) {
                     }
                   >
                     <div className="z-99 flex gap-x-2 justify-center items-center">
-                      <Link to="" className={""}>
+                      <Link to="/profile-setting" className={""}>
                         <img
                           className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
                           src={user}
@@ -84,7 +84,7 @@ function FreelancerHeader({ selectedNav }) {
                       }`}
                     >
                       <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-                        <Link to="">Profile setting</Link>
+                        <Link to="/profile-setting">Profile setting</Link>
                       </li>
 
                       <li
@@ -108,7 +108,6 @@ function FreelancerHeader({ selectedNav }) {
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span className="sr-only">Open main menu</span>
                 {!isOpen ? (
                   <svg
                     className="block h-6 w-6"
@@ -177,13 +176,6 @@ function FreelancerHeader({ selectedNav }) {
                   className="text-gray-600 hover:bg-purple-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Messaging
-                </a>
-
-                <a
-                  href="/notification"
-                  className="text-gray-600 hover:bg-purple-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Notofication
                 </a>
 
                 <a

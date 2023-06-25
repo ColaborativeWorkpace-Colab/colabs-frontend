@@ -15,7 +15,7 @@ export default class ChatItem extends Component {
           <div className="chat__msg">{this.props.msg}</div>
           <div className="chat__meta">
             {/* <span>5 mins ago</span> */}
-            <span>Seen 1:00PM</span>
+            <span>{this.props.timeStamp}</span>
           </div>
         </div>
         {/* <Avatar isOnline="active" image={this.props.image} /> */}

@@ -44,11 +44,16 @@ import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
 import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
+import SVTApp from "../pages/User/client/components/App";
 
 export const routes = [
   {
     path: "/",
     element: <LandingHomePage />,
+  },
+  {
+    path: "/svt",
+    element: <SVTApp />,
   },
   {
     path: "/login",

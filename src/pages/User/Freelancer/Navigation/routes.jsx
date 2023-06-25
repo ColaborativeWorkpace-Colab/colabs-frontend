@@ -8,12 +8,16 @@ const WorkspacePage = lazy(() => import("../Workspace/WorkspacePage"));
 const NotificationPage = lazy(() => import("../Notification/NotificationPage"));
 const ProfilePage = lazy(() => import("../Profile/ProfilePage"));
 const ProfileEditPage = lazy(() => import("../Profile/ProfileEditPage"));
-
+const SvtApp = lazy(() => import("../../../../pages/User/client/components/App"));
 
 export const routes = [
 	{
 		path: "/freelancerhome", //freelancerhome
 		element: <FreelancerHomePage />,
+	},
+	{
+		path: "/svt", //freelancerhome
+		element: <SvtApp />,
 	},
 	{
 		path: "/jobs",

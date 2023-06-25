@@ -1,5 +1,6 @@
 import React from "react";
 import HeroImage from "../../assets/images/hero-image.png";
+import { Link } from "react-router-dom";
 const Hero = () => {
 	return (
 		<div className="md:flex md:justify-between md:p-4 lg:p-6">
@@ -17,12 +18,14 @@ const Hero = () => {
 				</div>
 				<div className="block md:flex justify-center items-center md:items-start md:py-10">
 					<div className="mb-4 md:mb-0">
-						<button
+						<Link
+							to={'/svt'}
 							type="button"
 							className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
 						>
 							Hire a Freelancer
-						</button>
+						</Link>
+						{/* <Link to={"/svt"} className="text-black">Go To SVT</Link> */}
 					</div>
 					<div>
 						<form>

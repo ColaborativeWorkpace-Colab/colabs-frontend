@@ -56,4 +56,4 @@ const Svt = () => {
   )
 }
 
-export default Svt
+export default Svt;

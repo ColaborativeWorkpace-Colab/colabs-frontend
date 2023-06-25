@@ -1,0 +1,103 @@
+{"javascript":[
+    {
+        "title":"Which of the following statement is true?",
+        "options":[
+            "If onKeyDown returns false, the key-up event is canceled.",
+            "If onKeyDown returns false, the key-press event is canceled.",
+            "If onKeyPress returns false, the key-down event is canceled.",
+            "If onKeyPress returns false, the key-up event is canceled."
+        ],
+        "correctOptionIndex":"1"
+    },
+    {
+        "title":"Which of the following statement shows the primary difference between JavaScript and Java?",
+        "options":[
+            "There is no difference between JavaScript and Java.",
+            "Functions are considered as fields.",
+            "Variables are specific.",
+            "Functions are values, and there is no such distinction between methods and fields."
+        ],
+        "correctOptionIndex":"3"
+    },
+    {
+        "title":"Which of the following statement is true in the case of the property of the JSON() method?",
+        "options":[
+            "A JSON() method can be invoked manually as object.JSON()",
+            "A JSON() method is invoked automatically by the JSON.stringify() method",
+            "A JSON() method is automatically invoked by the compiler",
+            "A JSON() method cannot be invoked in any form"
+        ],
+        "correctOptionIndex":"1"
+    },{
+        "title":"Which of the following statement is true?",
+        "options":[
+            "If onKeyDown returns false, the key-up event is canceled.",
+            "If onKeyDown returns false, the key-press event is canceled.",
+            "If onKeyPress returns false, the key-down event is canceled.",
+            "If onKeyPress returns false, the key-up event is canceled."
+        ],
+        "correctOptionIndex":"1"
+    },
+    {
+        "title":"Which of the following statement shows the primary difference between JavaScript and Java?",
+        "options":[
+            "There is no difference between JavaScript and Java.",
+            "Functions are considered as fields.",
+            "Variables are specific.",
+            "Functions are values, and there is no such distinction between methods and fields."
+        ],
+        "correctOptionIndex":"3"
+    },
+    {
+        "title":"Which of the following statement is true in the case of the property of the JSON() method?",
+        "options":[
+            "A JSON() method can be invoked manually as object.JSON()",
+            "A JSON() method is invoked automatically by the JSON.stringify() method",
+            "A JSON() method is automatically invoked by the compiler",
+            "A JSON() method cannot be invoked in any form"
+        ],
+        "correctOptionIndex":"1"
+    },{
+        "title":"Which of the following statement is true?",
+        "options":[
+            "If onKeyDown returns false, the key-up event is canceled.",
+            "If onKeyDown returns false, the key-press event is canceled.",
+            "If onKeyPress returns false, the key-down event is canceled.",
+            "If onKeyPress returns false, the key-up event is canceled."
+        ],
+        "correctOptionIndex":"1"
+    },
+    {
+        "title":"Which of the following statement shows the primary difference between JavaScript and Java?",
+        "options":[
+            "There is no difference between JavaScript and Java.",
+            "Functions are considered as fields.",
+            "Variables are specific.",
+            "Functions are values, and there is no such distinction between methods and fields."
+        ],
+        "correctOptionIndex":"3"
+    },
+    {
+        "title":"Which of the following statement is true in the case of the property of the JSON() method?",
+        "options":[
+            "A JSON() method can be invoked manually as object.JSON()",
+            "A JSON() method is invoked automatically by the JSON.stringify() method",
+            "A JSON() method is automatically invoked by the compiler",
+            "A JSON() method cannot be invoked in any form"
+        ],
+        "correctOptionIndex":"1"
+    }
+],
+"python":[
+    {
+        "title":"Which of the following statements is/are NOT correct regarding Memory Management in Python? Statement 1: Python Memory Manager handles the management regarding memory in Python ; Statement 2: Python uses CMS (Concurrent Mark Sweep) approach as its Garbage Collection technique ; Statement 3: Python offers a core garbage collection to recycle the vacant memory for the private heap space.",
+        "options":[
+            "Only Statement 3",
+            "Statement 1 and 3",
+            "Statement 2 and 3",
+            "Only Statement 2"
+        ],
+        "correctOptionIndex":"3"
+    }
+]
+}

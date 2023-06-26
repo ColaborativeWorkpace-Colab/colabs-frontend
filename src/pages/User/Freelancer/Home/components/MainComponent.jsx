@@ -132,7 +132,7 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800 capitalize">video</p>
+                <p className="text-md text-slate-800 capitalize">Idea</p>
               </div>
             }
           />
@@ -144,7 +144,7 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800 capitalize">audio</p>
+                <p className="text-md text-slate-800 capitalize">Hobby</p>
               </div>
             }
           />

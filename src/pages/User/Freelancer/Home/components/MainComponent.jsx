@@ -169,31 +169,31 @@ const MainComponent = () => {
         <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
           <div className="poster-profile flex items-center gap-2">
             <img
-              src={post.user.imageUrl || daniImg}
+              src={post?.user?.imageUrl || daniImg}
               alt=""
               className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
             />
             <div className="grow flex justify-between">
               <div className="cursor-pointer flex flex-col gap-0.4">
                 <p className="text-md text-slate-900 capitalize">
-                  {post.user.firstName + " " + post.user.lastName}
+                  {post?.user?.firstName + " " + post?.user?.lastName}
                 </p>
                 <p className="text-sm text-slate-600">
-                  {post.user.bio || "User has no bio"}
+                  {post?.user?.bio || "User has no bio"}
                 </p>
               </div>
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  handlFollow(post.user._id);
+                  handlFollow(post?.user?._id);
                 }}
                 className={`cursor-pointer  font-bold ${
-                  user?.connections?.includes(post.user?._id.toString())
+                  user?.connections?.includes(post?.user?._id.toString())
                     ? "text-gray-500"
                     : "text-purple-900"
                 }`}
               >
-                {user?.connections?.includes(post.user?._id.toString()) ? (
+                {user?.connections?.includes(post?.user?._id.toString()) ? (
                   <span>Following</span>
                 ) : (
                   <span>+ Follow</span>

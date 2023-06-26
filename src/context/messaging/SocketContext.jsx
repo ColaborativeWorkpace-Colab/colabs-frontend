@@ -4,4 +4,5 @@ const SocketContext = createContext({
   messages: [],
   onlineUsers: []
 }); 
+
 export default SocketContext;

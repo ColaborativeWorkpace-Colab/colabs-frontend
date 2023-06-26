@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "./routes";
 
@@ -32,7 +32,7 @@ const handleAuth = (route, key) => {
             element={<Navigate to="/client" />}
           />
         );
-    }
+    }    
 
     return <Route key={key} path={route.path} element={route.element} />;
   }

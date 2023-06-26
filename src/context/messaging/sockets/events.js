@@ -1,19 +1,18 @@
 import { socket } from "./index";
 import { addClientToQueue } from "./emit";
-export const socketEvents = ({ setValue }) => {
-    socket.on("connect", ()=>{
+
+export const socketEvents = () => {
+  socket.on("connect", ()=>{
         addClientToQueue();
     });
-  socket.on("queueLength", ({ queueLength }) => {
-    setValue((state) => {
-      return { ...state, queueLength };
-    });
-  });
-  socket.on("positionInLine", ({ positionInLine }) => {
-    setValue((state) => {
-      return { ...state, positionInLine };
-    });
-  });
+
+    socket.on("receive_chat_id", (data)=>{
+      console.log(data);
+    })
+
+    socket.on("incoming_private_message", (data)=>{
+      console.log(data);
+    })
 
   //TODO: add all necessary socket events
 };

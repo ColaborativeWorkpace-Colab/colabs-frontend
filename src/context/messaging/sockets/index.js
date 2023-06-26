@@ -5,11 +5,11 @@ import { BaseURL } from "../../../services/constants/Constants";
 export const socket = io(
     BaseURL.replace('/api/v1/', ''),
 {
-    autoConnect: true
+    autoConnect: false
 });
 
-export const initSockets = ({ setValue }) => {
+export const initSockets = ( ) => {
     socket.connect();
     
-    socketEvents({ setValue });
+    socketEvents();
 };

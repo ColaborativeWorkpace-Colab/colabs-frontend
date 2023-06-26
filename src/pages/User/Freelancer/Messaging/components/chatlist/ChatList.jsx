@@ -4,9 +4,9 @@ import ChatListItems from "./ChatListItems";
 import SocketContext from "../../../../../../context/messaging/SocketContext";
 import { getReceiverId } from "../chatbody/ChatBody";
 
-const ChatList = () => {
-  const { messages, onlineUsers, profileData } = useContext(SocketContext);
-
+const ChatList = ({props}) => {
+  const { messages, onlineUsers, profileData, setChatIndex } = props; 
+  
   return (
       <div className="main__chatlist">
         <div className="chatlist__heading">
@@ -21,7 +21,8 @@ const ChatList = () => {
           </div>
         </div>
         <div className="chatlist__items">
-          {messages.map((item, index) => {
+          {
+          messages.map((item, index) => {
             let isOnline = "";
             onlineUsers.forEach(users => {
               if(users.userId === item.senderId){ 
@@ -34,7 +35,8 @@ const ChatList = () => {
               if(value._id === getReceiverId(messages, index))
                 userName = `${value.firstName} ${value.lastName}`;
             });
-
+            let lastMessage =
+              item.totalMessages.length !== 0 ? item.totalMessages[item.totalMessages.length - 1].message : '';
             return (
               <ChatListItems
                 name={userName}
@@ -44,8 +46,9 @@ const ChatList = () => {
                 active={item.active ? "active" : ""}
                 isOnline={isOnline}
                 lastOnline={new Date(item.updatedAt).toLocaleDateString()}
-                lastMessage={item.totalMessages[item.totalMessages.length - 1].message}
+                lastMessage={lastMessage}
                 //image={item.image}
+                setChatIndex={setChatIndex}
               />
             );
           })}

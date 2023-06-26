@@ -3,8 +3,7 @@ import Avatar from "./Avatar";
 import SocketContext from "../../../../../../context/messaging/SocketContext";
 
 const ChatListItems = (props) => {
-  const {setChatIndex} = useContext(SocketContext);
-
+  
   const selectChat = (e) => {
     for (
       let index = 0;
@@ -14,7 +13,7 @@ const ChatListItems = (props) => {
       e.currentTarget.parentNode.children[index].classList.remove("active");
     }
     e.currentTarget.classList.add("active");
-    setChatIndex(props.chatIndex);
+    props.setChatIndex(props.chatIndex);
   };
 
     return (

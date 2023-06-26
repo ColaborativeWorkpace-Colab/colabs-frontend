@@ -2,8 +2,8 @@ import React, {useContext} from 'react'
 import SocketContext from '../../../../../../context/messaging/SocketContext';
 import { getReceiverId } from '../chatbody/ChatBody';
 
-const ConnectionList = () => {
-    const {onlineUsers, messages, setMessages, setChatIndex} = useContext(SocketContext);
+const ConnectionList = ({props}) => {
+    const {onlineUsers, messages, setMessages, setChatIndex} = props;
 
     const getChat = (userId) => {
         let exists = false;
@@ -11,14 +11,13 @@ const ConnectionList = () => {
         messages.forEach((message, index)=>{
             if(userId == getReceiverId(messages, index)){
                 setChatIndex(index);
-                console.log('yes')
                 exists = true;
                 return;
             }
         });
         
         if(!exists){
-            console.log('what')
+            
             setMessages([
               ...messages,
               {

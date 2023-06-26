@@ -2,7 +2,7 @@ import React from "react";
 
 const JobFilterSection = ({ setFilters, filters }) => {
   return (
-    <div className="relative w-[250px] flex flex-col gap-y-4">
+    <div className="w-full flex flex-col gap-y-4">
       <div className="bg-gray-200 text-center py-2 text-xl font-medium">
         Filter Here
       </div>

@@ -21,7 +21,7 @@ function ClientHeader({ selectedNav }) {
   const ref = useRef();
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-white z-20  md:px-[50px] ">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-100 via-purple-300 to-pink-50 z-20  md:px-[50px] ">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">

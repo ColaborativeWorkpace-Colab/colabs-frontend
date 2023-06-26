@@ -42,40 +42,43 @@ export const RightSide = () => {
       description: "Software as a Service and Products",
       imgUrl: googleImg,
     },
-    {
-      id: 6,
-      name: "OpenAI",
-      description: "AI Research",
-      imgUrl: openAiImg,
-    },
+    // {
+    //   id: 6,
+    //   name: "OpenAI",
+    //   description: "AI Research",
+    //   imgUrl: openAiImg,
+    // },
   ];
   return (
-    <div className="right-side lg:block h-screen flex flex-col lg:w-[300px] bg-white shadow-sm rounded-lg shadow-gray-300">
-      <h1 className="font-bold text-gray-800 pl-10 pt-6 shadow-sm">
-        Add to Your Feed{" "}
+    <div className="right-side hidden lg:block h-screen flex flex-col lg:w-[300px] p-2 shadow-sm rounded-lg shadow-gray-300">
+      <h1 className="font-bold text-gray-800 pl-10 shadow-sm mb-[10px] bg-purple-50 text-gray-700 mb-10 text-center">
+        Add to Your Feed
       </h1>
 
-      {datas.map((data) => (
-        <div
-          key={data.id}
-          className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1"
-        >
-          <img
-            className="block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
-            src={data.imgUrl}
-            alt="Avatar"
-          />
-          <div>
-            <h1 className="font-bold text-gray-800 pl-3 hover:underline cursor-pointer capitalize text-sm">
-              {data.name}
-            </h1>
-            <p className="hover:underline cursor-pointer text-sm">
-              {data.description}
-            </p>
-            <FollowButton />
+      <div className="my-4">
+        {" "}
+        {datas.map((data) => (
+          <div
+            key={data.id}
+            className="py-8 px-8 h-auto pb-3 my-[5px] mx-auto bg-white rounded-xl shadow-lg space-y-0 sm:py-1 sm:flex sm:items-center  sm:space-y-0 sm:space-x-1"
+          >
+            <img
+              className="block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
+              src={data.imgUrl}
+              alt="Avatar"
+            />
+            <div className="">
+              <h1 className="font-bold text-gray-800 hover:underline cursor-pointer capitalize text-sm">
+                {data.name}
+              </h1>
+              <p className="hover:underline cursor-pointer text-sm">
+                {data.description}
+              </p>
+              <FollowButton />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
@@ -108,7 +111,7 @@ export const LeftSide = () => {
     },
   ];
   return (
-    <div className="left-side h-full">
+    <div className="left-side hidden lg:block lg:w-full h-full">
       <div className="profile p-5 flex flex-col justify-center">
         <Link to="/editprofile">
           <div className="profile-image mb-3 flex justify-center">
@@ -140,17 +143,6 @@ export const LeftSide = () => {
                 {skill.skill}
               </button>
             ))}
-          </div>
-        </div>
-        <div className="w-full">
-          <p className="mt-4 pb-1 w-full border-b-2 border-gray-400 text-xl">
-            Job success
-          </p>
-          <div className="my-3 p-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
-            <div className="flex gap-2 items-center">
-              <span className="bg-green-500 w-3/4 h-[5px] "></span>{" "}
-              <span className="text-slate-900">100%</span>
-            </div>
           </div>
         </div>
       </div>

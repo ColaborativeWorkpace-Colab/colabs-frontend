@@ -97,20 +97,20 @@ const MainComponent = () => {
   };
 
   return (
-    <div className="main-content w-1/2">
-      <div className="post-content bg-white shadow-sm rounded-lg shadow-gray-300 w-full">
+    <div className="main-content w-full">
+      <div className="post-content w-full bg-white shadow-sm rounded-lg shadow-gray-300">
         <div className="flex justify-center items-center gap-4 px-5 py-2">
           <AddPostMOdal
             buttonText={
               <input
-                className="hover:bg-gray-300 cursor-pointer w-[450px] grow rounded-[40px] border-2 border-slate-400 px-[20px] h-[50px]"
+                className="hover:bg-gray-300 cursor-pointer md:w-[450px] grow rounded-[40px] border-2 border-slate-400 px-[20px] h-[50px]"
                 placeholder="Start a post"
                 disabled
               />
             }
           />
         </div>
-        <div className="flex justify-between items-center gap-4 p-2">
+        <div className="hidden sm:flex justify-between items-center gap-4 p-2">
           <AddPostMOdal
             buttonText={
               <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
@@ -119,7 +119,7 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800">Photos</p>
+                <p className="text-md text-slate-800 capitalize">Photos</p>
               </div>
             }
           />
@@ -132,7 +132,7 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800">video</p>
+                <p className="text-md text-slate-800 capitalize">Idea</p>
               </div>
             }
           />
@@ -144,7 +144,7 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800">audio</p>
+                <p className="text-md text-slate-800 capitalize">Hobby</p>
               </div>
             }
           />
@@ -156,7 +156,9 @@ const MainComponent = () => {
                   alt="profile-image"
                   className="cursor-pointer w-[20px] h-[20px]"
                 />
-                <p className="text-md text-slate-800">create content</p>
+                <p className="text-md text-slate-800 capitalize">
+                  create content
+                </p>
               </div>
             }
           />
@@ -201,7 +203,7 @@ const MainComponent = () => {
               </button>
             </div>
           </div>
-          <div className="mt-3 mb-2">
+          <div className="mt-2">
             {post.tags.map((tag) => (
               <span className="pl-0 px-2 py-1 text-sm text-blue-600 text-xl mr-1">
                 #{tag}
@@ -209,7 +211,7 @@ const MainComponent = () => {
             ))}
           </div>
           <Link to={`/feeds/${post._id}`} className="mb-2">
-            <p className="text-sm text-slate-800">{post.textContent}</p>
+            <p className="text-lg text-slate-800">{post.textContent}</p>
           </Link>
           <Link to={`/feeds/${post._id}`} className="">
             <img
@@ -233,7 +235,7 @@ const MainComponent = () => {
                 className="cursor-pointer w-[20px] h-[20px]"
               />
               {post?.likes?.length > 0 && (
-                <p className="text-md text-slate-800">
+                <p className="text-md text-slate-800 capitalize">
                   {post.likes[0].firstName}{" "}
                   {post?.likes?.length > 1 &&
                     `and ${post?.likes?.length - 1} others`}

@@ -36,7 +36,7 @@ const ProjectDetailSection = ({ project }) => {
   return (
     <div>
       {project.title ? (
-        <div className="mt-[100px]">
+        <div className="">
           <div className="overflow-x-auto sm:rounded-lg">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-white uppercase dark:text-gray-400 bg-purple-600">

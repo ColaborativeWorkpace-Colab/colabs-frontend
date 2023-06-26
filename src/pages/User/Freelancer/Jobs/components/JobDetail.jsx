@@ -46,7 +46,6 @@ const JobDetail = () => {
                   </p>
                 ))}
               </div>
-              <p className="text-xl pt-4 pb-2">Required Skills</p>
               <div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
                 <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
                   Html
@@ -60,7 +59,7 @@ const JobDetail = () => {
               </div>
               <div className="mt-4 flex gap-4 border-t-2 border-gray-100 py-2">
                 <p className="text-md text-gray-600">
-                  Budget: <span>10,000 ETB</span>
+                  Budget: <span>{job.earnings} ETB</span>
                 </p>
               </div>
             </div>
@@ -73,7 +72,7 @@ const JobDetail = () => {
                 </p>
               </div>
               <div className="absolute bottom-[5px] bg-gray-200 w-full flex justify-center py-1">
-                {job?.pendingworkers?.some((userId) => userId === user._id) ? (
+                {job?.pendingworkers?.some((userId) => userId === user?._id) ? (
                   <p>Already applied</p>
                 ) : (
                   <Link

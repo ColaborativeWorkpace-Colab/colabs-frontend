@@ -64,8 +64,8 @@ const ApplyPage = () => {
     <div>
       <div className="mt-[100px] md:px-[80px] px-[10px]">
         <FreelancerHeader selectedNav={2} />
-        <div className="lg:w-1/2  shadow-md flex justify-center items-center gap-4 p-4 mx-auto">
-          {job?.pendingworkers?.some((userId) => userId === user._id) ? (
+        <div className="lg:w-2/4  shadow-md flex justify-center items-center gap-4 p-4 mx-auto">
+          {job?.pendingworkers?.some((userId) => userId === user?._id) ? (
             <AppliedSuccessfully />
           ) : (
             <Formik

@@ -102,7 +102,7 @@ export default function AddPostMOdal({ buttonText }) {
       >
         <DialogContent dividers>
           <Formik
-            className="space-y-4 md:space-y-6"
+            className="w-full flex justify-center space-y-4 md:space-y-6"
             initialValues={{ textContent: "", imageContent: null, tags: "" }}
             onSubmit={async (values, actions) => {
               if (values.imageContent) {
@@ -121,7 +121,7 @@ export default function AddPostMOdal({ buttonText }) {
               handleBlur,
               setFieldValue,
             }) => (
-              <Form className="w-[450px]">
+              <Form className="w-full min-w-[500px] px-2">
                 <div className="my-3">
                   <label
                     htmlFor="content"

@@ -41,10 +41,10 @@ const DashboardContent = () => {
 
   return (
     <div className="w-full rounded-md px-6 flex flex-col gap-2">
-      <div className="flex gap-2 justify-between">
+      <div className="grid gap-4 grid-cols-3 justify-center">
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-2 items-center">
               <SiMoneygram className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Gained</h1>
             </div>
@@ -54,8 +54,8 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-2 items-center">
               <FaUsers className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Hired</h1>
             </div>
@@ -66,8 +66,8 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-2 items-center">
               <FaUsers className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Applied Jobs</h1>
             </div>
@@ -78,8 +78,8 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-2 items-center">
               <SiOpenproject className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Active Projects </h1>
             </div>
@@ -90,8 +90,8 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-2 items-center">
               <SiOpenproject className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Completed Projects </h1>
             </div>

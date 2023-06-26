@@ -75,11 +75,11 @@ export default function CompleteProfile() {
         },
       });
 
-      if (resp.data) {
-        notify(resp.data.message, "success");
+      if (resp.status === 201) {
+        notify(resp.data.message || "Submited for review", "success");
         setTimeout(() => {
           if (type === "Freelancer") {
-            navigateTo("/freelancer");
+            navigateTo("/feeds");
           } else if (type === "Employer") {
             navigateTo("/client");
           }
@@ -124,7 +124,7 @@ export default function CompleteProfile() {
               legalInfo: {
                 bank: {
                   bankCode: banks.find((bank) => bank.name === values.bankName)
-                    .id,
+                    ?.id,
                   accountNumber: values.accountNumber,
                   accountName: values.accountName,
                   businessName: values.businessName,

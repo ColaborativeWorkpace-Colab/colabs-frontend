@@ -6,26 +6,37 @@ import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import axios from "axios";
 import { BaseURL } from "../../../../services/constants/Constants";
-import EmptyJobList from "./components/EmptyJobList";
 
 const JobPage = () => {
   const [jobs, setJobs] = useState([]);
+  const [filters, setFilters] = useState({
+    earnings: 0,
+    order: "desc",
+    paymentVerified: "",
+  });
 
-  const getJobs = async () => {
-    try {
-      const resp = await axios.get(BaseURL + "jobs");
-
-      if (resp.status === 200) {
-        setJobs(resp.data.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // Filtered Jobs
   useEffect(() => {
-    getJobs();
-  }, []);
+    const getFilteredJobs = async () => {
+      try {
+        const resp = await axios.get(BaseURL + "jobs", {
+          params: {
+            order: filters.order,
+            earnings: filters.earnings,
+            paymentVerified: filters.paymentVerified,
+          },
+        });
+
+        if (resp.status === 200) {
+          setJobs(resp.data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getFilteredJobs();
+  }, [filters]);
 
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
 
@@ -33,13 +44,13 @@ const JobPage = () => {
     <div className="">
       <FreelancerHeader selectedNav={2} />
       <div className="mt-[90px] md:flex gap-5 justify-between sm:px-8 w-full">
-        {jobs.length > 0 ? (
-          <div className="w-full">
-            <JoblistComponent jobs={jobs} />
-          </div>
-        ) : (
-          <EmptyJobList />
-        )}
+        <div className="w-full">
+          <JoblistComponent
+            setFilters={setFilters}
+            jobs={jobs}
+            filters={filters}
+          />
+        </div>
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}
           title="Filter Scale"

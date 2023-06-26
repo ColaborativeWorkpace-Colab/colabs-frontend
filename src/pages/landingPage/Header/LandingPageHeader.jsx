@@ -82,7 +82,8 @@ const LandingPageHeader = ({ selectedNav }) => {
                   className={
                     selected == value.id
                       ? value.className +
-                        "border border-b-2 border-purple-800 text-purple-900 text-lg font-bold pb-1"
+                        //border border-b-2
+                        "border-purple-800 text-purple-900 text-lg font-bold pb-1"
                       : value.className
                   }
                 >

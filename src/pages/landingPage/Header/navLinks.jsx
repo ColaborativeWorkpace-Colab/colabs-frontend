@@ -7,7 +7,7 @@ export const navLinks = [
   },
   {
     id: 2,
-    name: "Find Freelancer",
+    name: "Hire Freelancer",
     to: "/",
     className: "text-slate-700 hover:text-slate-900 px-1 text-sm font-medium",
   },
@@ -15,6 +15,6 @@ export const navLinks = [
     id: 3,
     name: "Find Job",
     to: "/",
-    className: "text-slate-700 hover:text-slate-900 px-1 text-sm font-medium",
+    className: "text-slate-500 hover:text-slate-900 px-1 text-sm font-medium",
   },
 ];

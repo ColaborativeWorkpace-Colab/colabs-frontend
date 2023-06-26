@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="md:flex md:justify-between md:p-4 lg:p-6">
       <div className="p-3 md:p-0 md:flex-col md:w-1/2">
-        <div className="md:my-5">
+        <div className="md:my-5" data-aos="fade-down" data-aos-delay="300">
           <h1 className="text-4xl md:text-5xl text-gray-600 font-semibold">
             Are you looking for top 5% Freelancers?
           </h1>

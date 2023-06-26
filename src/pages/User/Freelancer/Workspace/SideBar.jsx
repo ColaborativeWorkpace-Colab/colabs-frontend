@@ -51,25 +51,7 @@ const FreelancerWorkspaceSideBar = ({ selectedItem, selectedProduct }) => {
                 </span>
               </div>
             </Link>
-            {/* <Link to={"/workspace/progress"}>
-              <div
-                className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
-                  selectedItem == 2
-                    ? "border-l-4 border-purple-600 bg-gray-100"
-                    : ""
-                } `}
-                aria-controls="dropdown-example"
-                data-collapse-toggle="dropdown-example"
-              >
-                <span>
-                  <SiProgress size={20} color="gray" />
-                </span>
 
-                <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Progress
-                </span>
-              </div>
-            </Link> */}
             <Link to={"/workspace/teams"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${

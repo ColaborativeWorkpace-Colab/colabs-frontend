@@ -1,9 +1,13 @@
 import { AiFillDashboard, AiOutlineControl } from "react-icons/ai";
+import { BsPersonWorkspace } from "react-icons/bs";
 import { FaProductHunt, FaUsers } from "react-icons/fa";
 import {
   MdOutlineConfirmationNumber,
   MdOutlineManageAccounts,
+  MdPayment,
+  MdVerified,
 } from "react-icons/md";
+import { SiTalenthouse } from "react-icons/si";
 import { Link } from "react-router-dom";
 
 const SideBar = ({ selectedItem, selectedProduct }) => {
@@ -12,7 +16,7 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
       <aside className="hidden sm:block min-h-screen">
         <div className="px-3 py-4 overflow-y-auto dark:bg-gray-800">
           <ul className="space-y-4 font-medium">
-            <Link to={"/admin/verify-request"}>
+            <Link to={"/profile-setting"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 1
@@ -23,15 +27,15 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                 data-collapse-toggle="dropdown-example"
               >
                 <span>
-                  <MdOutlineConfirmationNumber size={20} color="gray" />
+                  <BsPersonWorkspace size={20} color="gray" />
                 </span>
 
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Verification Request
+                  Work History
                 </span>
               </div>
             </Link>
-            <Link to={"/admin/dispute-request"}>
+            <Link to={"/my-skills"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 2
@@ -42,15 +46,15 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                 data-collapse-toggle="dropdown-example"
               >
                 <span>
-                  <AiOutlineControl size={20} color="gray" />
+                  <SiTalenthouse size={20} color="gray" />
                 </span>
 
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Dispute Request
+                  My Skills
                 </span>
               </div>
             </Link>
-            <Link to={"/admin/users"}>
+            <Link to={"/freelancer-get-verified"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 3
@@ -61,19 +65,38 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                 data-collapse-toggle="dropdown-example"
               >
                 <span>
-                  <FaUsers size={20} color="gray" />
+                  <MdVerified size={20} color="gray" />
                 </span>
 
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Users
+                  Get Verified
                 </span>
               </div>
             </Link>
 
-            <Link to={"/admin/my-account"}>
+            <Link to={"/freelancer-get-paid"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 4
+                    ? "border-l-4 border-purple-600 bg-gray-100"
+                    : ""
+                } `}
+                aria-controls="dropdown-example"
+                data-collapse-toggle="dropdown-example"
+              >
+                <span>
+                  <MdPayment size={20} color="gray" />
+                </span>
+
+                <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                  Get Paid
+                </span>
+              </div>
+            </Link>
+            <Link to={"/freelancer-account-setting"}>
+              <div
+                className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
+                  selectedItem == 5
                     ? "border-l-4 border-purple-600 bg-gray-100"
                     : ""
                 } `}
@@ -85,7 +108,7 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                 </span>
 
                 <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Account Setting
+                  My Account
                 </span>
               </div>
             </Link>

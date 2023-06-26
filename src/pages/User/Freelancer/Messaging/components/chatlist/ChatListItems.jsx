@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React, {useContext} from "react";
 import Avatar from "./Avatar";
-import ChatBody from "../chatbody/ChatBody"
+import SocketContext from "../../../../../../context/messaging/SocketContext";
 
-export default class ChatListItems extends Component {
-  constructor(props) {
-    super(props);
-  }
-  selectChat = (e) => {
+const ChatListItems = (props) => {
+  const {setChatIndex} = useContext(SocketContext);
+
+  const selectChat = (e) => {
     for (
       let index = 0;
       index < e.currentTarget.parentNode.children.length;
@@ -15,31 +14,32 @@ export default class ChatListItems extends Component {
       e.currentTarget.parentNode.children[index].classList.remove("active");
     }
     e.currentTarget.classList.add("active");
+    setChatIndex(props.chatIndex);
   };
 
-  render() {
     return (
       <div
-        style={{ animationDelay: `0.${this.props.animationDelay}s` }}
-        onClick={this.selectChat}
+        style={{ animationDelay: `0.${props.animationDelay}s` }}
+        onClick={(e) => selectChat(e)}
         className={`chatlist__item ${
-          this.props.active ? this.props.active : ""
+          props.active ? props.active : ""
         } `}
       >
         <Avatar
           image={
-            this.props.image ? this.props.image : "http://placehold.it/80x80"
+            props.image ? props.image : "http://placehold.it/80x80"
           }
-          isOnline={this.props.isOnline}
+          isOnline={props.isOnline}
         />
 
         <div className="userMeta">
-          <p>{this.props.name}
-          <span className="activeTime">10 mins ago</span>
+          <p>{props.name}
+          <span className="activeTime">{props.lastOnline}</span>
           </p>
-          <span>how are you doing?</span>
+          <span>{props.lastMessage}</span>
         </div>
       </div>
     );
-  }
 }
+
+export default ChatListItems

@@ -1,6 +1,3 @@
-import { lazy, Suspense } from "react";
-import Loading from "../components/Loader/Loading";
-
 import ChooseSignupType from "../pages/Auth/signup/ChooseSignupType";
 import ClientSignup from "../pages/Auth/signup/ClientSignup";
 import LoginPage from "../pages/Auth/login/LoginPage";
@@ -8,11 +5,8 @@ import ForgotPassword from "../pages/Auth/password/ForgotPassword";
 import ResetPassword from "../pages/Auth/password/ResetPassword";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 import FreelancerSignup from "../pages/Auth/signup/FreelancerSignup";
-// import WorkspaceDashboard from "../pages/User/Freelancer/Workspace/WorkspaceDashboard";
-// import ProfilePage from "../pages/User/Freelancer/Profile/ProfilePage";
-// import WorkspacePage from "../pages/User/Freelancer/Workspace/WorkspacePage";
 import NotificationPage from "../pages/User/Freelancer/Notification/NotificationPage";
-// import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
+import MessagingPage from "../pages/User/Freelancer/Messaging/MessagingPage";
 import JobPage from "../pages/User/Freelancer/Jobs/JobPage";
 import FreelancerHomePage from "../pages/User/Freelancer/Home/FreelancerHomePage";
 import ClientHomePage from "../pages/User/client/home/HomePage";
@@ -34,23 +28,25 @@ import FreelancerWorkspaceDashboardSection from "../pages/User/Freelancer/Worksp
 import FreelancerWorkspaceProjectSection from "../pages/User/Freelancer/Workspace/components/project/FreelancerWorkspaceProjectSection";
 import FreelancerWorkspaceProgressSection from "../pages/User/Freelancer/Workspace/components/progress/FreelancerWorkspaceProgressSection";
 import FreelancerWorkspaceTeamSection from "../pages/User/Freelancer/Workspace/components/team/FreelancerWorkspaceTeamSection";
-import Editor from "../pages/User/Freelancer/Workspace/components/codeeditor/Editor";
 import FreelancerWorkspaceProjectDetail from "../pages/User/Freelancer/Workspace/components/projectdetail/FreelancerWorkspaceProjectDetail";
 import AddProject from "../pages/User/client/components/workspace/project/AddProject";
 import ProjectDetail from "../pages/User/client/components/workspace/project/ProjectDetail";
-import EditTeamForm from "../pages/User/client/components/workspace/team/components/EditTeamForm";
 import UpdateTeamSection from "../pages/User/client/components/workspace/team/UpdateTeamSection";
 import MyHireRecord from "../pages/User/client/components/talent/MyHireRecord";
 import DiscoverFreelancer from "../pages/User/client/components/talent/DiscoverFreelancer";
 import EditProject from "../pages/User/client/components/workspace/project/components/EditProject";
 import PostDetailPage from "../pages/User/Freelancer/Home/components/PostDetailPage";
-import AdminDashboardSection from "../pages/User/admin/components/dashboard/DashboardSection";
 import VerificationSection from "../pages/User/admin/components/verification/VerificationSection";
 import DisputeSection from "../pages/User/admin/components/disputes/DisputeSection";
 import UserSection from "../pages/User/admin/components/user/UserSection";
 import AdminAccountSetting from "../pages/User/admin/components/account/AccountSetting";
 import VerificationDetail from "../pages/User/admin/components/verification/VerificationDetail";
 import DisputeDetail from "../pages/User/admin/components/disputes/DisputeDetail";
+import WorkHistory from "../pages/User/Freelancer/profile/components/workhistory/WorkHistorySection";
+import FreelancerProfileAccountSection from "../pages/User/Freelancer/profile/components/account/FreelancerProfileAccountSection";
+import GetPaidSection from "../pages/User/Freelancer/profile/components/getpaid/GetPaidSection";
+import GetVerifiedSection from "../pages/User/Freelancer/profile/components/getverified/GetVerifiedSection";
+import SkillSection from "../pages/User/Freelancer/profile/components/skill/SkillSection";
 
 export const routes = [
   {
@@ -130,15 +126,30 @@ export const routes = [
     path: "/jobs/apply/:jobId",
     element: <ApplyPage />,
   },
-  // {
-  //   path: "/profile",
-  //   // element: <div></div>,
-  //   element: <ProfilePage />,
-  // },
-  // {
-  //   path: "/messaging",
-  //   element: <MessagingPage />,
-  // },
+  {
+    path: "/profile-setting",
+    element: <WorkHistory />,
+  },
+  {
+    path: "/freelancer-account-setting",
+    element: <FreelancerProfileAccountSection />,
+  },
+  {
+    path: "/freelancer-get-paid",
+    element: <GetPaidSection />,
+  },
+  {
+    path: "/my-skills",
+    element: <SkillSection />,
+  },
+  {
+    path: "/freelancer-get-verified",
+    element: <GetVerifiedSection />,
+  },
+  {
+    path: "/messaging",
+    element: <MessagingPage />,
+  },
   {
     path: "/notification",
     element: <NotificationPage />,

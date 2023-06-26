@@ -3,18 +3,20 @@ import { useState } from "react";
 import FreelancerWorkspaceHeader from "../../header/FreelancerWorkspaceHeader";
 import ProjectDetailBody from "./ProjectDetailBody";
 import ProjectDetailSidebar from "./ProjectDetailSidebar";
+import ProjectDetailRightSide from "./ProjectDetailRightSide";
 const FreelancerWorkspaceProjectDetail = () => {
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
   return (
     <div className="h-full">
       <FreelancerWorkspaceHeader />
-      <div className="relative top-[70px] flex gap-3 px-[10px] md:px-[80px]">
+      <div className="relative top-[70px] flex gap-3 px-[10px] md:px-[10px]">
         <ProjectDetailSidebar selectedItem={1} />
-        <div className="w-full mb-[200px]">
+        <div className="w-full mb-[200px] grow">
           <div className="overflow-x-scroll scrolling-touch">
             <ProjectDetailBody />
           </div>
         </div>
+        <ProjectDetailRightSide />
 
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}

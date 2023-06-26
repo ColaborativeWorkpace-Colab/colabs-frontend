@@ -40,8 +40,8 @@ const LandingHomePage = () => {
           title="Frequently Asked Questions"
         ></SectionTitle>
         <Faqs />
-        <div className="m-10"></div>
-        <Contact />
+        {/* <div className="m-10"></div>
+        <Contact /> */}
         <div className="m-10"></div>
       </div>
       <Footer />

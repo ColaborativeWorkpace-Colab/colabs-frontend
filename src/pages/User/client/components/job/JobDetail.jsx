@@ -52,27 +52,7 @@ const ClientJobDetail = () => {
                   ? job?.description?.slice(0, 300) + "..."
                   : job?.description}
               </p>
-              <p className="text-xl py-2">Skills</p>
-              <div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  User Interface Design
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Figma
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Html
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  In Design
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Adobe XD
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Illustrator
-                </p>
-              </div>
+
               <p className="text-xl pt-4 pb-2">Required Skills</p>
               <div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
                 {job?.requirements?.map((skill) => (

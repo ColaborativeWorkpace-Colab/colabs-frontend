@@ -104,7 +104,7 @@ const ProjectDetailSection = ({ project }) => {
                         className="bg-purple-500 hover:bg-purple-700 px-2 py-1 rounded-md text-white"
                       >
                         {member.paymentRequested
-                          ? "Payment Request"
+                          ? "Payment Requested"
                           : "Not Requested"}
                       </Link>
                     </td>
@@ -112,7 +112,9 @@ const ProjectDetailSection = ({ project }) => {
                     <td className="py-2 px-2">
                       <button
                         disabled={member.isPaid}
-                        className="bg-purple-500 hover:bg-purple-700 px-2 py-1 rounded-md text-white"
+                        className={`text-md text-white rounded-md w-40 px-2 py-1 ${
+                          member.isPaid ? "bg-green-500" : "bg-purple-500"
+                        }`}
                         onClick={(e) => {
                           e.preventDefault();
                           handleInitiatePayment(

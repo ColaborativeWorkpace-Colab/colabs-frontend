@@ -137,7 +137,7 @@ export const LeftSide = () => {
                 />
               ) : (
                 <img
-                  className="w-[80px] block mx-auto w-10  h-auto cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
+                  className="w-[80px] block mx-auto w-10  h-auto cursor-pointer sm:mx-0 sm:shrink-0"
                   src={userPhoto}
                   alt="Avatar"
                 />

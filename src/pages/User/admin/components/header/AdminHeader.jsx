@@ -16,9 +16,7 @@ const AdminHeader = () => {
   });
   const navigate = useNavigate();
   const logoutHandler = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.removeItem("type");
+    localStorage.clear();
     navigate("/login");
   };
   return (

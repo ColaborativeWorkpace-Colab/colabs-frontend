@@ -16,6 +16,7 @@ const AccountDetail = () => {
     occupation: "",
     skills: [],
     imageUrl: "",
+    type: "",
   });
   const [selectedImages, setSelectedImage] = useState({
     imageContent: "",
@@ -99,6 +100,7 @@ const AccountDetail = () => {
           occupation: res.data.user.occupation,
           skills: res.data.user.skills,
           imageUrl: res.data.user.imageUrl,
+          type: res.data.user.type,
         });
       }
     } catch (error) {
@@ -116,6 +118,7 @@ const AccountDetail = () => {
 
       if (res.status === 200) {
         notify("Profile updated successfully", "success");
+        window.location.reload();
       }
     } catch (error) {
       const errorMessage =
@@ -294,34 +297,36 @@ const AccountDetail = () => {
                   className="text-red-500 text-sm"
                 />
               </div>
-              <div className="flex flex-col gap-y-2 mt-4">
-                <label
-                  htmlFor="cover-lettter"
-                  className="text-md text-slate-800"
-                >
-                  Skills
-                </label>
-                <div className="flex flex-wrap gap-2 h-40 max-h-40 overflow-auto border-[2px] py-3 px-2 rounded border-purple-600">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className={`h-[30px] cursor-pointer border-purple-600 border-2 text-sm text-black font-semibold  px-3 py-1 rounded-full focus:outline-none ${
-                        values.skills?.includes(skill) ? "bg-purple-600" : ""
-                      }`}
-                      onClick={() =>
-                        setFieldValue(
-                          "skills",
-                          values.skills?.includes(skill)
-                            ? values.skills?.filter((s) => s !== skill)
-                            : [...values.skills, skill]
-                        )
-                      }
-                    >
-                      {skill}
-                    </span>
-                  ))}
+              {user.type === "Freelancer" && (
+                <div className="flex flex-col gap-y-2 mt-4">
+                  <label
+                    htmlFor="cover-lettter"
+                    className="text-md text-slate-800"
+                  >
+                    Skills
+                  </label>
+                  <div className="flex flex-wrap gap-2 h-40 max-h-40 overflow-auto border-[2px] py-3 px-2 rounded border-purple-600">
+                    {skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className={`h-[30px] cursor-pointer border-purple-600 border-2 text-sm text-black font-semibold  px-3 py-1 rounded-full focus:outline-none ${
+                          values.skills?.includes(skill) ? "bg-purple-600" : ""
+                        }`}
+                        onClick={() =>
+                          setFieldValue(
+                            "skills",
+                            values.skills?.includes(skill)
+                              ? values.skills?.filter((s) => s !== skill)
+                              : [...values.skills, skill]
+                          )
+                        }
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
               {user.imageUrl && !values.imageUrl && (
                 <div className="flex justify-between items-start mt-4">
                   <img src={`${user.imageUrl}`} alt="" width={200} />

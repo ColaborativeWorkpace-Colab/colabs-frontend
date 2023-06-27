@@ -33,16 +33,7 @@ function FreelancerHeader({ selectedNav }) {
       });
 
       if (res.status === 200) {
-        setUser({
-          firstName: res.data.user.firstName,
-          lastName: res.data.user.lastName,
-          email: res.data.user.email,
-          password: res.data.user.password,
-          bio: res.data.user.bio,
-          occupation: res.data.user.occupation,
-          skills: res.data.user.skills,
-          imageUrl: res.data.user.imageUrl,
-        });
+        setUser(res.data.user);
       }
     } catch (error) {
       console.log(error);
@@ -60,7 +51,7 @@ function FreelancerHeader({ selectedNav }) {
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-[50px]">
           <div className="flex items-center justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link className="flex items-center gap-2" to="/feeds">
+              <Link className="flex items-center gap-2" to={"/"}>
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}
@@ -71,28 +62,29 @@ function FreelancerHeader({ selectedNav }) {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-4">
-                {navLinks.map((value) => (
-                  <Link
-                    to={value.to}
-                    key={value.id}
-                    onClick={() => {}}
-                    className={`${
-                      selectedNav == value.id
-                        ? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
-                        : "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-transparent hover:border-purple-800 hover:text-gray-800"
-                    }`}
-                  >
-                    <span>
-                      <img
-                        className="h-[20px] w-[20px]"
-                        src={value.icon}
-                        alt="icon"
-                      />
-                    </span>
+                {user?.type !== "Employer" &&
+                  navLinks.map((value) => (
+                    <Link
+                      to={value.to}
+                      key={value.id}
+                      onClick={() => {}}
+                      className={`${
+                        selectedNav == value.id
+                          ? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
+                          : "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-transparent hover:border-purple-800 hover:text-gray-800"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="h-[20px] w-[20px]"
+                          src={value.icon}
+                          alt="icon"
+                        />
+                      </span>
 
-                    <a className={value.className}>{value.name}</a>
-                  </Link>
-                ))}
+                      <a className={value.className}>{value.name}</a>
+                    </Link>
+                  ))}
                 <div className="flex gap-x-6">
                   <div
                     onMouseLeave={() => setOpenDropdown(false)}
@@ -104,7 +96,7 @@ function FreelancerHeader({ selectedNav }) {
                   >
                     <div className="z-99 flex gap-x-2 justify-center items-center">
                       <Link to="/profile-setting" className={""}>
-                        {user.imageUrl ? (
+                        {user?.imageUrl ? (
                           <img
                             className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
                             src={user?.imageUrl}

@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const GetVerifiedDetail = () => {
   const token = localStorage.getItem("token");
-  const type = localStorage.getItem("type");
   const [banks, setBanks] = useState([]);
   const [selectedImages, setSelectedImage] = useState({
     legalDoc: "",
@@ -17,7 +16,6 @@ const GetVerifiedDetail = () => {
     toast(message, {
       type,
     });
-  const navigateTo = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -74,13 +72,6 @@ const GetVerifiedDetail = () => {
 
       if (resp.status === 201) {
         notify(resp.data.message || "Submited for review", "success");
-        setTimeout(() => {
-          if (type === "Freelancer") {
-            navigateTo("/feeds");
-          } else if (type === "Employer") {
-            navigateTo("/client");
-          }
-        }, 1500);
       }
     } catch (error) {
       notify("Server error", "error");
@@ -100,7 +91,7 @@ const GetVerifiedDetail = () => {
             businessName: "",
             legalDoc: null,
           }}
-          onSubmit={async (values, actions) => {
+          onSubmit={async (values, { resetForm }) => {
             if (values.legalDoc) {
               const resp = await getImageUrl(values.legalDoc);
               values.legalDoc = resp;
@@ -125,6 +116,7 @@ const GetVerifiedDetail = () => {
               },
               type: "VERIFICATION",
             });
+            resetForm();
           }}
         >
           {({

@@ -126,7 +126,7 @@ export const routes = [
   },
   {
     path: "/profile-setting",
-    element: <WorkHistory />,
+    element: <GetVerifiedSection />,
   },
   {
     path: "/freelancer-account-setting",

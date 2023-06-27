@@ -85,6 +85,7 @@ export default function AddPostMOdal({ buttonText }) {
     if (resp.status === 200) {
       notify("Post added successfully", "success");
       handleClose();
+      window.location.reload();
     } else {
       notify("Something went wrong", "error");
     }

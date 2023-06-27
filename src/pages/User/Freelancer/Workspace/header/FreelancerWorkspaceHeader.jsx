@@ -15,7 +15,7 @@ function FreelancerWorkspaceHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const logoutHandler = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     navigate("/login");
   };
   const ref = useRef();

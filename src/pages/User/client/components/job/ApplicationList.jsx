@@ -42,7 +42,7 @@ const ApplicationList = () => {
             <p className="text-purple-600">Proposals({applications?.length})</p>
             <span className="text-md md:text-xl">-</span>
             <p className="text-md md:text-xl">
-              Create Figma Design For Web Application
+              {applications?.data?.data[0].job.title}
             </p>
           </div>
           {applications?.map((application, id) => (

@@ -52,27 +52,7 @@ const ClientJobDetail = () => {
                   ? job?.description?.slice(0, 300) + "..."
                   : job?.description}
               </p>
-              <p className="text-xl py-2">Skills</p>
-              <div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  User Interface Design
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Figma
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Html
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  In Design
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Adobe XD
-                </p>
-                <p className="bg-purple-100 rounded-[20px] text-slate-600 py-2 px-4 text-sm">
-                  Illustrator
-                </p>
-              </div>
+
               <p className="text-xl pt-4 pb-2">Required Skills</p>
               <div className="job-tasks flex flex-wrap justify-start gap-2 items-center">
                 {job?.requirements?.map((skill) => (
@@ -88,14 +68,6 @@ const ClientJobDetail = () => {
                 <p className="text-md text-gray-600 cursor-pointer">
                   Proposals: <span>{applications?.length}+</span>
                 </p>
-              </div>
-              <div className="mt-4 flex gap-4 border-t-2 border-gray-100 py-2">
-                <button className="text-md text-gray-600 rounded-md text-white bg-red-500 hover:bg-red-700 px-4 py-2">
-                  Remove This Job Post
-                </button>
-                <button className="text-md text-gray-600 rounded-md text-white bg-gray-500 hover:bg-gray-700 px-4 py-2">
-                  Close This Job Post
-                </button>
               </div>
             </div>
             <div className="relative w-1/4 h-[400px] flex flex-col items-center bg-gray-200 p-4 rounded-lg border-2 border-white">

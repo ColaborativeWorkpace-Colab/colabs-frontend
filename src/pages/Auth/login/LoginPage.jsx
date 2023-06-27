@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AuthHeader from "../AuthHeader";
 import { Link, useNavigate } from "react-router-dom";
 import AuthFooter from "../AuthFooter";
@@ -15,14 +15,33 @@ const LoginPage = () => {
       type,
     });
 
+  useEffect(() => {
+    if (
+      localStorage.getItem("token") &&
+      localStorage.getItem("type") === "Freelancer"
+    ) {
+      navigate("/feeds");
+    }
+
+    if (
+      localStorage.getItem("token") &&
+      localStorage.getItem("type") === "Employer"
+    ) {
+      navigate("/client");
+    }
+  }, []);
+
   const handleSubmit = async (values) => {
     try {
       const response = await loginUser({
         ...values,
       }).unwrap();
 
-      const redirectTo =
-        response.data.type === "Freelancer" ? "/feeds" : "/client";
+      const redirectTo = response.data.isAdmin
+        ? "/admin"
+        : response.data.type === "Freelancer"
+        ? "/feeds"
+        : "/client";
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

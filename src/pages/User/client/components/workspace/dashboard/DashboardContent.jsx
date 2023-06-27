@@ -3,6 +3,7 @@ import { SiMoneygram, SiOpenproject } from "react-icons/si";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BaseURL } from "../../../../../../services/constants/Constants";
+import { BsSignpost2Fill } from "react-icons/bs";
 
 const DashboardContent = () => {
   const token = localStorage.getItem("token");
@@ -33,10 +34,10 @@ const DashboardContent = () => {
 
   return (
     <div className="w-full rounded-md px-6 flex flex-col gap-2">
-      <div className="flex gap-2 justify-between">
+      <div className="grid gap-4 grid-cols-2 justify-center">
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-2 items-center">
               <SiMoneygram className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Spent</h1>
             </div>
@@ -46,8 +47,9 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-2 items-center">
+              {" "}
               <FaUsers className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Hire</h1>
             </div>
@@ -58,9 +60,10 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
-              <SiOpenproject className="text-purple-700" size={35} />
+          <div className="cursor-pointer flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-2 items-center">
+              {" "}
+              <BsSignpost2Fill className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Job Post </h1>
             </div>
             <h1 className="text-xl font-medium">
@@ -70,8 +73,9 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="bg-purple-50 shadow-md rounded-md p-4">
-          <div className="cursor-pointer flex flex-col gap-6">
-            <div className="flex gap-x-2 items-center">
+          <div className="cursor-pointer flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-2 items-center">
+              {" "}
               <SiOpenproject className="text-purple-700" size={35} />
               <h1 className="text-2xl font-medium">Total Projects</h1>
             </div>

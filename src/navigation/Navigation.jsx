@@ -1,22 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "./routes";
 
 const hasToken = Boolean(localStorage.getItem("token"));
-const type = JSON.parse(localStorage.getItem("user"))?.type;
-
+const user = JSON.parse(localStorage.getItem("user"));
 const handleAuth = (route, key) => {
-  const publicRoutes = [
-    "/",
-    "/login",
-    "/signup",
-    "/signup/client",
-    "/signup/freelancer",
-  ];
+  const publicRoutes = ["/", "/signup", "/signup/client", "/signup/freelancer"];
 
   if (publicRoutes.includes(route.path)) {
     if (hasToken) {
-      if (type === "Freelancer")
+      if (!user.isAdmin && user.type === "Freelancer")
         return (
           <Route
             key={key}
@@ -24,7 +17,7 @@ const handleAuth = (route, key) => {
             element={<Navigate to="/feeds" />}
           />
         );
-      if (type === "Employer")
+      if (!user.isAdmin && user.type === "Employer")
         return (
           <Route
             key={key}
@@ -32,7 +25,7 @@ const handleAuth = (route, key) => {
             element={<Navigate to="/client" />}
           />
         );
-    }
+    }    
 
     return <Route key={key} path={route.path} element={route.element} />;
   }

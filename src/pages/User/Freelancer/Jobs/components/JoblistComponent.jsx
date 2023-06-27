@@ -9,11 +9,11 @@ import EmptyJobList from "./EmptyJobList";
 function JoblistComponent({ jobs = [], setFilters, filters }) {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="flex gap-4 md:gap-6">
-      <div className="h-[400px] bg-white flex justify-center py-5 px-[10px]">
+    <div className="flex gap-10 md:gap-6 w-full">
+      <div className="w-1/4 lg:fixed top-[100px] left-[50px] h-[400px] rounded-sm shadow-sm bg-white flex justify-center py-5 px-[10px]">
         <JobFilterSection setFilters={setFilters} filters={filters} />
       </div>
-      <div className="bg-white w-full flex flex-col px-6 py-6 gap-6">
+      <div className="relative mb-[200px] ml-[370px] top-[10px] bg-white flex flex-col px-6 py-6 gap-6 w-3/4">
         {jobs.length > 0 ? (
           jobs?.map((job, key) => (
             <div className="job-content flex flex-col gap-3 w-full border-2 border-gray-100 p-5 rounded-lg">
@@ -43,7 +43,7 @@ function JoblistComponent({ jobs = [], setFilters, filters }) {
                     </div>
                   </Link>
                   <div className="z-99 apply-button hidden md:block">
-                    {job.pendingworkers.some((el) => el === user._id) ? (
+                    {job.pendingworkers.some((el) => el === user?._id) ? (
                       <Link
                         to={`/jobs/apply/${job._id}`}
                         className="text-sm border-2 border-purple-400 rounded-md p-2 hover:bg-purple-500 hover:text-white cursor-pointer"
@@ -88,23 +88,6 @@ function JoblistComponent({ jobs = [], setFilters, filters }) {
                     {job.paymentVerified
                       ? "Payment Verified"
                       : "Payment Unverified"}
-                  </span>
-                </div>
-                <div className="flex gap-3">
-                  <span>
-                    <img src={starImg} width={"20px"} height={"20px"} alt="" />
-                  </span>
-                  <span>
-                    <img src={starImg} width={"20px"} height={"20px"} alt="" />
-                  </span>
-                  <span>
-                    <img src={starImg} width={"20px"} height={"20px"} alt="" />
-                  </span>
-                  <span>
-                    <img src={starImg} width={"20px"} height={"20px"} alt="" />
-                  </span>
-                  <span>
-                    <img src={starImg} width={"20px"} height={"20px"} alt="" />
                   </span>
                 </div>
               </div>

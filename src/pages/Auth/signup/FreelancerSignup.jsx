@@ -196,6 +196,7 @@ const FreelancerSignup = () => {
                             id="remember"
                             aria-describedby="remember"
                             type="checkbox"
+                            required
                             className="text-purple-600 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-purple-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-purple-600 dark:ring-offset-gray-800"
                           />
                         </div>

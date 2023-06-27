@@ -9,8 +9,9 @@ import SocketContext from "../../../../../../context/messaging/SocketContext";
 
 export const getReceiverId = (messages, chatIndex)=>{
   let receiverId = '';
+  
   let members = (messages && messages.length !== 0) ? messages[chatIndex]['members'] : [];
-  //TODO: Get correct index
+  
   members.forEach((member) => {
         if (JSON.parse(localStorage.getItem("user"))["_id"] !== member) {
           receiverId = member;
@@ -20,117 +21,115 @@ export const getReceiverId = (messages, chatIndex)=>{
   return receiverId;
 }
 
-const ChatBody = () => {
-  const { messages, setMessages, chatIndex } = useContext(SocketContext);
-  
+const ChatBody = ({props}) => {
+  const { messages, setMessages, chatIndex, profileData } = props;
   let messagesEndRef = useRef(null);
   let [unsentMessage, setUnsentMessage] = useState("");
   let receiverId = getReceiverId(messages, chatIndex);
-  let chatId = '';
+  let userName = "";
+  let chatId = "";
 
-  if(messages[chatIndex]){
+  useEffect(()=>scrollToBottom())
+
+  profileData.forEach((value) => {
+    if (value._id === receiverId)
+      userName = `${value.firstName} ${value.lastName}`;
+  });
+
+  if (messages[chatIndex]) {
     chatId = messages[chatIndex]._id;
   }
-  // else{
-  //   setMessages(messages);
-  // }
-  
+
   const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" }); 
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     getMessages().then((value) => {
       setMessages(value);
     });
+    setUnsentMessage("");
     scrollToBottom();
   }, []);
 
-      return (
-        <div className="main__chatcontent">
-          <div className="content__header">
-            <div className="blocks">
-              <div className="current-chatting-user">
-                {/* <Avatar
+  return (
+    <div className="main__chatcontent">
+      <div className="content__header py-3">
+        <div className="blocks">
+          <div className="current-chatting-user">
+            {/* <Avatar
                   isOnline="active"
                   image="https://www.shutterstock.com/image-photo/smiling-confident-businesswoman-posing-arms-folded-1457005295"
                 /> */}
-                {/*TODO: Get User Information */}
-                <p>mekdes tibebu</p>
-              </div>
-            </div>
-
-            <div className="blocks">
-              <div className="settings">
-                <button className="btn-nobg">
-                  <i className="fa fa-phone"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="content__body">
-            <div className="chat__items">
-              {(messages[chatIndex] ? messages[chatIndex].totalMessages : []).map((item, index) => {
-                return (
-                  <ChatItem
-                    animationDelay={index + 2}
-                    key={item.messageId}
-                    user={
-                      JSON.parse(localStorage.getItem("user"))["_id"] ===
-                      item.sender
-                        ? "me"
-                        : "other"
-                    }
-                    msg={item.message}
-                    timeStamp={new Date(item.timestamp).toLocaleDateString()}
-                  />
-                );
-                
-              })}
-              <div ref={messagesEndRef} />
-            </div>
-          </div>
-
-          <div className="content__footer">
-            <div className="sendNewMessage">
-              <button className="addFiles">
-                <i className="fa fa-plus"></i>
-              </button>
-              <input
-                type="text"
-                placeholder="Type a message here"
-                onChange= {(e)=>setUnsentMessage(e.target.value)}
-                value={unsentMessage}
-              />
-              
-              <button
-                className="btnSendMsg"
-                id="sendMsgBtn"
-                onClick={() => {
-                  sendMessage({
-                    senderId: JSON.parse(localStorage.getItem("user"))["_id"],
-                    receiverId: receiverId,
-                    message: unsentMessage,
-                    messageId: uuidv4(),
-                    timeStamp: new Date(Date.now()).toLocaleDateString(),
-                    chatId: chatId,
-                  });
-
-                  getMessages().then((value) => {
-                    setMessages(value);
-                  });
-                   
-                  setUnsentMessage("");
-                  scrollToBottom();
-                }}
-              >
-                <i className="fa fa-paper-plane"></i>
-              </button>
-            </div>
+            <p>{userName}</p>
           </div>
         </div>
-      );
-}
+      </div>
+
+      <div className="content__body">
+        <div className="chat__items">
+          {(messages[chatIndex] ? messages[chatIndex].totalMessages : []).map(
+            (item, index) => {
+              return (
+                <ChatItem
+                  animationDelay={index + 2}
+                  key={item.messageId}
+                  user={
+                    JSON.parse(localStorage.getItem("user"))["_id"] ===
+                    item.sender
+                      ? "me"
+                      : "other"
+                  }
+                  msg={item.message}
+                  timeStamp={new Date(item.timestamp).toLocaleDateString()}
+                />
+              );
+            }
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+      </div>
+
+      <div className="content__footer">
+        <div className="sendNewMessage">
+          <input
+            type="text"
+            placeholder="Type a message here"
+            onChange={(e) => setUnsentMessage(e.target.value)}
+            value={unsentMessage}
+          />
+
+          <button
+            className="btnSendMsg"
+            id="sendMsgBtn"
+            onClick={() => {
+              const message = {
+                senderId: JSON.parse(localStorage.getItem("user"))["_id"],
+                receiverId: receiverId,
+                message: unsentMessage,
+                messageId: uuidv4(),
+                timeStamp: new Date(),
+                chatId: chatId,
+              };
+              sendMessage(message);
+              messages[chatIndex].totalMessages.push({
+                sender: message.senderId,
+                messageId: message.messageId,
+                message: unsentMessage,
+                timeStamp: message.timeStamp
+              });
+
+              setMessages(messages);
+
+              setUnsentMessage("");
+            }}
+          >
+            <i className="fa fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ChatBody;

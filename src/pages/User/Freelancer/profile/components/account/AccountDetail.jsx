@@ -306,13 +306,13 @@ const AccountDetail = () => {
                     <span
                       key={skill}
                       className={`h-[30px] cursor-pointer border-purple-600 border-2 text-sm text-black font-semibold  px-3 py-1 rounded-full focus:outline-none ${
-                        values.skills.includes(skill) ? "bg-purple-600" : ""
+                        values.skills?.includes(skill) ? "bg-purple-600" : ""
                       }`}
                       onClick={() =>
                         setFieldValue(
                           "skills",
-                          values.skills.includes(skill)
-                            ? values.skills.filter((s) => s !== skill)
+                          values.skills?.includes(skill)
+                            ? values.skills?.filter((s) => s !== skill)
                             : [...values.skills, skill]
                         )
                       }

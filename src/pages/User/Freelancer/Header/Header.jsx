@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
+import avatar from "../../../../assets/images/avatar.png";
 import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
@@ -103,11 +104,19 @@ function FreelancerHeader({ selectedNav }) {
                   >
                     <div className="z-99 flex gap-x-2 justify-center items-center">
                       <Link to="/profile-setting" className={""}>
-                        <img
-                          className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                          src={user?.imageUrl}
-                          alt="icon"
-                        />
+                        {user.imageUrl ? (
+                          <img
+                            className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                            src={user?.imageUrl}
+                            alt="icon"
+                          />
+                        ) : (
+                          <img
+                            className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                            src={avatar}
+                            alt="icon"
+                          />
+                        )}
                       </Link>
                       <span>
                         <BsChevronDown size={12} color="purple" />

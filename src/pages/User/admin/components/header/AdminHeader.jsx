@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../../../assets/images/logo.png";
 import { useEffect, useState } from "react";
 import user from "../../../../../assets/images/profile.jpg";
@@ -9,12 +9,18 @@ const AdminHeader = () => {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
-  const logoutHandler = () => {};
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
     });
   });
+  const navigate = useNavigate();
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("type");
+    navigate("/login");
+  };
   return (
     <div>
       <nav className="fixed top-0 left-0 w-full bg-white z-20  md:px-[50px] ">
@@ -41,34 +47,14 @@ const AdminHeader = () => {
                 }
               >
                 <div className="z-99 flex gap-x-2 justify-center items-center">
-                  <Link to="" className={""}>
-                    <img
-                      className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                      src={user}
-                      alt="icon"
-                    />
-                  </Link>
-                  <span>
-                    <BsChevronDown size={12} color="purple" />
-                  </span>
-                </div>
-                <ul
-                  className={`bg-white absolute w-40 py-2 mt-[120px] rounded-lg shadow-xl ${
-                    openDropdown ? "block" : "hidden"
-                  }`}
-                >
-                  <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-                    <Link to="">My Profile</Link>
-                  </li>
-
                   <li
                     onClick={logoutHandler}
-                    className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100"
+                    className="flex bg-purple-500 hover:bg-purple-600 text-white text-lg rounded-md w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100"
                   >
                     <button>Logout</button>
                     <AiOutlineLogout />
                   </li>
-                </ul>
+                </div>
               </div>
             </div>
 

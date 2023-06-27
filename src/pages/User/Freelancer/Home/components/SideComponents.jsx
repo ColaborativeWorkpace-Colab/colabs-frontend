@@ -11,7 +11,7 @@ import chapaImg from "../../../../../assets/images/chapa.jpg";
 import icoglabsImg from "../../../../../assets/images/icoglabs.jpeg";
 import axios from "axios";
 import { BaseURL } from "../../../../../services/constants/Constants";
-
+import userPhoto from "../../../../../assets/images/photo.png";
 export const RightSide = () => {
   let rights = [1, 2, 3, 4, 5, 6];
   const datas = [
@@ -122,13 +122,26 @@ export const LeftSide = () => {
     <div className="left-side hidden lg:block lg:w-full h-full">
       {user ? (
         <div className="profile p-5 flex flex-col justify-center">
-          <Link to="/editprofile">
+          <Link to="/profile-setting">
             <div className="profile-image mb-3 flex justify-center">
-              <img
+              {/* <img
                 src={user.imageUrl}
                 alt="profile-image"
                 className="cursor-pointer w-[100px] rounded-[50px] h-[100px] border-2 border-slate-300 p-0.5"
-              />
+              /> */}
+              {user.imgUrl ? (
+                <img
+                  className="block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
+                  src={user.imgUrl}
+                  alt="Avatar"
+                />
+              ) : (
+                <img
+                  className="w-[80px] block mx-auto w-10  h-auto cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
+                  src={userPhoto}
+                  alt="Avatar"
+                />
+              )}
             </div>
           </Link>
           <div className="cursor-pointer text-center border-b-2 border-b-slate-400 w-full pb-3">

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../../assets/images/logo.png";
+import clientImg from "../../../../../assets/images/clientImg.png";
 import { Link } from "react-router-dom";
-import user from "../../../../../assets/images/profile.jpg";
+import user from "../../../../../assets/images/avatar.png";
 import { MdNotifications } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";

@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
 import { Link, useNavigate } from "react-router-dom";
-import user from "../../../../assets/images/profile.jpg";
+import user from "../../../../assets/images/clientImg.png";
 import { MdNotifications } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";

@@ -113,7 +113,7 @@ const ProjectList = () => {
 
               <td className="py-2 px-2">
                 <Link
-                  to={`/workspace/${project?._id}`}
+                  to={`/workspace/${project?._id}/${project?.title}`}
                   className="w-[40px] flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
                 >
                   <MdPreview size={20} color="white" />

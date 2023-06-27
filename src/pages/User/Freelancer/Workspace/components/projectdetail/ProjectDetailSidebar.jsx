@@ -1,15 +1,23 @@
 import React from "react";
-import { AiFillDashboard } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
-const ProjectDetailSidebar = ({trees, setFileIndex}) => {
+const ProjectDetailSidebar = ({ trees, setFileIndex }) => {
   return (
     <div className="w-1/4">
       <aside className="sm:block">
         <div className="px-2 overflow-y-auto dark:bg-gray-800">
-          {((trees.tree) ? trees.tree : []).map((tree, index) => {
-            return <p key={index} onClick={()=>setFileIndex(index)} className="text-xl text-slate-800">{tree.path}</p>;
-          }).reverse()}
+          {(trees.tree ? trees.tree : [])
+            .map((tree, index) => {
+              return (
+                <p
+                  key={index}
+                  onClick={() => setFileIndex(index)}
+                  className="cursor-pointer text-xl text-slate-800"
+                >
+                  {tree.path}
+                </p>
+              );
+            })
+            .reverse()}
         </div>
       </aside>
     </div>

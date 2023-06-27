@@ -10,9 +10,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-beautify";
 import axios from "axios";
 
-function Editor({loadedContent}) {
-  const [content, setContent] = useState("");
-
+function Editor({loadedContent, setContent, content}) {
   useEffect(() => {
     const getFileContent = async () => {
       const response = await axios.get(
@@ -46,12 +44,11 @@ function Editor({loadedContent}) {
       mode="javascript"
       theme="ace"
       name="basic-code-editor"
-      onChange={(currentCode) => setCode(currentCode)}
+      onChange={(currentCode) => setContent(currentCode)}
       fontSize={18}
       showPrintMargin={true}
       showGutter={true}
       highlightActiveLine={true}  
-      onLoad={()=>setContent(content)}
       value={content}
       setOptions={{
         enableBasicAutocompletion: true,

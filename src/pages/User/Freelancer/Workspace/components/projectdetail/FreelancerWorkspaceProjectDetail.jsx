@@ -12,7 +12,8 @@ const FreelancerWorkspaceProjectDetail = () => {
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
   const [trees, setTrees] = useState({});
   const [contents, setContents] = useState([]);
-  const [fileIndex, setFileIndex] = useState(0);
+  const [content, setContent] = useState("");
+  const [fileIndex, setFileIndex] = useState(1);
   const params = useParams();
 
   //TODO: Upload and manage files from project
@@ -38,10 +39,10 @@ const FreelancerWorkspaceProjectDetail = () => {
         <ProjectDetailSidebar selectedItem={1} trees={trees} setFileIndex={setFileIndex}/>
         <div className="w-full mb-[200px] grow">
           <div className="overflow-x-scroll scrolling-touch">
-            <ProjectDetailBody loadedTree={(trees.tree) ? trees.tree[fileIndex]: {}} loadedContent={(contents) ? contents[fileIndex] : []}/>
+            <ProjectDetailBody setContent={setContent} loadedContent={(contents) ? contents[fileIndex] : []} content={content}/>
           </div>
         </div>
-        <ProjectDetailRightSide />
+        <ProjectDetailRightSide projectName={params.projectName} content={content} projectId={params.id} fileName={(contents[fileIndex]) ? contents[fileIndex].name : ''} />
 
         <button
           onClick={() => setLeftPanelOpened(!leftPanelOpened)}

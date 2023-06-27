@@ -133,7 +133,6 @@ const ProjectDetailSection = ({ project }) => {
         </div>
       ) : (
         <div>
-          //TODO: Add Loading Animation
           <h1 className="text-black">Loading...</h1>
         </div>
       )}

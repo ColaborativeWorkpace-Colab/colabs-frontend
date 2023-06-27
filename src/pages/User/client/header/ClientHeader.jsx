@@ -53,7 +53,7 @@ function ClientHeader({ selectedNav }) {
                 }
               >
                 <div className="z-99 flex gap-x-2 justify-center items-center">
-                  <Link to="" className={""}>
+                  <Link to="/profile-setting" className={""}>
                     <img
                       className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
                       src={user}
@@ -69,9 +69,12 @@ function ClientHeader({ selectedNav }) {
                     openDropdown ? "block" : "hidden"
                   }`}
                 >
-                  <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
+                  <Link
+                    to="/profile-setting"
+                    className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100"
+                  >
                     <Link to="">My Profile</Link>
-                  </li>
+                  </Link>
 
                   <li
                     onClick={logoutHandler}

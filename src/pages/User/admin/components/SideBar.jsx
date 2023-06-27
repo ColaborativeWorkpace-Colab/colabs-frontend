@@ -31,7 +31,7 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                 </span>
               </div>
             </Link>
-            <Link to={"/admin/dispute-request"}>
+            {/* <Link to={"/admin/dispute-request"}>
               <div
                 className={`flex items-center w-full p-2 text-gray-900 transition duration-75 group ${
                   selectedItem == 2
@@ -88,7 +88,7 @@ const SideBar = ({ selectedItem, selectedProduct }) => {
                   Account Setting
                 </span>
               </div>
-            </Link>
+            </Link> */}
           </ul>
         </div>
       </aside>

@@ -136,7 +136,7 @@ const PostDetailPage = () => {
           <LeftSide />
         </div>
 
-        <div className="w-full relative left-[280px] top-[20px] lg:w-3/4">
+        <div className="w-full relative left-[290px] top-[20px]">
           <PostDetail
             post={post}
             handleComment={handleComment}

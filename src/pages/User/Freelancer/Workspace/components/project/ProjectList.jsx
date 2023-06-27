@@ -74,7 +74,9 @@ const ProjectList = () => {
           </tr>
         </thead>
         <tbody>
-          {projects.map((project, id) => (
+          {projects.map((project, id) => {
+            console.log(project.title)
+            return (
             <tr
               key={id}
               className="border-b border-gray-200 dark:border-gray-700 py"
@@ -111,14 +113,14 @@ const ProjectList = () => {
 
               <td className="py-2 px-2">
                 <Link
-                  to="/workspace/project-id"
+                  to={`/workspace/${project?._id}`}
                   className="w-[40px] flex items-center rounded-md py-1 px-3 bg-purple-500  hover:bg-purple-600 text-white"
                 >
                   <MdPreview size={20} color="white" />
                 </Link>
               </td>
             </tr>
-          ))}
+          )})};
         </tbody>
       </table>
     </div>

@@ -165,35 +165,35 @@ const MainComponent = () => {
       <div className="my-3 flex gap-2 justify-between items-center gap-3">
         <div className="grow bg-slate-400 h-[2px]"></div>
       </div>
-      {posts.map((post, id) => (
+      {posts?.map((post, id) => (
         <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
           <div className="poster-profile flex items-center gap-2">
             <img
-              src={post.user.imageUrl || daniImg}
+              src={post?.user?.imageUrl || daniImg}
               alt=""
               className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
             />
             <div className="grow flex justify-between">
               <div className="cursor-pointer flex flex-col gap-0.4">
                 <p className="text-md text-slate-900 capitalize">
-                  {post.user.firstName + " " + post.user.lastName}
+                  {post?.user?.firstName + " " + post?.user?.lastName}
                 </p>
                 <p className="text-sm text-slate-600">
-                  {post.user.bio || "User has no bio"}
+                  {post?.user?.bio || "User has no bio"}
                 </p>
               </div>
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  handlFollow(post.user._id);
+                  handlFollow(post?.user._id);
                 }}
                 className={`cursor-pointer  font-bold ${
-                  user?.connections?.includes(post.user?._id.toString())
+                  user?.connections?.includes(post?.user?._id.toString())
                     ? "text-gray-500"
                     : "text-purple-900"
                 }`}
               >
-                {user?.connections?.includes(post.user?._id.toString()) ? (
+                {user?.connections?.includes(post?.user?._id.toString()) ? (
                   <span>Following</span>
                 ) : (
                   <span>+ Follow</span>
@@ -202,18 +202,18 @@ const MainComponent = () => {
             </div>
           </div>
           <div className="mt-3 mb-2">
-            {post.tags.map((tag) => (
+            {post?.tags.map((tag) => (
               <span className="pl-0 px-2 py-1 text-sm text-blue-600 text-xl mr-1">
                 #{tag}
               </span>
             ))}
           </div>
-          <Link to={`/feeds/${post._id}`} className="mb-2">
-            <p className="text-sm text-slate-800">{post.textContent}</p>
+          <Link to={`/feeds/${post?._id}`} className="mb-2">
+            <p className="text-sm text-slate-800">{post?.textContent}</p>
           </Link>
-          <Link to={`/feeds/${post._id}`} className="">
+          <Link to={`/feeds/${post?._id}`} className="">
             <img
-              src={post.imageContent || samplepostimage}
+              src={post?.imageContent || samplepostimage}
               alt="post image"
               className="w-full cursor-pointer"
             />{" "}
@@ -234,7 +234,7 @@ const MainComponent = () => {
               />
               {post?.likes?.length > 0 && (
                 <p className="text-md text-slate-800">
-                  {post.likes[0].firstName}{" "}
+                  {post?.likes[0].firstName}{" "}
                   {post?.likes?.length > 1 &&
                     `and ${post?.likes?.length - 1} others`}
                 </p>
@@ -247,7 +247,7 @@ const MainComponent = () => {
                 className="cursor-pointer w-[20px] h-[20px]"
               />
               <Link
-                to={`/feeds/${post._id}`}
+                to={`/feeds/${post?._id}`}
                 className="text-md text-slate-800"
               >
                 {" "}

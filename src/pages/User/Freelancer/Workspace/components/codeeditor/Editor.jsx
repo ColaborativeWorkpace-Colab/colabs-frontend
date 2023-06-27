@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AceEditor from "react-ace";
 
 // import mode-<language> , this imports the style and colors for the selected language.
@@ -8,18 +8,38 @@ import "ace-builds/src-noconflict/theme-monokai";
 // this is an optional import just improved the interaction.
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-beautify";
+import axios from "axios";
 
-function Editor() {
-  const [code, setCode] = useState(`function hello() {
-  console.log("Hello World!");
-}`);
+function Editor({loadedContent}) {
+  const [content, setContent] = useState("");
 
-  return (
+  useEffect(() => {
+    const getFileContent = async () => {
+      const response = await axios.get(
+        `https://cors-anywhere.herokuapp.com/${loadedContent.download_url}`,
+        //loadedContent.download_url,
+        {
+          headers: {
+            Accept: "application/vnd.github.v3.raw",
+            Authorization: "Bearer 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",
+          },
+        }
+      );
+      return response;
+    };
+
+    if (loadedContent) {
+      getFileContent().then((value) => {
+        console.log(value.data);
+        setContent(value.data);
+      });
+    }
+  }, [loadedContent]);
+
+  return (      
     <AceEditor
       className="h-screen bg-slate-900 text-gray-100"
       style={{
-        // height: "100vh",
-
         width: "100%",
       }}
       placeholder="Start Coding"
@@ -30,8 +50,9 @@ function Editor() {
       fontSize={18}
       showPrintMargin={true}
       showGutter={true}
-      highlightActiveLine={true}
-      value={code}
+      highlightActiveLine={true}  
+      onLoad={()=>setContent(content)}
+      value={content}
       setOptions={{
         enableBasicAutocompletion: true,
         enableLiveAutocompletion: true,

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Editor from "../codeeditor/Editor";
+import axios from "axios";
 
-const ProjectDetailBody = () => {
+const ProjectDetailBody = ({ loadedTree, loadedContent }) => {
   return (
     <div>
-      <Editor />
+      <Editor loadedContent={loadedContent}/>
     </div>
   );
 };

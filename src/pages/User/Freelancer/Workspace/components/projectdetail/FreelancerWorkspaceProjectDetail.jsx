@@ -1,19 +1,44 @@
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FreelancerWorkspaceHeader from "../../header/FreelancerWorkspaceHeader";
 import ProjectDetailBody from "./ProjectDetailBody";
 import ProjectDetailSidebar from "./ProjectDetailSidebar";
 import ProjectDetailRightSide from "./ProjectDetailRightSide";
+import axios from "axios";
+import { BaseURL } from "../../../../../../services/constants/Constants";
+import { useParams } from "react-router-dom";
+
 const FreelancerWorkspaceProjectDetail = () => {
   const [leftPanelOpened, setLeftPanelOpened] = useState(false);
+  const [trees, setTrees] = useState({});
+  const [contents, setContents] = useState([]);
+  const [fileIndex, setFileIndex] = useState(0);
+  const params = useParams();
+
+  //TODO: Upload and manage files from project
+  useEffect(()=>{
+    const getProject = async () =>{
+      const response = await axios.get(
+        `${BaseURL}workspaces/projects/${params.id}`
+      );
+
+      return response.data;
+    }
+      
+    getProject().then((value)=>{
+      console.log(value);
+      setContents(value['contents']['data']);
+      setTrees(value['trees']['data']);
+    })
+  },[])
   return (
     <div className="h-full">
       <FreelancerWorkspaceHeader />
       <div className="relative top-[70px] flex gap-3 px-[10px] md:px-[10px]">
-        <ProjectDetailSidebar selectedItem={1} />
+        <ProjectDetailSidebar selectedItem={1} trees={trees} setFileIndex={setFileIndex}/>
         <div className="w-full mb-[200px] grow">
           <div className="overflow-x-scroll scrolling-touch">
-            <ProjectDetailBody />
+            <ProjectDetailBody loadedTree={(trees.tree) ? trees.tree[fileIndex]: {}} loadedContent={(contents) ? contents[fileIndex] : []}/>
           </div>
         </div>
         <ProjectDetailRightSide />

@@ -249,7 +249,7 @@ export const routes = [
     element: <FreelancerWorkspaceTeamSection />,
   },
   {
-    path: "/workspace/:project-id",
+    path: "/workspace/:id",
     element: <FreelancerWorkspaceProjectDetail />,
   },
 

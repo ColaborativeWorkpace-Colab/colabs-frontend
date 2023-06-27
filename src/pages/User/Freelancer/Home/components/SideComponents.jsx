@@ -129,10 +129,10 @@ export const LeftSide = () => {
                 alt="profile-image"
                 className="cursor-pointer w-[100px] rounded-[50px] h-[100px] border-2 border-slate-300 p-0.5"
               /> */}
-              {user.imgUrl ? (
+              {user.imageUrl ? (
                 <img
-                  className="block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 pr-2"
-                  src={user.imgUrl}
+                  className="block mx-auto w-10  h-auto rounded-full cursor-pointer sm:mx-0 sm:shrink-0 "
+                  src={user.imageUrl}
                   alt="Avatar"
                 />
               ) : (

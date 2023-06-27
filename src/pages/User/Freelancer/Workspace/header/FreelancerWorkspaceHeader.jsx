@@ -3,10 +3,13 @@ import { Transition } from "@headlessui/react";
 import logo from "../../../../../assets/images/logo.png";
 import clientImg from "../../../../../assets/images/clientImg.png";
 import { Link } from "react-router-dom";
-import user from "../../../../../assets/images/avatar.png";
+// import user from "../../../../../assets/images/avatar.png";
 import { MdNotifications } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
+import userPhoto from "../../../../../assets/images/photo.png";
+import axios from "axios";
+import { BaseURL } from "../../../../../services/constants/Constants";
 
 function FreelancerWorkspaceHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +19,37 @@ function FreelancerWorkspaceHeader({ selectedNav }) {
     navigate("/login");
   };
   const ref = useRef();
+  const token = localStorage.getItem("token");
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser({
+          firstName: res.data.user.firstName,
+          lastName: res.data.user.lastName,
+          email: res.data.user.email,
+          password: res.data.user.password,
+          bio: res.data.user.bio,
+          occupation: res.data.user.occupation,
+          skills: res.data.user.skills,
+          imageUrl: res.data.user.imageUrl,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <div>
       <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-100 via-purple-300 to-pink-50 z-20 px-[40px]">
@@ -41,11 +75,13 @@ function FreelancerWorkspaceHeader({ selectedNav }) {
               >
                 <div className="z-99 flex gap-x-2 justify-center items-center">
                   <Link to="/profile-setting" className={""}>
-                    <img
-                      className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                      src={user}
-                      alt="icon"
-                    />
+                    {user && (
+                      <img
+                        className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                        src={user.imageUrl}
+                        alt="icon"
+                      />
+                    )}
                   </Link>
                   <span>
                     <BsChevronDown size={12} color="purple" />

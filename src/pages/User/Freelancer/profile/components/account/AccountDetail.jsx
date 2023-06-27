@@ -4,6 +4,7 @@ import profileValidator from "./profileValidator";
 import { BaseURL } from "../../../../../../services/constants/Constants";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { AiFillCloseSquare } from "react-icons/ai";
 
 const AccountDetail = () => {
   const token = localStorage.getItem("token");
@@ -11,11 +12,13 @@ const AccountDetail = () => {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
-    confirmPassword: "",
     bio: "",
     occupation: "",
     skills: [],
+    imageUrl: "",
+  });
+  const [selectedImages, setSelectedImage] = useState({
+    imageContent: "",
   });
   const skills = [
     "HTML5",
@@ -44,6 +47,41 @@ const AccountDetail = () => {
       type,
     });
 
+  // images
+  const handleChangeImage = (file, type) => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage({
+          ...selectedImages,
+          [type]: reader.result,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleCancelImage = (type) => {
+    setSelectedImage({
+      imageContent: "",
+    });
+  };
+
+  const getImageUrl = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append("image", file);
+      const resp = await axios.post(BaseURL + "upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      return resp.data.url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //users
   const fetchUser = async () => {
     try {
       const res = await axios.get(BaseURL + "users/profile", {
@@ -57,10 +95,10 @@ const AccountDetail = () => {
           firstName: res.data.user.firstName,
           lastName: res.data.user.lastName,
           email: res.data.user.email,
-          password: res.data.user.password,
           bio: res.data.user.bio,
           occupation: res.data.user.occupation,
           skills: res.data.user.skills,
+          imageUrl: res.data.user.imageUrl,
         });
       }
     } catch (error) {
@@ -94,9 +132,19 @@ const AccountDetail = () => {
     <div className="w-full md:px-[20px] md:px-[80px] lg:px-[100px]">
       {user.firstName ? (
         <Formik
-          initialValues={user}
+          initialValues={{
+            ...user,
+            imageUrl: null,
+            password: "",
+            confirmPassword: "",
+          }}
           validationSchema={profileValidator}
-          onSubmit={(values, actions) => {
+          onSubmit={async (values, actions) => {
+            if (values.imageUrl) {
+              const resp = await getImageUrl(values.imageUrl);
+              values.imageUrl = resp;
+            }
+
             updateProfile(values);
           }}
         >
@@ -274,11 +322,63 @@ const AccountDetail = () => {
                   ))}
                 </div>
               </div>
+              {user.imageUrl && !values.imageUrl && (
+                <div className="flex justify-between items-start mt-4">
+                  <img src={`${user.imageUrl}`} alt="" width={200} />
+                </div>
+              )}
+              <div className="my-3">
+                <label
+                  htmlFor="imageContent"
+                  className="cursor-pointer block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  <div className="border-dashed border-2 border-purple-500 p-4 w-full text-center">
+                    {user.imageUrl
+                      ? "Change Profile Image"
+                      : "Upload Profile Image"}
+                  </div>
+                </label>
+                <input
+                  id="imageContent"
+                  type="file"
+                  placeholder=""
+                  name="imageContent"
+                  onChange={(e) => {
+                    setFieldValue("imageUrl", e.target.files[0]);
+                    handleChangeImage(e.target.files[0], "imageUrl");
+                  }}
+                  className="hidden bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+                {selectedImages.imageUrl && (
+                  <div className="flex justify-between items-start mt-4">
+                    <img src={selectedImages.imageUrl} alt="" width={200} />
+                    <div>
+                      <i
+                        className="relative text-2xl font-bold top-0 cursor-pointer"
+                        onClick={() => {
+                          handleCancelImage("imageUrl");
+                          setFieldValue("imageUrl", null);
+                        }}
+                      >
+                        <AiFillCloseSquare
+                          className="text-slate-700"
+                          size={25}
+                        />
+                      </i>
+                    </div>
+                  </div>
+                )}
+                <ErrorMessage
+                  name="imageUrl"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
               <button
                 type="submit"
                 className="mt-4 w-[150px] btn-link text-md md:text-md text-gray-100 font-medium flex justify-center items-center gap-x-3 hover:gap-x-5 transition-all py-3 rounded-md bg-purple-600  hover:bg-purple-600"
               >
-                Save Account
+                Update Profile
               </button>
             </Form>
           )}

@@ -8,6 +8,7 @@ import LandingPageHeader from "./Header/LandingPageHeader";
 import Hero from "./components/Hero";
 import Faqs from "./components/Faqs";
 import SectionTitle from "./components/SectionTitle";
+import Aos from "aos";
 
 const LandingHomePage = () => {
   const type = JSON.parse(localStorage.getItem("user"))?.type;
@@ -23,9 +24,13 @@ const LandingHomePage = () => {
       }
     }
   }, []);
+  Aos.init({
+    duration: 1800,
+    offset: 100,
+  });
 
   return (
-    <>
+    <div className="overflow-hidden">
       <LandingPageHeader selectedNav={1} />
       <div className="sm:container relative top-[100px]">
         <Hero />
@@ -40,12 +45,12 @@ const LandingHomePage = () => {
           title="Frequently Asked Questions"
         ></SectionTitle>
         <Faqs />
-        <div className="m-10"></div>
-        <Contact />
+        {/* <div className="m-10"></div>
+        <Contact /> */}
         <div className="m-10"></div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
+import avatar from "../../../../assets/images/avatar.png";
 import { navLinks } from "./navItems";
 import { Link, useNavigate } from "react-router-dom";
-import user from "../../../../assets/images/profile.jpg";
 import { MdNotifications } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
+import axios from "axios";
+import { BaseURL } from "../../../../services/constants/Constants";
 
 function ClientHeader({ selectedNav }) {
   const navigate = useNavigate();
@@ -18,10 +20,34 @@ function ClientHeader({ selectedNav }) {
     localStorage.removeItem("type");
     navigate("/login");
   };
+
+  const token = localStorage.getItem("token");
   const ref = useRef();
+
+  const [user, setUser] = useState({});
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser(res.data.user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-white z-20  md:px-[50px] ">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-100 via-purple-300 to-pink-50 z-20  md:px-[50px] ">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
@@ -53,13 +79,23 @@ function ClientHeader({ selectedNav }) {
                 }
               >
                 <div className="z-99 flex gap-x-2 justify-center items-center">
-                  <Link to="" className={""}>
-                    <img
-                      className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                      src={user}
-                      alt="icon"
-                    />
-                  </Link>
+                  {user.imageUrl ? (
+                    <Link to="/profile-setting" className={""}>
+                      <img
+                        className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                        src={user?.imageUrl}
+                        alt="icon"
+                      />
+                    </Link>
+                  ) : (
+                    <Link to="/profile-setting" className={""}>
+                      <img
+                        className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                        src={avatar}
+                        alt="icon"
+                      />
+                    </Link>
+                  )}
                   <span>
                     <BsChevronDown size={12} color="purple" />
                   </span>
@@ -69,9 +105,12 @@ function ClientHeader({ selectedNav }) {
                     openDropdown ? "block" : "hidden"
                   }`}
                 >
-                  <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
-                    <Link to="">My Profile</Link>
-                  </li>
+                  <Link
+                    to="/profile-setting"
+                    className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100"
+                  >
+                    <Link to="/profile-setting">My Profile</Link>
+                  </Link>
 
                   <li
                     onClick={logoutHandler}

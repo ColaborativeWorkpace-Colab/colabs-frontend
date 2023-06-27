@@ -65,14 +65,14 @@ const TeamList = ({ project }) => {
                 {moment(project.createdAt).fromNow()}
               </td>
               <td className="border border-gray-300 py-2 px-2">
-                {project.members.earnings} ETB
+                {project.self.earnings} ETB
               </td>
               <td className="border border-gray-300 py-2 px-2">
                 {project.status}
               </td>
 
               <td className="border border-gray-300 py-2 px-2">
-                <TeamNameList />
+                <TeamNameList teams={project.teams} />
               </td>
             </tr>
           ))}

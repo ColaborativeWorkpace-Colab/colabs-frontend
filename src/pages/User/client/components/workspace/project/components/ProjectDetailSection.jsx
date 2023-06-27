@@ -36,7 +36,7 @@ const ProjectDetailSection = ({ project }) => {
   return (
     <div>
       {project.title ? (
-        <div className="mt-[100px]">
+        <div className="">
           <div className="overflow-x-auto sm:rounded-lg">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-white uppercase dark:text-gray-400 bg-purple-600">
@@ -55,12 +55,6 @@ const ProjectDetailSection = ({ project }) => {
                   <th scope="col" className="px-2 py-3">
                     PROJECT STATUS
                   </th>
-                  <th scope="col" className="px-2 py-3">
-                    Delete
-                  </th>
-                  <th scope="col" className="px-2 py-3">
-                    Edit
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -73,31 +67,6 @@ const ProjectDetailSection = ({ project }) => {
                     ).fromNow()}
                   </td>
                   <td className="py-2 px-2">{project.status}</td>
-                  <td className="py-2 px-2">
-                    {" "}
-                    <MdDelete
-                      size={20}
-                      color="purple"
-                      className="cursor-pointer"
-                      onClick={""}
-                    />
-                  </td>
-                  <td className="py-2 px-2">
-                    {" "}
-                    <MdEdit
-                      size={20}
-                      color="purple"
-                      className="cursor-pointer"
-                      onClick={() => {
-                        navigateTo(
-                          `/client/workspace/edit-project/${project?._id}`,
-                          {
-                            state: { project },
-                          }
-                        );
-                      }}
-                    />
-                  </td>
                 </tr>
               </tbody>
             </table>
@@ -118,9 +87,6 @@ const ProjectDetailSection = ({ project }) => {
 
                   <th scope="col" className="px-2 py-3">
                     Pay Freelancer
-                  </th>
-                  <th scope="col" className="px-2 py-3">
-                    Remove Freelancer
                   </th>
                 </tr>
               </thead>
@@ -158,15 +124,6 @@ const ProjectDetailSection = ({ project }) => {
                       >
                         {member.isPaid ? "Paid" : "Release Payment"}
                       </button>
-                    </td>
-
-                    <td className="py-2 px-2">
-                      <Link
-                        to={""}
-                        className="bg-red-500 hover:bg-red-700 px-2 py-1 rounded-md text-white"
-                      >
-                        Remove From Project
-                      </Link>
                     </td>
                   </tr>
                 ))}

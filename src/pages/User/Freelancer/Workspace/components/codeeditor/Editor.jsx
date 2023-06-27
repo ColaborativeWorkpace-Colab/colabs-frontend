@@ -16,14 +16,15 @@ function Editor() {
 
   return (
     <AceEditor
-      className="h-screen"
+      className="h-screen bg-slate-900 text-gray-100"
       style={{
         // height: "100vh",
+
         width: "100%",
       }}
       placeholder="Start Coding"
       mode="javascript"
-      theme="monokai"
+      theme="ace"
       name="basic-code-editor"
       onChange={(currentCode) => setCode(currentCode)}
       fontSize={18}

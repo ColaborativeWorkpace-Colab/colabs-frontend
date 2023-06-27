@@ -4,6 +4,7 @@ import ProjectDetailSection from "./components/ProjectDetailSection";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BaseURL } from "../../../../../../services/constants/Constants";
+import SideBar from "../../../SideBar";
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
@@ -29,7 +30,13 @@ const ProjectDetail = () => {
     <div>
       <ClientHeader />
       <div className="px-[80px]">
-        <ProjectDetailSection project={project} />
+        <div className="relative top-[100px] flex gap-3 px-[10px] md:px-[80px]">
+          <SideBar selectedItem={1} />
+
+          <div>
+            <ProjectDetailSection project={project} />
+          </div>
+        </div>
       </div>
     </div>
   );

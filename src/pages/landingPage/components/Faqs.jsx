@@ -1,11 +1,15 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
+import helpImg from "../../../assets/images/help.png";
 
 const Faqs = () => {
   return (
-    <div className="!p-0">
-      <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+    <div className="w-full flex items-center gap-5">
+      <div className="w-1/2">
+        <img className="h-[500px]" src={helpImg} alt="" />
+      </div>
+      <div className="w-1/2 p-2 mx-auto rounded-2xl">
         {faqdata.map((item, index) => (
           <div key={item.question} className="mb-5">
             <Disclosure>
@@ -30,16 +34,18 @@ const Faqs = () => {
       </div>
     </div>
   );
-}
+};
 
 const faqdata = [
   {
     question: "How many times I can apply on Colabs?",
-    answer: "Employees can retake a test 3 months after their unsuccessful attempt. In this 3 month period, developers can practice the relevant skills and sharpen up their technical knowledge.",
+    answer:
+      "Employees can retake a test 3 months after their unsuccessful attempt. In this 3 month period, developers can practice the relevant skills and sharpen up their technical knowledge.",
   },
   {
     question: "Does colabs accept beginners?",
-    answer: "Yes, colabs considers skills and talent over academic qualifications and industry experience.",
+    answer:
+      "Yes, colabs considers skills and talent over academic qualifications and industry experience.",
   },
   {
     question: "How long does it take to get hired at colabs? ",

@@ -132,15 +132,23 @@ const PostDetailPage = () => {
     <div className="w-full h-full mt-[50px] px-[50px] py-8">
       <FreelancerHeader selectedNav={1} />
       <div className="md:flex gap-5 justify-between">
-        <LeftSide />
-        <PostDetail
-          post={post}
-          handleComment={handleComment}
-          handleLike={handleLike}
-          handlFollow={handlFollow}
-          user={user}
-        />
-        <RightSide />
+        <div className="lg:fixed lg:w-[250px] top-[100px] left-[50px]">
+          <LeftSide />
+        </div>
+
+        <div className="w-full relative left-[290px] top-[20px]">
+          <PostDetail
+            post={post}
+            handleComment={handleComment}
+            handleLike={handleLike}
+            handlFollow={handlFollow}
+            user={user}
+          />
+        </div>
+        <div className="lg:fixed lg:w-1/4  top-[100px] right-[20px] ">
+          {" "}
+          <RightSide />
+        </div>
         <ToastContainer />
       </div>
     </div>

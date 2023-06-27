@@ -1,12 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
+import avatar from "../../../../assets/images/avatar.png";
 import { navLinks } from "./navItems";
 import { Link } from "react-router-dom";
 import user from "../../../../assets/images/profile.jpg";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../services/constants/Constants";
 
 function FreelancerHeader({ selectedNav }) {
   const navigate = useNavigate();
@@ -14,17 +17,41 @@ function FreelancerHeader({ selectedNav }) {
   const [openDropdown, setOpenDropdown] = useState(false);
   const logoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("type");
     navigate("/login");
   };
+
+  const token = localStorage.getItem("token");
+  const [user, setUser] = useState({});
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser(res.data.user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   const ref = useRef();
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-white z-20">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-100 via-purple-300 to-pink-50 z-20">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-[50px]">
           <div className="flex items-center justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
-              <Link className="flex items-center gap-2" to="/feeds">
+              <Link className="flex items-center gap-2" to={"/"}>
                 <img
                   className="w-[40px] h-[40px] md:h-[50px] sm:w-[50px]"
                   src={logo}
@@ -35,28 +62,29 @@ function FreelancerHeader({ selectedNav }) {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-4">
-                {navLinks.map((value) => (
-                  <Link
-                    to={value.to}
-                    key={value.id}
-                    onClick={() => {}}
-                    className={`${
-                      selectedNav == value.id
-                        ? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
-                        : "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-transparent hover:border-purple-800 hover:text-gray-800"
-                    }`}
-                  >
-                    <span>
-                      <img
-                        className="h-[20px] w-[20px]"
-                        src={value.icon}
-                        alt="icon"
-                      />
-                    </span>
+                {user?.type !== "Employer" &&
+                  navLinks.map((value) => (
+                    <Link
+                      to={value.to}
+                      key={value.id}
+                      onClick={() => {}}
+                      className={`${
+                        selectedNav == value.id
+                          ? "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-purple-800 text-gray-800"
+                          : "cursor-pointer flex flex-col justify-center items-center p-2 border-b-2 border-transparent hover:border-purple-800 hover:text-gray-800"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="h-[20px] w-[20px]"
+                          src={value.icon}
+                          alt="icon"
+                        />
+                      </span>
 
-                    <a className={value.className}>{value.name}</a>
-                  </Link>
-                ))}
+                      <a className={value.className}>{value.name}</a>
+                    </Link>
+                  ))}
                 <div className="flex gap-x-6">
                   <div
                     onMouseLeave={() => setOpenDropdown(false)}
@@ -68,11 +96,19 @@ function FreelancerHeader({ selectedNav }) {
                   >
                     <div className="z-99 flex gap-x-2 justify-center items-center">
                       <Link to="/profile-setting" className={""}>
-                        <img
-                          className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                          src={user}
-                          alt="icon"
-                        />
+                        {user?.imageUrl ? (
+                          <img
+                            className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                            src={user?.imageUrl}
+                            alt="icon"
+                          />
+                        ) : (
+                          <img
+                            className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                            src={avatar}
+                            alt="icon"
+                          />
+                        )}
                       </Link>
                       <span>
                         <BsChevronDown size={12} color="purple" />

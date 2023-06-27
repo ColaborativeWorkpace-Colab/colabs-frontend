@@ -1,16 +1,58 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../../assets/images/logo.png";
+import clientImg from "../../../../../assets/images/clientImg.png";
 import { Link } from "react-router-dom";
-import user from "../../../../../assets/images/profile.jpg";
+// import user from "../../../../../assets/images/avatar.png";
 import { MdNotifications } from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
+import userPhoto from "../../../../../assets/images/photo.png";
+import axios from "axios";
+import { BaseURL } from "../../../../../services/constants/Constants";
 
 function FreelancerWorkspaceHeader({ selectedNav }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
   const ref = useRef();
+  const token = localStorage.getItem("token");
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser({
+          firstName: res.data.user.firstName,
+          lastName: res.data.user.lastName,
+          email: res.data.user.email,
+          password: res.data.user.password,
+          bio: res.data.user.bio,
+          occupation: res.data.user.occupation,
+          skills: res.data.user.skills,
+          imageUrl: res.data.user.imageUrl,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-white z-20 px-[10px] md:px-[50px]">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-100 via-purple-300 to-pink-50 z-20 px-[40px]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex md:gap-[80px] gap-6 justify-around items-center align-center">
@@ -23,12 +65,46 @@ function FreelancerWorkspaceHeader({ selectedNav }) {
               </Link>
             </div>
             <div className="flex gap-x-6">
-              <span className="cursor-pointer">
-                <MdNotifications color="purple" size={25} />
-              </span>
-              <span className="cursor-pointer">
-                <img className="h-[25px] w-[25px]" src={user} alt="icon" />
-              </span>
+              <div
+                onMouseLeave={() => setOpenDropdown(false)}
+                onMouseOver={() => setOpenDropdown(true)}
+                onClick={() => {}}
+                className={
+                  "relative cursor-pointer flex flex-col gap-y-2 justify-center items-center p-2 hover:text-gray-800"
+                }
+              >
+                <div className="z-99 flex gap-x-2 justify-center items-center">
+                  <Link to="/profile-setting" className={""}>
+                    {user && (
+                      <img
+                        className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
+                        src={user.imageUrl}
+                        alt="icon"
+                      />
+                    )}
+                  </Link>
+                  <span>
+                    <BsChevronDown size={12} color="purple" />
+                  </span>
+                </div>
+                <ul
+                  className={`bg-white absolute w-40 py-2 mt-[125px] rounded-lg shadow-xl ${
+                    openDropdown ? "block" : "hidden"
+                  }`}
+                >
+                  <li className="flex w-full items-center px-3 py-2 text-sm hover:bg-gray-100">
+                    <Link to="/profile-setting">Profile setting</Link>
+                  </li>
+
+                  <li
+                    onClick={logoutHandler}
+                    className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100"
+                  >
+                    <button>Logout</button>
+                    <AiOutlineLogout />
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="mr-2 flex md:hidden">

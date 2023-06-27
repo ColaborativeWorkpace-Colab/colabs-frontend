@@ -10,10 +10,11 @@ const LandingPageHeader = ({ selectedNav }) => {
   const ref = useRef();
   const [selected, setselcted] = useState(1);
   return (
-    <nav className="bg-white fixed w-full z-20 top-0 left-0 p-2 md:p-0">
-      <div className="p-2 sm:p-0 flex flex-wrap items-center justify-between md:justify-around mx-auto">
-        <Link to="/" className="flex items-center">
+    <nav className="bg-gradient-to-r from-pink-100 via-purple-300 to-purple-200 transition-all fixed w-full z-20 top-0 left-0 py-5 px-2 md:p-0">
+      <div className="p-3 flex flex-wrap items-center justify-between md:justify-around mx-auto">
+        <Link to="/" className="flex items-center gap-3">
           <img src={logo} className="h-[45px] w-[45px]" alt="Colabs Logo" />
+          <p className="font-semibold text-3xl text-slate-600">COLABS</p>
         </Link>
         <div className="flex md:order-2">
           <button
@@ -81,7 +82,8 @@ const LandingPageHeader = ({ selectedNav }) => {
                   className={
                     selected == value.id
                       ? value.className +
-                        "border border-b-2 border-purple-800 text-purple-900 text-lg font-bold pb-1"
+                        //border border-b-2
+                        "border-purple-800 text-purple-900 text-lg font-bold pb-1"
                       : value.className
                   }
                 >

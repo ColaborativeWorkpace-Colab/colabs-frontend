@@ -2,13 +2,11 @@ import React from "react";
 import photoImg from "../../../../../assets/images/photo.png";
 import audioImg from "../../../../../assets/images/audio.png";
 import contentImg from "../../../../../assets/images/blog.png";
-import samplepostimage from "../../../../../assets/images/samplepostimage.jpeg";
 import likeImg from "../../../../../assets/images/like.png";
 import videoImg from "../../../../../assets/images/video.png";
 import commentImg from "../../../../../assets/images/comment.png";
 import AddPostMOdal from "./AddPostModal";
 import { Form, Formik, ErrorMessage, Field } from "formik";
-import daniImg from "../../../../../assets/images/dani.jpeg";
 import { commentValidation } from "./validations";
 import moment from "moment";
 
@@ -85,7 +83,7 @@ const PostDetail = ({ post, handleLike, handlFollow, handleComment, user }) => {
       <div className="mb-4 p-3 flex gap-2 flex-col post-item bg-white shadow-sm rounded-lg shadow-gray-300">
         <div className="poster-profile flex items-center gap-2">
           <img
-            src={post.imageUrl || daniImg}
+            src={user.imageUrl}
             alt=""
             className="w-[40px] h-[40px] rounded-[20px] cursor-pointer"
           />
@@ -121,11 +119,13 @@ const PostDetail = ({ post, handleLike, handlFollow, handleComment, user }) => {
         <div className="mb-2">
           <p className="text-lg text-slate-800">{post.textContent}</p>
         </div>
-        <img
-          src={post.imageContent || samplepostimage}
-          alt="post image"
-          className="w-full cursor-pointer"
-        />
+        {post.imageContent && (
+          <img
+            src={post.imageContent}
+            alt="post image"
+            className="w-full cursor-pointer"
+          />
+        )}
         <div className="flex justify-between items-center gap-4 p-2">
           <div className="flex gap-2 rounded-[10px] cursor-pointer justify-between p-3 items-center hover:bg-gray-200">
             <img

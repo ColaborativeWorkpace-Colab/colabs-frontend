@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import profileImg from "../../../../../assets/images/profile.jpg";
 import { Link } from "react-router-dom";
@@ -9,6 +9,9 @@ import openAiImg from "../../../../../assets/images/openai.svg";
 import addisSoftwareImg from "../../../../../assets/images/addisSoftware.jpeg";
 import chapaImg from "../../../../../assets/images/chapa.jpg";
 import icoglabsImg from "../../../../../assets/images/icoglabs.jpeg";
+import axios from "axios";
+import { BaseURL } from "../../../../../services/constants/Constants";
+
 export const RightSide = () => {
   let rights = [1, 2, 3, 4, 5, 6];
   const datas = [
@@ -84,68 +87,79 @@ export const RightSide = () => {
 };
 
 export const LeftSide = () => {
-  const skills = [
-    {
-      skill: "React.js",
-    },
-    {
-      skill: "Express.js",
-    },
-    {
-      skill: "Node.js",
-    },
-    {
-      skill: "MySQL.js",
-    },
-    {
-      skill: "Vimo.js",
-    },
-    {
-      skill: "Angular.js",
-    },
-    {
-      skill: "PHP",
-    },
-    {
-      skill: "Vue.js",
-    },
-  ];
+  const token = localStorage.getItem("token");
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser({
+          firstName: res.data.user.firstName,
+          lastName: res.data.user.lastName,
+          email: res.data.user.email,
+          password: res.data.user.password,
+          bio: res.data.user.bio,
+          occupation: res.data.user.occupation,
+          skills: res.data.user.skills,
+          imageUrl: res.data.user.imageUrl,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <div className="left-side hidden lg:block lg:w-full h-full">
-      <div className="profile p-5 flex flex-col justify-center">
-        <Link to="/editprofile">
-          <div className="profile-image mb-3 flex justify-center">
-            <img
-              src={profileImg}
-              alt="profile-image"
-              className="cursor-pointer w-[100px] rounded-[50px] h-[100px] border-2 border-slate-300 p-0.5"
-            />
+      {user ? (
+        <div className="profile p-5 flex flex-col justify-center">
+          <Link to="/editprofile">
+            <div className="profile-image mb-3 flex justify-center">
+              <img
+                src={user.imageUrl}
+                alt="profile-image"
+                className="cursor-pointer w-[100px] rounded-[50px] h-[100px] border-2 border-slate-300 p-0.5"
+              />
+            </div>
+          </Link>
+          <div className="cursor-pointer text-center border-b-2 border-b-slate-400 w-full pb-3">
+            <h1 className="text-xl text-slate-900">
+              {user.firstName + " " + user.lastName}
+            </h1>
+            <h1 className="text-md text-slate-500">{user.occupation}</h1>
           </div>
-        </Link>
-        <div className="cursor-pointer text-center border-b-2 border-b-slate-400 w-full pb-3">
-          <h1 className="text-xl text-slate-900">kebede Getahun</h1>
-          <h1 className="text-md text-slate-500">Fullstack Developer</h1>
-        </div>
-        <div className="w-full">
-          <div className="pb-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
-            <div className="flex gap-2 items-center">
-              <span className="text-slate-900 h-[20px]"></span>
+          <div className="w-full">
+            <div className="pb-2 rounde-md flex flex-col justify-center bg-slate-200 w-full">
+              <div className="flex gap-2 items-center">
+                <span className="text-slate-900 h-[20px]"></span>
+              </div>
+            </div>
+          </div>
+          <div className="">
+            <p className="my-3 pb-1 w-full border-b-2 border-gray-400 text-xl">
+              My Skills
+            </p>
+            <div className="w-full flex flex-wrap  shrink gap-3">
+              {user?.skills?.map((skill, id) => (
+                <button className="border-[1px] border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
+                  {skill}
+                </button>
+              ))}
             </div>
           </div>
         </div>
-        <div className="">
-          <p className="my-3 pb-1 w-full border-b-2 border-gray-400 text-xl">
-            My Skills
-          </p>
-          <div className="w-full flex flex-wrap  shrink gap-3">
-            {skills.map((skill, id) => (
-              <button className="border-[1px] border-purple-600 px-2 py-1 rounded-lg text-slate-800 text-sm">
-                {skill.skill}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      ) : (
+        <div>Loading</div>
+      )}
     </div>
   );
 };

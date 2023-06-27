@@ -44,9 +44,7 @@ import VerificationDetail from "../pages/User/admin/components/verification/Veri
 import DisputeDetail from "../pages/User/admin/components/disputes/DisputeDetail";
 import WorkHistory from "../pages/User/Freelancer/profile/components/workhistory/WorkHistorySection";
 import FreelancerProfileAccountSection from "../pages/User/Freelancer/profile/components/account/FreelancerProfileAccountSection";
-import GetPaidSection from "../pages/User/Freelancer/profile/components/getpaid/GetPaidSection";
 import GetVerifiedSection from "../pages/User/Freelancer/profile/components/getverified/GetVerifiedSection";
-import SkillSection from "../pages/User/Freelancer/profile/components/skill/SkillSection";
 
 export const routes = [
   {
@@ -135,14 +133,6 @@ export const routes = [
     element: <FreelancerProfileAccountSection />,
   },
   {
-    path: "/freelancer-get-paid",
-    element: <GetPaidSection />,
-  },
-  {
-    path: "/my-skills",
-    element: <SkillSection />,
-  },
-  {
     path: "/freelancer-get-verified",
     element: <GetVerifiedSection />,
   },
@@ -154,12 +144,6 @@ export const routes = [
     path: "/notification",
     element: <NotificationPage />,
   },
-
-  // {
-  //   path: "/profile",
-  //   element: <ProfilePage />,
-  // },
-
   {
     path: "/signup-success",
     element: <SignupSuccess />,

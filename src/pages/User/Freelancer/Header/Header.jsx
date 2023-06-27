@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../../../assets/images/logo.png";
 import { navLinks } from "./navItems";
@@ -7,6 +7,8 @@ import user from "../../../../assets/images/profile.jpg";
 import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BaseURL } from "../../../../services/constants/Constants";
 
 function FreelancerHeader({ selectedNav }) {
   const navigate = useNavigate();
@@ -18,6 +20,37 @@ function FreelancerHeader({ selectedNav }) {
     localStorage.removeItem("type");
     navigate("/login");
   };
+
+  const token = localStorage.getItem("token");
+  const [user, setUser] = useState({});
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(BaseURL + "users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setUser({
+          firstName: res.data.user.firstName,
+          lastName: res.data.user.lastName,
+          email: res.data.user.email,
+          password: res.data.user.password,
+          bio: res.data.user.bio,
+          occupation: res.data.user.occupation,
+          skills: res.data.user.skills,
+          imageUrl: res.data.user.imageUrl,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   const ref = useRef();
   return (
@@ -72,7 +105,7 @@ function FreelancerHeader({ selectedNav }) {
                       <Link to="/profile-setting" className={""}>
                         <img
                           className="h-[35px] w-[35px] rounded-full border-2 border-purple-600"
-                          src={user}
+                          src={user?.imageUrl}
                           alt="icon"
                         />
                       </Link>

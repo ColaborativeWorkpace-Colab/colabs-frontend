@@ -147,7 +147,7 @@ export const MessageItem = () => {
       }
     >
       <div className="z-99 flex gap-x-2 justify-center items-center">
-        <a className={""}>Message</a>
+        <Link to="/messaging">Messaging</Link>
       </div>
     </div>
   );
